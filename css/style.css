@@ -363,6 +363,9 @@ td,
 th {
   padding: 0;
 }
+.rh_diy_title {
+  color: #fff;
+}
 span.btn {
   display: inline;
 }
