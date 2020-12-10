@@ -439,7 +439,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="配置hexo到阿里云"><a href="#配置hexo到阿里云" class="headerlink" title="配置hexo到阿里云"></a>配置hexo到阿里云</h2><blockquote>
-<p>网上大多数教程问题不大，但有一些需要主意的地方</p>
+<p>网上大多数教程问题不大，额外需要注意修改一些文件的写入权限</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将post-receive 设置为可执行文件</span></span><br><span class="line">chmod +x ~/hexo.git/hooks/post-receive</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置博客源地址文件夹权限，不然git hooks写入不了，Unable to unlink 就是这种原因</span></span><br><span class="line">sudo chmod -R 777 /home/www/hexo</span><br></pre></td></tr></table></figure>
 
