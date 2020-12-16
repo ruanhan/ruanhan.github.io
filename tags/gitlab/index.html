@@ -365,7 +365,7 @@
 <p>软件开发十个阶段在gitlab中对应的管理方式方法</p>
 </blockquote>
 <ol>
-<li>IDEA： 每一个从点子开始的项目，通常来源于一次闲聊。在这个阶段，GitLab 集成了<code>Mattermost</code>。</li>
+<li>IDEA： 每一个从点子开始的项目，通常来源于一次闲聊。在这个阶段，GitLab 集成了<code>Mattermost</code> 它类似一个聊天工具。</li>
 <li>ISSUE： 最有效的讨论一个点子的方法，就是为这个点子建立一个工单讨论。你的团队和你的合作伙伴可以在工单追踪器<code>issue tracker</code>中帮助你去提升这个点子。</li>
 <li>PLAN： 一旦讨论得到一致的同意，就是开始编码的时候了。但是等等！首先，我们需要优先考虑组织我们的工作流。对于此，我们可以使用工单看板<code>Issue Board</code>。</li>
 <li>CODE： 现在，当一切准备就绪，我们可以开始写代码了。</li>
@@ -375,6 +375,41 @@
 <li>STAGING：： 预发布环境。</li>
 <li>PRODUCTION： 当一切都如预期，就是部署到生产环境的时候了。</li>
 <li>FEEDBACK： 现在是时候返回去看我们项目中需要提升的部分了。我们使用周期分析 <code>Cycle Analytics</code>来对当前项目中关键的部分进行的反馈</li>
+</ol>
+<h2 id="issue-和-milestone"><a href="#issue-和-milestone" class="headerlink" title="issue 和 milestone"></a>issue 和 milestone</h2><blockquote>
+<p>milestone里程碑，用来标识阶段性目标， 对目标进行细化，化整为零一个个的issues，然后根据每个issues的紧急程度选择性的完成。等所有issues解决完之后 就标志着阶段性目标已完成；</p>
+</blockquote>
+<ul>
+<li>方法论</li>
+</ul>
+<ol>
+<li>把实际问题转化为issue，这些问题可以标记为<code>正在解决</code>和<code>计划解决</code>；</li>
+<li>milestone对应着阶段性项目计划，然后细分为多个issues，而且可以指定完成时间，gitlab会自动生成完成进度情况概略图。</li>
+<li>issues也可以是一个建议，共给大家一起讨论；</li>
+<li>milestone 和issue建立时我们通常可以对问题进行简单描述，并且记录问题的解决过程，包括他人提出的疑问也可以在这里记录，后期可以随时查看；</li>
+</ol>
+<ul>
+<li>创建milestone</li>
+</ul>
+<blockquote>
+<p>可以在项目开始前创建milestone，后面建issues时关联它，也可以先建issues，后期由项目负责人建milestone，然后把所有issues关联过来；</p>
+</blockquote>
+<ol>
+<li>创建一个名字</li>
+<li>简单描述，简述创建的原因，这个里程碑最终的目的，编辑的时候可以直接贴图，也可以添加附件（支持markdown格式，可以预览）</li>
+<li>指定计划的完成时间；</li>
+</ol>
+<ul>
+<li>新建issues</li>
+</ul>
+<blockquote>
+<p>一个issues表示一个功能、一个bug、一个建议; 新建议题很简单，标题+描述+计划时间+指定人+里程碑，里程碑一定要指定一下，还可以加标签。</p>
+</blockquote>
+<ol>
+<li>功能：里程碑的细分，尽量小，方便merger时的代码审核；</li>
+<li>bug：解决程序中存在的某些问题；</li>
+<li>建议：可以作为一个讨论交流区，也可以实现它;</li>
+<li>一个issues 对应一个指定人，一个git 分支；</li>
 </ol>
 
       
