@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,7 +16,9 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: markdown - Hexo</title>
+    <title>gitlab3 - Hexo</title>
+  
+    <meta name="keywords" content="gitlab">
   
   
 
@@ -265,27 +265,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -295,11 +280,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/12/09/test/">
-      nginx
+  <h1 class="title">
+    <a href="/2020/12/17/gitlab3/">
+      gitlab3
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -322,9 +307,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/tools/' rel="nofollow">
+    <a href='/categories/project/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tools</p>
+      <p>project</p>
     </a>
   </div>
 
@@ -335,14 +320,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Dec 9, 2020</p>
+    <p>发布于：Dec 17, 2020</p>
   </a>
 </div>
-
-            
-          
-            
-              
 
             
           
@@ -360,208 +340,116 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="配置hexo到阿里云"><a href="#配置hexo到阿里云" class="headerlink" title="配置hexo到阿里云"></a>配置hexo到阿里云</h2><blockquote>
-<p>网上大多数教程问题不大，额外需要注意修改一些文件的写入权限</p>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h2 id="gitlab-分支策略"><a href="#gitlab-分支策略" class="headerlink" title="gitlab 分支策略"></a>gitlab 分支策略</h2><blockquote>
+<p>考虑到gitlab一般在企业内部使用，一般不存在社区开发者，所以在管理上不会采用github的upstream/origin双仓库模式。gitlab下，开发者们面向一个仓库进行提交即可；</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将post-receive 设置为可执行文件</span></span><br><span class="line">chmod +x ~/hexo.git/hooks/post-receive</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置博客源地址文件夹权限，不然git hooks写入不了，Unable to unlink 就是这种原因</span></span><br><span class="line">sudo chmod -R 777 /home/www/hexo</span><br></pre></td></tr></table></figure>
+<h3 id="设置对分支的保护权限"><a href="#设置对分支的保护权限" class="headerlink" title="设置对分支的保护权限"></a>设置对分支的保护权限</h3><blockquote>
+<p>顾名思义，分支的权限必不可少，它可以约束开发者们的提交行为和提交策略。避免失误操作将未测试过的代码强制提交到生产分支；developer可以不关心；</p>
+</blockquote>
+<p><img src="branch.png" alt="Protected Branches"></p>
+<h3 id="issue与Milestones"><a href="#issue与Milestones" class="headerlink" title="issue与Milestones"></a>issue与Milestones</h3><blockquote>
+<p>issue可以理解为一个最小原子的任务，多个任务组成一个 milestones；Milestones 可以理解为某个时间区间内的任务集；一个Milestones可包含多个issue； 当该Milestones中所有issue完成，则标志着此Milestones的结束；</p>
+</blockquote>
+<h4 id="创建issue和mr"><a href="#创建issue和mr" class="headerlink" title="创建issue和mr"></a>创建issue和mr</h4><ol>
+<li>创建一个issue</li>
+</ol>
+<p><img src="issue.png" alt="issue"></p>
+<ol start="2">
+<li>关联一个mr</li>
+</ol>
+<p><img src="mr.png" alt="mr"></p>
+<ol start="3">
+<li>branch name</li>
+</ol>
+<blockquote>
+<p>branch name 会以issue的序号开始，然后抓取title中的英文和数字做连接。</p>
+</blockquote>
+<p>可采用<code>index-categroy-content-[username]-[time]</code>的自定义方式，括号部分可选</p>
+<ul>
+<li><p>category</p>
+<ul>
+<li>feature</li>
+<li>bugfix</li>
+<li>chore</li>
+<li>enhance</li>
+</ul>
+</li>
+<li><p>content，一到三个词简述任务</p>
+</li>
+<li><p>username，任务认领人</p>
+</li>
+<li><p>time，创建分支的时间，一般 <code>201217</code>或者<code>1225</code></p>
+</li>
+</ul>
+<ol start="4">
+<li>source</li>
+</ol>
+<p>基于什么分支创建当前分支，<code>feature/chore/enhance</code>选择<code>dev-0.3</code>, <code>bugfix</code>选择<code>env-dev</code></p>
+<h3 id="提交代码流程"><a href="#提交代码流程" class="headerlink" title="提交代码流程"></a>提交代码流程</h3><p><img src="flow.jpg" alt="flow"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git fetch <span class="comment"># 获取issue关联的分支名</span></span><br><span class="line">git checkout -b 6-feature-pivotDrill origin/6-feature-pivotDrill <span class="comment"># 基于远端新建一个本地开发分支</span></span><br><span class="line"></span><br><span class="line">git rebase dev-0.3 <span class="comment"># 在开发过程中，不定时rebase 宿主分支，防止版本隔断</span></span><br><span class="line">git push origin 6-feature-pivotDrill <span class="comment"># 提交至远程映射</span></span><br><span class="line"><span class="comment"># 通知maintainer完成代码合并，并关闭issue</span></span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-    
-      
-    
-  </section>
-</article>
+<h3 id="commits规范"><a href="#commits规范" class="headerlink" title="commits规范"></a>commits规范</h3><p><code>&#39;type(module) some desc&#39;</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">type = [</span><br><span class="line">  <span class="string">"build"</span>, <span class="comment">// 构建执行</span></span><br><span class="line">  <span class="string">"chore"</span>, <span class="comment">// 构建工具相关</span></span><br><span class="line">  <span class="string">"ci"</span>, <span class="comment">// CI 相关</span></span><br><span class="line">  <span class="string">"docs"</span>, <span class="comment">// 文档更新</span></span><br><span class="line">  <span class="string">"feat"</span>, <span class="comment">// 新功能</span></span><br><span class="line">  <span class="string">"fix"</span>, <span class="comment">// bug 修复</span></span><br><span class="line">  <span class="string">"perf"</span>, <span class="comment">// 性能优化</span></span><br><span class="line">  <span class="string">"refactor"</span>, <span class="comment">// 功能重构</span></span><br><span class="line">  <span class="string">"release"</span>,</span><br><span class="line">  <span class="string">"revert"</span>, <span class="comment">// 回滚操作</span></span><br><span class="line">  <span class="string">"style"</span>, <span class="comment">// 样式变动</span></span><br><span class="line">  <span class="string">"test"</span>, <span class="comment">// 单元测试</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">moduele = [</span><br><span class="line">  <span class="comment">// 以davinci为例,只列出前端模块</span></span><br><span class="line">  <span class="string">"project"</span>,</span><br><span class="line">  <span class="string">"dashboard"</span>,</span><br><span class="line">  <span class="string">"display"</span>,</span><br><span class="line">  <span class="string">"widget"</span>,</span><br><span class="line">  <span class="string">"schdule"</span>,</span><br><span class="line">  <span class="string">"view"</span>,</span><br><span class="line">  <span class="string">"source"</span>,</span><br><span class="line">  <span class="string">"user"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
+<h3 id="review代码的参考标准"><a href="#review代码的参考标准" class="headerlink" title="review代码的参考标准"></a>review代码的参考标准</h3><ol>
+<li>格式化后的代码，在vscode中安装<code>prettier</code>工具，设置<code>ctrl+s</code>默认对当前页进行<code>prettier</code>格式化；</li>
+<li>所有commits必须要关联issue，如果没有issue要新建issue然后关联mr（merge request），基于当前mr提交代码；</li>
+<li>原则上，不能有肉眼可见的bug，一般review代码时会进行简单的测试；</li>
+<li>其他规则（代码规范）</li>
+</ol>
+<h4 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h4><blockquote>
+<p>原则上，所有新提交的代码参考项目代码风格即可。简述为下面几个方面</p>
+</blockquote>
+<ol>
+<li>原则上，变量名含义精准，（ps：严禁全局作用域中出现单字符命名空间；）</li>
+<li>不要求一定要加注释或者不加注释，我们的愿景是能够书写无注释就能看懂的代码。根据业务逻辑难易程度，自行决定。 尽量英文注释；</li>
+<li>不建议提交大量重复代码，须做好代码的抽象复用；</li>
+<li>尽量使用被主流浏览器支持的的es规范书写代码，原则上新es规范下已有的工具类和函数，不重复造轮子；</li>
+<li>其他涉及<code>html/css/javascript</code>相关的推荐规范会渐进式纳入规范集；</li>
+</ol>
 
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
           
-  <h2 class="title">
-    <a href="/2020/06/04/hello-world/">
-      Hello World
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
+            <div class='article_footer'>
               
-<div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
-    <img src="https://cdn.jsdelivr.net/gh/ruanhan/cdn@0.1/img/bg/xy.png">
-    <p>belief</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/tools/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tools</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 4, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<h3 id="test"><a href="#test" class="headerlink" title="test"></a>test</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">helloworld</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">'hello world'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(helloworld);</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-    
-  
-</div>
-<aside class='l_side'>
-  
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/ruanhan/cdn@0.1/img/bg/xy.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Hexo</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:me@xaoxuu.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=http://yoursite.com/2020/12/17/gitlab3/>http://yoursite.com/2020/12/17/gitlab3/</a></p>
           
         
-          
-            <a href="https://github.com/xaoxuu"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=63035382"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -571,58 +459,212 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-17T17:52:31+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Dec 17, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/gitlab/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>gitlab</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/12/17/gitlab3/&title=gitlab3 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/12/17/gitlab3/&title=gitlab3 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/12/17/gitlab3/&title=gitlab3 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/12/16/gitlab2/'>
+                <p class='title'>gitlab2<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>label
+标签组
+标签组的意义就是定义一次，多个项目统一使用
+
+Platform
+前端还是后端，ios 还是 android
+
+
+angular
+node
+
+Problems
+目前产品中存在的...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'gitlab3',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/project/" href="/categories/project/"
-            id="categoriesproject"
-            ><div class='name'>project</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/tools/" href="/categories/tools/"
-            id="categoriestools"
-            ><div class='name'>tools</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#gitlab-分支策略"><span class="toc-text">gitlab 分支策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置对分支的保护权限"><span class="toc-text">设置对分支的保护权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#issue与Milestones"><span class="toc-text">issue与Milestones</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建issue和mr"><span class="toc-text">创建issue和mr</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提交代码流程"><span class="toc-text">提交代码流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#commits规范"><span class="toc-text">commits规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#review代码的参考标准"><span class="toc-text">review代码的参考标准</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码规范"><span class="toc-text">代码规范</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/doc/" style="font-size: 14px; color: #999">doc</a> <a href="/tags/gitlab/" style="font-size: 24px; color: #555">gitlab</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -835,6 +877,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 

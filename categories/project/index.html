@@ -278,9 +278,171 @@
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/12/17/gitlab3/">
+      gitlab3
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/ruanhan/cdn@0.1/img/bg/xy.png">
+    <p>belief</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/project/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>project</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 17, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="gitlab-分支策略"><a href="#gitlab-分支策略" class="headerlink" title="gitlab 分支策略"></a>gitlab 分支策略</h2><blockquote>
+<p>考虑到gitlab一般在企业内部使用，一般不存在社区开发者，所以在管理上不会采用github的upstream/origin双仓库模式。gitlab下，开发者们面向一个仓库进行提交即可；</p>
+</blockquote>
+<h3 id="设置对分支的保护权限"><a href="#设置对分支的保护权限" class="headerlink" title="设置对分支的保护权限"></a>设置对分支的保护权限</h3><blockquote>
+<p>顾名思义，分支的权限必不可少，它可以约束开发者们的提交行为和提交策略。避免失误操作将未测试过的代码强制提交到生产分支；developer可以不关心；</p>
+</blockquote>
+<p><img src="branch.png" alt="Protected Branches"></p>
+<h3 id="issue与Milestones"><a href="#issue与Milestones" class="headerlink" title="issue与Milestones"></a>issue与Milestones</h3><blockquote>
+<p>issue可以理解为一个最小原子的任务，多个任务组成一个 milestones；Milestones 可以理解为某个时间区间内的任务集；一个Milestones可包含多个issue； 当该Milestones中所有issue完成，则标志着此Milestones的结束；</p>
+</blockquote>
+<h4 id="创建issue和mr"><a href="#创建issue和mr" class="headerlink" title="创建issue和mr"></a>创建issue和mr</h4><ol>
+<li>创建一个issue</li>
+</ol>
+<p><img src="issue.png" alt="issue"></p>
+<ol start="2">
+<li>关联一个mr</li>
+</ol>
+<p><img src="mr.png" alt="mr"></p>
+<ol start="3">
+<li>branch name</li>
+</ol>
+<blockquote>
+<p>branch name 会以issue的序号开始，然后抓取title中的英文和数字做连接。</p>
+</blockquote>
+<p>可采用<code>index-categroy-content-[username]-[time]</code>的自定义方式，括号部分可选</p>
+<ul>
+<li><p>category</p>
+<ul>
+<li>feature</li>
+<li>bugfix</li>
+<li>chore</li>
+<li>enhance</li>
+</ul>
+</li>
+<li><p>content，一到三个词简述任务</p>
+</li>
+<li><p>username，任务认领人</p>
+</li>
+<li><p>time，创建分支的时间，一般 <code>201217</code>或者<code>1225</code></p>
+</li>
+</ul>
+<ol start="4">
+<li>source</li>
+</ol>
+<p>基于什么分支创建当前分支，<code>feature/chore/enhance</code>选择<code>dev-0.3</code>, <code>bugfix</code>选择<code>env-dev</code></p>
+<h3 id="提交代码流程"><a href="#提交代码流程" class="headerlink" title="提交代码流程"></a>提交代码流程</h3><p><img src="flow.jpg" alt="flow"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git fetch <span class="comment"># 获取issue关联的分支名</span></span><br><span class="line">git checkout -b 6-feature-pivotDrill origin/6-feature-pivotDrill <span class="comment"># 基于远端新建一个本地开发分支</span></span><br><span class="line"></span><br><span class="line">git rebase dev-0.3 <span class="comment"># 在开发过程中，不定时rebase 宿主分支，防止版本隔断</span></span><br><span class="line">git push origin 6-feature-pivotDrill <span class="comment"># 提交至远程映射</span></span><br><span class="line"><span class="comment"># 通知maintainer完成代码合并，并关闭issue</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="commits规范"><a href="#commits规范" class="headerlink" title="commits规范"></a>commits规范</h3><p><code>&#39;type(module) some desc&#39;</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">type = [</span><br><span class="line">  <span class="string">"build"</span>, <span class="comment">// 构建执行</span></span><br><span class="line">  <span class="string">"chore"</span>, <span class="comment">// 构建工具相关</span></span><br><span class="line">  <span class="string">"ci"</span>, <span class="comment">// CI 相关</span></span><br><span class="line">  <span class="string">"docs"</span>, <span class="comment">// 文档更新</span></span><br><span class="line">  <span class="string">"feat"</span>, <span class="comment">// 新功能</span></span><br><span class="line">  <span class="string">"fix"</span>, <span class="comment">// bug 修复</span></span><br><span class="line">  <span class="string">"perf"</span>, <span class="comment">// 性能优化</span></span><br><span class="line">  <span class="string">"refactor"</span>, <span class="comment">// 功能重构</span></span><br><span class="line">  <span class="string">"release"</span>,</span><br><span class="line">  <span class="string">"revert"</span>, <span class="comment">// 回滚操作</span></span><br><span class="line">  <span class="string">"style"</span>, <span class="comment">// 样式变动</span></span><br><span class="line">  <span class="string">"test"</span>, <span class="comment">// 单元测试</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">moduele = [</span><br><span class="line">  <span class="comment">// 以davinci为例,只列出前端模块</span></span><br><span class="line">  <span class="string">"project"</span>,</span><br><span class="line">  <span class="string">"dashboard"</span>,</span><br><span class="line">  <span class="string">"display"</span>,</span><br><span class="line">  <span class="string">"widget"</span>,</span><br><span class="line">  <span class="string">"schdule"</span>,</span><br><span class="line">  <span class="string">"view"</span>,</span><br><span class="line">  <span class="string">"source"</span>,</span><br><span class="line">  <span class="string">"user"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="review代码的参考标准"><a href="#review代码的参考标准" class="headerlink" title="review代码的参考标准"></a>review代码的参考标准</h3><ol>
+<li>格式化后的代码，在vscode中安装<code>prettier</code>工具，设置<code>ctrl+s</code>默认对当前页进行<code>prettier</code>格式化；</li>
+<li>所有commits必须要关联issue，如果没有issue要新建issue然后关联mr（merge request），基于当前mr提交代码；</li>
+<li>原则上，不能有肉眼可见的bug，一般review代码时会进行简单的测试；</li>
+<li>其他规则（代码规范）</li>
+</ol>
+<h4 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h4><blockquote>
+<p>原则上，所有新提交的代码参考项目代码风格即可。简述为下面几个方面</p>
+</blockquote>
+<ol>
+<li>原则上，变量名含义精准，（ps：严禁全局作用域中出现单字符命名空间；）</li>
+<li>不要求一定要加注释或者不加注释，我们的愿景是能够书写无注释就能看懂的代码。根据业务逻辑难易程度，自行决定。 尽量英文注释；</li>
+<li>不建议提交大量重复代码，须做好代码的抽象复用；</li>
+<li>尽量使用被主流浏览器支持的的es规范书写代码，原则上新es规范下已有的工具类和函数，不重复造轮子；</li>
+<li>其他涉及<code>html/css/javascript</code>相关的推荐规范会渐进式纳入规范集；</li>
+</ol>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -689,7 +851,7 @@
           <li><a class="flat-box"
             title="/categories/project/" href="/categories/project/"
             id="categoriesproject"
-            ><div class='name'>project</div><div class='badge'>(2)</div></a></li>
+            ><div class='name'>project</div><div class='badge'>(3)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/tools/" href="/categories/tools/"
@@ -718,7 +880,7 @@
 
 
     <div class='content'>
-      <a href="/tags/doc/" style="font-size: 14px; color: #999">doc</a> <a href="/tags/gitlab/" style="font-size: 14px; color: #999">gitlab</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a>
+      <a href="/tags/doc/" style="font-size: 14px; color: #999">doc</a> <a href="/tags/gitlab/" style="font-size: 24px; color: #555">gitlab</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a>
     </div>
   </section>
 
