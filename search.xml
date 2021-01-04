@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>html5vedio</title>
+      <link href="/2021/01/04/html5vedio/"/>
+      <url>/2021/01/04/html5vedio/</url>
+      
+        <content type="html"><![CDATA[<h2 id="html5-播放器加速"><a href="#html5-播放器加速" class="headerlink" title="html5 播放器加速"></a>html5 播放器加速</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> video = <span class="built_in">document</span>.querySelector(<span class="string">'video'</span>).video.playbackRate = <span class="number">2</span> <span class="comment">// 播放器播放速度</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> html5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> skill </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>graphics01</title>
+      <link href="/2020/12/21/graphics01/"/>
+      <url>/2020/12/21/graphics01/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>browser-sync</title>
       <link href="/2020/12/21/browser-sync/"/>
       <url>/2020/12/21/browser-sync/</url>

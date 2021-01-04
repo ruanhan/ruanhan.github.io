@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -16,12 +18,8 @@
 
   <!-- 页面元数据 -->
   
-    <title>browser-sync - Hexo</title>
+    <title>Archive: 2021/1 - Hexo</title>
   
-    <meta name="keywords" content="server">
-  
-  
-    <meta name="description" content="browser-sync 一个即时刷新的静态文件服务器">
   
 
   <!-- feed -->
@@ -72,7 +70,85 @@
 
 <body>
   
-  <div id="loading-bar-wrapper">
+  <div class="cover-wrapper">
+    
+      <cover class='cover  half'>
+        <div class='cover-body'>
+  <div class='a'>
+    
+    
+      <p class="title"><span class='rh_diy_title'>Belief</span></p>
+    
+    
+      <p class="subtitle"><span class='rh_diy_title'>recording ...</span></p>
+    
+  </div>
+  <div class='b'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <ul class='cover-list-h'>
+        
+          
+            <li>
+              <a class="nav home"
+                href="/"
+                
+                
+                id="home">
+                <i class='fas fa-book rh_diy_title fa-fw'></i><span class='rh_diy_title'>home</span>
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="/categories/"
+                
+                
+                id="categories">
+                <i class='fas fa-rss rh_diy_title fa-fw'></i><span class='rh_diy_title'>categories</span>
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="/tags/"
+                
+                
+                id="tags">
+                <i class='fas fa-play-circle rh_diy_title fa-fw'></i><span class='rh_diy_title'>tags</span>
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="/archives/"
+                
+                  rel="external nofollow noopener noreferrer"
+                
+                
+                  target="_blank rh_diy_title"
+                
+                id="archives">
+                <i class='fas fa-file-code rh_diy_title fa-fw'></i><span class='rh_diy_title'>archives</span>
+              </a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+      </cover>
+    
+    <div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
 <header class="l_header shadow blur">
@@ -261,18 +337,30 @@
 
 <script>setLoadingBarProgress(40);</script>
 
+  </div>
 
 
-  <div class="l_body nocover">
+  <div class="l_body">
     <div class='body-wrapper'>
       
 
 <div class='l_main'>
-  
-
-  
-    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+	
+		
+  <section class="post-list ">
+    
       
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
 
 
   <section class='meta'>
@@ -282,11 +370,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h1 class="title">
-    <a href="/2020/12/21/browser-sync/">
-      browser-sync
+  <h2 class="title">
+    <a href="/2021/01/04/html5vedio/">
+      html5vedio
     </a>
-  </h1>
+  </h2>
 
 
         
@@ -309,9 +397,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/tools/' rel="nofollow">
+    <a href='/categories/html5/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tools</p>
+      <p>html5</p>
     </a>
   </div>
 
@@ -322,9 +410,14 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Dec 21, 2020</p>
+    <p>发布于：Jan 4, 2021</p>
   </a>
 </div>
+
+            
+          
+            
+              
 
             
           
@@ -342,263 +435,162 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          <h2 id="全局安装1231312312312123"><a href="#全局安装1231312312312123" class="headerlink" title="全局安装1231312312312123"></a>全局安装1231312312312123</h2><p><code>sudo npm install -g browser-sync</code></p>
-<h2 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动服务器 监听所有的html文件</span></span><br><span class="line">$ browser-sync start --server --files <span class="string">"*.html"</span></span><br><span class="line"><span class="comment"># 启动服务器 监听所有的文件</span></span><br><span class="line">$ browser-sync start --server --files <span class="string">"**"</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p><code>browser-sync start --server --port 3333 --files &quot;*.css,*.html,*.js&quot;</code></p>
-<h2 id="start-options"><a href="#start-options" class="headerlink" title="start options"></a>start options</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">--<span class="built_in">help</span>	                 <span class="comment">#输出使用信息</span></span><br><span class="line">--version	               <span class="comment">#输出的版本号</span></span><br><span class="line">--browser	               <span class="comment">#选择哪个浏览器应该是自动打开</span></span><br><span class="line">--files	                 <span class="comment">#文件路径看</span></span><br><span class="line">--exclude	               <span class="comment">#文件模式忽视</span></span><br><span class="line">--server	               <span class="comment">#运行本地服务器（使用您的CWD作为Web根）</span></span><br><span class="line">--index	                 <span class="comment">#指定哪些文件应该被用作索引页</span></span><br><span class="line">--extensions	           <span class="comment">#指定文件扩展名回退</span></span><br><span class="line">--startPath	             <span class="comment">#指定起始路径，打开浏览器</span></span><br><span class="line">--https	                 <span class="comment">#启用S​​SL地方发展</span></span><br><span class="line">--directory	             <span class="comment">#显示服务器的目录列表</span></span><br><span class="line">--proxy	                 <span class="comment">#代理现有的服务器</span></span><br><span class="line">--xip	                   <span class="comment">#使用xip.io域路由</span></span><br><span class="line">--tunnel	               <span class="comment">#使用公共网址</span></span><br><span class="line">--open	                 <span class="comment">#选择哪个URL是自动打开（本地，外部或隧道）</span></span><br><span class="line">--config	               <span class="comment">#指定为BS-config.js文件的路径</span></span><br><span class="line">--host	                 <span class="comment">#指定主机名使用</span></span><br><span class="line">--logLevel	             <span class="comment">#设置记录器输出电平（沉默，信息或调试）</span></span><br><span class="line">--port	                <span class="comment">#指定要使用的端口</span></span><br><span class="line">--reload-delay	        <span class="comment">#以毫秒为单位的时间延迟重装事件以下文件的变化</span></span><br><span class="line">--reload-debounce	      <span class="comment">#限制在浏览器中的频率：刷新事件可以被发射到连接的客户机</span></span><br><span class="line">--ui-port	              <span class="comment">#指定端口的UI使用</span></span><br><span class="line">--no-notify	            <span class="comment">#禁用浏览器的通知元素</span></span><br><span class="line">--no-open	              <span class="comment">#不要打开一个新的浏览器窗口</span></span><br><span class="line">--no-online	            <span class="comment">#强制离线使用</span></span><br><span class="line">--no-ui	                <span class="comment">#不要启动用户界面</span></span><br><span class="line">--no-ghost-mode	        <span class="comment">#禁用幽灵模式</span></span><br><span class="line">--no-inject-changes	    <span class="comment">#刷新上的每个文件更改</span></span><br><span class="line">--no-reload-on-restart	<span class="comment">#不要自动重新加载在重新启动所有浏览器</span></span><br></pre></td></tr></table></figure>
-
-          
-            <div class='article_footer'>
-              
-                
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-<section class="widget copyright  desktop mobile">
-  <div class='content'>
-    
-      <blockquote>
-        
-          
-            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-          
-        
-          
-            <p>本文永久链接是：<a href=http://yoursite.com/2020/12/21/browser-sync/>http://yoursite.com/2020/12/21/browser-sync/</a></p>
-          
-        
-      </blockquote>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-<section class="widget qrcode  desktop mobile">
-  
-
-  <div class='content article-entry'>
-    
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
       
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-  </div>
-</section>
+        <h2 id="html5-播放器加速"><a href="#html5-播放器加速" class="headerlink" title="html5 播放器加速"></a>html5 播放器加速</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> video = <span class="built_in">document</span>.querySelector(<span class="string">'video'</span>).video.playbackRate = <span class="number">2</span> <span class="comment">// 播放器播放速度</span></span><br></pre></td></tr></table></figure>
 
-  
-
-
-              
-            </div>
-          
-        </div>
-        
-          
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-21T17:30:13+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Dec 21, 2020</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/server/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>server</p></a></div>
-
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
-          
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/12/21/browser-sync/&title=browser-sync - Hexo&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
-          
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/12/21/browser-sync/&title=browser-sync - Hexo&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
-          
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/12/21/browser-sync/&title=browser-sync - Hexo&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
       
     </div>
+    
+      
+    
   </section>
+</article>
 
-
-        
-        
-          <div class="prev-next">
-            
-              <a class='prev' href='/2020/12/21/graphics01/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>graphics01</p>
-                <p class='content'></p>
-              </a>
-            
-            
-              <a class='next' href='/2020/12/17/gitlab3/'>
-                <p class='title'>gitlab3<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>gitlab 分支策略
-考虑到gitlab一般在企业内部使用，一般不存在社区开发者，所以在管理上不会采用github的upstream/origin双仓库模式。gitlab下，开发者们面向一个仓...</p>
-              </a>
-            
           </div>
         
-      </section>
-    </article>
+      
+    
+  </section>
   
-
-  
-    <!-- 显示推荐文章和评论 -->
-
-
-
-  <article class="post white-box reveal comments shadow">
-    <section class="article typo">
-      <p ct><i class='fas fa-comments'></i> 评论</p>
-      
-      
-      
-      
-      
-      
-        <section id="comments">
-          <div id="valine_container" class="valine_thread">
-            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-          </div>
-        </section>
-      
-      
-    </section>
-  </article>
-
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
 
   
 
 
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-
-  <script>
-    window.subData = {
-      title: 'browser-sync',
-      tools: true
-    }
-  </script>
-
-
+	
 </div>
 <aside class='l_side'>
   
   
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box' href='/about/'>
+          <img no-lazy src='https://cdn.jsdelivr.net/gh/ruanhan/cdn@0.1/img/bg/xy.png'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Hexo</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:me@xaoxuu.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/xaoxuu"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
 
   
     
     
+  
 
-
-  <section class="widget toc-wrapper shadow desktop mobile">
+  <section class="widget category shadow desktop">
     
   <header>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+      <a href='categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
     
   </header>
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#全局安装1231312312312123"><span class="toc-text">全局安装1231312312312123</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速使用"><span class="toc-text">快速使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#start-options"><span class="toc-text">start options</span></a></li></ol>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/html5/" href="/categories/html5/"
+            id="categorieshtml5"
+            ><div class='name'>html5</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/project/" href="/categories/project/"
+            id="categoriesproject"
+            ><div class='name'>project</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/tools/" href="/categories/tools/"
+            id="categoriestools"
+            ><div class='name'>tools</div><div class='badge'>(3)</div></a></li>
+        
+      </ul>
     </div>
   </section>
 
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/doc/" style="font-size: 19px; color: #777">doc</a> <a href="/tags/gitlab/" style="font-size: 24px; color: #555">gitlab</a> <a href="/tags/hexo/" style="font-size: 19px; color: #777">hexo</a> <a href="/tags/markdown/" style="font-size: 19px; color: #777">markdown</a> <a href="/tags/server/" style="font-size: 14px; color: #999">server</a> <a href="/tags/skill/" style="font-size: 14px; color: #999">skill</a>
+    </div>
+  </section>
+
+
+  
 
   
 
@@ -697,6 +689,14 @@
   </footer>
 
 <script>setLoadingBarProgress(80);</script>
+
+
+
+
+	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+	
+
+	
 
 
       <script>setLoadingBarProgress(60);</script>
@@ -811,60 +811,6 @@
 
 
 
-
-  
-    
-<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
-
-  
-  <script>
-  var GUEST_INFO = ['nick','mail','link'];
-  var meta = 'nick,mail,link'.split(',').filter(function(item){
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick','mail','link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function(item){
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
-  var valine = new Valine();
-  function emoji(path, idx, ext) {
-      return path + "/" + path + "-" + idx + "." + ext;
-  }
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-  valine.init({
-    el: '#valine_container',
-    meta: meta,
-    
-    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
-    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
-    placeholder: "快来评论吧~",
-    pageSize:'10',
-    avatar:'robohash',
-    lang:'zh-cn',
-    visitor: 'true',
-    highlight: 'true',
-    mathJax: 'false',
-    enableQQ: 'true',
-    requiredFields: requiredFields,
-    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
-    emojiMaps: emojiMaps
-  })
-  </script>
 
 
 
