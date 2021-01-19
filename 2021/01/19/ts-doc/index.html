@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#1.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>ts doc - Hexo</title>
+  
+    <meta name="keywords" content="doc">
+  
+  
+    <meta name="description" content="typescript文档摘抄">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            BELIEF <b><sup style='color:#3AA757'>1.0.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2021/01/19/ts-doc/">
+      ts doc
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/ts/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>ts</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jan 19, 2021</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="handbook"><a href="#handbook" class="headerlink" title="handbook"></a>handbook</h1><p><strong>A reader who completes the walkthrough should be able to:</strong></p>
+<ul>
+<li>Read and understand commonly-used TypeScript syntax and patterns</li>
+<li>Explain the effects of important compiler options</li>
+<li>Correctly predict type system behavior in most cases</li>
+<li>Write a .d.ts declaration for a simple function, object, or class</li>
+</ul>
+<h2 id="1-basic-Types"><a href="#1-basic-Types" class="headerlink" title="1. basic Types"></a>1. basic Types</h2><p> 在TypeScript中，我们支持与JavaScript中期望的类型相同的类型，并添加了一个额外的枚举类型以帮助处理问题。</p>
+<p>Boolean, Number, String, Array,Tuple,Enum,Unkown,Any,Void, Null and Undefined, Never, Object,</p>
+<ul>
+<li>Tuple</li>
+</ul>
+<p>元组类型允许您用固定数量的元素表示数组，这些元素的类型是已知的，但不必相同。例如，您可能希望将值表示为一对字符串和一个数字：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Declare a tuple type</span></span><br><span class="line"><span class="keyword">let</span> x: [<span class="built_in">string</span>, <span class="built_in">number</span>];</span><br><span class="line"><span class="comment">// Initialize it</span></span><br><span class="line">x = [<span class="string">"hello"</span>, <span class="number">10</span>]; <span class="comment">// OK</span></span><br><span class="line"><span class="comment">// Initialize it incorrectly</span></span><br><span class="line">x = [<span class="number">10</span>, <span class="string">"hello"</span>]; <span class="comment">// Error</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Enum</li>
+</ul>
+<p>枚举是JavaScript标准数据类型集的一个有用补充。与C＃等语言一样，枚举是一种为数字值集赋予更友好名称的方法。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Color &#123;</span><br><span class="line">  Red = <span class="number">1</span>,</span><br><span class="line">  Green,</span><br><span class="line">  Blue,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> colorName: <span class="built_in">string</span> = Color[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Displays 'Green'</span></span><br><span class="line"><span class="built_in">console</span>.log(colorName);</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Unknown</li>
+</ul>
+<p>我们可能需要描述编写应用程序时不知道的变量类型。这些值可能来自动态内容，例如来自用户-或者我们可能要有意接受我们API中的所有值。在这些情况下，我们希望提供一种类型，该类型告诉编译器和将来的读者此变量可以是任何变量，因此我们将其赋予未知类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> notSure: unknown = <span class="number">4</span>;</span><br><span class="line">notSure = <span class="string">"maybe a string instead"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// OK, definitely a boolean</span></span><br><span class="line">notSure = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果您有一个类型未知的变量，则可以通过进行typeof检查，比较检查或更高级的类型防护来将其范围缩小到更具体的范围;</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="keyword">const</span> maybe: unknown;</span><br><span class="line"><span class="comment">// 'maybe' could be a string, object, boolean, undefined, or other types</span></span><br><span class="line"><span class="keyword">const</span> aNumber: <span class="built_in">number</span> = maybe;</span><br><span class="line"><span class="comment">//Type 'unknown' is not assignable to type 'number'.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (maybe === <span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="comment">// TypeScript knows that maybe is a boolean now</span></span><br><span class="line">  <span class="keyword">const</span> aBoolean: <span class="built_in">boolean</span> = maybe;</span><br><span class="line">  <span class="comment">// So, it cannot be a string</span></span><br><span class="line">  <span class="keyword">const</span> aString: <span class="built_in">string</span> = maybe;</span><br><span class="line"><span class="comment">//Type 'boolean' is not assignable to type 'string'.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> maybe === <span class="string">"string"</span>) &#123;</span><br><span class="line">  <span class="comment">// TypeScript knows that maybe is a string</span></span><br><span class="line">  <span class="keyword">const</span> aString: <span class="built_in">string</span> = maybe;</span><br><span class="line">  <span class="comment">// So, it cannot be a boolean</span></span><br><span class="line">  <span class="keyword">const</span> aBoolean: <span class="built_in">boolean</span> = maybe;</span><br><span class="line"><span class="comment">//Type 'string' is not assignable to type 'boolean'.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Any</li>
+</ul>
+<p>在某些情况下，并非所有类型信息都可用。对于未使用TypeScript或第3方库编写的代码中的值，可能会发生这种情况，可能要选择退出类型检查。将这些值标记为any类型：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params">key: <span class="built_in">string</span></span>): <span class="title">any</span></span>;</span><br><span class="line"><span class="comment">// OK, return value of 'getValue' is not checked</span></span><br><span class="line"><span class="keyword">const</span> str: <span class="built_in">string</span> = getValue(<span class="string">"myString"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>与 unknown 不同，any类型的变量使您可以访问任意属性，甚至是不存在的属性。这些属性包括函数，并且TypeScript不会检查它们的存在或类型</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> looselyTyped: <span class="built_in">any</span> = <span class="number">4</span>;</span><br><span class="line"><span class="comment">// OK, ifItExists might exist at runtime</span></span><br><span class="line">looselyTyped.ifItExists();</span><br><span class="line"><span class="comment">// OK, toFixed exists (but the compiler doesn't check)</span></span><br><span class="line">looselyTyped.toFixed();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> strictlyTyped: unknown = <span class="number">4</span>;</span><br><span class="line">strictlyTyped.toFixed();</span><br><span class="line"><span class="comment">// Object is of type 'unknown'.</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Void</li>
+</ul>
+<p>void有点像任何其他的相反：根本没有任何类型。您可能通常将其视为不返回值的函数的返回类型：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">warnUser</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"This is my warning message"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Null and Undefined</li>
+</ul>
+<p>在TypeScript中，undefined和null实际上实际上分别将其类型命名为undefined和null。就像void一样，它们本身并不是非常有用：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Not much else we can assign to these variables!</span></span><br><span class="line"><span class="keyword">let</span> u: <span class="literal">undefined</span> = <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> n: <span class="literal">null</span> = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Never</li>
+</ul>
+<p>The <code>never</code> type is a subtype of, and assignable to, every type; however, <em>no</em> type is a subtype of, or assignable to, <code>never</code> (except <code>never</code> itself). Even <code>any</code> isn’t assignable to <code>never</code>.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Function returning never must not have a reachable end point</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">error</span>(<span class="params">message: <span class="built_in">string</span></span>): <span class="title">never</span> </span>&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Inferred return type is never</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fail</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> error(<span class="string">"Something failed"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Function returning never must not have a reachable end point</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">infiniteLoop</span>(<span class="params"></span>): <span class="title">never</span> </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Object</li>
+</ul>
+<p>object是代表非基本类型的类型，即不是数字，字符串，布尔值，bigint，symbol，null或undefined的任何类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// With object type, APIs like Object.create can be better represented.</span></span><br><span class="line"><span class="keyword">declare</span> <span class="function"><span class="keyword">function</span> <span class="title">create</span>(<span class="params">o: object | <span class="literal">null</span></span>): <span class="title">void</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// OK</span></span><br><span class="line">create(&#123; prop: <span class="number">0</span> &#125;);</span><br><span class="line">create(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">create(<span class="number">42</span>);</span><br><span class="line"><span class="comment">//Argument of type '42' is not assignable to parameter of type 'object | null'.</span></span><br><span class="line">create(<span class="string">"string"</span>);</span><br><span class="line"><span class="comment">//Argument of type '"string"' is not assignable to parameter of type 'object | null'.</span></span><br><span class="line">create(<span class="literal">false</span>);</span><br><span class="line"><span class="comment">//Argument of type 'false' is not assignable to parameter of type 'object | null'.</span></span><br><span class="line">create(<span class="literal">undefined</span>);</span><br><span class="line"><span class="comment">//Argument of type 'undefined' is not assignable to parameter of type 'object | null'.</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Type assertions</li>
+</ul>
+<p>类型断言是一种告诉编译器“相信我，我知道我在做什么”的方法。类型断言就像其他语言中的类型转换一样，但是它不执行数据的特殊检查或重构。它对运行时没有影响，仅由编译器使用。 TypeScript假定您（程序员）已经执行了所需的任何特殊检查。</p>
+<p>类型断言的两种形式</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类型1: as 语句</span></span><br><span class="line"><span class="keyword">let</span> someValue: unknown = <span class="string">"this is a string"</span>;</span><br><span class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (someValue <span class="keyword">as</span> <span class="built_in">string</span>).length;</span><br><span class="line"><span class="comment">// 类型2: 尖括号</span></span><br><span class="line"><span class="keyword">let</span> someValue: unknown = <span class="string">"this is a string"</span>;</span><br><span class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (&lt;<span class="built_in">string</span>&gt;someValue).length;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>jsx中无法使用 类型2；</p>
+<ul>
+<li>About Number, String, Boolean, Symbol and Object</li>
+</ul>
+<p>可能会认为数字，字符串，布尔值，符号或对象类型与上面建议的小写版本相同。但是，这些类型不引用语言原语，并且几乎永远不应将其用作类型。</p>
+<h2 id="2-interface"><a href="#2-interface" class="headerlink" title="2. interface"></a>2. interface</h2><h3 id="2-1-readonly"><a href="#2-1-readonly" class="headerlink" title="2.1 readonly"></a>2.1 readonly</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Point &#123;</span><br><span class="line">  readonly x: <span class="built_in">number</span>;</span><br><span class="line">  readonly y: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>TypeScript具有与Array <T>相同的ReadonlyArray <T>类型，并且删除了所有变异方法，因此可以确保创建后不更改数组：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> ro: ReadonlyArray&lt;<span class="built_in">number</span>&gt; = a;</span><br><span class="line"></span><br><span class="line">ro[<span class="number">0</span>] = <span class="number">12</span>; <span class="comment">// error!</span></span><br><span class="line"><span class="comment">//Index signature in type 'readonly number[]' only permits reading.</span></span><br><span class="line">ro.push(<span class="number">5</span>); <span class="comment">// error!</span></span><br><span class="line"><span class="comment">//Property 'push' does not exist on type 'readonly number[]'.</span></span><br><span class="line">ro.length = <span class="number">100</span>; <span class="comment">// error!</span></span><br><span class="line"><span class="comment">//Cannot assign to 'length' because it is a read-only property.</span></span><br><span class="line">a = ro; <span class="comment">// error!</span></span><br><span class="line"><span class="comment">//The type 'readonly number[]' is 'readonly' and cannot be assigned to the mutable type 'number[]'.</span></span><br></pre></td></tr></table></figure>
+
+<p>在代码片段的最后一行，您可以看到，即使将整个ReadonlyArray分配回普通数组也是非法的。但是，您仍然可以使用类型断言来覆盖它：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> ro: ReadonlyArray&lt;<span class="built_in">number</span>&gt; = a;</span><br><span class="line"></span><br><span class="line">a = ro <span class="keyword">as</span> <span class="built_in">number</span>[];</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ReadOnly or const</li>
+</ul>
+<p>记住是使用只读还是const的最简单方法是询问是否在变量或属性上使用它。变量使用const，而属性使用只读。</p>
+<h3 id="2-2-Optional"><a href="#2-2-Optional" class="headerlink" title="2.2 Optional"></a>2.2 Optional</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> SquareConfig &#123;</span><br><span class="line">  color?: <span class="built_in">string</span>;</span><br><span class="line">  width?: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-3-Excess-Property-Checks"><a href="#2-3-Excess-Property-Checks" class="headerlink" title="2.3 Excess Property Checks"></a>2.3 Excess Property Checks</h3><p>但是，TypeScript认为此代码中可能存在错误。将对象文字分配给其他变量或将其作为参数传递时，将对其进行特殊处理并进行过多的属性检查。如果对象文字具有“目标类型”所没有的任何属性，则会出现错误：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> SquareConfig &#123;</span><br><span class="line">  color?: <span class="built_in">string</span>;</span><br><span class="line">  width?: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createSquare</span>(<span class="params">config: SquareConfig</span>): </span>&#123; color: <span class="built_in">string</span>; area: <span class="built_in">number</span> &#125; &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    color: config.color || <span class="string">"red"</span>,</span><br><span class="line">    area: config.width ? config.width * config.width : <span class="number">20</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> mySquare = createSquare(&#123; colour: <span class="string">"red"</span>, width: <span class="number">100</span> &#125;);</span><br><span class="line"><span class="comment">//Argument of type '&#123; colour: string; width: number; &#125;' is not assignable to parameter of type 'SquareConfig'.</span></span><br><span class="line"> <span class="comment">// Object literal may only specify known properties, but 'colour' does not exist in type 'SquareConfig'. Did you mean to write 'color'?</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>解决方案</li>
+</ul>
+<ol>
+<li>解决这些检查实际上非常简单。最简单的方法是只使用类型断言：</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mySquare = createSquare(&#123;width: <span class="number">100</span>, opacity: <span class="number">0.5</span>&#125; <span class="keyword">as</span> SquareConfig);</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>如果对象可以具有某些以特殊方式使用的额外属性，则更好的方法可能是添加字符串索引签名。</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> SquareConfig &#123;</span><br><span class="line">  color?: <span class="built_in">string</span>;</span><br><span class="line">  width?: <span class="built_in">number</span>;</span><br><span class="line">  [propName: <span class="built_in">string</span>]: <span class="built_in">any</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> mySquare = createSquare(&#123;width: <span class="number">100</span>, opacity: <span class="number">0.5</span>&#125;);</span><br><span class="line"><span class="comment">// 只要您在squareOptions和SquareConfig之间具有一个公共属性，上述变通办法就会起作用。但是，如果变量没有任何公共对象属性，它将失败。</span></span><br><span class="line"><span class="keyword">let</span> squareOptions = &#123; colour: <span class="string">"red"</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> mySquare = createSquare(squareOptions);</span><br><span class="line"><span class="comment">// Type '&#123; colour: string; &#125;' has no properties in common with type 'SquareConfig'.</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-4-Function-Types"><a href="#2-4-Function-Types" class="headerlink" title="2.4 Function Types"></a>2.4 Function Types</h3><p>为了描述带有接口的函数类型，我们给接口一个调用签名。这就像只声明参数列表和返回类型的函数声明。参数列表中的每个参数都需要名称和类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> SearchFunc &#123;</span><br><span class="line">  (source: <span class="built_in">string</span>, subString: <span class="built_in">string</span>): <span class="built_in">boolean</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> mySearch: SearchFunc;</span><br><span class="line"></span><br><span class="line">mySearch = <span class="function"><span class="keyword">function</span> (<span class="params">source: <span class="built_in">string</span>, subString: <span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = source.search(subString);</span><br><span class="line">  <span class="keyword">return</span> result &gt; <span class="number">-1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> mySearch2: SearchFunc;</span><br><span class="line"><span class="comment">// 参数不定义string，ts会自动推断</span></span><br><span class="line">mySearch2 = <span class="function"><span class="keyword">function</span> (<span class="params">src, sub</span>): <span class="title">boolean</span> </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = src.search(sub);</span><br><span class="line">  <span class="keyword">return</span> result &gt; <span class="number">-1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> mySearch: SearchFunc;</span><br><span class="line"></span><br><span class="line">mySearch = <span class="function"><span class="keyword">function</span> (<span class="params">src, sub</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 返回值需要遵守interface</span></span><br><span class="line"><span class="comment">//Type '(src: string, sub: string) =&gt; string' is not assignable to type 'SearchFunc'.</span></span><br><span class="line"><span class="comment">//  Type 'string' is not assignable to type 'boolean'.</span></span><br><span class="line">  <span class="keyword">let</span> result = src.search(sub);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"string"</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-5-Indexable-Types"><a href="#2-5-Indexable-Types" class="headerlink" title="2.5 Indexable Types"></a>2.5 Indexable Types</h3><p>可索引类型具有索引签名，该签名描述了可用于索引对象的类型以及建立索引时对应的返回类型</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> StringArray &#123;</span><br><span class="line">  [index: <span class="built_in">number</span>]: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myArray: StringArray;</span><br><span class="line">myArray = [<span class="string">"Bob"</span>, <span class="string">"Fred"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myStr: <span class="built_in">string</span> = myArray[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+
+<p>支持两种类型的索引签名：字符串和数字。可以同时支持两种类型的索引器，但是从数字索引器返回的类型必须是从字符串索引器返回的类型的子类型。这是因为在用数字索引时，JavaScript实际上会在将其索引到对象之前将其转换为字符串。这意味着使用100（一个数字）进行索引与使用“ 100”（一个字符串）进行索引是同一回事，因此两者必须保持一致。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Animal &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Dog <span class="keyword">extends</span> Animal &#123;</span><br><span class="line">  breed: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Error: indexing with a numeric string might get you a completely separate type of Animal!</span></span><br><span class="line"><span class="keyword">interface</span> NotOkay &#123;</span><br><span class="line">  [x: <span class="built_in">number</span>]: Animal;</span><br><span class="line">Numeric index <span class="keyword">type</span> <span class="string">'Animal'</span> is not assignable to <span class="built_in">string</span> index <span class="keyword">type</span> <span class="string">'Dog'</span>.</span><br><span class="line">  [x: <span class="built_in">string</span>]: Dog;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尽管字符串索引签名是描述“字典”模式的强大方法，但它们还强制所有属性与其返回类型匹配。这是因为字符串索引声明obj.property也可以作为obj [“ property”]使用。在以下示例中，名称的类型与字符串索引的类型不匹配，并且类型检查器给出错误：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> NumberDictionary &#123;</span><br><span class="line">  [index: <span class="built_in">string</span>]: <span class="built_in">number</span>;</span><br><span class="line">  length: <span class="built_in">number</span>; <span class="comment">// ok, length is a number</span></span><br><span class="line">  name: <span class="built_in">string</span>; <span class="comment">// error, the type of 'name' is not a subtype of the indexer</span></span><br><span class="line"><span class="comment">// Property 'name' of type 'string' is not assignable to string index type 'number'.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>但是，如果索引签名是属性类型的并集，则可以接受不同类型的属性：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> NumberOrStringDictionary &#123;</span><br><span class="line">  [index: <span class="built_in">string</span>]: <span class="built_in">number</span> | <span class="built_in">string</span>; <span class="comment">// 属性类型</span></span><br><span class="line">  length: <span class="built_in">number</span>; <span class="comment">// ok, length is a number</span></span><br><span class="line">  name: <span class="built_in">string</span>; <span class="comment">// ok, name is a string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后，您可以将索引签名设为只读，以防止分配给它们的索引：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> ReadonlyStringArray &#123;</span><br><span class="line">  readonly [index: <span class="built_in">number</span>]: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myArray: ReadonlyStringArray = [<span class="string">"Alice"</span>, <span class="string">"Bob"</span>];</span><br><span class="line">myArray[<span class="number">2</span>] = <span class="string">"Mallory"</span>; <span class="comment">// error!</span></span><br><span class="line"><span class="comment">// Index signature in type 'ReadonlyStringArray' only permits reading.</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-6-Class-Types"><a href="#2-6-Class-Types" class="headerlink" title="2.6 Class Types"></a>2.6 Class Types</h3><h4 id="2-6-1-Implement"><a href="#2-6-1-Implement" class="headerlink" title="2.6.1 Implement"></a>2.6.1 Implement</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> ClockInterface &#123;</span><br><span class="line">  currentTime: <span class="built_in">Date</span>;</span><br><span class="line">  setTime(d: <span class="built_in">Date</span>): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Clock <span class="keyword">implements</span> ClockInterface &#123;</span><br><span class="line">  currentTime: <span class="built_in">Date</span> = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  setTime(d: <span class="built_in">Date</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.currentTime = d;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">h: <span class="built_in">number</span>, m: <span class="built_in">number</span></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这是因为当类实现接口时，仅检查该类的实例侧。由于构造函数位于静态端，因此它不包含在此检查中。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> ClockConstructor &#123;</span><br><span class="line">  <span class="keyword">new</span> (hour: <span class="built_in">number</span>, minute: <span class="built_in">number</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Clock <span class="keyword">implements</span> ClockConstructor &#123;</span><br><span class="line">  <span class="comment">// Class 'Clock' incorrectly implements interface 'ClockConstructor'.</span></span><br><span class="line"> <span class="comment">//  Type 'Clock' provides no match for the signature 'new (hour: number, minute: number): any'.</span></span><br><span class="line">  currentTime: <span class="built_in">Date</span>;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">h: <span class="built_in">number</span>, m: <span class="built_in">number</span></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> clock = <span class="keyword">new</span> Clock(<span class="number">1</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>需要直接使用类的静态方面。在此示例中，我们定义了两个接口，用于构造函数的ClockConstructor和用于实例方法的ClockInterface。然后，为方便起见，我们定义了一个构造函数createClock，该函数创建传递给它的类型的实例</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> ClockConstructor &#123;</span><br><span class="line">  <span class="keyword">new</span> (hour: <span class="built_in">number</span>, minute: <span class="built_in">number</span>): ClockInterface;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> ClockInterface &#123;</span><br><span class="line">  tick(): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createClock</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  ctor: ClockConstructor,</span></span></span><br><span class="line"><span class="function"><span class="params">  hour: <span class="built_in">number</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">  minute: <span class="built_in">number</span></span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">ClockInterface</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> ctor(hour, minute);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> DigitalClock <span class="keyword">implements</span> ClockInterface &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">h: <span class="built_in">number</span>, m: <span class="built_in">number</span></span>) &#123;&#125;</span><br><span class="line">  tick() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"beep beep"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> AnalogClock <span class="keyword">implements</span> ClockInterface &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">h: <span class="built_in">number</span>, m: <span class="built_in">number</span></span>) &#123;&#125;</span><br><span class="line">  tick() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"tick tock"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> digital = createClock(DigitalClock, <span class="number">12</span>, <span class="number">17</span>);</span><br><span class="line"><span class="keyword">let</span> analog = createClock(AnalogClock, <span class="number">7</span>, <span class="number">32</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>另一种简单的方法是使用类表达式：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> ClockConstructor &#123;</span><br><span class="line">  <span class="keyword">new</span> (hour: <span class="built_in">number</span>, minute: <span class="built_in">number</span>): ClockInterface;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> ClockInterface &#123;</span><br><span class="line">  tick(): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Clock: ClockConstructor = <span class="keyword">class</span> Clock <span class="keyword">implements</span> ClockInterface &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">h: <span class="built_in">number</span>, m: <span class="built_in">number</span></span>) &#123;&#125;</span><br><span class="line">  tick() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"beep beep"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> clock = <span class="keyword">new</span> Clock(<span class="number">12</span>, <span class="number">17</span>);</span><br><span class="line">clock.tick();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-7-Extending-Interfaces"><a href="#2-7-Extending-Interfaces" class="headerlink" title="2.7 Extending Interfaces"></a>2.7 Extending Interfaces</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Shape &#123;</span><br><span class="line">  color: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> PenStroke &#123;</span><br><span class="line">  penWidth: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Square <span class="keyword">extends</span> Shape, PenStroke &#123;</span><br><span class="line">  sideLength: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> square = &#123;&#125; <span class="keyword">as</span> Square;</span><br><span class="line">square.color = <span class="string">"blue"</span>;</span><br><span class="line">square.sideLength = <span class="number">10</span>;</span><br><span class="line">square.penWidth = <span class="number">5.0</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-8-Hybrid-Types"><a href="#2-8-Hybrid-Types" class="headerlink" title="2.8 Hybrid Types"></a>2.8 Hybrid Types</h3><p>an object that acts as both a function and an object, with additional properties:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Counter &#123;</span><br><span class="line">  (start: <span class="built_in">number</span>): <span class="built_in">string</span>;</span><br><span class="line">  interval: <span class="built_in">number</span>;</span><br><span class="line">  reset(): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCounter</span>(<span class="params"></span>): <span class="title">Counter</span> </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> counter = <span class="function"><span class="keyword">function</span> (<span class="params">start: <span class="built_in">number</span></span>) </span>&#123;&#125; <span class="keyword">as</span> Counter;</span><br><span class="line">  counter.interval = <span class="number">123</span>;</span><br><span class="line">  counter.reset = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  <span class="keyword">return</span> counter;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = getCounter();</span><br><span class="line">c(<span class="number">10</span>);</span><br><span class="line">c.reset();</span><br><span class="line">c.interval = <span class="number">5.0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>与第三方JavaScript交互时，您可能需要使用上述模式来完全描述类型的形状</p>
+<h3 id="2-9-Interfaces-Extending-Classes"><a href="#2-9-Interfaces-Extending-Classes" class="headerlink" title="2.9 Interfaces Extending Classes"></a>2.9 Interfaces Extending Classes</h3><p>When an interface type extends a class type it inherits the members of the class but not their implementations. It is as if the interface had declared all of the members of the class without providing an implementation. Interfaces inherit even the private and protected members of a base class. This means that when you create an interface that extends a class with private or protected members, that interface type can only be implemented by that class or a subclass of it.</p>
+<p>This is useful when you have a large inheritance hierarchy, but want to specify that your code works with only subclasses that have certain properties. The subclasses don’t have to be related besides inheriting from the base class. For example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Control &#123;</span><br><span class="line">  <span class="keyword">private</span> state: <span class="built_in">any</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> SelectableControl <span class="keyword">extends</span> Control &#123;</span><br><span class="line">  select(): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Button <span class="keyword">extends</span> Control <span class="keyword">implements</span> SelectableControl &#123;</span><br><span class="line">  select() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> TextBox <span class="keyword">extends</span> Control &#123;</span><br><span class="line">  select() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> ImageControl <span class="keyword">implements</span> SelectableControl &#123;</span><br><span class="line"><span class="comment">//Class 'ImageControl' incorrectly implements interface 'SelectableControl'.</span></span><br><span class="line"> <span class="comment">// Types have separate declarations of a private property 'state'.</span></span><br><span class="line">  <span class="keyword">private</span> state: <span class="built_in">any</span>;</span><br><span class="line">  select() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        In the above example, <code>SelectableControl</code> contains all of the members of <code>Control</code>, including the private <code>state</code> property. Since <code>state</code> is a private member it is only possible for descendants of <code>Control</code> to implement <code>SelectableControl</code>. This is because only descendants of <code>Control</code> will have a <code>state</code> private member that originates in the same declaration, which is a requirement for private members to be compatible.</p>
+<p>​        Within the <code>Control</code> class it is possible to access the <code>state</code> private member through an instance of <code>SelectableControl</code>. Effectively, a <code>SelectableControl</code> acts like a <code>Control</code> that is known to have a <code>select</code> method. The <code>Button</code> and <code>TextBox</code> classes are subtypes of <code>SelectableControl</code> (because they both inherit from <code>Control</code> and have a <code>select</code> method). The <code>ImageControl</code> class has it’s own <code>state</code> private member rather than extending <code>Control</code>, so it cannot implement <code>SelectableControl</code>.</p>
+<h2 id="3-Functions"><a href="#3-Functions" class="headerlink" title="3. Functions"></a>3. Functions</h2><p>在TypeScript中，尽管有类，名称空间和模块，但是函数仍然在描述操作方式中起着关键作用。 TypeScript还向标准JavaScript函数添加了一些新功能，以使其更易于使用。</p>
+<h3 id="3-1-this"><a href="#3-1-this" class="headerlink" title="3.1 this"></a>3.1 this</h3><p>Learning how to use <code>this</code> in JavaScript is something of a rite of passage. Since TypeScript is a superset of JavaScript, TypeScript developers also need to learn how to use <code>this</code> and how to spot when it’s not being used correctly. Fortunately, TypeScript lets you catch incorrect uses of <code>this</code> with a couple of techniques. If you need to learn how <code>this</code> works in JavaScript, though, first read Yehuda Katz’s <a href="http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/" target="_blank" rel="noopener">Understanding JavaScript Function Invocation and “this”</a>. Yehuda’s article explains the inner workings of <code>this</code> very well, so we’ll just cover the basics here.</p>
+<p><strong><code>this</code> and arrow functions</strong></p>
+<p>In JavaScript, <code>this</code> is a variable that’s set when a function is called. This makes it a very powerful and flexible feature, but it comes at the cost of always having to know about the context that a function is executing in. This is notoriously confusing, especially when returning a function or passing a function as an argument.</p>
+<p>Let’s look at an example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deck = &#123;</span><br><span class="line">  suits: [<span class="string">"hearts"</span>, <span class="string">"spades"</span>, <span class="string">"clubs"</span>, <span class="string">"diamonds"</span>],</span><br><span class="line">  cards: <span class="built_in">Array</span>(<span class="number">52</span>),</span><br><span class="line">  createCardPicker: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> pickedCard = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">52</span>);</span><br><span class="line">      <span class="keyword">let</span> pickedSuit = <span class="built_in">Math</span>.floor(pickedCard / <span class="number">13</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> &#123; suit: <span class="keyword">this</span>.suits[pickedSuit], card: pickedCard % <span class="number">13</span> &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cardPicker = deck.createCardPicker();</span><br><span class="line"><span class="keyword">let</span> pickedCard = cardPicker();</span><br><span class="line"></span><br><span class="line">alert(<span class="string">"card: "</span> + pickedCard.card + <span class="string">" of "</span> + pickedCard.suit);</span><br></pre></td></tr></table></figure>
+
+<p>Notice that <code>createCardPicker</code> is a function that itself returns a function. If we tried to run the example, we would get an error instead of the expected alert box. This is because the <code>this</code> being used in the function created by <code>createCardPicker</code> will be set to <code>window</code> instead of our <code>deck</code> object. That’s because we call <code>cardPicker()</code> on its own. A top-level non-method syntax call like this will use <code>window</code> for <code>this</code>. (Note: under strict mode, <code>this</code> will be <code>undefined</code> rather than <code>window</code>).</p>
+<p>We can fix this by making sure the function is bound to the correct <code>this</code> before we return the function to be used later. This way, regardless of how it’s later used, it will still be able to see the original <code>deck</code> object. To do this, we change the function expression to use the ECMAScript 6 arrow syntax. Arrow functions capture the <code>this</code> where the function is created rather than where it is invoked:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deck = &#123;</span><br><span class="line">  suits: [<span class="string">"hearts"</span>, <span class="string">"spades"</span>, <span class="string">"clubs"</span>, <span class="string">"diamonds"</span>],</span><br><span class="line">  cards: <span class="built_in">Array</span>(<span class="number">52</span>),</span><br><span class="line">  createCardPicker: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">NOTE:</span> the line below is now an arrow function, allowing us to capture 'this' right here</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> pickedCard = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">52</span>);</span><br><span class="line">      <span class="keyword">let</span> pickedSuit = <span class="built_in">Math</span>.floor(pickedCard / <span class="number">13</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> &#123; suit: <span class="keyword">this</span>.suits[pickedSuit], card: pickedCard % <span class="number">13</span> &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cardPicker = deck.createCardPicker();</span><br><span class="line"><span class="keyword">let</span> pickedCard = cardPicker();</span><br><span class="line"></span><br><span class="line">alert(<span class="string">"card: "</span> + pickedCard.card + <span class="string">" of "</span> + pickedCard.suit);</span><br></pre></td></tr></table></figure>
+
+<p>Even better, TypeScript will warn you when you make this mistake if you pass the <code>--noImplicitThis</code> flag to the compiler. It will point out that <code>this</code> in <code>this.suits[pickedSuit]</code> is of type <code>any</code>.</p>
+<p><strong><code>this</code> parameters</strong></p>
+<p>Unfortunately, the type of <code>this.suits[pickedSuit]</code> is still <code>any</code>. That’s because <code>this</code> comes from the function expression inside the object literal. To fix this, you can provide an explicit <code>this</code> parameter. <code>this</code> parameters are fake parameters that come first in the parameter list of a function:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"><span class="keyword">this</span>: <span class="built_in">void</span></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// make sure `this` is unusable in this standalone function</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Let’s add a couple of interfaces to our example above, <code>Card</code> and <code>Deck</code>, to make the types clearer and easier to reuse:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Card &#123;</span><br><span class="line">  suit: <span class="built_in">string</span>;</span><br><span class="line">  card: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Deck &#123;</span><br><span class="line">  suits: <span class="built_in">string</span>[];</span><br><span class="line">  cards: <span class="built_in">number</span>[];</span><br><span class="line">  createCardPicker(<span class="keyword">this</span>: Deck): <span class="function"><span class="params">()</span> =&gt;</span> Card;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> deck: Deck = &#123;</span><br><span class="line">  suits: [<span class="string">"hearts"</span>, <span class="string">"spades"</span>, <span class="string">"clubs"</span>, <span class="string">"diamonds"</span>],</span><br><span class="line">  cards: <span class="built_in">Array</span>(<span class="number">52</span>),</span><br><span class="line">  <span class="comment">// <span class="doctag">NOTE:</span> The function now explicitly specifies that its callee must be of type Deck</span></span><br><span class="line">  createCardPicker: <span class="function"><span class="keyword">function</span> (<span class="params"><span class="keyword">this</span>: Deck</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> pickedCard = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">52</span>);</span><br><span class="line">      <span class="keyword">let</span> pickedSuit = <span class="built_in">Math</span>.floor(pickedCard / <span class="number">13</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> &#123; suit: <span class="keyword">this</span>.suits[pickedSuit], card: pickedCard % <span class="number">13</span> &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cardPicker = deck.createCardPicker();</span><br><span class="line"><span class="keyword">let</span> pickedCard = cardPicker();</span><br><span class="line"></span><br><span class="line">alert(<span class="string">"card: "</span> + pickedCard.card + <span class="string">" of "</span> + pickedCard.suit);</span><br></pre></td></tr></table></figure>
+
+<p>Now TypeScript knows that <code>createCardPicker</code> expects to be called on a <code>Deck</code> object. That means that <code>this</code> is of type <code>Deck</code> now, not <code>any</code>, so <code>--noImplicitThis</code> will not cause any errors.</p>
+<p><strong><code>this</code> parameters in callbacks</strong></p>
+<p>You can also run into errors with <code>this</code> in callbacks, when you pass functions to a library that will later call them. Because the library that calls your callback will call it like a normal function, <code>this</code> will be <code>undefined</code>. With some work you can use <code>this</code> parameters to prevent errors with callbacks too. First, the library author needs to annotate the callback type with <code>this</code>:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> UIElement &#123;</span><br><span class="line">  addClickListener(onclick: <span class="function">(<span class="params"><span class="keyword">this</span>: <span class="built_in">void</span>, e: Event</span>) =&gt;</span> <span class="built_in">void</span>): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>this: void</code> means that <code>addClickListener</code> expects <code>onclick</code> to be a function that does not require a <code>this</code> type. Second, annotate your calling code with <code>this</code>:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Handler &#123;</span><br><span class="line">  info: <span class="built_in">string</span>;</span><br><span class="line">  onClickBad(<span class="keyword">this</span>: Handler, e: Event) &#123;</span><br><span class="line">    <span class="comment">// oops, used `this` here. using this callback would crash at runtime</span></span><br><span class="line">    <span class="keyword">this</span>.info = e.message;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> h = <span class="keyword">new</span> Handler();</span><br><span class="line">uiElement.addClickListener(h.onClickBad); <span class="comment">// error!</span></span><br><span class="line">Argument of <span class="keyword">type</span> <span class="string">'(this: Handler, e: Event) =&gt; void'</span> is not assignable to parameter of <span class="keyword">type</span> <span class="string">'(this: void, e: Event) =&gt; void'</span>.</span><br><span class="line">  The <span class="string">'this'</span> types of each signature are incompatible.</span><br><span class="line">    Type <span class="string">'void'</span> is not assignable to <span class="keyword">type</span> <span class="string">'Handler'</span>.Argument of <span class="keyword">type</span> <span class="string">'(this: Handler, e: Event) =&gt; void'</span> is not assignable to parameter of <span class="keyword">type</span> <span class="string">'(this: void, e: Event) =&gt; void'</span>.</span><br><span class="line">  The <span class="string">'this'</span> types of each signature are incompatible.</span><br><span class="line">    Type <span class="string">'void'</span> is not assignable to <span class="keyword">type</span> <span class="string">'Handler'</span>.</span><br></pre></td></tr></table></figure>
+
+<p>With <code>this</code> annotated, you make it explicit that <code>onClickBad</code> must be called on an instance of <code>Handler</code>. Then TypeScript will detect that <code>addClickListener</code> requires a function that has <code>this: void</code>. To fix the error, change the type of <code>this</code>:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Handler &#123;</span><br><span class="line">  info: <span class="built_in">string</span>;</span><br><span class="line">  onClickGood(<span class="keyword">this</span>: <span class="built_in">void</span>, e: Event) &#123;</span><br><span class="line">    <span class="comment">// can't use `this` here because it's of type void!</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"clicked!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> h = <span class="keyword">new</span> Handler();</span><br><span class="line">uiElement.addClickListener(h.onClickGood);</span><br></pre></td></tr></table></figure>
+
+<p>Because <code>onClickGood</code> specifies its <code>this</code> type as <code>void</code>, it is legal to pass to <code>addClickListener</code>. Of course, this also means that it can’t use <code>this.info</code>. If you want both then you’ll have to use an arrow function:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Handler &#123;</span><br><span class="line">  info: <span class="built_in">string</span>;</span><br><span class="line">  onClickGood = <span class="function">(<span class="params">e: Event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.info = e.message;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This works because arrow functions use the outer <code>this</code>, so you can always pass them to something that expects <code>this: void</code>. The downside is that one arrow function is created per object of type Handler. Methods, on the other hand, are only created once and attached to Handler’s prototype. They are shared between all objects of type Handler.</p>
+<h3 id="3-2-Overloads"><a href="#3-2-Overloads" class="headerlink" title="3.2 Overloads"></a>3.2 Overloads</h3><p>JavaScript本质上是一种非常动态的语言。一个JavaScript函数根据传入参数的形状返回不同类型的对象的情况并不少见。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> suits = [<span class="string">"hearts"</span>, <span class="string">"spades"</span>, <span class="string">"clubs"</span>, <span class="string">"diamonds"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pickCard</span>(<span class="params">x: &#123; suit: <span class="built_in">string</span>; card: <span class="built_in">number</span> &#125;[]</span>): <span class="title">number</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pickCard</span>(<span class="params">x: <span class="built_in">number</span></span>): </span>&#123; suit: <span class="built_in">string</span>; card: <span class="built_in">number</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pickCard</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Check to see if we're working with an object/array</span></span><br><span class="line">  <span class="comment">// if so, they gave us the deck and we'll pick the card</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> x == <span class="string">"object"</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> pickedCard = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * x.length);</span><br><span class="line">    <span class="keyword">return</span> pickedCard;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Otherwise just let them pick the card</span></span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> x == <span class="string">"number"</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> pickedSuit = <span class="built_in">Math</span>.floor(x / <span class="number">13</span>);</span><br><span class="line">    <span class="keyword">return</span> &#123; suit: suits[pickedSuit], card: x % <span class="number">13</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myDeck = [</span><br><span class="line">  &#123; suit: <span class="string">"diamonds"</span>, card: <span class="number">2</span> &#125;,</span><br><span class="line">  &#123; suit: <span class="string">"spades"</span>, card: <span class="number">10</span> &#125;,</span><br><span class="line">  &#123; suit: <span class="string">"hearts"</span>, card: <span class="number">4</span> &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> pickedCard1 = myDeck[pickCard(myDeck)];</span><br><span class="line">alert(<span class="string">"card: "</span> + pickedCard1.card + <span class="string">" of "</span> + pickedCard1.suit);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> pickedCard2 = pickCard(<span class="number">15</span>);</span><br><span class="line">alert(<span class="string">"card: "</span> + pickedCard2.card + <span class="string">" of "</span> + pickedCard2.suit);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-Classes"><a href="#4-Classes" class="headerlink" title="4. Classes"></a>4. Classes</h2><h3 id="4-1-abstract"><a href="#4-1-abstract" class="headerlink" title="4.1 abstract"></a>4.1 abstract</h3><p> abstract关键字用于定义抽象类以及抽象类中的抽象方法。</p>
+<p>抽象类， 是可以从中派成出其他类的基类；简单说就是只能被继承，不能new出实例；与interface不同的是，抽象类中可以有成员实现的详细信息。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">abstract</span> <span class="keyword">class</span> App &#123;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> setTargetProps&lt;T&gt; (target: T, source: Partial&lt;T&gt;): T &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="built_in">Object</span>.keys(target).forEach(<span class="function">(<span class="params">property: keyof T</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setTargetPropsByProperty(target, property, source[property])</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(error)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> target</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> App();</span><br><span class="line"><span class="comment">// Cannot create an instance of an abstract class.</span></span><br><span class="line"><span class="keyword">class</span> B <span class="keyword">extends</span> App&#123;&#125;;</span><br><span class="line"><span class="comment">// 非抽象类“ B”未实现从类“ App”继承的抽象成员“ make”</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> C <span class="keyword">extends</span> App&#123;</span><br><span class="line">  make()&#123;&#125; <span class="comment">// 需要实现抽象类中定义的抽象方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>抽象类中标记为抽象的方法不包含实现，必须在派生类中实现。抽象方法与接口方法具有相似的语法。两者都定义了方法的签名，而没有包括方法主体。但是，抽象方法必须包含abstract关键字，并且可以选择包括访问修饰符。</p>
+<h3 id="4-2-public-private-and-protected"><a href="#4-2-public-private-and-protected" class="headerlink" title="4.2 public,private, and protected"></a>4.2 public,private, and protected</h3><h4 id="4-2-1-类型兼容"><a href="#4-2-1-类型兼容" class="headerlink" title="4.2.1 类型兼容"></a>4.2.1 类型兼容</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Animal &#123;</span><br><span class="line">  <span class="keyword">private</span> name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">theName: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = theName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Rhino <span class="keyword">extends</span> Animal &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>(<span class="string">"Rhino"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Employee &#123;</span><br><span class="line">  <span class="keyword">private</span> name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">theName: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = theName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> animal = <span class="keyword">new</span> Animal(<span class="string">"Goat"</span>);</span><br><span class="line"><span class="keyword">let</span> rhino = <span class="keyword">new</span> Rhino();</span><br><span class="line"><span class="keyword">let</span> employee = <span class="keyword">new</span> Employee(<span class="string">"Bob"</span>);</span><br><span class="line"></span><br><span class="line">animal = rhino;</span><br><span class="line">animal = employee; </span><br><span class="line"><span class="comment">// Type 'Employee' is not assignable to type 'Animal'. 没有继承关系的类型无法做赋值操作；</span></span><br><span class="line"><span class="comment">//  Types have separate declarations of a private property 'name'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-2-2-protected"><a href="#4-2-2-protected" class="headerlink" title="4.2.2 protected"></a>4.2.2 protected</h4><p>protected修饰符的行为与private修饰符非常相似，除了声明为protected的成员也可以在派生类中访问之外；</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Person &#123;</span><br><span class="line">  <span class="keyword">protected</span> name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Employee <span class="keyword">extends</span> Person &#123;</span><br><span class="line">  <span class="keyword">private</span> department: <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span>, department: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>(name);</span><br><span class="line">    <span class="keyword">this</span>.department = department;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> getElevatorPitch() &#123;</span><br><span class="line">    <span class="comment">// 派生类中可以访问到 基类中的 protected 属性；</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`Hello, my name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> and I work in <span class="subst">$&#123;<span class="keyword">this</span>.department&#125;</span>.`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> howard = <span class="keyword">new</span> Employee(<span class="string">"Howard"</span>, <span class="string">"Sales"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(howard.getElevatorPitch());</span><br><span class="line"><span class="comment">// 虽然我们不能从Person外部使用name，但仍可以在Employee的实例方法中使用它，因为Employee源自Person。</span></span><br><span class="line"><span class="built_in">console</span>.log(howard.name);</span><br><span class="line"><span class="comment">// Property 'name' is protected and only accessible within class 'Person' and its subclasses.</span></span><br></pre></td></tr></table></figure>
+
+<p>构造函数也可能被标记为受保护的。这意味着该类不能在其包含的类之外实例化，但是可以扩展。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Person &#123;</span><br><span class="line">  <span class="keyword">protected</span> name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">constructor</span>(<span class="params">theName: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = theName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Employee can extend Person</span></span><br><span class="line"><span class="keyword">class</span> Employee <span class="keyword">extends</span> Person &#123;</span><br><span class="line">  <span class="keyword">private</span> department: <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span>, department: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>(name);</span><br><span class="line">    <span class="keyword">this</span>.department = department;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> getElevatorPitch() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`Hello, my name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> and I work in <span class="subst">$&#123;<span class="keyword">this</span>.department&#125;</span>.`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> howard = <span class="keyword">new</span> Employee(<span class="string">"Howard"</span>, <span class="string">"Sales"</span>);</span><br><span class="line"><span class="keyword">let</span> john = <span class="keyword">new</span> Person(<span class="string">"John"</span>);</span><br><span class="line"><span class="comment">// Constructor of class 'Person' is protected and only accessible within the class declaration. 因为 new Person的时候是需要调 Person的构造函数，由于其构造函数添加了 protected关键字。实例是无法调类的构造函数的，所以就无法被实例化了；</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-2-3-Readonly"><a href="#4-2-3-Readonly" class="headerlink" title="4.2.3 Readonly"></a>4.2.3 Readonly</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Octopus &#123;</span><br><span class="line">  readonly name: <span class="built_in">string</span>;</span><br><span class="line">  readonly numberOfLegs: <span class="built_in">number</span> = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">readonly theName: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = theName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dad = <span class="keyword">new</span> Octopus(<span class="string">"Man with the 8 strong legs"</span>);</span><br><span class="line">dad.name = <span class="string">"Man with the 3-piece suit"</span>;</span><br><span class="line"><span class="comment">// Cannot assign to 'name' because it is a read-only property.</span></span><br><span class="line"><span class="built_in">console</span>.log(dad.name)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-2-4-accessors"><a href="#4-2-4-accessors" class="headerlink" title="4.2.4 accessors"></a>4.2.4 accessors</h4><p>TypeScript支持getters / setter方法，以拦截对对象成员的访问。这使您可以更好地控制如何访问每个对象上的成员的方式。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Employee &#123;</span><br><span class="line">  fullName: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> employee = <span class="keyword">new</span> Employee();</span><br><span class="line">employee.fullName = <span class="string">"Bob Smith"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (employee.fullName) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(employee.fullName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在此版本中，我们添加了一个setter来检查newName的长度，以确保它与我们的后备数据库字段的最大长度兼容。如果不是这样，我们会抛出错误通知客户端代码出了点问题。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fullNameMaxLength = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Employee &#123;</span><br><span class="line">  <span class="keyword">private</span> _fullName: <span class="built_in">string</span> = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> fullName(): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._fullName;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">set</span> fullName(newName: <span class="built_in">string</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (newName &amp;&amp; newName.length &gt; fullNameMaxLength) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"fullName has a max length of "</span> + fullNameMaxLength);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>._fullName = newName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> employee = <span class="keyword">new</span> Employee();</span><br><span class="line">employee.fullName = <span class="string">"Bob Smith"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (employee.fullName) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(employee.fullName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>注意事项</li>
+</ul>
+<p>首先，访问器要求您将编译器设置为输出ECMAScript 5或更高版本。不支持降级为ECMAScript 3。</p>
+<p>其次，带有get和no set的访问器会自动推断为只读。当代码生成.d.ts文件时很有用，因为用户通过ide可以看到这些无法进行更改。</p>
+<h4 id="4-2-5-Static"><a href="#4-2-5-Static" class="headerlink" title="4.2.5 Static"></a>4.2.5 Static</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Grid &#123;</span><br><span class="line">  <span class="keyword">static</span> origin = &#123; x: <span class="number">0</span>, y: <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line">  calculateDistanceFromOrigin(point: &#123; x: <span class="built_in">number</span>; y: <span class="built_in">number</span> &#125;) &#123;</span><br><span class="line">    <span class="keyword">let</span> xDist = point.x - Grid.origin.x;</span><br><span class="line">    <span class="keyword">let</span> yDist = point.y - Grid.origin.y;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(xDist * xDist + yDist * yDist) / <span class="keyword">this</span>.scale;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">public</span> scale: <span class="built_in">number</span></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> grid1 = <span class="keyword">new</span> Grid(<span class="number">1.0</span>); <span class="comment">// 1x scale</span></span><br><span class="line"><span class="keyword">let</span> grid2 = <span class="keyword">new</span> Grid(<span class="number">5.0</span>); <span class="comment">// 5x scale</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(grid1.calculateDistanceFromOrigin(&#123; x: <span class="number">10</span>, y: <span class="number">10</span> &#125;));</span><br><span class="line"><span class="built_in">console</span>.log(grid2.calculateDistanceFromOrigin(&#123; x: <span class="number">10</span>, y: <span class="number">10</span> &#125;));</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-2-6-Using-a-class-as-an-interface"><a href="#4-2-6-Using-a-class-as-an-interface" class="headerlink" title="4.2.6 Using a class as an interface"></a>4.2.6 Using a class as an interface</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Point &#123;</span><br><span class="line">  x: <span class="built_in">number</span>;</span><br><span class="line">  y: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Point3d <span class="keyword">extends</span> Point &#123;</span><br><span class="line">  z: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> point3d: Point3d = &#123; x: <span class="number">1</span>, y: <span class="number">2</span>, z: <span class="number">3</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-Generics"><a href="#5-Generics" class="headerlink" title="5. Generics"></a>5. Generics</h2>
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2021/01/19/ts-doc/>http://yoursite.com/2021/01/19/ts-doc/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-19T16:16:51+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jan 19, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/doc/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>doc</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/01/19/ts-doc/&title=ts doc - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2021/01/19/ts-doc/&title=ts doc - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/01/19/ts-doc/&title=ts doc - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2021/01/04/html5vedio/'>
+                <p class='title'>html5vedio<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>html5 播放器加速123const video = document.querySelector('video');video.playbackRate = 2 // 播放器播放速度
+</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'ts doc',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-basic-Types"><span class="toc-text">1. basic Types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-interface"><span class="toc-text">2. interface</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-readonly"><span class="toc-text">2.1 readonly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Optional"><span class="toc-text">2.2 Optional</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Excess-Property-Checks"><span class="toc-text">2.3 Excess Property Checks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Function-Types"><span class="toc-text">2.4 Function Types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-Indexable-Types"><span class="toc-text">2.5 Indexable Types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-Class-Types"><span class="toc-text">2.6 Class Types</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-1-Implement"><span class="toc-text">2.6.1 Implement</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-Extending-Interfaces"><span class="toc-text">2.7 Extending Interfaces</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-Hybrid-Types"><span class="toc-text">2.8 Hybrid Types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-Interfaces-Extending-Classes"><span class="toc-text">2.9 Interfaces Extending Classes</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Functions"><span class="toc-text">3. Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-this"><span class="toc-text">3.1 this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Overloads"><span class="toc-text">3.2 Overloads</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Classes"><span class="toc-text">4. Classes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-abstract"><span class="toc-text">4.1 abstract</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-public-private-and-protected"><span class="toc-text">4.2 public,private, and protected</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-类型兼容"><span class="toc-text">4.2.1 类型兼容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-protected"><span class="toc-text">4.2.2 protected</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-3-Readonly"><span class="toc-text">4.2.3 Readonly</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-4-accessors"><span class="toc-text">4.2.4 accessors</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-5-Static"><span class="toc-text">4.2.5 Static</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-6-Using-a-class-as-an-interface"><span class="toc-text">4.2.6 Using a class as an interface</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Generics"><span class="toc-text">5. Generics</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">belief</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
