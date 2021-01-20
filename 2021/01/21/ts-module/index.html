@@ -16,12 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>ts modules - Hexo</title>
+    <title>ts-module - Hexo</title>
   
     <meta name="keywords" content="doc">
   
   
-    <meta name="description" content="typescript文档摘抄, module部分">
+    <meta name="description" content="module & namespaces">
   
 
   <!-- feed -->
@@ -283,8 +283,8 @@
         
           
   <h1 class="title">
-    <a href="/2021/01/20/ts-modules/">
-      ts modules
+    <a href="/2021/01/21/ts-module/">
+      ts-module
     </a>
   </h1>
 
@@ -322,7 +322,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jan 20, 2021</p>
+    <p>发布于：Jan 21, 2021</p>
   </a>
 </div>
 
@@ -345,7 +345,7 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h2 id="6-Modules"><a href="#6-Modules" class="headerlink" title="6. Modules"></a>6. Modules</h2><h3 id="6-1-import-export"><a href="#6-1-import-export" class="headerlink" title="6.1 import/export"></a>6.1 import/export</h3><p>模块是在自己的范围内执行的，而不是在全局范围内执行的；这意味着在模块中声明的变量，函数，类等在模块外部是不可见的，除非使用导出形式之一显式导出它们。相反，要使用从不同模块导出的变量，函数，类，接口等，则必须使用一种导入形式将其导入。</p>
+          <h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><h3 id="6-1-import-export"><a href="#6-1-import-export" class="headerlink" title="6.1 import/export"></a>6.1 import/export</h3><p>模块是在自己的范围内执行的，而不是在全局范围内执行的；这意味着在模块中声明的变量，函数，类等在模块外部是不可见的，除非使用导出形式之一显式导出它们。相反，要使用从不同模块导出的变量，函数，类，接口等，则必须使用一种导入形式将其导入。</p>
 <p>模块是声明性的，模块之间的关系是根据文件级别的导入和导出指定的；</p>
 <p>模块使用模块加载器相互导入， 在运行时，模块加载程序负责在执行模块之前查找并执行模块的所有依赖关系。</p>
 <h4 id="6-1-1-export"><a href="#6-1-1-export" class="headerlink" title="6.1.1 export"></a>6.1.1 export</h4><p>可以通过添加export关键字来导出任何声明（例如变量，函数，类，类型别名或接口）。</p>
@@ -648,7 +648,7 @@
           
         
           
-            <p>本文永久链接是：<a href=http://yoursite.com/2021/01/20/ts-modules/>http://yoursite.com/2021/01/20/ts-modules/</a></p>
+            <p>本文永久链接是：<a href=http://yoursite.com/2021/01/21/ts-module/>http://yoursite.com/2021/01/21/ts-module/</a></p>
           
         
       </blockquote>
@@ -699,7 +699,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-21T00:47:31+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-21T00:51:47+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jan 21, 2021</p>
@@ -729,7 +729,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/01/20/ts-modules/&title=ts modules - Hexo&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/01/21/ts-module/&title=ts-module - Hexo&summary="
           
           >
           
@@ -741,7 +741,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2021/01/20/ts-modules/&title=ts modules - Hexo&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2021/01/21/ts-module/&title=ts-module - Hexo&summary="
           
           >
           
@@ -753,7 +753,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/01/20/ts-modules/&title=ts modules - Hexo&summary="
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/01/21/ts-module/&title=ts-module - Hexo&summary="
           
           >
           
@@ -777,16 +777,10 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/2021/01/21/ts-module/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>ts-module</p>
-                <p class='content'>Modules6.1 import/export模块是在自己的范围内执行的，而不是在全局范围内执行的；这意味着在模块中声明的变量，函数，类等在模块外部是不可见的，除非使用导出形式之一显式导出它们...</p>
-              </a>
             
-            
-              <a class='next' href='/2021/01/20/ts-generics/'>
-                <p class='title'>ts generics<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>5. Generics泛型，创建可重用组件的工具。
-1234function loggingIdentity&lt;T&gt;(arg: T) &#123;  console.log(arg.l...</p>
+              <a class='next' href='/2021/01/20/ts-modules/'>
+                <p class='title'>ts modules<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>6. Modules6.1 import/export模块是在自己的范围内执行的，而不是在全局范围内执行的；这意味着在模块中声明的变量，函数，类等在模块外部是不可见的，除非使用导出形式之一显式导...</p>
               </a>
             
           </div>
@@ -831,7 +825,7 @@
 
   <script>
     window.subData = {
-      title: 'ts modules',
+      title: 'ts-module',
       tools: true
     }
   </script>
@@ -857,7 +851,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Modules"><span class="toc-text">6. Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-import-export"><span class="toc-text">6.1 import&#x2F;export</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-1-export"><span class="toc-text">6.1.1 export</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-2-import"><span class="toc-text">6.1.2 import</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-3-default-exports"><span class="toc-text">6.1.3 default exports</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-4-Export-all-as-x"><span class="toc-text">6.1.4 Export all as x</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-4-export-import-require"><span class="toc-text">6.1.4 export &#x3D;      import &#x3D; require()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-code-generation-for-Modules"><span class="toc-text">6.2 code generation for Modules</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-可选模块加载和其他高级加载方案"><span class="toc-text">6.3 可选模块加载和其他高级加载方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-1-Dynamic-Module-Loading-in-Node-js"><span class="toc-text">6.3.1 Dynamic Module Loading in Node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-2-Sample-Dynamic-Module-Loading-in-require-js"><span class="toc-text">6.3.2 Sample: Dynamic Module Loading in require.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-3-Sample-Dynamic-Module-Loading-in-System-js"><span class="toc-text">6.3.3 Sample: Dynamic Module Loading in System.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-使用其他js库"><span class="toc-text">6.4 使用其他js库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-1-声明文件的存放方式"><span class="toc-text">6.4.1 声明文件的存放方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-1-无配置使用js"><span class="toc-text">6.4.1 无配置使用js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-2-Ts中引入js"><span class="toc-text">6.4.2 Ts中引入js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-3-declare"><span class="toc-text">6.4.3 declare</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-4-Ts中导入-png-json等"><span class="toc-text">6.4.4 Ts中导入.png .json等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-5-第三方模块没有可用的声明文件"><span class="toc-text">6.4.5  第三方模块没有可用的声明文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-6-webpack-别名-aliases"><span class="toc-text">6.4.6  webpack  别名  aliases</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-7-类型Window上不存在属性“X”"><span class="toc-text">6.4.7 类型Window上不存在属性“X”</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-Ambient-Modules"><span class="toc-text">6.5 Ambient Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-5-1-不想为第三方js写声明"><span class="toc-text">6.5.1 不想为第三方js写声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-5-2-通配符"><span class="toc-text">6.5.2 通配符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-5-3-UMD-modules"><span class="toc-text">6.5.3 UMD modules</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-7-Guidance-for-structuring-modules"><span class="toc-text">6.7 Guidance for structuring modules</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-7-1-Export-as-close-to-top-level-as-possible"><span class="toc-text">6.7.1 Export as close to top-level as possible</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-7-2-Re-export-to-extend"><span class="toc-text">6.7.2 Re-export to extend</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-7-3-Do-not-use-namespaces-in-modules"><span class="toc-text">6.7.3  Do not use namespaces in modules</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Namespaces"><span class="toc-text">7. Namespaces</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-多个相似对象添加namespaces"><span class="toc-text">7.1 多个相似对象添加namespaces</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-Splitting-Across-Files"><span class="toc-text">7.2  Splitting Across Files</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#7-2-1-Multi-file-namespaces"><span class="toc-text">7.2.1 Multi-file namespaces</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-Aliases"><span class="toc-text">7.3 Aliases</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-1-使用第三方JavaScript库"><span class="toc-text">7.3.1 使用第三方JavaScript库</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modules"><span class="toc-text">Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-import-export"><span class="toc-text">6.1 import&#x2F;export</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-1-export"><span class="toc-text">6.1.1 export</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-2-import"><span class="toc-text">6.1.2 import</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-3-default-exports"><span class="toc-text">6.1.3 default exports</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-4-Export-all-as-x"><span class="toc-text">6.1.4 Export all as x</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-4-export-import-require"><span class="toc-text">6.1.4 export &#x3D;      import &#x3D; require()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-code-generation-for-Modules"><span class="toc-text">6.2 code generation for Modules</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-可选模块加载和其他高级加载方案"><span class="toc-text">6.3 可选模块加载和其他高级加载方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-1-Dynamic-Module-Loading-in-Node-js"><span class="toc-text">6.3.1 Dynamic Module Loading in Node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-2-Sample-Dynamic-Module-Loading-in-require-js"><span class="toc-text">6.3.2 Sample: Dynamic Module Loading in require.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-3-Sample-Dynamic-Module-Loading-in-System-js"><span class="toc-text">6.3.3 Sample: Dynamic Module Loading in System.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-使用其他js库"><span class="toc-text">6.4 使用其他js库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-1-声明文件的存放方式"><span class="toc-text">6.4.1 声明文件的存放方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-1-无配置使用js"><span class="toc-text">6.4.1 无配置使用js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-2-Ts中引入js"><span class="toc-text">6.4.2 Ts中引入js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-3-declare"><span class="toc-text">6.4.3 declare</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-4-Ts中导入-png-json等"><span class="toc-text">6.4.4 Ts中导入.png .json等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-5-第三方模块没有可用的声明文件"><span class="toc-text">6.4.5  第三方模块没有可用的声明文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-6-webpack-别名-aliases"><span class="toc-text">6.4.6  webpack  别名  aliases</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-7-类型Window上不存在属性“X”"><span class="toc-text">6.4.7 类型Window上不存在属性“X”</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-Ambient-Modules"><span class="toc-text">6.5 Ambient Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-5-1-不想为第三方js写声明"><span class="toc-text">6.5.1 不想为第三方js写声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-5-2-通配符"><span class="toc-text">6.5.2 通配符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-5-3-UMD-modules"><span class="toc-text">6.5.3 UMD modules</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-7-Guidance-for-structuring-modules"><span class="toc-text">6.7 Guidance for structuring modules</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-7-1-Export-as-close-to-top-level-as-possible"><span class="toc-text">6.7.1 Export as close to top-level as possible</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-7-2-Re-export-to-extend"><span class="toc-text">6.7.2 Re-export to extend</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-7-3-Do-not-use-namespaces-in-modules"><span class="toc-text">6.7.3  Do not use namespaces in modules</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Namespaces"><span class="toc-text">7. Namespaces</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-多个相似对象添加namespaces"><span class="toc-text">7.1 多个相似对象添加namespaces</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-Splitting-Across-Files"><span class="toc-text">7.2  Splitting Across Files</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#7-2-1-Multi-file-namespaces"><span class="toc-text">7.2.1 Multi-file namespaces</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-Aliases"><span class="toc-text">7.3 Aliases</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-1-使用第三方JavaScript库"><span class="toc-text">7.3.1 使用第三方JavaScript库</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
