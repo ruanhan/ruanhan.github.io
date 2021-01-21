@@ -579,21 +579,24 @@
 
 <h2 id="8-三斜杠指令"><a href="#8-三斜杠指令" class="headerlink" title="8. 三斜杠指令"></a>8. 三斜杠指令</h2><p>三斜杠指令是包含单个XML标签的单行注释。注释的内容用作编译器指令。</p>
 <p>三斜杠指令仅在其包含文件的顶部有效。三斜杠指令只能在单行或多行注释之前，包括其他三斜杠指令。如果在声明或声明之后遇到它们，则将它们视为常规的单行注释，并且没有特殊含义。</p>
-<h3 id="8-1-文件之间的依赖声明"><a href="#8-1-文件之间的依赖声明" class="headerlink" title="8.1  文件之间的依赖声明"></a>8.1  文件之间的依赖声明</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///&lt;reference path="..."/&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-1-文件之间的依赖声明"><a href="#8-1-文件之间的依赖声明" class="headerlink" title="8.1  文件之间的依赖声明"></a>8.1  文件之间的依赖声明</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///&lt;reference path="..."/&gt;</span></span><br><span class="line"><span class="comment">///&lt;reference path="..."/&gt;   是这个group中最常见的，它用作文件之间依赖关系的声明；</span></span><br></pre></td></tr></table></figure>
 
-<p><code>///&lt;reference path=&quot;...&quot;/&gt;</code> 是这个group中最常见的，它用作文件之间依赖关系的声明；</p>
+
+
+
+
 <p>三斜杠指令指示编译器在编译过程中包括其他文件；</p>
 <p>当使用 –out 或 –outFile时，它们还可以用作对输出进行排序的方法。预处理通过后，文件以与输入相同的顺序输出到目标文件位置。</p>
 <h3 id="8-2-input-files-预处理"><a href="#8-2-input-files-预处理" class="headerlink" title="8.2  input files 预处理"></a>8.2  input files 预处理</h3><p>编译器对输入文件进行预处理，以解析所有三斜杠引用指令。在此过程中，其他文件将添加到编译过程中。</p>
 <p>该过程从一组根文件开始；这些是在命令行或tsconfig.json文件的“files”列表中指定的文件名。这些根文件将按照指定的顺序进行预处理。在将文件添加到列表之前，必须先处理其中的所有三斜杠引用及其目标。按照在文件中出现的顺序，深度优先地解析三斜杠引用</p>
 <p>A triple-slash reference path is resolved relative to the containing file, if unrooted.</p>
-<h3 id="8-3-types"><a href="#8-3-types" class="headerlink" title="8.3 types"></a>8.3 types</h3><p><code>&lt;reference types=&quot;...&quot;/&gt;</code> 与 <code>///&lt;reference path=&quot;...&quot;/&gt;</code>  类似，前者声明对包的依赖</p>
+<h3 id="8-3-types"><a href="#8-3-types" class="headerlink" title="8.3 types"></a>8.3 types</h3><p><code>types=&quot;...&quot; 与 path=&quot;...&quot;</code> 类似，前者声明对包的依赖</p>
 <p>这些程序包名称的解析过程与import语句中的模块名称解析过程相似。考虑三重斜杠引用类型指令的一种简单方法是将其作为声明包的导入。</p>
-<p>在一个声明文件中包括 <code>/// &lt;reference types=&quot;node&quot; /&gt;</code> 则该声明文件使用<code>@types/node/index.d.ts</code>中声明的名称，因此，此包需要与声明文件一起包含在编译中; </p>
+<p>在一个声明文件中包括 <code>types=&quot;node&quot;</code> 则该声明文件使用<code>@types/node/index.d.ts</code>中声明的名称，因此，此包需要与声明文件一起包含在编译中; </p>
 <p>仅当您书写d.ts文件时，才使用这些指令；</p>
-<p>对于编译期间生成的声明文件，编译器会自动添加<code>/// &lt;reference types=&quot;...&quot; /&gt;</code>。当且仅当reslulting file使用 referenced package中 任何声明的时候，才会在生成的声明文件中添加 <code>/// &lt;reference types=&quot;...&quot; /&gt;</code> ；</p>
+<p>对于编译期间生成的声明文件，编译器会自动添加<code>types=&quot;...&quot;</code>。当且仅当reslulting file使用 referenced package中 任何声明的时候，才会在生成的声明文件中添加 <code>types=&quot;...&quot;</code> ；</p>
 <p>在 .ts 文件声明对 一个@types 包的依赖， 使用命令行 –types 或者 tsconfig.json中设置；</p>
-<h3 id="8-4-lib"><a href="#8-4-lib" class="headerlink" title="8.4 lib"></a>8.4 lib</h3><p><code>/// &lt;reference lib=&quot;...&quot; /&gt;</code> </p>
+<h3 id="8-4-lib"><a href="#8-4-lib" class="headerlink" title="8.4 lib"></a>8.4 lib</h3><p><code>lib=&quot;...&quot;</code> </p>
 <p>此指令允许文件显式包括现有的内置lib文件。</p>
 <p>例如，在编译中的一个文件中添加/// &lt;reference lib =“ es2017.string” /&gt;等效于使用–lib es2017.string进行编译。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;reference lib="es2017.string" /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="string">"foo"</span>.padStart(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
@@ -613,12 +616,12 @@
 <p><strong>推荐做法</strong></p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// shapes.ts</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> Triangle &#123;</span><br><span class="line"><span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> Square &#123;</span><br><span class="line"><span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// shapeConsumer.ts</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> shapes <span class="keyword">from</span> <span class="string">"./shapes"</span>;</span><br><span class="line"><span class="keyword">let</span> t = <span class="keyword">new</span> shapes.Triangle();</span><br></pre></td></tr></table></figure>
 
-<h4 id="9-3-2-reference-和import-的使用时机"><a href="#9-3-2-reference-和import-的使用时机" class="headerlink" title="9.3.2 reference 和import 的使用时机"></a>9.3.2 reference 和import 的使用时机</h4><p>一个常见的错误是尝试使用<code>/// &lt;reference ... /&gt;</code>语法来引用模块文件，而不是使用<code>import</code>语句；</p>
+<h4 id="9-3-2-reference-和import-的使用时机"><a href="#9-3-2-reference-和import-的使用时机" class="headerlink" title="9.3.2 reference 和import 的使用时机"></a>9.3.2 reference 和import 的使用时机</h4><p>一个常见的错误是尝试使用<code>/// reference ...</code>语法来引用模块文件，而不是使用<code>import</code>语句；</p>
 <p>编译器如何 基于 <code>path of an import path(import X from &#39;xxx&#39;; import x = require(&#39;...&#39;))</code> 找到模块的类型信息；</p>
 <p>编译器将尝试查找.ts，.tsx，然后找到具有适当路径的.d.ts。如果找不到特定的文件，然编译器会去找<code>ambient module declaration</code> 记得这些需要在 .d.ts 文件中声明</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// myModules.d.ts</span></span><br><span class="line"><span class="comment">// In a .d.ts file or .ts file that is not a module:</span></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">module</span> "SomeModule" &#123;</span><br><span class="line">	<span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>): <span class="title">string</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// myOtherModule.ts</span></span><br><span class="line"><span class="comment">/// &lt;reference path="myModules.d.ts" /&gt;  记得添加依赖</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> m <span class="keyword">from</span> <span class="string">"SomeModule"</span>; <span class="comment">// 这里并不是导入 文件名，而是模块名，因为 myModules.d.ts 不是一个模块；</span></span><br></pre></td></tr></table></figure>
 
-<p><code>/// &lt;reference path=&quot;myModules.d.ts&quot; /&gt;</code> 使我们能够找到包含环境模块声明的声明文件，This is how the <code>node.d.ts</code> file that several of the TypeScript samples use is consumed.</p>
+<p><code>/// reference path=&quot;myModules.d.ts&quot;</code> 使我们能够找到包含环境模块声明的声明文件，This is how the <code>node.d.ts</code> file that several of the TypeScript samples use is consumed.</p>
 
           
             <div class='article_footer'>
@@ -706,7 +709,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-21T11:29:23+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-21T11:32:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jan 21, 2021</p>
