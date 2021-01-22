@@ -579,6 +579,11 @@
 
 <h2 id="8-三斜杠指令"><a href="#8-三斜杠指令" class="headerlink" title="8. 三斜杠指令"></a>8. 三斜杠指令</h2><p>三斜杠指令是包含单个XML标签的单行注释。注释的内容用作编译器指令。</p>
 <p>三斜杠指令仅在其包含文件的顶部有效。三斜杠指令只能在单行或多行注释之前，包括其他三斜杠指令。如果在声明或声明之后遇到它们，则将它们视为常规的单行注释，并且没有特殊含义。</p>
+<ul>
+<li><code>/// &lt;reference path=&quot;./lib/index.d.ts&quot; /&gt;</code>：表示对一个文件的依赖。</li>
+<li><code>/// &lt;reference types=&quot;jye&quot; /&gt;</code>：表示对一个库的依赖。</li>
+</ul>
+<p>三斜线的<code>path</code> &amp; <code>types</code>，和<code>es6</code>的<code>import</code>语义相似，同时<strong>三斜线指令必须放在文件的最顶端</strong>。例如，当我们的声明文件过于庞大，一般都会采用三斜线指令，将我们的声明文件拆分成若干个，然后由一个入口文件引入。</p>
 <h3 id="8-1-文件之间的依赖声明"><a href="#8-1-文件之间的依赖声明" class="headerlink" title="8.1  文件之间的依赖声明"></a>8.1  文件之间的依赖声明</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///&lt;reference path="..."/&gt;</span></span><br><span class="line"><span class="comment">///&lt;reference path="..."/&gt;   是这个group中最常见的，它用作文件之间依赖关系的声明；</span></span><br></pre></td></tr></table></figure>
 
 
@@ -590,7 +595,7 @@
 <h3 id="8-2-input-files-预处理"><a href="#8-2-input-files-预处理" class="headerlink" title="8.2  input files 预处理"></a>8.2  input files 预处理</h3><p>编译器对输入文件进行预处理，以解析所有三斜杠引用指令。在此过程中，其他文件将添加到编译过程中。</p>
 <p>该过程从一组根文件开始；这些是在命令行或tsconfig.json文件的“files”列表中指定的文件名。这些根文件将按照指定的顺序进行预处理。在将文件添加到列表之前，必须先处理其中的所有三斜杠引用及其目标。按照在文件中出现的顺序，深度优先地解析三斜杠引用</p>
 <p>A triple-slash reference path is resolved relative to the containing file, if unrooted.</p>
-<h3 id="8-3-types"><a href="#8-3-types" class="headerlink" title="8.3 types"></a>8.3 types</h3><p><code>types=&quot;...&quot; 与 path=&quot;...&quot;</code> 类似，前者声明对包的依赖</p>
+<h3 id="8-3-types"><a href="#8-3-types" class="headerlink" title="8.3 types"></a>8.3 types</h3><p><code>types=&quot;...&quot; 与 path=&quot;...&quot;</code> 类似，前者声明对包的依赖，后者声明对一个文件的依赖</p>
 <p>这些程序包名称的解析过程与import语句中的模块名称解析过程相似。考虑三重斜杠引用类型指令的一种简单方法是将其作为声明包的导入。</p>
 <p>在一个声明文件中包括 <code>types=&quot;node&quot;</code> 则该声明文件使用<code>@types/node/index.d.ts</code>中声明的名称，因此，此包需要与声明文件一起包含在编译中; </p>
 <p>仅当您书写d.ts文件时，才使用这些指令；</p>
@@ -709,10 +714,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-21T11:32:46+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-22T10:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jan 21, 2021</p>
+    <p>更新于：Jan 22, 2021</p>
   </a>
 </div>
 
