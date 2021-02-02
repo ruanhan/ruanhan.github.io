@@ -21,6 +21,8 @@
     <meta name="keywords" content="guide">
   
   
+    <meta name="description" content="绘图基本原理">
+  
 
   <!-- feed -->
   
@@ -438,9 +440,9 @@
 <h3 id="3-2-向量"><a href="#3-2-向量" class="headerlink" title="3.2 向量"></a>3.2 向量</h3><p>在直角坐标系里绘制图形，一般的几何图形都是由点，线段喝面构成，其中，点和线段是基础的图元信息，因此，如何描述它们是绘图的关键；</p>
 <p>如何用向量来描述点和线段？一般用向量来表示一个点或者一个线段；</p>
 <p>用二维向量来表示这个平面上的点和线段，二维向量其实就是一个包含了两个数值的数组，一个是x坐标值，一个是y坐标值；</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang1.png" alt="image-20210129145004214"></p>
+<p><img src="xiangliang1.png" alt="image-20210129145004214"></p>
 <p><code>向量V(x,y)有两个含义，一是表示该坐标系下位于（x，y）处的一个点，二是可以表示从原点（0，0）到坐标（x，y）的一根线段。</code></p>
-<h4 id="3-2-1-向量基本运算"><a href="#3-2-1-向量基本运算" class="headerlink" title="3.2.1 向量基本运算"></a>3.2.1 向量基本运算</h4><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang2.png" alt="image-20210129150448210"></p>
+<h4 id="3-2-1-向量基本运算"><a href="#3-2-1-向量基本运算" class="headerlink" title="3.2.1 向量基本运算"></a>3.2.1 向量基本运算</h4><p><img src="xiangliang2.png" alt="image-20210129150448210"></p>
 <p>现在有两个向量，v1和v2；</p>
 <p>v1+v2 相当于将V1的终点沿着v2向量的方向移动一段距离。这段距离等于v2向量的长度。</p>
 <p>这样在平面上得到三个元素</p>
@@ -456,7 +458,7 @@
 <p>它的方向可以用与 x 轴的夹角来表示</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v.dir = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="built_in">Math</span>.atan2(<span class="keyword">this</span>.y, <span class="keyword">this</span>.x);&#125;</span><br><span class="line"><span class="comment">// Math.atan2 的取值范围是 -π到π，负数表示在 x 轴下方，正数表示在 x 轴上方。</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/atan2.png" alt="image-20210129161732242"></p>
+<p><img src="atan2.png" alt="image-20210129161732242"></p>
 <p>根据长度和方向的定义，还能推导出一组关系方式：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v.x = v.length * <span class="built_in">Math</span>.cos(v.dir);</span><br><span class="line">v.y = v.length * <span class="built_in">Math</span>.sin(v.dir);</span><br></pre></td></tr></table></figure>
 
@@ -474,11 +476,11 @@
 
 
 <p>可视化呈现依赖于计算机图形学，而向量运算是整个计算机图形学的数学基础；</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang6.png" alt="image-20210201115049568"></p>
+<p><img src="xiangliang6.png" alt="image-20210201115049568"></p>
 <h3 id="3-3-向量乘法"><a href="#3-3-向量乘法" class="headerlink" title="3.3 向量乘法"></a>3.3 向量乘法</h3><p>向量的点乘Dot.product, 向量的点乘也叫向量的内积、数量积；</p>
 <p>向量的叉乘Corss.product，也叫向量积，外积、叉积；</p>
 <h4 id="3-3-1-一个例子引出向量乘法的"><a href="#3-3-1-一个例子引出向量乘法的" class="headerlink" title="3.3.1 一个例子引出向量乘法的"></a>3.3.1 一个例子引出向量乘法的</h4><p>*<em>判断：一个点是否在扫描器内 *</em></p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang3.png" alt="image-20210201100216269"></p>
+<p><img src="xiangliang3.png" alt="image-20210201100216269"></p>
 <p><strong>解答</strong></p>
 <p>如图所示，扫描器是60度，垂直向上，所以它的范围应该是60度到120度； 也就是 <code>Math.PI/3</code> 到 <code>2*Math.PI/3</code></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  先求出目标向量与X轴的夹脚</span></span><br><span class="line">v.dir = <span class="built_in">Math</span>.atan2(v.y, v.x); <span class="comment">// 此方法是求解夹角的，比如 Math.atan2(1,1) === Math.PI/4 // true</span></span><br><span class="line"><span class="comment">// 求解该 dir是否在扫描器之内</span></span><br><span class="line">isIn = v.dir &gt; <span class="built_in">Math</span>.PI/<span class="number">3</span> &amp;&amp; v.dir &lt; <span class="number">2</span>*<span class="built_in">Math</span>.PI/ <span class="number">3</span></span><br></pre></td></tr></table></figure>
@@ -488,7 +490,7 @@
 
 <p>a, b 向量点积的几何意义，是a向量乘以b向量在a向量上的投影分量。</p>
 <p>它的物理含义相当于a力作用于物体，产生b位移所做的功。</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang4.png" alt="image-20210201101853232"></p>
+<p><img src="xiangliang4.png" alt="image-20210201101853232"></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当a、b向量平行时，那么它们的夹角为0</span></span><br><span class="line">a.x * b.x + a.y * b.y = a.length * b.length;</span><br><span class="line"><span class="comment">// 当a、b两个向量垂直时，它们的夹角就是90度，那么a.b = 0；</span></span><br><span class="line">a.x * b.x + a.y * b.y === a*b*cos(<span class="number">90</span>度) = a*b*<span class="number">0</span> = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 
 <p><strong>总结</strong></p>
@@ -496,16 +498,16 @@
 <p>（标量： scalar， 只有大小没有方向的量，例如物体移动中的平均速率·路程）</p>
 <h4 id="3-3-3-向量的叉乘"><a href="#3-3-3-向量的叉乘" class="headerlink" title="3.3.3 向量的叉乘"></a>3.3.3 向量的叉乘</h4><p>向量的叉乘，则是针对两条向量的另一种运算方式。</p>
 <p>向量叉乘运算的结果不是标量，而是一个新的向量；新的向量会 垂直于 原来的这两条向量；</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang7.png" alt="image-20210201130057607"></p>
+<p><img src="xiangliang7.png" alt="image-20210201130057607"></p>
 <p>向量A和向量B的叉积是向量C， 【向量C】同时垂直于【向量A和向量B】</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang8.png" alt="image-20210201130451600"></p>
+<p><img src="xiangliang8.png" alt="image-20210201130451600"></p>
 <p>【向量的叉乘】一个用途就是找到我们应该在哪一轴上施加【扭力Torque】（还有，跟踪导弹，比如合金弹头的C弹，也是可以通过叉乘的方法去实现的）；</p>
 <p>如下示例：</p>
 <p>【向量A】表示的是炮口【当前朝向】</p>
 <p>【向量B】表示的是炮口将要【调整后的朝向】</p>
 <p>【向量C】将两个向量进行叉乘后，找到炮口需要在哪一轴上进行旋转并且施加相应的扭力；</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang9.png" alt="image-20210201131037523"></p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang5.png" alt="image-20210201104506469"></p>
+<p><img src="xiangliang9.png" alt="image-20210201131037523"></p>
+<p><img src="xiangliang5.png" alt="image-20210201104506469"></p>
 <p><strong>叉积几何意义</strong></p>
 <p>向量a和b的叉积，就相当于向量a（蓝色带箭头线段）与向量b沿垂直方向的投影（红色带箭头线段）的乘积。（如上图所示），二维向量叉积的几何意义就是向量a、b组成的平行四边形的面积；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|a| 表示向量a的length；</span><br></pre></td></tr></table></figure>
@@ -519,7 +521,7 @@
 
 <p>更多点积差积相关知识参考<a href="https://geek-docs.com/linear-algebra/vector/vector-chaji.html" target="_blank" rel="noopener">https://geek-docs.com/linear-algebra/vector/vector-chaji.html</a></p>
 <p><strong>回到思考题3:  给任意一个点，判断这个点在不在扫描器内</strong></p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang3.png" alt="image-20210201100216269"></p>
+<p><img src="xiangliang3.png" alt="image-20210201100216269"></p>
 <p><strong>归一化</strong></p>
 <p>归一化，用 v0的 x、y 分别除以它的绝对值。归一化后的向量方向不变，长度为 1。 在向量乘法里，如果 a、b 都是长度为 1 的归一化向量，那么|a X b| 的结果就是 a、b 夹角的正弦值，而|a • b|的结果就是 a、b 夹角的余弦值。</p>
 <p>好了，再说回来，我们把归一化的向量 a 叉乘扫描器中线上的 v(0,1)，由于扫描器关于 y 轴对称，所以扫描器边缘与 y 轴的夹角是正负 30 度。那么在与单位向量求叉积的时候，就会出现 2 种情况：</p>
@@ -527,19 +529,19 @@
 <li>点在扫描范围内，如向量 a，就一定满足： |a X v| &lt;= ||a||v|sin(30°)| = |sin(30°)| = 0.5；</li>
 <li>点不在扫描范围内，如向量 b，就一定满足：|b X v| &gt; ||b||v|sin(30°)| = |sin(30°)| = 0.5。</li>
 </ol>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang10.png" alt="image-20210201170711074"></p>
+<p><img src="xiangliang10.png" alt="image-20210201170711074"></p>
 <p>因此，只要任意一点所在的向量与单位向量的叉积结果的绝对值不大于0.5（即sin30度），就说明这个点在扫描范围内，所以如下判断方法</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> isInRange = <span class="built_in">Math</span>.abs(<span class="keyword">new</span> Vec2(<span class="number">0</span>, <span class="number">1</span>).cross(v0.normalize())) &lt;= <span class="number">0.5</span>; </span><br><span class="line"><span class="comment">// v0.normalize()即将v0归一化</span></span><br></pre></td></tr></table></figure>
 
 
 
 <h3 id="3-4-向量和参数方程描述曲线"><a href="#3-4-向量和参数方程描述曲线" class="headerlink" title="3.4 向量和参数方程描述曲线"></a>3.4 向量和参数方程描述曲线</h3><p>用参数方程描述曲线的方法，通过此方法可以描述常见的圆，椭圆，抛物线，正余弦等曲线，还能描述更具一般性的曲线；比如贝塞尔曲线，或者Catmull-Rom曲线等等；</p>
-<h4 id="3-4-1-画圆"><a href="#3-4-1-画圆" class="headerlink" title="3.4.1 画圆"></a>3.4.1 画圆</h4><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang11.png" alt="image-20210201210910536"></p>
+<h4 id="3-4-1-画圆"><a href="#3-4-1-画圆" class="headerlink" title="3.4.1 画圆"></a>3.4.1 画圆</h4><p><img src="xiangliang11.png" alt="image-20210201210910536"></p>
 <p>如下图所示的参数方程，圆心为（x0, y0），半径为r；</p>
 <h4 id="3-4-2-画圆椎曲线"><a href="#3-4-2-画圆椎曲线" class="headerlink" title="3.4.2 画圆椎曲线"></a>3.4.2 画圆椎曲线</h4><p>除了画圆，参数方程还可以描述很多其他圆椎曲线，比如椭圆的参数方程。它其实和圆的参数方程很接近。其中，a，b 分别是椭圆的长轴和短轴，当a=b=r时，这个方程就是椭圆的方程式。圆是椭圆的特例；</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang12.png" alt="image-20210201212553422"></p>
+<p><img src="xiangliang12.png" alt="image-20210201212553422"></p>
 <h4 id="3-4-3-抛物线的参数方程，"><a href="#3-4-3-抛物线的参数方程，" class="headerlink" title="3.4.3 抛物线的参数方程，"></a>3.4.3 抛物线的参数方程，</h4><p>其中p是常数，为焦点到准线的距离</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/webgl01/xiangliang13.png" alt="image-20210201212737588"></p>
+<p><img src="xiangliang13.png" alt="image-20210201212737588"></p>
 <h4 id="3-4-4-贝塞尔曲线"><a href="#3-4-4-贝塞尔曲线" class="headerlink" title="3.4.4 贝塞尔曲线"></a>3.4.4 贝塞尔曲线</h4><h3 id="3-5-三角剖分和向量操作描述并处理多边形"><a href="#3-5-三角剖分和向量操作描述并处理多边形" class="headerlink" title="3.5 三角剖分和向量操作描述并处理多边形"></a>3.5 三角剖分和向量操作描述并处理多边形</h3><h3 id="3-6-仿射变换对几何图形进行坐标变换"><a href="#3-6-仿射变换对几何图形进行坐标变换" class="headerlink" title="3.6 仿射变换对几何图形进行坐标变换"></a>3.6 仿射变换对几何图形进行坐标变换</h3>
           
             <div class='article_footer'>
@@ -627,10 +629,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-01T22:17:34+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-02T14:50:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Feb 1, 2021</p>
+    <p>更新于：Feb 2, 2021</p>
   </a>
 </div>
 
