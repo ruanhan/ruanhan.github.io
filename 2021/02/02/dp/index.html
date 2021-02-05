@@ -343,7 +343,109 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2>
+          <h2 id="1-动态规划题目特点"><a href="#1-动态规划题目特点" class="headerlink" title="1 动态规划题目特点"></a>1 动态规划题目特点</h2><ol>
+<li>计数类</li>
+</ol>
+<ul>
+<li>有多少种方式走到右下角</li>
+<li>有多少种方法选出K个数使得和是sum</li>
+</ul>
+<ol start="2">
+<li>求最大最小值（DP最大的一类）</li>
+</ol>
+<ul>
+<li>从左上角走到右下角路径的最大数字和</li>
+<li>最长上升子序列长度</li>
+</ul>
+<ol start="3">
+<li>求存在性</li>
+</ol>
+<ul>
+<li>取石子游戏，先手是否必胜</li>
+<li>能不能选出K个数使得和是sum</li>
+</ul>
+<h2 id="2-dp解题步骤"><a href="#2-dp解题步骤" class="headerlink" title="2 dp解题步骤"></a>2 dp解题步骤</h2><p>以 Coin Change 为例；</p>
+<p><strong>三种硬币，分别面值2元，5元和7元， 没种硬不都有足够多，去书店买本书需要27元。如何用最少的硬币组合正好付清，不需要对方找钱</strong></p>
+<p><code>分析： 这题出现求最少，显然可以使用DP方法来解决</code></p>
+<h3 id="2-1-动态规划组成部分一：-确定状态"><a href="#2-1-动态规划组成部分一：-确定状态" class="headerlink" title="2.1 动态规划组成部分一： 确定状态"></a>2.1 动态规划组成部分一： 确定状态</h3><h4 id="2-1-1-状态在动态规划中的作用属于定海神针"><a href="#2-1-1-状态在动态规划中的作用属于定海神针" class="headerlink" title="2.1.1  状态在动态规划中的作用属于定海神针"></a>2.1.1  状态在动态规划中的作用属于定海神针</h4><h4 id="2-1-2-简单来说，解动态规划的时候需要开一个数组，数组的每个元素f-i-或者-f-i-j-代表什么；-类似于解数学题中，X，-Y，Z代表什么；"><a href="#2-1-2-简单来说，解动态规划的时候需要开一个数组，数组的每个元素f-i-或者-f-i-j-代表什么；-类似于解数学题中，X，-Y，Z代表什么；" class="headerlink" title="2.1.2  简单来说，解动态规划的时候需要开一个数组，数组的每个元素f[i] 或者 f[i][j]代表什么； 类似于解数学题中，X， Y，Z代表什么；"></a>2.1.2  简单来说，解动态规划的时候需要开一个数组，数组的每个元素<code>f[i]</code> 或者 <code>f[i][j]</code>代表什么； 类似于解数学题中，X， Y，Z代表什么；</h4><h4 id="2-1-3-确定状态需要两个意识："><a href="#2-1-3-确定状态需要两个意识：" class="headerlink" title="2.1.3  确定状态需要两个意识："></a>2.1.3  确定状态需要两个意识：</h4><h5 id="2-1-3-1-最后一步"><a href="#2-1-3-1-最后一步" class="headerlink" title="2.1.3.1 最后一步"></a>2.1.3.1 最后一步</h5><p>  虽然我们不知道最优策略是什么，但是最优策略肯定是K梅硬币a1,a2,…,ak 面值加起来是27；</p>
+<p>最后一步指的就是最优策略中的最后一个决策，对应到这一题就是一定会有一枚最后的硬币决策： ak， 那么除了这枚硬币，前面硬币的面值加起来是27-ak；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/dp/01.png" alt="image-20210202160842790"></p>
+<p><strong>关键点1：</strong></p>
+<p>我们不关心前面的 <code>k-1</code> 枚硬币是怎么拼出<code>27-ak</code>的（可能有1种拼法，可能有100种拼法），而且我们现在甚至还不知道<code>ak</code> 和<code>k</code>， 但是我们确定前面的硬币拼出了 <code>27-ak</code>；</p>
+<p><strong>关键点2:</strong></p>
+<p>因为是最优策略，所以拼出<code>27-ak</code>的硬币数一定要最少，否则这就不是最优策略了；</p>
+<p>解析关键点2： 比如最优策略要用5枚硬币，假设最后一枚是5元面额，那么4枚硬币组成了22元。你不可能用3枚，2枚甚至1枚拼成22元； 浅显的道理，如果用3枚可以拼出来22元的话，那么最优策略要用5枚的假设就不成立；</p>
+<h5 id="2-1-3-2-子问题"><a href="#2-1-3-2-子问题" class="headerlink" title="2.1.3.2 子问题"></a>2.1.3.2 子问题</h5><p>我现在当然想求K，但是想求K的话，需要知道前面k-1等于几。（即最少需要多少枚硬币可以拼出27-ak）</p>
+<p>所以，我们的要求就变成了：最少要用多少枚硬币可以拼出27-ak枚硬币；</p>
+<p>原问题是最少用多少枚硬币拼出27；</p>
+<p>我们将原问题转化成了一个子问题，而且规模更小： <code>27-ak</code></p>
+<p>那该如何定义状态呢，一旦子问题出来了，状态就直接把相同的汉字copy下来。即<code>最少用多少枚硬币拼出X</code></p>
+<p>为了简化定义，我们设状态 <code>f(x)=最少用多少枚硬币拼出x</code>结合这一题就是<code>f(x)=最少用多少枚硬币拼出27</code>.整个问题就变成，以前求<code>f(27)</code>,现在求<code>f(27-ak)</code>;</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/dp/01.png" alt="ziwenti"></p>
+<p>等等，我们还不知道最后那枚硬币ak是多少， 当然最后那枚硬币ak只可能是2，5或者7</p>
+<p>如果ak是2的话，f(27)应该是f(27-2)+1（加上最后这一枚硬币2）</p>
+<p>如果ak是5的话，f(27)应该是f(27-5)+1（加上最后这一枚硬币5）</p>
+<p>如果ak是7的话，f(27)应该是f(27-7)+1（加上最后这一枚硬币7）</p>
+<p>除此之外，没有其他的可能了；</p>
+<p>因为我们需求最少的硬币数，所以：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(<span class="number">27</span>) = min&#123;f(<span class="number">27</span><span class="number">-2</span>)+<span class="number">1</span>, f(<span class="number">27</span><span class="number">-5</span>)+<span class="number">1</span>, f(<span class="number">27</span><span class="number">-7</span>)+<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/dp/02.png" alt="image-20210202225916604"></p>
+<h4 id="2-1-4-递归解法的问题"><a href="#2-1-4-递归解法的问题" class="headerlink" title="2.1.4 递归解法的问题"></a>2.1.4 递归解法的问题</h4><p>递归做了很多重复计算，效率低下</p>
+<p>如何避免？</p>
+<p>DP是将计算结果保存下来，并改变计算顺序；</p>
+<h3 id="2-2-动态规划组成部分二：-转移方程"><a href="#2-2-动态规划组成部分二：-转移方程" class="headerlink" title="2.2 动态规划组成部分二： 转移方程"></a>2.2 动态规划组成部分二： 转移方程</h3><p>设状态f[x] = 最少用多少枚硬币拼出X；</p>
+<p>对于任意X</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/dp/03.png" alt="image-20210202231607434"></p>
+<h4 id="2-2-1-f-x-与-f-x-的区别"><a href="#2-2-1-f-x-与-f-x-的区别" class="headerlink" title="2.2.1 f[x] 与 f(x)的区别"></a>2.2.1 f[x] 与 f(x)的区别</h4><p>f[x] ，[] 代表数组下标</p>
+<p>f(x)  ，（）代表函数调用</p>
+<h3 id="2-3-动态规划组成部分三：-初始条件和边界条件"><a href="#2-3-动态规划组成部分三：-初始条件和边界条件" class="headerlink" title="2.3 动态规划组成部分三： 初始条件和边界条件"></a>2.3 动态规划组成部分三： 初始条件和边界条件</h3><p><code>f[x]=min{f[x-2]+1, f[x-5]+1, f[x-7]+1}</code></p>
+<p><strong>两个问题</strong></p>
+<p>x-2, x-5或者x-7 小于0怎么办？什么时候停下来？</p>
+<p>如果不能拼出Y，就定义f[Y] = 正无穷，例如 f[-1] = f[-2] = … = 正无穷</p>
+<p>所以f[1] = min{f[-1]+1, f[-4]+1, f[-6]+1} = 正无穷，表示拼不出来1；</p>
+<p>初始条件： f[0] = 0; 因为初始条件用转移方程是算不出来的。但我又需要它的定义。</p>
+<p>根据 f[0] = min{f[-2]+1, f[-5]+1, f[-7]+1} 算，f[0]是正无穷的。而我们明明知道，f[0] 不等于正无穷，而是等于0，所以需要手动制定。有的时候初始条件不需要给很多个，比如f[0], f[1], f[2] 等等是不需要额外多个去定义，定不定义该值取决于能否根据其他预设的值;比如f[1] 是正无穷，f[2] = {f[0]+1, f[-3]+1, f[-5]+1} 是 1， 然后后面的值都能基于此算出来了；</p>
+<p>初始条件的实质就是把那些最小的值定义下来，边界情况的实质就是不要数组越界；不管数组往下越界到负数，还是数组往上越界超过了都不行；</p>
+<h3 id="2-4-动态规划组成部分四：计算顺序"><a href="#2-4-动态规划组成部分四：计算顺序" class="headerlink" title="2.4 动态规划组成部分四：计算顺序"></a>2.4 动态规划组成部分四：计算顺序</h3><p>拼出X所需要的最少硬币数： f[X] = min{f[X-2]+1, f[X-5]+1, f[X-7]+1}</p>
+<p>初始条件： f[0] = 0</p>
+<p>然后计算 f[1], f[2],… , f[27] （对于此题来说，是从小到大来计算，DP大多数情况下都是从小到大，二维的话就是从上到下，从左到右）</p>
+<p>计算顺序只有一个原则，那就是当我们计算到f[X]时，f[X-2], f[X-5], f[X-7] 都已经出结果了；</p>
+<h3 id="2-5-动态规划计算步骤"><a href="#2-5-动态规划计算步骤" class="headerlink" title="2.5 动态规划计算步骤"></a>2.5 动态规划计算步骤</h3><p>f[X] = 最少用多少枚硬币拼出X</p>
+<p>f[X] = 正无穷 表示无法用硬币拼出X</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/dp/04.png" alt="image-20210203112234974"></p>
+<p>每一步尝试三种硬币，一共27步；</p>
+<p>与递归算法相比，没有任何重复计算；</p>
+<p>算法时间复杂度（即需要进行的步数）： <code>27*3  (总面额*多少种硬币)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;*&#125;</span> </span>A  [2, 5, 7]</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;*&#125;</span> </span>M  27</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">coinChange</span>(<span class="params">A, M</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 0 ... n: [n+1]</span></span><br><span class="line">  <span class="comment">// 0 ... n-1: [n]</span></span><br><span class="line">  <span class="keyword">const</span> f = <span class="keyword">new</span> <span class="built_in">Array</span>(M + <span class="number">1</span>);</span><br><span class="line">  <span class="comment">// number of kind of coins</span></span><br><span class="line">  <span class="keyword">let</span> n = A.length;</span><br><span class="line">  <span class="comment">// initialization</span></span><br><span class="line"></span><br><span class="line">  f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> i, j;</span><br><span class="line">  <span class="comment">//最少用多少枚硬币 依次拼出  f[1], f[2], ... f[27]，从小到大的顺序</span></span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= M; ++i) &#123;</span><br><span class="line">    <span class="comment">// 初始设置为无穷大</span></span><br><span class="line">    f[i] = <span class="built_in">Number</span>.MAX_VALUE;</span><br><span class="line">    <span class="comment">// last coin A[j] 要拼出i块钱，最后一枚硬币应该是谁（这枚硬币不应该跳出A的范围）</span></span><br><span class="line">    <span class="comment">// f[i] = min&#123;f[i-A[0]] + 1,..., f[i-A[n-1]]+1&#125;;</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i &gt;= A[j] &amp;&amp; f[i - A[j]] != <span class="built_in">Number</span>.MAX_VALUE) &#123;</span><br><span class="line">        <span class="comment">// i - A[j] 可能是负数，所以需要添加判断</span></span><br><span class="line">        <span class="comment">// 无穷大不能+1，会越界。所以需要添加校验；</span></span><br><span class="line">        f[i] = <span class="built_in">Math</span>.min(f[i - A[j]] + <span class="number">1</span>, f[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (f[M] == <span class="built_in">Number</span>.MAX_VALUE) &#123;</span><br><span class="line">    <span class="comment">// 如果拼不出来，要求返回-1；</span></span><br><span class="line">    f[M] = <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f[M];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(coinChange([<span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">27</span>));</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="2-6-小结"><a href="#2-6-小结" class="headerlink" title="2.6 小结"></a>2.6 小结</h3><p>求最值型动态规划</p>
+<p>动态规划组成部分：</p>
+<ol>
+<li>确定状态<ul>
+<li>最后一步 (最优策略中使用的最后一枚硬币ak)</li>
+<li>化成子问题 （最少的硬币拼出更小的面值27-ak）</li>
+</ul>
+</li>
+<li>转移方程<ul>
+<li>f[X] = min{f[X-2]+1, f[X-5]+1, f[X-7]+1}</li>
+</ul>
+</li>
+<li>初始条件和边界条件<ul>
+<li>f[0] = 0, 如果不能拼出Y，f[Y]= 正无穷</li>
+</ul>
+</li>
+<li>计算顺序<ul>
+<li>f[0], f[1], f[2], …</li>
+</ul>
+</li>
+</ol>
+<p>消除冗余，加速计算；</p>
+
           
             <div class='article_footer'>
               
@@ -430,10 +532,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-02T14:43:57+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-05T08:38:57+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Feb 2, 2021</p>
+    <p>更新于：Feb 5, 2021</p>
   </a>
 </div>
 
@@ -584,7 +686,7 @@ webgl基础概念，GPU， 渲染管线，着色器；
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-text">动态规划</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-动态规划题目特点"><span class="toc-text">1 动态规划题目特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-dp解题步骤"><span class="toc-text">2 dp解题步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-动态规划组成部分一：-确定状态"><span class="toc-text">2.1 动态规划组成部分一： 确定状态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-状态在动态规划中的作用属于定海神针"><span class="toc-text">2.1.1  状态在动态规划中的作用属于定海神针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-简单来说，解动态规划的时候需要开一个数组，数组的每个元素f-i-或者-f-i-j-代表什么；-类似于解数学题中，X，-Y，Z代表什么；"><span class="toc-text">2.1.2  简单来说，解动态规划的时候需要开一个数组，数组的每个元素f[i] 或者 f[i][j]代表什么； 类似于解数学题中，X， Y，Z代表什么；</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-确定状态需要两个意识："><span class="toc-text">2.1.3  确定状态需要两个意识：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-3-1-最后一步"><span class="toc-text">2.1.3.1 最后一步</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-3-2-子问题"><span class="toc-text">2.1.3.2 子问题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-递归解法的问题"><span class="toc-text">2.1.4 递归解法的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-动态规划组成部分二：-转移方程"><span class="toc-text">2.2 动态规划组成部分二： 转移方程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-f-x-与-f-x-的区别"><span class="toc-text">2.2.1 f[x] 与 f(x)的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-动态规划组成部分三：-初始条件和边界条件"><span class="toc-text">2.3 动态规划组成部分三： 初始条件和边界条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-动态规划组成部分四：计算顺序"><span class="toc-text">2.4 动态规划组成部分四：计算顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-动态规划计算步骤"><span class="toc-text">2.5 动态规划计算步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-小结"><span class="toc-text">2.6 小结</span></a></li></ol></li></ol>
     </div>
   </section>
 
