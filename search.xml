@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>cli</title>
+      <link href="2021/02/07/cli/"/>
+      <url>2021/02/07/cli/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-Quick-start"><a href="#1-Quick-start" class="headerlink" title="1. Quick start"></a>1. Quick start</h2><h3 id="1-1-创建文件夹"><a href="#1-1-创建文件夹" class="headerlink" title="1.1  创建文件夹"></a>1.1  创建文件夹</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$&gt; mkdir sunmao &amp;&amp; <span class="built_in">cd</span> sunmao &amp;&amp; npm init -y</span><br><span class="line">$&gt; touch sm.js</span><br></pre></td></tr></table></figure><h3 id="1-2-设置package-json"><a href="#1-2-设置package-json" class="headerlink" title="1.2 设置package.json"></a>1.2 设置package.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"sunmao"</span>,</span><br><span class="line">  <span class="attr">"bin"</span>: &#123;</span><br><span class="line">    <span class="attr">"sunmao"</span>: <span class="string">"sm.js"</span> <span class="comment">// 添加 bin 配置，sumao 命令即 指向 sm.js</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"A Iterating scaffolding for react, redux-saga and Typescript"</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"main.js"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"repository"</span>: &#123;</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"git"</span>,</span><br><span class="line">    <span class="attr">"url"</span>: <span class="string">"git+https://github.com/TenonMortise/sunmao"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">"ruanhan"</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"MIT"</span>,</span><br><span class="line">  <span class="attr">"bugs"</span>: &#123;</span><br><span class="line">    <span class="attr">"url"</span>: <span class="string">"https://github.com/TenonMortise/sunmao/issues"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"homepage"</span>: <span class="string">"https://github.com/TenonMortise/sunmao#readme"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="1-3-npm-link"><a href="#1-3-npm-link" class="headerlink" title="1.3 npm link"></a>1.3 npm link</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sm.js</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'hello, sunmao'</span>)</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$&gt; chmod 755 sm.js</span><br><span class="line">$&gt; sudo npm link</span><br><span class="line"></span><br><span class="line">up to date <span class="keyword">in</span> 10.078s</span><br><span class="line">/usr/<span class="built_in">local</span>/bin/sunmao -&gt; /usr/<span class="built_in">local</span>/lib/node_modules/sunmao/sm.js</span><br><span class="line">/usr/<span class="built_in">local</span>/lib/node_modules/sunmao -&gt; /Users/ruanhan/sunmao</span><br><span class="line"></span><br><span class="line">$&gt; sunmao</span><br><span class="line">$&gt; hello, sunmao</span><br></pre></td></tr></table></figure><p>参考文档：</p><p><a href="https://javascript.ruanyifeng.com/nodejs/npm.html#toc0" target="_blank" rel="noopener">npm link</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> guide, doc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>dp</title>
       <link href="2021/02/02/dp/"/>
       <url>2021/02/02/dp/</url>
