@@ -385,7 +385,108 @@
 <p>实际上无论你怎么看待向量都无所谓，或把向量看作空间中的箭头；或者把向量看作数字列表；这种观点又恰好有漂亮的几何意义与之对应。线性代数的效用很少提现在这些观点的其中一个上，而是更多地体现在它能够在这些观点中相互转化；</p>
 <p>线性代数为数据分析提供了一条将大量数据列表概念化、可视化的渠道；它让数据样式变得非常明晰，并让你大致了解特定运算的意义；</p>
 <p>另一方面，线性代数给物理学家和计算机图形程序员提供了一种语言；让他们通过计算机能处理数字来描述并操纵空间；</p>
-<h2 id="2-线性组合、张成的空间与基"><a href="#2-线性组合、张成的空间与基" class="headerlink" title="2. 线性组合、张成的空间与基"></a>2. 线性组合、张成的空间与基</h2><h2 id="3-矩阵与线性变换"><a href="#3-矩阵与线性变换" class="headerlink" title="3. 矩阵与线性变换"></a>3. 矩阵与线性变换</h2><h2 id="4-矩阵乘法与线性变换复合"><a href="#4-矩阵乘法与线性变换复合" class="headerlink" title="4. 矩阵乘法与线性变换复合"></a>4. 矩阵乘法与线性变换复合</h2><h2 id="5-三维空间中的线性变换"><a href="#5-三维空间中的线性变换" class="headerlink" title="5. 三维空间中的线性变换"></a>5. 三维空间中的线性变换</h2><h2 id="6-行列式"><a href="#6-行列式" class="headerlink" title="6. 行列式"></a>6. 行列式</h2><h2 id="7-逆矩阵、列空间与零空间"><a href="#7-逆矩阵、列空间与零空间" class="headerlink" title="7. 逆矩阵、列空间与零空间"></a>7. 逆矩阵、列空间与零空间</h2><h2 id="8-非方阵"><a href="#8-非方阵" class="headerlink" title="8. 非方阵"></a>8. 非方阵</h2><h2 id="9-点积与对偶性"><a href="#9-点积与对偶性" class="headerlink" title="9. 点积与对偶性"></a>9. 点积与对偶性</h2><h2 id="10-叉积的标准介绍"><a href="#10-叉积的标准介绍" class="headerlink" title="10. 叉积的标准介绍"></a>10. 叉积的标准介绍</h2><h2 id="11-以线性变换的眼光看叉积"><a href="#11-以线性变换的眼光看叉积" class="headerlink" title="11. 以线性变换的眼光看叉积"></a>11. 以线性变换的眼光看叉积</h2><h2 id="12-基变换"><a href="#12-基变换" class="headerlink" title="12. 基变换"></a>12. 基变换</h2><h2 id="13-特征向量与特征值"><a href="#13-特征向量与特征值" class="headerlink" title="13. 特征向量与特征值"></a>13. 特征向量与特征值</h2><h2 id="14-抽象向量空间"><a href="#14-抽象向量空间" class="headerlink" title="14. 抽象向量空间"></a>14. 抽象向量空间</h2><h2 id="15-克莱姆法则，几何解释"><a href="#15-克莱姆法则，几何解释" class="headerlink" title="15. 克莱姆法则，几何解释"></a>15. 克莱姆法则，几何解释</h2>
+<h2 id="2-线性组合、张成的空间与基"><a href="#2-线性组合、张成的空间与基" class="headerlink" title="2. 线性组合、张成的空间与基"></a>2. 线性组合、张成的空间与基</h2><h3 id="2-1-基向量"><a href="#2-1-基向量" class="headerlink" title="2.1 基向量"></a>2.1 基向量</h3><p>关于向量坐标，还有一种有趣的方式来看待这些坐标，它对线性代数很重要。当你看到一对描述向量的数时，比如（3，-2），可以把它的每个坐标看作一个标量；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector6.png" alt="image-20210209101806130"></p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector7.png" alt="image-20210209102013500"></p>
+<p>在xy坐标系中，有两个非常特别的向量。一个指向正右方，长度为1，通常被称为<code>i 帽</code>或者x方向的单位向量；另一个指向正上方，长度为1。通常被称为<code>j帽</code> 或者y方向的单位向量；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector8.png" alt="image-20210209102531618"></p>
+<p>现在想象向量(3,-2)的x坐标是一个标量，它将<code>i帽</code>拉伸为原来的3倍；它将<code>j帽</code>拉伸为原来的2倍；从这个角度去看，这个向量实际上是两个经过缩放的向量的和；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector9.png" alt="image-20210209102757457"></p>
+<p>“缩放向量并且相加” 这一概念至关重要，<code>i 与 j 是xy坐标系的“基向量”；它们合起来被称为坐标系的基；</code></p>
+<p>这是在说，当你把坐标看作标量时；基向量实际上就是这些标量缩放的对象；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector10.png" alt="image-20210209103551566"></p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector11.png" alt="image-20210209103743636"></p>
+<p>我们根据这两个特殊的基向量构建坐标系时，也浮现了一些有趣而微妙的问题，<code>如果我们选择不同的基向量会怎么样？</code>我们完全可以选择不同的基向量，获得一个合理的新坐标系；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector12.png" alt="image-20210209104537826"></p>
+<p>比如说，随便选一个指向右上方的向量（红色），再随便选一个指向右下方的向量（蓝色）。想象一下，通过选择两个标量，分别用于缩放二者的其中一个；然后把它们相加，你能得到不同的结果；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector13.png" alt="image-20210209104634338"></p>
+<p>通过改变所选择的标量，你可以得到哪些二维向量？</p>
+<p>答案是，你可以得到所有的二维向量。为什么呢？</p>
+<p>这样一对新的基向量，同样允许我们在一对数和二维向量之间自由转化；</p>
+<p>但是这种变换关系与之前用i帽 和 j帽的变换关系完全不同；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector14.png" alt="image-20210209114258225"></p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector15.png" alt="image-20210209114403505"></p>
+<p><code>每当我们用数字描述向量时，它都依赖于我们正在使用的基</code>两个数乘向量和被称为这两个向量的线性组合。</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector16.png" alt="image-20210209115355067"></p>
+<h3 id="2-2-向量张成的空间（span）"><a href="#2-2-向量张成的空间（span）" class="headerlink" title="2.2 向量张成的空间（span）"></a>2.2 向量张成的空间（span）</h3><p>“线性”这个词从哪儿来？这根直线又又什么关系？</p>
+<p>如果固定其中一个标量，让另一个标量自由变化。所产生的向量的终点会描出一条直线；(下面两张图分别为固定向量W缩放V 和 固定V缩放W)</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector17.png" alt="image-20210209115702292"></p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector18.png" alt="image-20210209115821892"></p>
+<p>如果你让两个标量同时自由变化，考虑所有可能得到的向量；可能有两种情况；</p>
+<p>大部分情况下，对于一对初始向量，你能到达平面中的每一个点；所有二维向量都尽在掌握；</p>
+<p>但是也有糟糕的情况，当两个初始向量恰好共线时，所产生的向量的终点被限制在一条过原点的直线上；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector19.png" alt="image-20210209120416875"></p>
+<p>实际上还有第三种情况： 两个向量都是零向量。那就只能乖乖呆在原点了；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector20.png" alt="image-20210209125225821"></p>
+<p>所有可以表示为给定向量线性组合的向量的集合；被称为给定向量张成的空间（span）; 现在用行话重新叙述刚才的内容；对大部分二维向量对来说，它们张成的空间是所有二维向量的集合。</p>
+<p>但当共线的时，它们张成的空间就是终点落在一条直线上的向量的集合；</p>
+<p><strong>线性代数紧紧围绕向量加法与数乘</strong></p>
+<p>两个向量张成的空间实际上是问仅通过向量加法与向量数乘这两种基础运算，你能获得的所有可能向量的集合是什么？</p>
+<p>现在是时候讨论一下通常我们是如何将向量看作点的；</p>
+<p>想象落在一条直接上的一些向量时，你会觉得拥挤。而同时想象所有二维向量填满平面时，你会觉得非常拥挤；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector21.png" alt="image-20210209142438907"></p>
+<p>所以为了对抗这种情况，通常我们就用向量的终点代表改向量。而像以往一样，它的起点仍旧位于原点；用这种方法来看，如果你要考虑落在一条直线上的所有向量时，你需要考虑直线本身就行了；类似地，同时考虑所有二维向量时，将每个向量抽象为它的终点；实际上，你就不必考虑所有的箭头了，只需要考虑无限大的二维平面本身即可；</p>
+<p>当你只考虑一个向量时，就把它看作箭头。当你考虑多个向量时，就把它们都看作点；前面有提到对大部分二维向量来说，它们张成的空间是整个无限大的二维平面；如果共线，它们张成的空间就是一条直线；</p>
+<h4 id="2-2-1-两个三维向量张成的空间是什么样的？"><a href="#2-2-1-两个三维向量张成的空间是什么样的？" class="headerlink" title="2.2.1  两个三维向量张成的空间是什么样的？"></a>2.2.1  两个三维向量张成的空间是什么样的？</h4><p>如果我们再去考虑三维空间，张成空间这个概念就开始变得有趣了。这两个向量张成的空间就是它们所有可能的线性组合。</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/vector22.png" alt="image-20210209144441848"></p>
+<p>这个终点会画出三维空间中某个过原点的平面；这个平面就是这两个向量张成的空间；或者说，所有终点落在这个平面上的向量的集合是这两个向量张成的空间；</p>
+<p>如果再加上第三个向量，那么它们张成的空间又是什么样的呢？</p>
+<p>会有两种情况，如果第三个向量恰好落在前两个向量所张成的平面上。那么它们张成的空间并不会改变，还是被困在这个平面上；</p>
+<p>另外一种情况，如果你随机选一个向量，它几乎不可能落在前面两个向量所张成的平面中。这种情况下，由于第三个向量指向不同的方向。当你缩放第三个向量时，它将前两个向量张成的平面沿它的方向来回移动，从而扫过整个空间；</p>
+<h3 id="2-3-线性无关与线性相关"><a href="#2-3-线性无关与线性相关" class="headerlink" title="2.3 线性无关与线性相关"></a>2.3 线性无关与线性相关</h3><p>当有多个向量，并且可以移除其中一个而不减少张成的空间。当这种情况发生时，我们称它们是“线性相关”的；另一种表述方法是其中一个向量，可以表示为其它向量的线性组合，因为这个向量已经落在其它向量张成的空间之中；</p>
+<p>另一方面，如果所有向量都给张成的空间增添了新的维度；它们就被称为是“线性无关”的。</p>
+<h3 id="2-4-小结"><a href="#2-4-小结" class="headerlink" title="2.4 小结"></a>2.4 小结</h3><p><strong>“向量空间的一组基是张成该空间的一个线性无关的向量集；”</strong></p>
+<p>空间的一组基的严格定义是这样的： 张成该空间的一个线性无关向量的集合，基于目前对“张成” 和 “线性无关” 这两个词的理解。思考一下为什么这个定义合乎情理；</p>
+<h2 id="3-矩阵与线性变换"><a href="#3-矩阵与线性变换" class="headerlink" title="3. 矩阵与线性变换"></a>3. 矩阵与线性变换</h2><h3 id="3-1-线性变换"><a href="#3-1-线性变换" class="headerlink" title="3.1 线性变换"></a>3.1 线性变换</h3><blockquote>
+<p>很遗憾， Matrix（矩阵）是什么是说不清的，你必须得自己亲眼看看；</p>
+</blockquote>
+<p>“如果要我选出一个主题，它不仅让线性代数的其它内容一目了然，又经常被初次学习线性代数的人忽视，我会选择这个——线性变换的概念以及它和矩阵的关系”</p>
+<p>在这期视频中，只会集中讨论这些变换在二维空间中长什么样。以及它们如何与矩阵向量乘法关联。尤其展示一种不用死记硬背的考虑矩阵向量乘法的方法；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/matrix1.png" alt="image-20210209154527578"></p>
+<p>首先，先来解析“线性变换”这个术语。“变换”本质上是“函数”的一种花哨的说法，它接收输入内容，并输出对应结果；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/matrix2.png" alt="image-20210209154800497"></p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/matrix3.png" alt="image-20210209154826105"></p>
+<p>特别地，在线性代数的情况下。我么考虑的是接收一个向量并且输出一个向量的变换；</p>
+<p>特别的，在线性代数的情况下。我们考虑的是接收一个向量并且输出一个向量的变换；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/matrix4.png" alt="image-20210209155750711"></p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/matrix5.png" alt="image-20210209155826060"></p>
+<p>既然“变换”和“函数”意义相同，为什么还要使用前者而不是后者？因为使用“变换”是在暗示以特定方式来可视化这一输入-输出关系； 一种理解“向量的函数”的方法是使用运动。</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/matrix6.png" alt="image-20210209160637527"></p>
+<p>如果一个变换接收一个向量并输出一个向量；我们想象这个输入向量移动到输出向量的位置；</p>
+<p>接下来，要理解整个变换。我们可以想象每一个输入向量都移动到对应输出向量的位置；同样多个箭头显得很拥挤，只用终点表示该向量，用这种方法考虑所有输入向量都移动到对应输出向量的位置时。我们只用看空间中的所有点移动到其它点的位置；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/matrix7.png" alt="image-20210209160814616"></p>
+<p>各种个样对空间的变换所产生的效果是美妙的，任意一个变换可以非常复杂。幸运的是，<code>线性代数限制在一种特殊类型的变换上；这种变换更容易理解，称为线性变换</code></p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/transform1.png" alt="image-20210209161355416"></p>
+<p>直观地说，如果一个变换具有以下两条性质，我们就称它是线性的；</p>
+<p>一是直线在变换后仍然保持为直线，不能有所弯曲；</p>
+<p>二是原点必须保持固定；</p>
+<p>举例： 上图变换保持原点不动，乍一看它好像保持直线平直；但实际并非如此，因为只展示了水平和竖直的网格线；</p>
+<p>当你看看它对一条对角线的作用时，很明显它不是一个线性变换；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/transform2.png" alt="image-20210209162235888"></p>
+<p>总体来说，你应该把线性变换看作是“保持网格线平行且等距分布”的变换；</p>
+<h4 id="3-1-1-如何用数值描述线性变换"><a href="#3-1-1-如何用数值描述线性变换" class="headerlink" title="3.1.1 如何用数值描述线性变换"></a>3.1.1 如何用数值描述线性变换</h4><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/transform3.png" alt="image-20210209162450690"></p>
+<p>当你在通过编程制作动画和视频来教授这一主题，你应该给计算机什么样的计算公式；使得你给它一个向量的坐标，它能给你变换后向量的坐标呢？</p>
+<p>实际结果是，你只需要记录两个基向量i帽和j帽变换后的位置；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/transform5.png" alt="image-20210209163505605"></p>
+<p>比如说，考虑坐标为（-1，2）的向量V。 这个向量就是 -1 与 i帽之积与2与j帽之积的和；</p>
+<p>如果运用一些变换，并且跟随这三个向量的运动。网格线保持平行且等距分布的性质有一个重要的推论；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/transform6.png" alt="image-20210209165040650"></p>
+<p>变换后的向量V的位置，是-1与变换后的i帽之积，加上2与变换后的j帽之积；</p>
+<p>换句话说，向量V是i帽和j帽的一个特定线性组合，那么变换后的向量V也是变换后i帽和j帽的同样的线性组合；这意味着，你可以只根据变换后的i帽和j帽，就推断出变换后的V；</p>
+<p>如上图所示的变换，可以看出i帽落在坐标（1，-2）上。j帽落在x轴上，坐标为（3，0）；也就是说，-1乘以i帽加上2乘以j帽所代表的向量；会落在-1 乘以向量（1，-2）加上2乘以向量（3，0）的位置上；简单运算之后，你就能推断出向量V一定落在向量（5，2）上；</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Transformed V = <span class="number">-1</span>(Transformed i) + <span class="number">2</span>(Transformed j)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/transform7.png" alt="image-20210209165909608"></p>
+<p>实际上，因为展示出整个变换的样子。完全可以直接读出向量V在变换后落在坐标（5，2）上；但是更炫酷的是，只要记录了变换后的i帽和j帽。我们就可以推断出任意向量在变换之后的位置；完全必须观察变换本身是什么样。</p>
+<p>一般情况下，一个向量的坐标是（x，y），变换后这个向量就是x乘以变换后的i帽（1，-2）；加上y乘以变换后的j帽（3，0）。简单运算之后你就知道它落在坐标（1x+3y, -2x+0y）上。运用这个公式，我给你任意一个向量，你都能告诉它在变换后的位置；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/transform8.png" alt="image-20210209173033678"></p>
+<p>以上这些内容是在说，一个二维线性变换仅由四个数字完全确定。变换后i帽的两个坐标与变换后j帽的两个坐标。通常我们将这些坐标包装在一个<code>2*2</code>的格子中，称它为<code>2*2</code>矩阵；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/transform9.png" alt="image-20210209175112110"></p>
+<p>你可以把它的列理解为两个特殊的向量，即变换后的i帽和j帽。如果你有一个描述线性变换的2*2矩阵，以及一个给定向量；你想了解线性变换对这个向量的作用；你只需要取出向量的坐标；将它们分别与矩阵的特定列相乘，然后将结果相加即可；这与“缩放基向量再相加”的思想一致</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/liner-Algebra/transfrom10.png" alt="image-20210209175818004"></p>
+<h2 id="4-矩阵乘法与线性变换复合"><a href="#4-矩阵乘法与线性变换复合" class="headerlink" title="4. 矩阵乘法与线性变换复合"></a>4. 矩阵乘法与线性变换复合</h2><h2 id="5-三维空间中的线性变换"><a href="#5-三维空间中的线性变换" class="headerlink" title="5. 三维空间中的线性变换"></a>5. 三维空间中的线性变换</h2><h2 id="6-行列式"><a href="#6-行列式" class="headerlink" title="6. 行列式"></a>6. 行列式</h2><h2 id="7-逆矩阵、列空间与零空间"><a href="#7-逆矩阵、列空间与零空间" class="headerlink" title="7. 逆矩阵、列空间与零空间"></a>7. 逆矩阵、列空间与零空间</h2><h2 id="8-非方阵"><a href="#8-非方阵" class="headerlink" title="8. 非方阵"></a>8. 非方阵</h2><h2 id="9-点积与对偶性"><a href="#9-点积与对偶性" class="headerlink" title="9. 点积与对偶性"></a>9. 点积与对偶性</h2><h2 id="10-叉积的标准介绍"><a href="#10-叉积的标准介绍" class="headerlink" title="10. 叉积的标准介绍"></a>10. 叉积的标准介绍</h2><h2 id="11-以线性变换的眼光看叉积"><a href="#11-以线性变换的眼光看叉积" class="headerlink" title="11. 以线性变换的眼光看叉积"></a>11. 以线性变换的眼光看叉积</h2><h2 id="12-基变换"><a href="#12-基变换" class="headerlink" title="12. 基变换"></a>12. 基变换</h2><h2 id="13-特征向量与特征值"><a href="#13-特征向量与特征值" class="headerlink" title="13. 特征向量与特征值"></a>13. 特征向量与特征值</h2><h2 id="14-抽象向量空间"><a href="#14-抽象向量空间" class="headerlink" title="14. 抽象向量空间"></a>14. 抽象向量空间</h2><h2 id="15-克莱姆法则，几何解释"><a href="#15-克莱姆法则，几何解释" class="headerlink" title="15. 克莱姆法则，几何解释"></a>15. 克莱姆法则，几何解释</h2>
           
             <div class='article_footer'>
               
@@ -472,7 +573,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-09T00:31:38+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-09T18:15:24+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Feb 9, 2021</p>
@@ -624,7 +725,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-向量"><span class="toc-text">1. 向量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-含义"><span class="toc-text">1.1 含义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-物理专业视角"><span class="toc-text">1.1.1 物理专业视角</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-计算机专业视角"><span class="toc-text">1.1.2 计算机专业视角</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-数学专业视角"><span class="toc-text">1.1.3 数学专业视角</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-向量的和"><span class="toc-text">1.2 向量的和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-数学角度看向量加法"><span class="toc-text">1.2.1 数学角度看向量加法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-向量数乘"><span class="toc-text">1.3 向量数乘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-缩放"><span class="toc-text">1.3.1 缩放</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-数学角度看向量数乘"><span class="toc-text">1.3.2 数学角度看向量数乘</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-总结"><span class="toc-text">1.4 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-线性组合、张成的空间与基"><span class="toc-text">2. 线性组合、张成的空间与基</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-矩阵与线性变换"><span class="toc-text">3. 矩阵与线性变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-矩阵乘法与线性变换复合"><span class="toc-text">4. 矩阵乘法与线性变换复合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-三维空间中的线性变换"><span class="toc-text">5. 三维空间中的线性变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-行列式"><span class="toc-text">6. 行列式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-逆矩阵、列空间与零空间"><span class="toc-text">7. 逆矩阵、列空间与零空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-非方阵"><span class="toc-text">8. 非方阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-点积与对偶性"><span class="toc-text">9. 点积与对偶性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-叉积的标准介绍"><span class="toc-text">10. 叉积的标准介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-以线性变换的眼光看叉积"><span class="toc-text">11. 以线性变换的眼光看叉积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-基变换"><span class="toc-text">12. 基变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-特征向量与特征值"><span class="toc-text">13. 特征向量与特征值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-抽象向量空间"><span class="toc-text">14. 抽象向量空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-克莱姆法则，几何解释"><span class="toc-text">15. 克莱姆法则，几何解释</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-向量"><span class="toc-text">1. 向量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-含义"><span class="toc-text">1.1 含义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-物理专业视角"><span class="toc-text">1.1.1 物理专业视角</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-计算机专业视角"><span class="toc-text">1.1.2 计算机专业视角</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-数学专业视角"><span class="toc-text">1.1.3 数学专业视角</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-向量的和"><span class="toc-text">1.2 向量的和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-数学角度看向量加法"><span class="toc-text">1.2.1 数学角度看向量加法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-向量数乘"><span class="toc-text">1.3 向量数乘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-缩放"><span class="toc-text">1.3.1 缩放</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-数学角度看向量数乘"><span class="toc-text">1.3.2 数学角度看向量数乘</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-总结"><span class="toc-text">1.4 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-线性组合、张成的空间与基"><span class="toc-text">2. 线性组合、张成的空间与基</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-基向量"><span class="toc-text">2.1 基向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-向量张成的空间（span）"><span class="toc-text">2.2 向量张成的空间（span）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-两个三维向量张成的空间是什么样的？"><span class="toc-text">2.2.1  两个三维向量张成的空间是什么样的？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-线性无关与线性相关"><span class="toc-text">2.3 线性无关与线性相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-小结"><span class="toc-text">2.4 小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-矩阵与线性变换"><span class="toc-text">3. 矩阵与线性变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-线性变换"><span class="toc-text">3.1 线性变换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-如何用数值描述线性变换"><span class="toc-text">3.1.1 如何用数值描述线性变换</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-矩阵乘法与线性变换复合"><span class="toc-text">4. 矩阵乘法与线性变换复合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-三维空间中的线性变换"><span class="toc-text">5. 三维空间中的线性变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-行列式"><span class="toc-text">6. 行列式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-逆矩阵、列空间与零空间"><span class="toc-text">7. 逆矩阵、列空间与零空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-非方阵"><span class="toc-text">8. 非方阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-点积与对偶性"><span class="toc-text">9. 点积与对偶性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-叉积的标准介绍"><span class="toc-text">10. 叉积的标准介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-以线性变换的眼光看叉积"><span class="toc-text">11. 以线性变换的眼光看叉积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-基变换"><span class="toc-text">12. 基变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-特征向量与特征值"><span class="toc-text">13. 特征向量与特征值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-抽象向量空间"><span class="toc-text">14. 抽象向量空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-克莱姆法则，几何解释"><span class="toc-text">15. 克莱姆法则，几何解释</span></a></li></ol>
     </div>
   </section>
 
