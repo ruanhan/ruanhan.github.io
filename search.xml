@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>graphics1</title>
+      <link href="2021/02/09/graphics1/"/>
+      <url>2021/02/09/graphics1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> graphics </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> guade </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>liner_Algebra</title>
       <link href="2021/02/08/liner-Algebra/"/>
       <url>2021/02/08/liner-Algebra/</url>
@@ -45,7 +70,9 @@
       
         <tags>
             
-            <tag> guide, doc </tag>
+            <tag> doc </tag>
+            
+            <tag> guide </tag>
             
         </tags>
       
