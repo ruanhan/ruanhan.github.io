@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>webpack5_1</title>
+      <link href="2021/02/23/webpack5-1/"/>
+      <url>2021/02/23/webpack5-1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-Webpack5-迁移"><a href="#1-Webpack5-迁移" class="headerlink" title="1. Webpack5 迁移"></a>1. Webpack5 迁移</h2><h3 id="1-1-坑"><a href="#1-1-坑" class="headerlink" title="1.1 坑"></a>1.1 坑</h3><h4 id="1-1-1-第一坑"><a href="#1-1-1-第一坑" class="headerlink" title="1.1.1 第一坑"></a>1.1.1 第一坑</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> webpack </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> guide </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>graphics1</title>
       <link href="2021/02/09/graphics1/"/>
       <url>2021/02/09/graphics1/</url>
