@@ -1347,51 +1347,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-canvas-基础API"><a href="#1-canvas-基础API" class="headerlink" title="1. canvas 基础API"></a>1. canvas 基础API</h2><h3 id="1-1-context"><a href="#1-1-context" class="headerlink" title="1.1 context"></a>1.1 context</h3><p>context对象 <strong>proto</strong> 指向CanvasRenderingContext2D，一些绘图API集中在这些地方</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">'canvas'</span>)</span><br><span class="line"><span class="keyword">const</span> context = canvas.getContext(<span class="string">'2d'</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<p> context对象API大体分两类</p>
-<ol>
-<li><p>设置状态的 （颜色，线宽， 坐标变换）</p>
-</li>
-<li><p>绘制指令API，绘制不同形状的几何图形</p>
-</li>
-</ol>
-<h3 id="1-2-绘图API"><a href="#1-2-绘图API" class="headerlink" title="1.2 绘图API"></a>1.2 绘图API</h3><h4 id="1-2-1-rect"><a href="#1-2-1-rect" class="headerlink" title="1.2.1 rect"></a>1.2.1 rect</h4><p>绘制矩形指令</p>
-<p><strong>参数</strong></p>
-<p>四个参数，分别为<code>要绘制矩形的x坐标</code>，<code>要绘制矩形y坐标</code>, <code>矩形宽</code>和<code>矩形高</code>；</p>
-<h4 id="1-2-2-缓存当前状态和恢复"><a href="#1-2-2-缓存当前状态和恢复" class="headerlink" title="1.2.2 缓存当前状态和恢复"></a>1.2.2 缓存当前状态和恢复</h4><p>类似一个压栈和弹栈功能；</p>
-<p><strong>save</strong></p>
-<p>保留当前的路径和颜色等状态</p>
-<p><strong>restore</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ctx.fillStyle = <span class="string">"green"</span>;</span><br><span class="line">ctx.save(); <span class="comment">// 保存画笔初始坐标(0,0), 填充色为绿色</span></span><br><span class="line"></span><br><span class="line">ctx.fillRect(<span class="number">10</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Restore the default state</span></span><br><span class="line">ctx.restore();</span><br><span class="line"></span><br><span class="line">ctx.fillRect(<span class="number">150</span>, <span class="number">40</span>, <span class="number">100</span>, <span class="number">100</span>); <span class="comment">// 该图形的画笔坐标回到 初始状态，即 (0,0) ,填充色为绿色，而不是默认色；</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="1-3-绘制状态API"><a href="#1-3-绘制状态API" class="headerlink" title="1.3 绘制状态API"></a>1.3 绘制状态API</h3><p><strong>fillStyle</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.fillStyle = color;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="1-4-坐标系统"><a href="#1-4-坐标系统" class="headerlink" title="1.4 坐标系统"></a>1.4 坐标系统</h3><p>  左上角为 (0, 0)</p>
-<p> 右下角为 (canvas.width, canvas.height)</p>
-<h3 id="1-5-绘图过程"><a href="#1-5-绘图过程" class="headerlink" title="1.5 绘图过程"></a>1.5 绘图过程</h3><ol>
-<li>获取canvas对象，getContext(‘2d’)</li>
-<li>绘制状态， fillStyle， translate等；</li>
-<li>beginPath开始绘制</li>
-<li>调绘图指令，rect等</li>
-<li>调fill指令，将绘制内容输出到画布中；</li>
-</ol>
-<h3 id="1-6-图形信息"><a href="#1-6-图形信息" class="headerlink" title="1.6 图形信息"></a>1.6 图形信息</h3><p>有的时候，类似一份层级数据（城市 &gt; 省份 &gt; 中国）这样层级数据，要将它与绘图指令建立联系，建立联系指的是 要把数据的层级、位置、和要绘制的圆的半径、位置一一对应起来；</p>
-<p>换句话说就是要把数据转换成图形信息，这个步骤需要数学计算；</p>
-<p>假设，我们要将数据展现在一个画布宽高为 1600 * 1600 的 Canvas 中，那我们可以通过 d3.pack() 将数据映射为一组 1600 宽高范围内的圆形。</p>
-<p>具体绘制的过程比较简单，<code>只需要遍历数据并且根据数据内容绘制圆弧</code></p>
-
+        <p>canvas base</p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2021/01/26/canvas/">
+            <div>阅读全文 <i class="fas fa-chevron-right "></i></div>
+          </a>
+        </div>
       
     
   </section>
