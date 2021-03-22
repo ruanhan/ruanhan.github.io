@@ -383,11 +383,11 @@
 
 <h4 id="2-2-2-DefaultServeMux"><a href="#2-2-2-DefaultServeMux" class="headerlink" title="2.2.2 DefaultServeMux"></a>2.2.2 DefaultServeMux</h4><p>它是一个multiplexer 多路复用器</p>
 <p>它也是一个handler</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/handler00.png" alt="image-20210317103838883"></p>
+<p><img src="handler00.png" alt="image-20210317103838883"></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"net/http"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> myHandler <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *myHandler)</span> <span class="title">ServeHTTP</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">	w.Write([]<span class="keyword">byte</span>(<span class="string">"myHandler"</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	mu := myHandler&#123;&#125;</span><br><span class="line">	server := http.Server&#123;</span><br><span class="line">		Addr: <span class="string">"localhost:8989"</span>,</span><br><span class="line">		Handler: &amp;mu,</span><br><span class="line">	&#125;</span><br><span class="line">	server.ListenAndServe()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>多个handler</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/handler01.png" alt="image-20210317104736194"></p>
+<p><img src="handler01.png" alt="image-20210317104736194"></p>
 <p>不指定Server struct里面的Handler字段值</p>
 <p>可以使用http.Handle将某个Handler附加到DefaultServeMux</p>
 <ul>
@@ -552,7 +552,7 @@
 <li>每一个name-value对都会被转换为一个MIME消息部分</li>
 <li>每一个部分都有自己的Content Type 和Content Disposition</li>
 </ul>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/content.png" alt="image-20210317170418395"></p>
+<p><img src="content.png" alt="image-20210317170418395"></p>
 <p><strong>如何选择？</strong></p>
 <p>简单的文本：  application/x-www-form-urlencoded</p>
 <p>大量数据，（文件上传）： multipart-MIME</p>
@@ -683,7 +683,7 @@
 <p>修改后的headers将会体现在返回给客户端的HTTP响应里；</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">headerExample</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span>&#123;</span><br><span class="line">	w.Header().Set(<span class="string">"Location"</span>,<span class="string">"https://reactnative.dev/"</span>)</span><br><span class="line">	w.WriteHeader(<span class="number">302</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/red.png" alt="image-20210317232645674"></p>
+<p><img src="red.png" alt="image-20210317232645674"></p>
 <p>json</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">jsonExample</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span>&#123;</span><br><span class="line">	w.Header().Set(<span class="string">"Content-Type"</span>,<span class="string">"application/json"</span>)</span><br><span class="line">	post:= &amp;Post&#123;</span><br><span class="line">		User: <span class="string">"alex"</span>,</span><br><span class="line">		Threads: []<span class="keyword">string</span>&#123;<span class="string">"first"</span>,<span class="string">"second"</span>,<span class="string">"third"</span>&#125;,</span><br><span class="line">	&#125;</span><br><span class="line">	json,_ := json2.Marshal(post)</span><br><span class="line">	w.Write(json)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &#123;"User":"alex","Threads":["first","second","third"]&#125;</span></span><br></pre></td></tr></table></figure>
 
@@ -774,7 +774,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/ctrl.png" alt="image-20210318180336477"></p>
+<p><img src="ctrl.png" alt="image-20210318180336477"></p>
 <p>go语言提供一个前置的ctrl，所有进来的请求都会经过ctrl，然后由ctrl分发</p>
 <h2 id="5-json"><a href="#5-json" class="headerlink" title="5. json"></a>5. json</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Post <span class="keyword">struct</span> &#123;</span><br><span class="line">	ID      <span class="keyword">int</span> <span class="string">`json:"id"`</span></span><br><span class="line">	User 	<span class="keyword">string</span> <span class="string">`json:"user"`</span></span><br><span class="line">	Threads []<span class="keyword">string</span> <span class="string">`json:"thread"`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -815,7 +815,7 @@
 <li>Encode =&gt; Stream, 把数据写入到 io.Writer</li>
 <li>Decode &lt;= Stream, 从io.Reader 读取数据</li>
 </ul>
-<h2 id="6-中间件"><a href="#6-中间件" class="headerlink" title="6. 中间件"></a>6. 中间件</h2><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/middleware.png" alt="image-20210319133248463"></p>
+<h2 id="6-中间件"><a href="#6-中间件" class="headerlink" title="6. 中间件"></a>6. 中间件</h2><p><img src="middleware.png" alt="image-20210319133248463"></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.ListenAndServe(addr <span class="keyword">string</span>, handler Handler)error</span><br><span class="line"><span class="comment">// handler 如果是nil： DefaultServeMux</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 想创建handler，必须实现handler接口，需要实现ServeHTTP这个方法</span></span><br><span class="line"><span class="keyword">type</span> Handler <span class="keyword">interface</span> &#123;</span><br><span class="line">	ServeHTTP(ResponseWriter, *Request)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -827,7 +827,7 @@
 <p>Logging</p>
 <p>安全（请求超时，用户身份认证）</p>
 <p>响应压缩</p>
-<h3 id="6-2-使用请求上下文"><a href="#6-2-使用请求上下文" class="headerlink" title="6.2 使用请求上下文"></a>6.2 使用请求上下文</h3><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/ctx.png" alt="image-20210319144135404"></p>
+<h3 id="6-2-使用请求上下文"><a href="#6-2-使用请求上下文" class="headerlink" title="6.2 使用请求上下文"></a>6.2 使用请求上下文</h3><p><img src="ctx.png" alt="image-20210319144135404"></p>
 <p>比如中间件设置了请求超时，而这个请求到数据库的时候，这个数据库将会花费很长时间。这个时候就需要让访问数据库的代码知道设置了查询超时时间。这就需要使用到上下文来解决；</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(*Request)</span> <span class="title">Context</span><span class="params">()</span> <span class="title">context</span>.<span class="title">Context</span></span></span><br><span class="line"><span class="comment">// 返回当前请求的上下文</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(*Request)</span> <span class="title">WithContext</span><span class="params">(ctx context.Context)</span><span class="title">context</span>.<span class="title">Context</span></span></span><br><span class="line"><span class="comment">// 基于Context 进行 修改，（实际上）创建一个新的Context</span></span><br></pre></td></tr></table></figure>
 
@@ -844,7 +844,7 @@
 <li>WithValue(), 在里面可以添加一些值；</li>
 </ul>
 <h2 id="7-HTTPS"><a href="#7-HTTPS" class="headerlink" title="7. HTTPS"></a>7. HTTPS</h2><p>HTTP请求的过程</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/http.png" alt="image-20210319155909596"></p>
+<p><img src="http.png" alt="image-20210319155909596"></p>
 <p>在http里面，参数都是以明文进行传输的。在客户端和服务端之间其它的东西，比如某个中间人/中间服务器也能懂得传输的信息。所以说，这种传输是非常不安全的 ；</p>
 <p>HTTPS</p>
 <p>https会稍微给传输层做一点改变，它不是直接在TCP上面传输数据的。会添加一个TLS层，在传输数据的时候，数据首先会被加密。加密之后只有客户端和服务器能够懂得这个加密数据里面真实的内容。中间人/中间服务器即使能获得数据，但是依然无法解析出来内容；也就无法懂得它真正代表的意思了；</p>
@@ -872,7 +872,7 @@
 <li>在TCP里建立stream，stream是在TCP里面独立通信的管道。各个stream不会相互影响。但是允许在同一个链接里面让多个信息来回发送但不相互干扰。在stream里面是通过Frame来发送消息的；所以它在发送请求的时候，不是将header和body绑在一起发送；而是将消息拆成多个Frame进行发送的；而每个Frame又可以单独的进行优化；</li>
 </ol>
 <p>有哪些Frame</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/http2.png" alt="image-20210319172332556"></p>
+<p><img src="http2.png" alt="image-20210319172332556"></p>
 <p>客户端往服务端发送header的时候，服务器知道它将接收到header。这个过程就能使用到一些压缩算法。</p>
 <h3 id="8-1-http2的特点"><a href="#8-1-http2的特点" class="headerlink" title="8.1 http2的特点"></a>8.1 http2的特点</h3><ul>
 <li>请求多路复用，可以在同一个TCP连接使用stream发送多个请求；</li>
@@ -885,10 +885,10 @@
 <li>Server Push</li>
 </ul>
 <p><strong>没有Server push</strong></p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/noserverpush.png" alt="image-20210319172951647"></p>
+<p><img src="noserverpush.png" alt="image-20210319172951647"></p>
 <p>没有Server push的时候，请求是一来一回的。</p>
 <p><strong>server push</strong></p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-web/serverpush.png" alt="image-20210319173601377"></p>
+<p><img src="serverpush.png" alt="image-20210319173601377"></p>
 <p>节省了一个步骤，从客户端往服务端请求app.css的部分；</p>
 <h2 id="9-部署"><a href="#9-部署" class="headerlink" title="9. 部署"></a>9. 部署</h2><p>Nohup</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./it &amp;</span><br></pre></td></tr></table></figure>
@@ -989,10 +989,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-19T18:44:26+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-22T14:06:10+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Mar 19, 2021</p>
+    <p>更新于：Mar 22, 2021</p>
   </a>
 </div>
 
