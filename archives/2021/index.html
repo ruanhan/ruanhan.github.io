@@ -389,6 +389,1671 @@
         
           
   <h2 class="title">
+    <a href="/2021/03/30/linux-command/">
+      linux command
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/tools/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>tools</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 30, 2021</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="普通用户切换至root用户"><a href="#普通用户切换至root用户" class="headerlink" title="普通用户切换至root用户"></a><strong>普通用户切换至root用户</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">su - root</span><br></pre></td></tr></table></figure>
+
+<h3 id="切换至字符终端"><a href="#切换至字符终端" class="headerlink" title="切换至字符终端"></a><strong>切换至字符终端</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">init 3</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="终端的使用"><a href="#终端的使用" class="headerlink" title="终端的使用"></a><strong>终端的使用</strong></h3><ul>
+<li><p>图形终端</p>
+</li>
+<li><p>命令行终端</p>
+</li>
+<li><p>远程终端 （SSH、VNC）   // 工作中实际使用最多的， 通过互联网连接远程</p>
+</li>
+</ul>
+<h3 id="常见目录介绍"><a href="#常见目录介绍" class="headerlink" title="常见目录介绍"></a><strong>常见目录介绍</strong></h3><p>/ </p>
+<p>/root               用户的家</p>
+<p>/home/username      普通用户的家</p>
+<p>/etc                配置文件目录</p>
+<p>/bin                命令目录</p>
+<p>/sbin               管理命令目录</p>
+<p>/usr/bin  /usr/sbin   系统预装的其他命令</p>
+<h3 id="万能的帮助命令"><a href="#万能的帮助命令" class="headerlink" title="万能的帮助命令"></a><strong>万能的帮助命令</strong></h3><p>为什么要学习帮助命令</p>
+<ul>
+<li>man帮助</li>
+</ul>
+<ul>
+<li>man是manual的缩写，</li>
+</ul>
+<ul>
+<li>用法</li>
+</ul>
+<h1 id="man-ls"><a href="#man-ls" class="headerlink" title="man ls"></a><strong>man ls</strong></h1><ul>
+<li>man 也是一条命令,分为9章，可以使用man命令获得man的帮助</li>
+</ul>
+<h1 id="man-7-man"><a href="#man-7-man" class="headerlink" title="man 7 man"></a><strong>man 7 man</strong></h1><h1 id="man-number-man-第几章"><a href="#man-number-man-第几章" class="headerlink" title="man [number] man  第几章"></a><strong>man [number] man  第几章</strong></h1><ul>
+<li>help帮助</li>
+</ul>
+<p>shell（命令解释器） 自带的命令称为内部命令，其他的是外部命令</p>
+<ul>
+<li>内部命令使用help帮助</li>
+</ul>
+<p>help cd</p>
+<ul>
+<li>外部命令使用help帮助</li>
+</ul>
+<p>ls –help</p>
+<ul>
+<li>info帮助</li>
+</ul>
+<ul>
+<li>info帮助比help更详细，作为help的补充</li>
+</ul>
+<p>info ls</p>
+<ul>
+<li>使用网络资源（搜索引擎和官方文档）</li>
+</ul>
+<p>Linux 的基本操作方式是命令行</p>
+<p>海量的命令不适合“死记硬背”</p>
+<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a><strong>文件管理</strong></h3><p>linux - 一切皆文件</p>
+<ol>
+<li><p>文件查看</p>
+</li>
+<li><p>目录文件的创建与删除</p>
+</li>
+<li><p>通配符</p>
+</li>
+<li><p>文件操作</p>
+</li>
+<li><p>文本内容查看</p>
+</li>
+</ol>
+<ul>
+<li><p>pwd 显示当前的目录名称</p>
+</li>
+<li><p>cd 更改当前的操作目录</p>
+</li>
+</ul>
+<p>  cd  /path/to/…      绝对路径</p>
+<p>  cd ./path/to/…     相对路径</p>
+<p>  cd ../path/to/…   相对路径</p>
+<ul>
+<li>ls  查看当前目录下的文件</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ls [选项，选项... ] 参数...</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>常用参数：</li>
+</ul>
+<p>  -l 长格式显示文件</p>
+<p>  -a 显示隐藏文件</p>
+<p>  -r 逆序显示</p>
+<p>  -t 按照时间顺序显示</p>
+<p>  -R 递归显示</p>
+<h3 id="文件的增删"><a href="#文件的增删" class="headerlink" title="文件的增删"></a><strong>文件的增删</strong></h3><p>创建 mkdir </p>
+<p>创建文件 touch</p>
+<p><code>mkdir -p app/a/b/c</code> 创建递归目录</p>
+<p><code>ls -R</code>  查看目录层级</p>
+<p>删除 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r [文件名1] [文件名2]</span><br></pre></td></tr></table></figure>
+
+
+
+<p>复制 </p>
+<p><code>cp -r  /root/a  /tmp</code>   tmp在系统中是临时目录的意思</p>
+<p>cp -v</p>
+<p>cp -p</p>
+<p>cp -a</p>
+<p>移动</p>
+<p><code>mv /file/a /file/b</code> 改名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv &#x2F;file&#x2F;a &#x2F;tmp</span><br></pre></td></tr></table></figure>
+
+
+
+<p>通配符 * ： 表示该文件夹下所有文件</p>
+<h3 id="文本查看"><a href="#文本查看" class="headerlink" title="文本查看"></a><strong>文本查看</strong></h3><p>cat 文本内容显示到终端</p>
+<p>head 查看文件开头</p>
+<p>tail 查看文件结尾</p>
+<ul>
+<li>常用参数 -f 文件内容更新后，显示信息同步更新</li>
+</ul>
+<p>wc 统计文件内容信息</p>
+<h3 id="linux-备份压缩"><a href="#linux-备份压缩" class="headerlink" title="linux 备份压缩"></a><strong>linux 备份压缩</strong></h3><p>最早的linux介质是磁带，使用的命令是 tar</p>
+<p>可以打包后的磁带文件进行压缩缓存，压缩的命令是gzip 和 bzip2</p>
+<p>经常使用的拓展名 .tar.gz .tar.bz2 .tgz</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar cf  &#x2F;tmp&#x2F;etc-backup.tar  &#x2F;etc</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a><strong>进程管理</strong></h3><blockquote>
+<p><em>运行中的程序程序正在运行的过程，管理程序什么时候启动，整个生命周期需要多少资源。内存资源， 运行时需要多少cpu资源，程序运行完之后把程序结束掉。还有进程之间的通讯。</em></p>
+</blockquote>
+<p>进程终止的方式并不唯一，分为正常终止和异常终止</p>
+<ul>
+<li><p>正常终止也分为main返回、调用exit等方式</p>
+</li>
+<li><p>异常终止分为调用abort、接受信号等</p>
+</li>
+</ul>
+<ul>
+<li>进程的概念与进程查看</li>
+</ul>
+<p>  查看命令</p>
+<ul>
+<li><p>ps</p>
+<p><code>ps</code></p>
+</li>
+</ul>
+<p>  PID      TTY    TIME        CMD</p>
+<p>  11931    pts/1   00:11.02   su</p>
+<p>  PID: 进程ID，唯一标识符</p>
+<p>  CMD： 进程名称</p>
+<p>  TTY： 当前执行程序的终端 （pts/1 虚拟终端）</p>
+<p>  TIME： 不具备参考价值的进程时间</p>
+<p>  pstree</p>
+<p>  top</p>
+<p>  结论：</p>
+<p>​    - 进程也是树形结构</p>
+<p>​    - 进程和权限有着密不可分的关系</p>
+<ul>
+<li><p>进程的控制命令</p>
+</li>
+<li><p>进程的通信方式 - 信号</p>
+</li>
+<li><p>守护进程和系统日志</p>
+</li>
+<li><p>服务管理工具 systemctl</p>
+</li>
+<li><p>SELinux简介</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ps axj *<span class="comment"># 查看精确到进程信息*</span></span><br><span class="line"></span><br><span class="line">ps axm *<span class="comment"># 能查看精确到线程信息*</span></span><br><span class="line"></span><br><span class="line">ps ax -L *<span class="comment"># 以linux的方式来查看进程和线程的关系*</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="复制文本-粘贴文本"><a href="#复制文本-粘贴文本" class="headerlink" title="复制文本/粘贴文本"></a><strong>复制文本/粘贴文本</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctrl+shift+c</span><br><span class="line">ctrl+shift+v</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a><strong>复制文件</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp filename1 filename2</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="复制文件夹"><a href="#复制文件夹" class="headerlink" title="复制文件夹"></a><strong>复制文件夹</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r dir1 dir2</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="文件改名（剪贴）"><a href="#文件改名（剪贴）" class="headerlink" title="文件改名（剪贴）"></a><strong>文件改名（剪贴）</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv oldfilename newfilename</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="看函数源码"><a href="#看函数源码" class="headerlink" title="看函数源码"></a><strong>看函数源码</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 光标停在函数名上，</span><br><span class="line"></span><br><span class="line">2. esc退出编辑模式；</span><br><span class="line"></span><br><span class="line">3. shift+k 可以直接跳转到 man 手册</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查看机器-TCP，-udp链接"><a href="#查看机器-TCP，-udp链接" class="headerlink" title="查看机器 TCP， udp链接"></a><strong>查看机器 TCP， udp链接</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anu</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ant</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用本机的-提供的客户端"><a href="#使用本机的-提供的客户端" class="headerlink" title="使用本机的 提供的客户端"></a><strong>使用本机的 提供的客户端</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc ip port</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="打开一张图片"><a href="#打开一张图片" class="headerlink" title="打开一张图片"></a><strong>打开一张图片</strong></h3><p>eog xy.png # 打开一张图片</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2021/03/28/net/">
+      net
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/net/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>net</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 28, 2021</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>网关</strong></p>
+<ul>
+<li><p>对于局域网来说，上网需要路由器，路由器可以被称为网关。</p>
+</li>
+<li><p>网关还能承载DNS服务器的作用。</p>
+</li>
+</ul>
+<h2 id="1-OSI七层模型"><a href="#1-OSI七层模型" class="headerlink" title="1. OSI七层模型"></a>1. OSI七层模型</h2><blockquote>
+<p><em><code>**Open System Interconnection**</code>**适用于所有的网络</em></p>
+</blockquote>
+<ul>
+<li><p>分工带来效能</p>
+</li>
+<li><p>将复杂的流程分解为几个功能相对单一的子进程</p>
+</li>
+<li><p>整个流程更加清晰，复杂问题简单化</p>
+</li>
+<li><p>更容易发现问题并针对性的解决问题</p>
+<ul>
+<li><p>应用层(Application) 提供业务处理的，比如网络与用户应用软件之间的接口服务(HTTP)</p>
+</li>
+<li><p>表示层(Presentation) 内容是什么格式（英文还是中文，还是二进制等等）表示的，这一层提供格式化的表示和转换数据服务，如加密和压缩()</p>
+</li>
+<li><p>会话层(Session)保持会话， 提供包括访问验证和会话管理在内的建立和维护应用之间通信的机制()</p>
+</li>
+<li><p>传输层(Transimission) 提供建立、维护和取消传输连接功能，负责可靠地传输数据(TCP)</p>
+</li>
+<li><p>网络层(Network) 处理网络间路由，确保数据及时传送(路由器)</p>
+</li>
+<li><p>数据链路层(DataLink) 负责无错传输数据，确认帧、发错重传等(交换机)</p>
+</li>
+<li><p>物理层(Physics) 提供机械、电气、功能和过程特性(网卡、网线、双绞线、同轴电缆、中继器)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>解析：</p>
+<ol>
+<li><p>拿张稿纸写封信 （应用层，表示层，会话层先合并为一层， 写信整体对应的是应用层，里面放的业务数据） </p>
+</li>
+<li><p>把信装到信封里面，写上收件人，收件人地址（地址分为两部分，第一部分，省市区地址和楼盘门牌号。第二部分是房间号） 然后给邮局，一般邮局不会只打包一封信，而是把一些相同目的地的信封打包成包裹，然后写上目标地址（这个打包的过程对应的是传输层）</p>
+</li>
+<li><p>邮局送信，先找到具体楼盘以及门牌号。邮局（寻址，这里对应的是网络层）知道目的地了，开始选择道路（铁路或者公路或者飞行）。</p>
+</li>
+<li><p>确定位置和运输方式之后，开始传输，到达目的地之后。把数据包给到收件人，收件人拆开数据包。拿到信（数据）（这个层是数据链路层和物理层负责，物理层负责实际的物理传输，就010101的传信号），万一途中把包裹丢失了怎么办，以及其他意外的处理，比如包裹的包装是否被拆过。都需要校验。（这个是数据链路层负责的事情 ）</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">下层是为上层提供服务的</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a><strong>物理层</strong></h3><blockquote>
+<p><em>建立，维护，断开物理连接</em></p>
+</blockquote>
+<p> 数据最终还是需要物理层的硬件传输，这些硬件只能传输010101.这些01010 在网络中怎么去表示呢。不同的介质表现方式是不一样的。</p>
+<ol>
+<li>高电频和低电频表示，5V 和 0V分别表示 1 和 0；</li>
+</ol>
+<h3 id="1-1-数据链路层"><a href="#1-1-数据链路层" class="headerlink" title="1.1 数据链路层"></a>1.1 <strong>数据链路层</strong></h3><blockquote>
+<p><em>建立逻辑连接，进行硬件地址寻址·差错校验等功能。</em></p>
+</blockquote>
+<p> 比如两个网卡，这两张网卡如何建立连接，如何通信。通信过程中出问题了如何解决。发送过程中丢包要重新传。链路层依赖物理层，（下层是为上层提供服务的，上层会把数据传给下层，让下层帮忙提供服务）</p>
+<h3 id="1-2-网络层"><a href="#1-2-网络层" class="headerlink" title="1.2 网络层"></a>1.2 <strong>网络层</strong></h3><blockquote>
+<p><em>进行逻辑地址寻址，实现不同网络之间的路径选择</em></p>
+</blockquote>
+<p>从一个端到另一个端，肯定不止一条路。而是有无数条路。那要如何找到最快的路呢。这个是网络层负责的</p>
+<h3 id="1-3-传输层"><a href="#1-3-传输层" class="headerlink" title="1.3 传输层"></a>1.3 <strong>传输层</strong></h3><blockquote>
+<p><em>定义传输数据的协议端口号，以及流控和差错校验（在不可靠的路线上做可靠的事情）</em></p>
+</blockquote>
+<p>从一个端向另外一个端发送数据包的时候，如何做到中间丢包了，发送端能够感知到。一般操作方式是，当发送端发送包之后，开一个定时器。一般发送一个数据包，会有一个经验的时间。比如A到B之间传数据包要2秒，那么这个定时器2秒之后还没回来，我就默认这个包丢了。那就重新传一份。直到接受端返回正确的回馈。</p>
+<h3 id="1-4-应用层表示层会话层"><a href="#1-4-应用层表示层会话层" class="headerlink" title="1.4 应用层表示层会话层"></a>1.4 <strong>应用层表示层会话层</strong></h3><blockquote>
+<p><em>应用层，表示层，会话层一般会打包到一层，就是实际的数据，比如发送的是文本，图片还是网页等这些东西。下层帮上层提供服务，上层给下层下发命令。下层帮忙处理。</em></p>
+</blockquote>
+<h3 id="1-5-分层模型"><a href="#1-5-分层模型" class="headerlink" title="1.5 分层模型"></a><strong>1.5 分层模型</strong></h3><p><img src="osi.png" alt=""></p>
+<h3 id="1-6-封装过程"><a href="#1-6-封装过程" class="headerlink" title="1.6 封装过程"></a><strong>1.6 封装过程</strong></h3><p><img src="18.send.png" alt=""></p>
+<p><img src="19.receive.png" alt=""></p>
+<ul>
+<li>数据在不同层的称谓</li>
+</ul>
+<ol>
+<li><p>数据帧（Frame） 是一种信息单位，它的起点和目的点都是数据链路层</p>
+</li>
+<li><p>数据包（Packet）：也是一种信息单位，它的起始和目的地是网络层</p>
+</li>
+<li><p>段（Segment）： 通常是指起始点和目的地都是传输层的信息单元</p>
+</li>
+<li><p>消息（message）： 是指起始点和目的地都在网络层以上（经常在应用层）的信息单元</p>
+</li>
+</ol>
+<p>不同的层解自己的封装的数据（段，数据包，数据帧等等）</p>
+<h2 id="2-TCP-IP参考模型"><a href="#2-TCP-IP参考模型" class="headerlink" title="2. TCP/IP参考模型"></a><strong>2. TCP/IP参考模型</strong></h2><p>TCP/IP是传输控制协议/网络互联协议的简称</p>
+<p>早期的TCP/IP模型是一个四层结构，从下往上依次是网络接口层、互联网层、传输层和应用层</p>
+<p>后来在使用过程中，借鉴OSI七层参考模型，将网络接口层划分为了物理层和数据链路层，形成五层结构</p>
+<p><img src="tcpip.png" alt=""></p>
+<ul>
+<li>5层对应7层</li>
+</ul>
+<ol>
+<li><p>应用层对应 （应用层，表示层和会话层）</p>
+</li>
+<li><p>传输层对应传输层</p>
+</li>
+<li><p>网络层对应网络层</p>
+</li>
+<li><p>数据链路层对应数据链路层</p>
+</li>
+<li><p>物理层对应物理层</p>
+</li>
+</ol>
+<h3 id="2-1-协议的概念和作用"><a href="#2-1-协议的概念和作用" class="headerlink" title="2.1 协议的概念和作用"></a><strong>2.1 协议的概念和作用</strong></h3><blockquote>
+<p><em>协议的目的为了让计算机能够通信，计算机需要定义通信规则，这些规则就是协议，信息双方都要理解，而且信息能够传输。</em></p>
+</blockquote>
+<p>规则是多种，协议也有多种</p>
+<p>协议就是<code>数据封装格式+传输 的结合</code></p>
+<h3 id="2-2-常用协议"><a href="#2-2-常用协议" class="headerlink" title="2.2 常用协议"></a><strong>2.2 常用协议</strong></h3><p>TCP/IP协议被称为传输控制协议/互联网协议，又称网络通讯协议</p>
+<p>是由网络层的IP协议和传输层的TCP协议组成，是一个很大的协议集合</p>
+<p>物理层和数据链路层没有定义任何特定协议，支持所有的标准和专用的协议</p>
+<p><img src="protocal.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>名称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>应用层</td>
+<td>HTTP</td>
+<td>超文本传输协议（HTTP，HyperText Transfer Protocol)是互联网上应用最为广泛的一种网络协议</td>
+</tr>
+<tr>
+<td>应用层</td>
+<td>FTP</td>
+<td>文件传输协议（英文：File Transfer Protocol，缩写：FTP）是用于在网络上进行文件传输的一套标准协议，使用客户/服务器模式</td>
+</tr>
+<tr>
+<td>应用层</td>
+<td>TFTP</td>
+<td>(Trivial File Transfer Protocol,简单文件传输协议)是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议</td>
+</tr>
+<tr>
+<td>应用层</td>
+<td>SMTP</td>
+<td>简单邮件传输协议 (Simple Mail Transfer Protocol, SMTP) 是在Internet传输Email的事实标准</td>
+</tr>
+<tr>
+<td>应用层</td>
+<td>SNMP</td>
+<td>简单网络管理协议（SNMP，Simple Network Management Protocol），由一组网络管理的标准组成，包含一个应用层协议（application layer protocol）、数据库模型（database schema）和一组资源对象,该协议能够支持网络管理系统，用以监测连接到网络上的设备是否有任何引起管理上关注的情况。</td>
+</tr>
+<tr>
+<td>应用层</td>
+<td>DNS</td>
+<td>域名系统（英文：Domain Name System，缩写：DNS）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。</td>
+</tr>
+<tr>
+<td></td>
+<td>TCP</td>
+<td>TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>UDP</td>
+<td>UDP 是User Datagram Protocol的简称， 中文名是用户数据报协议，是OSI（Open System Interconnection，开放式系统互联） 参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>ICMP</td>
+<td>ICMP（Internet Control Message Protocol）Internet控制报文协议。它是TCP/IP协议簇的一个子协议，用于在IP主机、路由器之间传递控制消息。控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>IGMP</td>
+<td>Internet 组管理协议称为IGMP协议（Internet Group Management Protocol），是因特网协议家族中的一个组播协议。该协议运行在主机和组播路由器之间</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>IP</td>
+<td>互联网协议地址（英语：Internet Protocol Address，又译为网际协议地址），缩写为IP地址（英语：IP Address），是分配给用户上网使用的网际协议（英语：Internet Protocol, IP）的设备的数字标签</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>ARP</td>
+<td>地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>RARP</td>
+<td>反向地址转换协议（RARP：Reverse Address Resolution Protocol） 反向地址转换协议（RARP）允许局域网的物理机器从网关服务器的 ARP 表或者缓存上请求其 IP 地址</td>
+</tr>
+</tbody></table>
+<h2 id="以下具体讲5层协议"><a href="#以下具体讲5层协议" class="headerlink" title="以下具体讲5层协议"></a><strong>以下具体讲5层协议</strong></h2><h2 id="3-网络接口层"><a href="#3-网络接口层" class="headerlink" title="3. 网络接口层"></a><strong>3. 网络接口层</strong></h2><p>网络接口层是TCP/IP模型的最底层，负责接收从上一层交来的数据报并将数据报通过底层的物理网络发送出去，比较常见的就是设备的驱动程序，此层没有特定的协议</p>
+<p>网络接口层又分为物理层和数据链路层</p>
+<h3 id="3-1-物理层"><a href="#3-1-物理层" class="headerlink" title="3.1 物理层"></a><strong>3.1 物理层</strong></h3><p>计算机在传递数据的时候传递的都是0和1的数字，而物理层关心的是用什么信号来表示0和1，是否可以双向通信，最初的连接如何建立以及完成连接如何终止,物理层是为数据传输提供可靠的环境</p>
+<p>尽可能的屏蔽掉物理设备和传输媒介，使数据链路层不考虑这些差异，只考虑本层的协议和服务</p>
+<p>为用户提供在一条物理传输媒体上提供传送和接收比特流的能力</p>
+<p>需要解决物理连接、维护和释放的问题</p>
+<p><img src="2.phisical.png" alt=""></p>
+<h3 id="3-1-1-数字信号的编码"><a href="#3-1-1-数字信号的编码" class="headerlink" title="3.1.1 数字信号的编码"></a><strong>3.1.1 数字信号的编码</strong></h3><p>数字信号的编码：用何种物理信号来表示0和1</p>
+<h4 id="3-1-1-1-非归零编码"><a href="#3-1-1-1-非归零编码" class="headerlink" title="3.1.1.1 非归零编码"></a><strong>3.1.1.1 非归零编码</strong></h4><p><img src="1.phisical.png" alt=""></p>
+<blockquote>
+<p><em>缺点就是连音没法处理，是多个1 还是一个1的问题；所以需要告诉多长时间是个间隔呢。不然没法判断是几个1</em></p>
+</blockquote>
+<p>优点： 编/译码简单。</p>
+<p>缺点： 内部不含时钟信号， 收/发端同步困难。</p>
+<p>用途： 计算机内部， 或低速数据通信。</p>
+<h4 id="3-1-1-2-曼彻斯特编码"><a href="#3-1-1-2-曼彻斯特编码" class="headerlink" title="3.1.1.2 曼彻斯特编码"></a><strong>3.1.1.2 曼彻斯特编码</strong></h4><p><img src="man.png" alt=""></p>
+<blockquote>
+<p><em>附加一个从低到高或者从高到低的频率</em></p>
+</blockquote>
+<p>优点：</p>
+<p>内部自含时钟， 收/发端同步容易。</p>
+<p>抗干扰能力强。</p>
+<p>缺点：</p>
+<p>编/译码较复杂。</p>
+<p>占用更多的信道带宽， 在同样的波特率的情况下， 要比非归零编码多占用一倍信道带宽。</p>
+<p>用途： 802.3局域网（以太网）使用场景更多</p>
+<h3 id="3-2-数据链路层"><a href="#3-2-数据链路层" class="headerlink" title="3.2 数据链路层"></a><strong>3.2 数据链路层</strong></h3><p>数据链路层是OSI参考模型中的第二层，介乎于物理层和网络层之间</p>
+<p>数据链路层在物理层提供的服务的基础上向网络层提供服务，其最基本的服务是将源自网络层来的数据可靠地传输到相邻节点的目标机网络层</p>
+<p>如何将数据组合成数据块，在数据链路层中称这种数据块为帧frame，帧是数据链路层的传送单位</p>
+<p>如何控制帧在物理信道上的传输，包括如何处理传输差错，如何调节发送速率以使与接收方相匹配</p>
+<p>以及在两个网络实体之间提供数据链路通路的建立、维持和释放的管理</p>
+<h3 id="3-2-1-以太网"><a href="#3-2-1-以太网" class="headerlink" title="3.2.1 以太网"></a><strong>3.2.1 以太网</strong></h3><p>以太网（Ethernet）是一种计算机局域网技术。IEEE组织的IEEE 802.3标准制定了以太网的技术标准，它规定了包括物理层的连线、电子信号和介质访问层协议的内容</p>
+<p>以太网的标准拓扑结构为总线型拓扑</p>
+<p>以太网仍然使用总线型拓扑和CSMA/CD（Carrier Sense Multiple Access/Collision Detection，即载波多重访问/碰撞侦测）的总线技术</p>
+<p>以太网实现了网络上无线电系统多个节点发送信息的想法，每个节点必须获取电缆或者信道的才能传送信息</p>
+<p>每一个节点有全球唯一的48位地址也就是制造商分配给网卡的MAC地址，以保证以太网上所有节点能互相鉴别</p>
+<h4 id="3-2-2-总线型拓扑（只用到了物理层和数据链路层）"><a href="#3-2-2-总线型拓扑（只用到了物理层和数据链路层）" class="headerlink" title="3.2.2 总线型拓扑（只用到了物理层和数据链路层）"></a><strong>3.2.2 总线型拓扑（只用到了物理层和数据链路层）</strong></h4><ul>
+<li>网络总线，每个电脑都可以接受消息，发送消息。</li>
+</ul>
+<p>总线型拓扑是采用单根传输作为共用的传输介质,将网络中所有的计算机通过相应的硬件接口和电缆直接连接到这根共享的总线上</p>
+<p>使用总线型拓扑结构需解决的是确保端用户使用媒体发送数据时不能出现冲突。</p>
+<p>总线型网络采用载波监听多路访问/冲突检测协议（CSMA/CD)作为控制策略</p>
+<p>（CSMA/CD指的是，每个电脑得监听其他电脑的状态，大家不能同时往网络总线上发消息）</p>
+<p><img src="totalline.png" alt=""></p>
+<h4 id="3-2-2-1-载波监听多路访问"><a href="#3-2-2-1-载波监听多路访问" class="headerlink" title="3.2.2.1 载波监听多路访问"></a><strong>3.2.2.1 载波监听多路访问</strong></h4><p>全称Carrier Sense Multiple Access (CSMA)，是一种允许多个设备在同一信道发送信号的协议，其中的设备监听其它设备是否忙碌，只有在线路空闲时才发送</p>
+<p>在此种访问方式下，网络中的所有用户共享传输介质，信息通过广播传送到所有端口，网络中的工作站对接收到的信息进行确认，若是发给自己的便接收否则不理</p>
+<p>从发送端情况看，当一个工作站有数据要发送时，他首先监听信道并检测网络上是否有其他的工作站正在发送DATA，如果检测到信道忙，工作站将继续WAIT若发现信道空闲，则开始发送数据，信息发送出去后，发送端还要继续对发送出去的信息进行确认，以了解接收端是否已经正确接收到数据，如果收到则发送结束，否则再次发送</p>
+<ul>
+<li>核心思想</li>
+</ul>
+<p>先听后讲 信道空闲则发送，信道忙则等待。</p>
+<p>边听边讲 发送信号时不断检测信道是否碰撞。（发信号时即时检测）</p>
+<p>碰撞即停 （因为网线是单向的，传输过程中发现别人也在往反方向发，那么赶紧停止发送）</p>
+<p>退避重传 二进制指数退避重传</p>
+<p>多次碰撞，放弃发送,最多16次 （下面这个计算退避等待时间的算法，1，2，4，8.。。64） 如果64秒还没发出去，那么就不发了。</p>
+<h4 id="3-2-2-2-冲突检测"><a href="#3-2-2-2-冲突检测" class="headerlink" title="3.2.2.2 冲突检测"></a><strong>3.2.2.2 冲突检测</strong></h4><p>冲突检测即发送站点在发送数据时要边发送边监听信道，若监听到信道有干扰信号，则表示产生了冲突，于是就要停止发送数据，计算出退避等待时间，然后使用CSMA方法继续尝试发送</p>
+<p>计算退避等待时间采用的是二进制指数退避算法 （发消息的时候，检测别的电脑是否也在发，如果有就等1秒，1秒后继续校验，如果阻塞继续等2秒，后面依次类推 等 2的次方倍）</p>
+<h4 id="3-2-2-3-总线拓扑的缺点"><a href="#3-2-2-3-总线拓扑的缺点" class="headerlink" title="3.2.2.3 总线拓扑的缺点"></a><strong>3.2.2.3 总线拓扑的缺点</strong></h4><ol>
+<li>不安全，发送出去的包连接总线的所有电脑都能劫持到。本来不该他收的信息他也可以收。</li>
+</ol>
+<h4 id="3-2-2-4-交换机"><a href="#3-2-2-4-交换机" class="headerlink" title="3.2.2.4 交换机"></a><strong>3.2.2.4 交换机</strong></h4><blockquote>
+<p><em>后来出现了交换机，交换机是一个二层的设备，在物理链路层上工作。比如A电脑发送消息给B电脑，直接连接交换机即可。就不同通知同样连接交换机的C电脑</em></p>
+</blockquote>
+<p><img src="jiaohuanji.png" alt=""></p>
+<ul>
+<li>交换机和路由器的区别</li>
+</ul>
+<ol>
+<li><p>首先交换机是一个数据链路层的设备，只是传输数据包。数据包里面肯定有原地址和目标地址（比如A电脑 -&gt; B电脑）这个地址就是 MAC地址。</p>
+</li>
+<li><p>路由处理ip地址，主要作用是网络层的寻址</p>
+</li>
+</ol>
+<h3 id="3-2-3-MAC地址"><a href="#3-2-3-MAC地址" class="headerlink" title="3.2.3 MAC地址"></a><strong>3.2.3 MAC地址</strong></h3><blockquote>
+<p><em>在通信过程中是用内置在网卡内的地址来标识计算机身份的</em></p>
+</blockquote>
+<p>每个网卡都有一个全球唯一的地址来标识自己，不会重复(保证局域网之内不重复就行了)。MAC地址48位的二进制组成，通常分为6段，用16进制表示</p>
+<p><img src="8.mac.png" alt=""></p>
+<h3 id="3-2-4-以太网帧格式"><a href="#3-2-4-以太网帧格式" class="headerlink" title="3.2.4 以太网帧格式"></a><strong>3.2.4 以太网帧格式</strong></h3><ul>
+<li><p>在以太网链路上的数据包称作以太帧。以太帧起始部分由前导码和帧开始符组成。</p>
+</li>
+<li><p>后面紧跟着一个以太网报头，以MAC地址说明目的地址和源地址</p>
+</li>
+<li><p>帧的中部是该帧负载的包含其他协议报头的数据包(例如IP协议)</p>
+</li>
+<li><p>以太帧由一个32位冗余校验码结尾。它用于检验数据传输是否出现损坏</p>
+</li>
+</ul>
+<p><img src="802.3frame.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">前导符(Preamble)</td>
+<td align="left">由1和0交互构成(10101010…..)，共占7个字节，用于使PLS子层电路与收到的帧达成时钟同步</td>
+</tr>
+<tr>
+<td align="left">帧起始(Start-of-Frame Delimiter, SFD)</td>
+<td align="left">为10101011，共占1个字节，表示一个帧的开始。它和前导符共同使接收方能根据1、0交替来迅速实现比特同步，当检测到连续的两位1时，将后续信息交给MAC子层。通常来说，Pre和SFD这两个字段只用于提醒接收端新帧到达，并不计入MAC帧大小，也不算作是MAC帧头的组成部分</td>
+</tr>
+<tr>
+<td align="left">目的MAC(Destination Address, DA)/源MAC(Source Address, SA)</td>
+<td align="left">分别用于标识目的MAC地址和源MAC地址，两个字段各占6个字节。它们可以是单播地址也可以是广播地址。当地址的最高位为0时表示单播，最高位为1时为组播，全为1时为广播</td>
+</tr>
+<tr>
+<td align="left">长度(Length)/类型(Type)</td>
+<td align="left">这是一个二选一的字段，共占2个字节，对于不同的网络协议，它有不同的含义。但是，作为类型使用时，如上表所示，最小值也总是大于1536（十六进制0x600）；所以不会产生冲突。另外，在IEEE 802.3中，数据字段的长度为38~1500个字节</td>
+</tr>
+<tr>
+<td align="left">数据(Data)</td>
+<td align="left">该字段对于不同的以太网帧包含的内容不一，对于较老的以太网标准，它是网络层来的数据报；而较新的标准，则是一个LLC帧的全部内容</td>
+</tr>
+<tr>
+<td align="left">帧校验序列(FCS)</td>
+<td align="left">它是一个包含32位CRC校验值的字段，一共占4个字节。由发送端对MAC帧的DA字段到Data字段间（不包含前导符和帧起始）的二进制序列进行计算</td>
+</tr>
+</tbody></table>
+<h3 id="3-2-5-ARP协议"><a href="#3-2-5-ARP协议" class="headerlink" title="3.2.5 ARP协议"></a><strong>3.2.5 ARP协议</strong></h3><ul>
+<li><p>地址解析协议，即ARP（Address Resolution Protocol），<code>是根据IP地址获取物理地址(MAC地址)的一个TCP/IP协议</code></p>
+</li>
+<li><p>主机发送信息时将包含目标IP地址的ARP请求广播到网络上的所有主机，并接收返回消息，以此确定目标的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源</p>
+</li>
+<li><p>地址解析协议是建立在网络中各个主机互相信任的基础上的，网络上的主机可以自主发送ARP应答消息，其他主机收到应答报文时不会检测该报文的真实性就会将其记入本机ARP缓存</p>
+</li>
+<li><p>由此攻击者就可以向某一主机发送伪ARP应答报文，使其发送的信息无法到达预期的主机或到达错误的主机，这就构成了一个ARP欺骗</p>
+</li>
+</ul>
+<h4 id="3-2-5-1-ARP协议报文"><a href="#3-2-5-1-ARP协议报文" class="headerlink" title="3.2.5.1 ARP协议报文"></a><strong>3.2.5.1 ARP协议报文</strong></h4><p><img src="arppackage.jpg" alt=""></p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">硬件类型</td>
+<td align="left">表示硬件地址的类型，值为1表示以太网地址</td>
+</tr>
+<tr>
+<td align="left">协议类型</td>
+<td align="left">表示要映射的协议地址类型。它的值为0x0800表示IP地址类型</td>
+</tr>
+<tr>
+<td align="left">硬件地址长度和协议长度</td>
+<td align="left">以字节为单位，对于以太网上的IP地址的ARP请求或应答来说，他们的值分别为6和4</td>
+</tr>
+<tr>
+<td align="left">操作类型</td>
+<td align="left">用来表示这个报文的类型，ARP请求为1，ARP响应为2，RARP请求为3，RARP响应为4</td>
+</tr>
+<tr>
+<td align="left">发送端MAC地址</td>
+<td align="left">发送方设备的硬件地址</td>
+</tr>
+<tr>
+<td align="left">发送端IP地址</td>
+<td align="left">发送方设备的IP地址</td>
+</tr>
+<tr>
+<td align="left">目标MAC地址</td>
+<td align="left">接收方设备的硬件地址</td>
+</tr>
+<tr>
+<td align="left">目标IP地址</td>
+<td align="left">接收方设备的IP地址</td>
+</tr>
+</tbody></table>
+<p><img src="arpwireshark.png" alt=""></p>
+<h4 id="3-2-5-2-ARP地址解析过程"><a href="#3-2-5-2-ARP地址解析过程" class="headerlink" title="3.2.5.2 ARP地址解析过程"></a><strong>3.2.5.2 ARP地址解析过程</strong></h4><p><img src="arpflow.jpg" alt=""></p>
+<p>主机A和B在同一个网段，主机A要向主机B发送信息</p>
+<p>主机A首先查看自己的ARP表，确定其中是否包含有主机B对应的ARP表项。如果找到了对应的MAC地址，则主机A直接利用ARP表中的MAC地址，对IP数据包进行帧封装，并将数据包发送给主机B。</p>
+<p>如果主机A在ARP表中找不到对应的MAC地址，则将缓存该数据报文，然后以广播方式发送一个ARP请求报文。ARP请求报文中的发送端IP地址和发送端MAC地址为主机A的IP地址和MAC地址，目标IP地址和目标MAC地址为主机B的IP地址和全0的MAC地址。由于ARP请求报文以广播方式发送，该网段上的所有主机都可以接收到该请求，但只有被请求的主机（即主机B）会对该请求进行处理。</p>
+<p>主机B比较自己的IP地址和ARP请求报文中的目标IP地址，当两者相同时进行如下处理：将ARP请求报文中的发送端（即主机A）的IP地址和MAC地址存入自己的ARP表中。之后以单播方式发送ARP响应报文给主机A，其中包含了自己的MAC地址。</p>
+<p>主机A收到ARP响应报文后，将主机B的MAC地址加入到自己的ARP表中以用于后续报文的转发，同时将IP数据包进行封装后发送出去。</p>
+<h2 id="4-互联网层-网络层"><a href="#4-互联网层-网络层" class="headerlink" title="4. 互联网层(网络层)"></a><strong>4. 互联网层(网络层)</strong></h2><p>位于传输层和网络接口层之间,用于把数据从源主机经过若干个中间节点传送到目标主机,并向传输层提供最基础的数据传输服务,它要提供路由和选址的工作</p>
+<p><img src="8.iplayer.png" alt=""></p>
+<h3 id="4-1-选址"><a href="#4-1-选址" class="headerlink" title="4.1 选址"></a><strong>4.1 选址</strong></h3><p>交换机是靠MAC来寻址的，而因为MAC地址是无层次的,所以要靠IP地址来确认计算机的位置,这就是选址</p>
+<p><img src="8.address.png" alt=""></p>
+<p><img src="t0123c4234759d969dc.jpg" alt=""></p>
+<h3 id="4-2-路由"><a href="#4-2-路由" class="headerlink" title="4.2 路由"></a><strong>4.2 路由</strong></h3><blockquote>
+<p><em>寻址</em></p>
+</blockquote>
+<p>在能够选择的多条道路之间选择一条最短的路径就是路由的工作</p>
+<p><img src="8.router.png" alt=""></p>
+<h3 id="4-3-IP"><a href="#4-3-IP" class="headerlink" title="4.3 IP"></a><strong>4.3 IP</strong></h3><p>在网络中，每台计算机都有一个唯一的地址，方便别人找到它，这个地址称为IP地址。</p>
+<h3 id="4-3-1-IP头部"><a href="#4-3-1-IP头部" class="headerlink" title="4.3.1 IP头部"></a><strong>4.3.1 IP头部</strong></h3><p><img src="ipheader.png" alt=""></p>
+<p><img src="ip_header.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">版本</td>
+<td align="left">Version）字段：占4比特。用来表明IP协议实现的版本号，当前一般为IPv4，即0100</td>
+</tr>
+<tr>
+<td align="left">首部长部</td>
+<td align="left">报头长度（Internet Header Length，IHL）字段：占4比特。是头部占32比特的数字，包括可选项。普通IP数据报（没有任何选项），该字段的值是5，即160比特=20字节。此字段最大值为60字节</td>
+</tr>
+<tr>
+<td align="left">优先级与服务类型</td>
+<td align="left">占8比特。其中前3比特为优先权子字段（Precedence，现已被忽略）。第8比特保留未用。第4至第7比特分别代表延迟、吞吐量、可靠性和花费。当它们取值为1时分别代表要求最小时延、最大吞吐量、最高可靠性和最小费用。这4比特的服务类型中只能置其中1比特为1。可以全为0，若全为0则表示一般服务。服务类型字段声明了数据报被网络系统传输时可以被怎样处理。例如：TELNET协议可能要求有最小的延迟，FTP协议（数据）可能要求有最大吞吐量，SNMP协议可能要求有最高可靠性，NNTP（Network News Transfer Protocol，网络新闻传输协议）可能要求最小费用，而ICMP协议可能无特殊要求（4比特全为0</td>
+</tr>
+<tr>
+<td align="left">总长度</td>
+<td align="left">占16比特。指明整个数据报的长度（以字节为单位）。最大长度为65535字节</td>
+</tr>
+<tr>
+<td align="left">标识符</td>
+<td align="left">占16比特。用来唯一地标识主机发送的每一份数据报。通常每发一份报文，它的值会加1</td>
+</tr>
+<tr>
+<td align="left">标志</td>
+<td align="left">分为3个字段，依次为保留位、不分片位和更多片位</td>
+</tr>
+<tr>
+<td align="left">标志</td>
+<td align="left">保留位：一般被置为0</td>
+</tr>
+<tr>
+<td align="left">标志</td>
+<td align="left">不分片位：表示该数据报是否被分片，如果被置为1，则不能对数据报进行分片，如果要对其进行分片处理，就应将其置为0</td>
+</tr>
+<tr>
+<td align="left">标志</td>
+<td align="left">更多片位：除了最后一个分片，其他每个组成数据报的片都要将该位置设置为1.</td>
+</tr>
+<tr>
+<td align="left">段偏移量</td>
+<td align="left">占13比特。如果一份数据报要求分段的话，此字段指明该段偏移距原始数据报开始的位置</td>
+</tr>
+<tr>
+<td align="left">TTL(Time to Live生存时间)</td>
+<td align="left">该字段用于表示IP数据包的生命周期，可以防止一个数据包在网络中无限循环地发下去。TTL的意思是一个数据包在被丢弃之前在网络中的最大周转时间。该数据包经过的每一个路由器都会检查该字段中的值，当TTL的值为0时此数据包会被丢弃。TTL对应于一个数据包通过路由器的数目，一个数据包每经过一个路由器，TTL将减去1</td>
+</tr>
+<tr>
+<td align="left">协议号</td>
+<td align="left">占8比特。指明IP层所封装的上层协议类型，如ICMP（1）、IGMP（2） 、TCP（6）、UDP（17）等</td>
+</tr>
+<tr>
+<td align="left">首部校验和</td>
+<td align="left">检验和是16位的错误检测字段。目的主机和网络中的每个网关都要重新计算报头的校验和，一样表示没有改动过,计算方法是：对头部中每个16比特进行二进制反码求和</td>
+</tr>
+<tr>
+<td align="left">源IP地址</td>
+<td align="left">该字段用于表示数据包的源地址，指的是发送该数据包的设备的网络地址</td>
+</tr>
+<tr>
+<td align="left">目标IP地址</td>
+<td align="left">该字段用于表示数据包的目标的地址，指的是接收节点的网络地址</td>
+</tr>
+</tbody></table>
+<p><img src="ipwireshark.png" alt=""></p>
+<h3 id="4-3-2-IP地址格式"><a href="#4-3-2-IP地址格式" class="headerlink" title="4.3.2 IP地址格式"></a><strong>4.3.2 IP地址格式</strong></h3><p>IP地址是一个网络编码，用来确定网络中的一个节点。</p>
+<p>IP地址是由32位二进制(32bit)组成</p>
+<p><img src="9.ip.png" alt=""></p>
+<h3 id="4-3-3-IP地址组成"><a href="#4-3-3-IP地址组成" class="headerlink" title="4.3.3 IP地址组成"></a><strong>4.3.3 IP地址组成</strong></h3><p>网络部分(NETWORK), 网络部分表示不同的网络</p>
+<p>主机部分(HOST) ，主机部分标示在一个网络中特定的主机</p>
+<p><img src="ippart.png" alt=""></p>
+<h3 id="4-3-4-IP地址表示"><a href="#4-3-4-IP地址表示" class="headerlink" title="4.3.4 IP地址表示"></a><strong>4.3.4 IP地址表示</strong></h3><p><img src="9.ip.png" alt=""></p>
+<h3 id="4-3-5-IP地址的分类"><a href="#4-3-5-IP地址的分类" class="headerlink" title="4.3.5 IP地址的分类"></a><strong>4.3.5 IP地址的分类</strong></h3><ol>
+<li><p>IP地址的网络部分是由Internet地址分配机构来统一分配的，这样可以保证IP的唯一性。</p>
+</li>
+<li><p>ip地址中全为1的ip即255.255.255.255，它称为限制广播地址，如果将其作为数据包的目标地址可以理解为发送到所有网络的所有主机</p>
+</li>
+<li><p>ip地址中全为0的ip即0.0.0.0，它表示启动时的ip地址，其含义就是尚未未分配时的ip地址</p>
+</li>
+<li><p>127是用来进行本机测试的，除了127.255.255.255外，其它的127开头的地址都代表本机</p>
+</li>
+</ol>
+<p><img src="10.ipclass.png" alt=""></p>
+<ul>
+<li>ip地址有5种</li>
+</ul>
+<ol>
+<li><p>A类：1.0.0.0~126.255.255.255</p>
+</li>
+<li><p>B类：128.0.0.0~191.255.255.255</p>
+</li>
+<li><p>C类：192.0.0.0~223.255.255.255</p>
+</li>
+<li><p>D类：224.0.0.0~239.255.255.255 （用于组播）</p>
+</li>
+<li><p>E类：240.0.0.0~254.255.255.255 （用于科研）</p>
+</li>
+</ol>
+<p>其中127.0.0.0~127.255.255.255用于环回测试</p>
+<ul>
+<li><p>A类网络，第一个字节是网络，另外三个字节是host地址，</p>
+</li>
+<li><p>B类网络，网络有两个字节，另外两个字节是host地址</p>
+</li>
+<li><p>C类网络，网络有三个字节，另外1个字节是host地址</p>
+</li>
+</ul>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a><strong>问题</strong></h4><p><img src="classabc.png" alt=""></p>
+<p>如上图所示，保留地址中第二行 <code>172.12.0.0/12</code>描述为16个连续的B段，</p>
+<p><code>192.168.0.0/16</code>描述为256个连续的C段，如何理解</p>
+<p><code>172.16.0.0~172.31.255.255</code>, 因为B类网络的host只占最后两个字节，172.16～172.31 就代表了16个连续的B类网络可用</p>
+<p><code>192.168.0.0~192.168.255.255</code>，因为C类网络的host只占最后一个字节，所以从192.168.0 到 192.168.255， 就有256个连续的C类网络可用</p>
+<p>服务器可以监听的端口从0到65535，理论上这台服务器的这个端口只要没被占用，你都可以给服务器绑定。如果是一些默认的服务，服务器绑的也是默认的端口，那么客户端是可以知道的。比如：80是给http服务，443是给htts服务，21是给ftp服务等，否则的话，就需要服务器开发者告诉客户端应该连接哪个端口。</p>
+<h4 id="192-168-0-1-27表示什么-（理解子网，网段-和子网掩码）"><a href="#192-168-0-1-27表示什么-（理解子网，网段-和子网掩码）" class="headerlink" title="192.168.0.1/27表示什么 （理解子网，网段 和子网掩码）"></a><strong>192.168.0.1/27表示什么 （理解子网，网段 和子网掩码）</strong></h4><p>首先 192.168.0.1 是个IP地址，更细一点的话，属于C类型的，后面的/27 则表示网络号的长度，也叫VLSM（Variable Length Subnet Mask，可变长子网掩码），192.168.0.1/27 属于CIDR（无类别域间路由，Classless Inter-Domain Routing）表述形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IP&#96; 地址是以点分割为四部分，每部分 &#96;8bit&#96; （位）也就是一个 &#96;byte&#96;（字节）。在C类地址中，网络号占 &#96;24bit&#96;，主机号占 &#96;8bit</span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th>网络号</th>
+<th>主机号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11111111 11111111 11111111</td>
+<td>00000000</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.1&#x2F;27 说明网络号占了27bit， 27个1表示网络号， 后面5个0表示主机号</span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th>网络号</th>
+<th>主机号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11111111 11111111 11111111</td>
+<td>11100000</td>
+</tr>
+</tbody></table>
+<p>网络号向主机借了<code>3bit</code>,说明有<code>2^3=8</code>个子网，每个子网可用主机数为 <code>2^5-2=30</code>, 这里 <code>-2</code> 是因为头尾的<code>网络地址</code>（全0的部分）和<code>广播地址</code>（全1的部分）是不可用的。 <code>11111111 11111111 11111111 11100000</code> 11100000 转为十进制即 <code>2**7+2**6+2**5</code> 即224。所以子网掩码为<code>255.255.255.224</code>。</p>
+<table>
+<thead>
+<tr>
+<th>IP 地址</th>
+<th>11000000</th>
+<th>10101000</th>
+<th>00000000</th>
+<th>00000001</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>子网掩码</td>
+<td>11111111</td>
+<td>11111111</td>
+<td>11111111</td>
+<td>11100000</td>
+</tr>
+<tr>
+<td>网络地址</td>
+<td>11000000</td>
+<td>10101000</td>
+<td>00000000</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>广播地址</td>
+<td>11000000</td>
+<td>10101000</td>
+<td>00000000</td>
+<td>00011111</td>
+</tr>
+</tbody></table>
+<p>网络地址是IP地址<code>192.168.0.1</code> 和 子网掩码 <code>255.255.255.224</code>的二进制 做 与运算，结果为 <code>192.168.0.0</code>, 广播地址则是在 网络地址的基础上把主机号从右往左数5位置为1而得到 <code>192.168.0.31</code>。 有效的主机IP地址为 <code>192.168.0.1</code> 到 <code>192.168.0.30</code>。 </p>
+<p>结合上面计算出有8个子网，那么<code>192.168.0.1</code>则落在第一个可用子网内 <code>192.168.0.1~192.168.0.30</code>，子网分布如下</p>
+<table>
+<thead>
+<tr>
+<th>子网</th>
+<th>IP 网段</th>
+<th>可用主机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一</td>
+<td>192.168.0.0 ~ 192.168.0.31</td>
+<td>192.168.0.1 ~ 192.168.0.30</td>
+</tr>
+<tr>
+<td>二</td>
+<td>192.168.0.32 ~ 192.168.0.63</td>
+<td>192.168.0.33 ~ 192.168.0.62</td>
+</tr>
+<tr>
+<td>三</td>
+<td>192.168.0.64 ~ 192.168.0.95</td>
+<td>192.168.0.65 ~ 192.168.0.94</td>
+</tr>
+<tr>
+<td>四</td>
+<td>192.168.0.96 ~ 192.168.0.127</td>
+<td>192.168.0.97 ~ 192.168.0.126</td>
+</tr>
+<tr>
+<td>五</td>
+<td>192.168.0.128 ~ 192.168.0.159</td>
+<td>192.168.0.129 ~ 192.168.0.158</td>
+</tr>
+<tr>
+<td>六</td>
+<td>192.168.0.160 ~ 192.168.0.191</td>
+<td>192.168.0.161 ~ 192.168.0.190</td>
+</tr>
+<tr>
+<td>七</td>
+<td>192.168.0.192 ~ 192.168.0.223</td>
+<td>192.168.0.193 ~ 192.168.0.222</td>
+</tr>
+<tr>
+<td>八</td>
+<td>192.168.0.224 ~ 192.168.0.255</td>
+<td>192.168.0.225 ~ 192.168.0.254</td>
+</tr>
+</tbody></table>
+<ul>
+<li>每个子网中全0网络地址和全1广播地址不能作为主机ip来使用（这里的全0和全1，指的是二进制的全0 全1）</li>
+</ul>
+<h3 id="4-3-6-公有地址和私有地址"><a href="#4-3-6-公有地址和私有地址" class="headerlink" title="4.3.6 公有地址和私有地址"></a><strong>4.3.6 公有地址和私有地址</strong></h3><blockquote>
+<p><em>从上面所示，ip地址共有2的32次方减2个，总共不到43亿个ip地址。，上面提到过全球的网卡300多亿张，所以必然没办法每张网卡都能对应一个ip地址。然后有一些ip出于某种原因，还被保留下来了。所以可以提供使用的ip很少很少。那为啥这么多年过去了，IP还没用完呢。原因就是</em> <em><code>**子网**</code></em> <em>的存在；</em></p>
+</blockquote>
+<ul>
+<li>保留网段（私有IP）</li>
+</ul>
+<blockquote>
+<p><em>一个常见的现象，我们所在的单位或者组织，普遍会使用诸如10.0.x.x 或者192.168.x.x这样的ip地址，这样的ip到底代表了什么？ 不同的组织使用同样的ip会不会导致冲突呢？</em></p>
+</blockquote>
+<blockquote>
+<p><em>背后的原因是，国际标准组织在IPV4 地址空间里面，专门划分出了一些网段，这些网段不会用做公网上的IP，而是仅仅保留作内部使用。这些地址称作保留网段；</em></p>
+</blockquote>
+<p>| 分类  | IP地址范围                | 私有IP地址范围                | 最大主机个数 |<br>| —– | ————————- | —————————– |<br>| A类IP | 1.0.0.0<del>126.255.255.255   | 10.0.0.0 ~ 10.255.255.255     | 2**24-2      |<br>| B类IP | 128.0.0.0</del>191.255.255.255 | 172.16.0.0 ~ 172.31.255.255   | 2<strong>16-2      |<br>| C类IP | 192.0.0.0~223.255.255.255 | 192.168.0.0 ~ 192.168.255.255 | 2</strong>8-2       |</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">其他范围的IP均为公有IP地址</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="网段与子网掩码"><a href="#网段与子网掩码" class="headerlink" title="网段与子网掩码"></a><strong>网段与子网掩码</strong></h3><p>在网络IP划分的时候，需要区分两个概念</p>
+<p>第一是网络（network）的概念，直观点说，它表示的是这组IP共用的部分，比如在192.168.1.1～192.168.1.255这个区间里，它们共同的部分是192.168.1.0</p>
+<p>第二是主机（host）的概念，它表示的是这组IP不同的部分，上面的例子中1～255就是不同的那些部分，表示有255个可用的不同IP</p>
+<p>例如IPv4 地址，<code>192.0.2.12</code>，我们可以说前面三个字节是子网， 即（<code>192.0.2.12</code>），最后一个字节是host，或者换个方式，我们能说host为8位，子网掩码为<code>192.0.2.0/24</code> （即24个1，8个0   255.255.255.0）</p>
+<p>网络地址位数由子网掩码决定，你可以将IP地址与子网掩码进行“位与”操作，就能得到网络的值。子网掩码一般看起来像是<code>255.255.255.0</code>（二进制为 11111111.11111111.11111111.00000000），这里需要强调的是，A，B，C三类地址都有自己默认的子网掩码，A类为<code>255.0.0.0</code>, B类为<code>255.255.0.0</code>, C类为<code>255.255.255.0</code></p>
+<p>比如你的ip地址是<code>192.0.2.12</code>， 使用这个子网掩码时，你的网络地址就会是<code>192.0.2.12</code>与<code>255.255.255.0</code> 所得到的值： <code>192.0.2.0</code>, <code>192.0.2.0</code>就是这个网络的值；</p>
+<p>子网掩码能接受任意个位，而不单纯是上面讨论的8，16或24个比特而已，所以你可以有一个子网掩码<code>255.255.255.252</code>(二进制位 11111111.11111111.11111100),这个子网掩码能切出一个30个位的网络以及2个位的主机，这个网络最多有四台host，因为最后一个位有两个0，（11111111，11111110，11111101，11111100）四种情况。</p>
+<p>子网掩码只有一个作用，就是将某个IP地址划分为网络地址和主机地址两个部分。</p>
+<p>子网掩码的格式永远都是二进制格式：前面一连串1，后面一连串的0</p>
+<p>不过一大串的数字会有点不好用，比如像<code>255.192.0.0</code>这样的子网掩码，无法直观看到多少个，多个0，后来发明了新的办法，只需要将一个斜线放在ip地址后面，接着用一个十进制的数组用以表示网络的位数，类似这样：<code>192.0.2.12/30</code>,这样就很容易知道有30个1，2个0， 所以主机个数为4；</p>
+<h3 id="4-3-7-子网掩码"><a href="#4-3-7-子网掩码" class="headerlink" title="4.3.7 子网掩码"></a><strong>4.3.7 子网掩码</strong></h3><blockquote>
+<p><em>为什么一个职场1000多人只靠着一个ip就能满足，靠的就是子网掩码</em></p>
+</blockquote>
+<ul>
+<li><p>子网掩码(subnet mask)又叫子网络遮罩，它是一种用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机位的掩码。</p>
+</li>
+<li><p>子网掩码不能单独存在，它必须结合IP地址一起使用。</p>
+</li>
+<li><p>子网掩码只有一个作用，就是将某个IP地址划分成网络地址和主机地址两部分。</p>
+</li>
+<li><p>子网掩码也是32个二进制位</p>
+</li>
+<li><p>对应IP的网络部分用1表示</p>
+</li>
+<li><p>对应IP地址的主机部分用0表示</p>
+</li>
+<li><p>IP地址和子网掩码做逻辑与运算得到网络地址</p>
+<ul>
+<li><p>0和任何数相与都是0</p>
+</li>
+<li><p>1和任何数相与都等于任何数本身</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>A B C 三类地址都有自己默认的子网掩码</p>
+<ul>
+<li><p>A类 255.0.0.0</p>
+</li>
+<li><p>B类 255.255.0.0</p>
+</li>
+<li><p>C类 255.255.255.0</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>子网掩码可以自己设置也可以自动获取</li>
+</ul>
+<p><img src="dividesubnet.jpg" alt=""></p>
+<p>子网的第一个ip 是 <code>192.168.5.129</code></p>
+<p>最后一台主机ip是 <code>192.168.5.158</code></p>
+<p>定向广播 <code>192.168.5.159</code></p>
+<p>下一个子网 <code>192.168.5.160</code></p>
+<p><img src="10.mask.png" alt=""></p>
+<ul>
+<li>判断两个ip地址在不在一个子网之内</li>
+</ul>
+<p>IP地址和子网掩码的二进制 做与运算之后得到子网的二进制网络地址，判断两个网络地址在不在一个子网之内，把它们根子网掩码做与运算。如果与的结果是一致的，那说明在一个子网之内。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="comment">// 判断两个ip地址在不在一个子网之内*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ip1 = <span class="string">"192.168.0.1"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ip2 = <span class="string">"192.168.0.4"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> mask = <span class="string">"255.255.255.0"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">same</span>(<span class="params">ip1, ip2, mask</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> ip1s = ip1</span><br><span class="line"></span><br><span class="line">​    .split(<span class="string">"."</span>)</span><br><span class="line"></span><br><span class="line">​    .map(<span class="function">(<span class="params">item</span>) =&gt;</span> (+item).toString(<span class="number">2</span>).padStart(<span class="number">8</span>, <span class="string">"0"</span>))</span><br><span class="line"></span><br><span class="line">​    .join(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> ip2s = ip2</span><br><span class="line"></span><br><span class="line">​    .split(<span class="string">"."</span>)</span><br><span class="line"></span><br><span class="line">​    .map(<span class="function">(<span class="params">item</span>) =&gt;</span> (+item).toString(<span class="number">2</span>).padStart(<span class="number">8</span>, <span class="string">"0"</span>))</span><br><span class="line"></span><br><span class="line">​    .join(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> masks = mask</span><br><span class="line"></span><br><span class="line">​    .split(<span class="string">"."</span>)</span><br><span class="line"></span><br><span class="line">​    .map(<span class="function">(<span class="params">item</span>) =&gt;</span> (+item).toString(<span class="number">2</span>).padStart(<span class="number">8</span>, <span class="string">"0"</span>))</span><br><span class="line"></span><br><span class="line">​    .join(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line"></span><br><span class="line">​    (<span class="built_in">parseInt</span>(ip1s, <span class="number">2</span>) &amp; <span class="built_in">parseInt</span>(masks, <span class="number">2</span>)) ===</span><br><span class="line"></span><br><span class="line">​    (<span class="built_in">parseInt</span>(ip2s, <span class="number">2</span>) &amp; <span class="built_in">parseInt</span>(masks, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result = same(ip1, ip2, mask);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="子网掩码解决什么问题"><a href="#子网掩码解决什么问题" class="headerlink" title="子网掩码解决什么问题"></a><strong>子网掩码解决什么问题</strong></h4><p>子网掩码所做的是将网络划分出子网，解决网段的问题。私有ip才是解决ip不够用的问题</p>
+<h4 id="子网掩码划分子网"><a href="#子网掩码划分子网" class="headerlink" title="子网掩码划分子网"></a><strong>子网掩码划分子网</strong></h4><ul>
+<li>一个实际的场景， 比如一个公司有两个部门，财务部和hr部，每个部分都有四台电脑，网络要部署到两个部门，但是两个部门需要独立的局域网。我们知道一个C类ip地址可以有254个主机地址。所以，需要通过子网掩码的方式来把一个ip地址拆分给连个部门使用。</li>
+</ul>
+<p>比如ip为 <code>10011111 11111111 11111111 11000000</code></p>
+<p>子网掩码1 为 <code>10011111 11111111 11111111 11100000</code></p>
+<p>子网掩码2 为 <code>10011111 11111111 11111111 11110000</code></p>
+<p>子网掩码可以是多个</p>
+<p>子网掩码将不在一个子网之内的网络调整到一个子网内，即往左边移位</p>
+<p>比如 <code>255.255.255.0</code> =&gt; <code>255.255.0.0</code> =&gt; <code>255.0.0.0</code></p>
+<h4 id="划分局域网需要物理划分的同时还要通过子网掩码划分吗？"><a href="#划分局域网需要物理划分的同时还要通过子网掩码划分吗？" class="headerlink" title="划分局域网需要物理划分的同时还要通过子网掩码划分吗？"></a><strong>划分局域网需要物理划分的同时还要通过子网掩码划分吗？</strong></h4><blockquote>
+<p><em>是的，首先把一些电脑划分到一个子网之内。它们需要在一个物理网络内。它们必须连上路由器，交换机等等。另外还得看子网掩码，看看ip地址在不在一个局域网之内。</em></p>
+</blockquote>
+<h2 id="5-传输层"><a href="#5-传输层" class="headerlink" title="5. 传输层"></a><strong>5. 传输层</strong></h2><ul>
+<li><p>位于应用层和网络接口层之间</p>
+</li>
+<li><p>是面向连接的、可靠的的进程到进程通信的协议</p>
+</li>
+<li><p>TCP提供全双工服务，即数据可在同一时间双向传播</p>
+</li>
+<li><p>TCP将若干个字节构成一个分组，此分组称为报文段(Segment)</p>
+</li>
+<li><p>对可靠性要求高的上层协议，实现可靠性的保证,如果数据丢失、损坏的情况下如何保证可靠性,网络层只管传递数据，成功与否并不关心</p>
+</li>
+</ul>
+<p><img src="11.transfer.png" alt=""></p>
+<h3 id="5-1-传输层的功能"><a href="#5-1-传输层的功能" class="headerlink" title="5.1 传输层的功能"></a><strong>5.1 传输层的功能</strong></h3><p>提供了一种端到端的连接</p>
+<p><img src="11.connect.png" alt=""></p>
+<h3 id="5-2-协议分类"><a href="#5-2-协议分类" class="headerlink" title="5.2 协议分类"></a><strong>5.2 协议分类</strong></h3><h4 id="TCP-Transimision-Control-Protocal"><a href="#TCP-Transimision-Control-Protocal" class="headerlink" title="TCP(Transimision Control Protocal)"></a><strong>TCP(Transimision Control Protocal)</strong></h4><ul>
+<li><p>传输控制协议</p>
+</li>
+<li><p>可靠的、面向连接的协议</p>
+</li>
+<li><p>传输效率低</p>
+</li>
+</ul>
+<h4 id="UDP-User-Datagram-Protocal"><a href="#UDP-User-Datagram-Protocal" class="headerlink" title="UDP(User Datagram Protocal)"></a><strong>UDP(User Datagram Protocal)</strong></h4><ul>
+<li><p>用户数据报协议</p>
+</li>
+<li><p>不可靠的、无连接的服务</p>
+</li>
+<li><p>传输效率高</p>
+</li>
+</ul>
+<h3 id="5-3-TCP协议"><a href="#5-3-TCP协议" class="headerlink" title="5.3 TCP协议"></a><strong>5.3 TCP协议</strong></h3><ul>
+<li><p>将数据进行分段打包传输</p>
+</li>
+<li><p>对每个数据包编号控制顺序</p>
+</li>
+<li><p>运输中丢失、重发和丢弃处理</p>
+</li>
+<li><p>流量控制避免拥塞</p>
+</li>
+</ul>
+<h3 id="5-3-1-TCP数据包封装"><a href="#5-3-1-TCP数据包封装" class="headerlink" title="5.3.1 TCP数据包封装"></a><strong>5.3.1 TCP数据包封装</strong></h3><h4 id="5-3-1-1-格式"><a href="#5-3-1-1-格式" class="headerlink" title="5.3.1.1 格式"></a><strong>5.3.1.1 格式</strong></h4><blockquote>
+<p><em>源端口号和目标端口号，计算机通过端口号识别访问哪个服务,比如http服务或ftp服务，发送方端口号是进行随机端口，目标端口号决定了接收方哪个程序来接收</em></p>
+</blockquote>
+<p><img src="tcpport.png" alt=""></p>
+<h4 id="5-3-1-2-32位序列号"><a href="#5-3-1-2-32位序列号" class="headerlink" title="5.3.1.2 32位序列号"></a><strong>5.3.1.2 32位序列号</strong></h4><blockquote>
+<p><em>32位序列号 TCP用序列号对数据包进行标记，以便在到达目的地后重新重装，假设当前的序列号为 s，发送数据长度为 l，则下次发送数据时的序列号为 s + l。在建立连接时通常由计算机生成一个随机数作为序列号的初始值</em></p>
+</blockquote>
+<p><img src="tcpsequence.png" alt=""></p>
+<h4 id="5-3-1-3-确认应答号"><a href="#5-3-1-3-确认应答号" class="headerlink" title="5.3.1.3 确认应答号"></a><strong>5.3.1.3 确认应答号</strong></h4><blockquote>
+<p><em>确认应答号 它等于下一次应该接收到的数据的序列号。假设发送端的序列号为 s，发送数据的长度为 l，那么接收端返回的确认应答号也是 s + l。发送端接收到这个确认应答后，可以认为这个位置以前所有的数据都已被正常接收。</em></p>
+</blockquote>
+<p><img src="tcpconfirm.png" alt=""></p>
+<p>1,2,3,4  包到达目的地的时机不一样；当3先到。接收端并不会立即通知发送端已经收到3. 而是会等待一段时间之后，如果依然没有响应。则告知发送端，已经收到了3. 请把1，2重新发一下。因为已经收到了3.所以必然有1，2.等到最终1和2都到了。那再告知发送端，已经收到1，2，3</p>
+<h4 id="5-3-1-4-首部长度"><a href="#5-3-1-4-首部长度" class="headerlink" title="5.3.1.4 首部长度"></a><strong>5.3.1.4 首部长度</strong></h4><blockquote>
+<p><em>首部长度：TCP 首部的长度，单位为 4 字节。如果没有可选字段，那么这里的值就是 5。表示 TCP 首部的长度为 20 字节。</em></p>
+</blockquote>
+<p><img src="tcpcontrolpng.png" alt=""></p>
+<h4 id="5-3-1-5-控制位"><a href="#5-3-1-5-控制位" class="headerlink" title="5.3.1.5 控制位"></a><strong>5.3.1.5 控制位</strong></h4><blockquote>
+<p><em>控制位 TCP的连接、传输和断开都受这六个控制位的指挥</em></p>
+</blockquote>
+<ul>
+<li><p>URG(urgent紧急位) 紧急信号</p>
+</li>
+<li><p>ACK（响应位）</p>
+</li>
+<li><p>PSH(push急迫位) 缓存区将满，立刻传输速度</p>
+</li>
+<li><p>RST(reset重置位) 连接断了重新连接</p>
+</li>
+<li><p>SYN（sync同步）TCP基于链接的，想根对方建立链接，勇敢伸出一只手。发送SYN标识位</p>
+</li>
+<li><p>FIN（finish完成）发送端完成位，提出断开链接的一方把FIN置为1表示要断开连接</p>
+</li>
+</ul>
+<ul>
+<li>紧急指针：仅在 URG(urgent紧急) 控制位为 1 时有效。表示紧急数据的末尾在 TCP 数据部分中的位置。通常在暂时中断通信时使用（比如输入 Ctrl + C）。</li>
+</ul>
+<h4 id="5-3-1-5-1-SYN"><a href="#5-3-1-5-1-SYN" class="headerlink" title="5.3.1.5.1 SYN"></a><strong>5.3.1.5.1 SYN</strong></h4><p>SYN(synchronous建立联机) 同步序号位 TCP建立连接时要将这个值设为1</p>
+<p><img src="tcpsyn.png" alt=""></p>
+<h4 id="5-3-1-5-2-ACK"><a href="#5-3-1-5-2-ACK" class="headerlink" title="5.3.1.5.2 ACK"></a><strong>5.3.1.5.2 ACK</strong></h4><p>ACK(acknowledgement 确认)为1表示确认号</p>
+<p><img src="tcpack.png" alt=""></p>
+<h4 id="5-3-1-5-3-FIN"><a href="#5-3-1-5-3-FIN" class="headerlink" title="5.3.1.5.3 FIN"></a><strong>5.3.1.5.3 FIN</strong></h4><p>FIN发送端完成位，提出断开连接的一方把FIN置为1表示要断开连接</p>
+<p><img src="tcpfin.png" alt=""></p>
+<h4 id="5-3-1-6-窗口值"><a href="#5-3-1-6-窗口值" class="headerlink" title="5.3.1.6 窗口值"></a><strong>5.3.1.6 窗口值</strong></h4><blockquote>
+<p><em>窗口值 说明接收端可接收数据段的数目，这个值的大小是可变的。当网络通畅时将这个窗口值变大加快传输速度，当网络不稳定时减少这个值可以保证网络数据的可靠传输。它是来在TCP传输中进行流量控制的</em></p>
+</blockquote>
+<blockquote>
+<p><em>窗口大小：用于表示从应答号开始能够接受多少个 8 位字节。如果窗口大小为 0，可以发送窗口探测（每隔一段时间，发送端主动发送一个问询，窗口大小有没有改变）</em></p>
+</blockquote>
+<p><img src="tcpwindow.png" alt=""></p>
+<h4 id="5-3-1-7-差错控制"><a href="#5-3-1-7-差错控制" class="headerlink" title="5.3.1.7 差错控制"></a><strong>5.3.1.7 差错控制</strong></h4><p>校验和用来做差错控制，TCP校验和的计算包括TCP首部、数据和其它填充字节。在发送TCP数据段时，由发送端计算校验和，当到达目的地时又进行一次检验和计算。如果两次校验 和一致说明数据是正确的，否则 将认为数据被破坏，接收端将丢弃该数据</p>
+<p><img src="tcpcheck.png" alt=""></p>
+<h3 id="5-3-2-握手和断开（三次握手，四次挥手）"><a href="#5-3-2-握手和断开（三次握手，四次挥手）" class="headerlink" title="5.3.2 握手和断开（三次握手，四次挥手）"></a><strong>5.3.2 握手和断开（三次握手，四次挥手）</strong></h3><ul>
+<li><p>TCP是面向连接的协议，它在源点和终点之间建立虚拟连接，而不是物理连接</p>
+</li>
+<li><p>在数据通信之前，发送端与接收端要先建立连接，等数据发送结束后，双方再断开连接</p>
+</li>
+<li><p>TCP连接的每一方都是由一个IP地址和一个端口组成</p>
+</li>
+</ul>
+<p><img src="sequencenumber.jpg" alt=""></p>
+<p><img src="tcpflow.png" alt=""></p>
+<h3 id="5-3-2-1-tcp服务器"><a href="#5-3-2-1-tcp服务器" class="headerlink" title="5.3.2.1 tcp服务器"></a><strong>5.3.2.1 tcp服务器</strong></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="comment">// tcp_server.js*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> net = <span class="built_in">require</span>(<span class="string">"net"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = <span class="keyword">new</span> net.Server();</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">"connection"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"connected"</span>);</span><br><span class="line"></span><br><span class="line">    socket.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(data.toString());</span><br><span class="line"></span><br><span class="line">        socket.write(<span class="string">"server:"</span>+data);</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    socket.on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'end'</span>);</span><br><span class="line"></span><br><span class="line">   &#125;)</span><br><span class="line">    socket.on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line"></span><br><span class="line">   &#125;)</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8000</span>);</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">"listening"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Created server on http://127.0.0.1:8000/"</span>);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">"close"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"server closed!"</span>);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">"error"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="comment">//tcp_client.js*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> net = <span class="built_in">require</span>(<span class="string">"net"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> socket = net.Socket();</span><br><span class="line"></span><br><span class="line">socket.connect(<span class="number">8000</span>, <span class="string">'127.0.0.1'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"connect the server"</span>);</span><br><span class="line"></span><br><span class="line">    socket.write(<span class="string">"hello"</span>);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">socket.on(<span class="string">"data"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(data.toString());</span><br><span class="line"></span><br><span class="line">    socket.destroy();</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">socket.on(<span class="string">"error"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">socket.on(<span class="string">"end"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"data end"</span>);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-3-2-1-三次握手"><a href="#5-3-2-1-三次握手" class="headerlink" title="5.3.2.1 三次握手"></a><strong>5.3.2.1 三次握手</strong></h3><ol>
+<li><p>第一次握手主机A通过一个标识为SYN标识位的数据段发送给主机B请求连接，通过该数据段告诉主机B希望建立连接，需要B应答，并告诉主机B传输的起始序列号</p>
+</li>
+<li><p>第二次握手是主机B用一个确认应答ACK和同步序列号SYNC标志位的数据段来响应主机A，一是发送ACK告诉主机A收到了数据段，二是通知主机A从哪个序列号做标记。</p>
+</li>
+<li><p>第三次握手是主机A确认收到了主机B的数据段并可以开始传输实际数据。</p>
+</li>
+</ol>
+<p><img src="handshake1.png" alt=""></p>
+<p><img src="handshake2.png" alt=""></p>
+<p><img src="handshake3.png" alt=""></p>
+<ol>
+<li><p><code>SYN_SENT(connect())</code> 握手请求 <code>SYN seq=x</code> (x为一个32位的随机数)</p>
+</li>
+<li><p><code>LISTEN(listen()) SYN_RCVD</code> 发送 <code>SYN seq=y, ACK = x+1</code> (此时客户端宣布 established)</p>
+</li>
+<li><p>客户端发送 <code>ACK=y+1</code> (此时服务端感知 established)</p>
+</li>
+</ol>
+<p>sep的作用是给数据包标住序号，用于后面确认，重传等。seq是一个<code>2**32</code>的数字seq如果越界，会重置为0.</p>
+<h3 id="5-3-2-2-收发数据"><a href="#5-3-2-2-收发数据" class="headerlink" title="5.3.2.2 收发数据"></a><strong>5.3.2.2 收发数据</strong></h3><p><img src="sendhello.png" alt=""></p>
+<p><img src="ackhello.png" alt=""></p>
+<p><img src="serverhello.png" alt=""></p>
+<p><img src="ackserverhello.png" alt=""></p>
+<h3 id="5-3-2-3-四次断开"><a href="#5-3-2-3-四次断开" class="headerlink" title="5.3.2.3 四次断开"></a><strong>5.3.2.3 四次断开</strong></h3><ul>
+<li><p>主机A发送FIN控制位发出断开连接的请求</p>
+</li>
+<li><p>主机B进行响应，确认收到断开连接请求</p>
+</li>
+<li><p>主机B提出反方向的关闭要求</p>
+</li>
+<li><p>主机A确认收到的主机B的关闭连接请求</p>
+</li>
+</ul>
+<p><img src="goodbye1.png" alt=""></p>
+<p><img src="goodbye2.png" alt=""></p>
+<p><img src="goodbye3.png" alt=""></p>
+<p><img src="goodbye4.png" alt=""></p>
+<ul>
+<li>为什么挥手会有四次，在客户端发送断开链接指令的时候， 服务端发送了一次 ACK 和一次ACK/FIN指令。为何这两次指令不能合并在一起呢？</li>
+</ul>
+<blockquote>
+<p><em>因为收到关闭请求和真正关闭只有一段时间差的，这段时间差当中可能还有传输的数据包。所以服务端没办法第一时间返回finsh。只有等数据包情况处理好之后，才能返回finsh请求；</em></p>
+</blockquote>
+<h3 id="5-3-3-滑动窗口"><a href="#5-3-3-滑动窗口" class="headerlink" title="5.3.3 滑动窗口"></a><strong>5.3.3 滑动窗口</strong></h3><ul>
+<li><p>滑动窗口（Sliding window）是一种流量控制技术</p>
+</li>
+<li><p>早期的网络通信中，通信双方不会考虑网络的拥挤情况直接发送数据。由于大家不知道网络拥塞状况，同时发送数据，导致中间节点阻塞掉包，谁也发不了数据，所以就有了滑动窗口机制来解决此问题</p>
+</li>
+<li><p>TCP中采用滑动窗口来进行传输控制，滑动窗口的大小意味着接收方还有多大的缓冲区可以用于接收数据。发送方可以通过滑动窗口的大小来确定应该发送多少字节的数据</p>
+</li>
+<li><p>当滑动窗口为0时，发送方一般不能再发送数据报，但有两种情况除外，一种情况是可以发送紧急数据，例如，允许用户终止在远端机上的运行进程。另一种情况是发送方可以发送一个1字节的数据报来通知接收方重新声明它希望接收的下一字节及发送方的滑动窗口大小</p>
+</li>
+</ul>
+<ul>
+<li><p>发送方和接收方各维护一个窗口长度，接收方会把窗口大小发给发送方。发送方设置一个小于或者等于接收窗口大小的值。</p>
+</li>
+<li><p>窗口大小 = 缓存区大小 - 缓存字节数</p>
+</li>
+</ul>
+<h3 id="5-3-3-1-窗口机制"><a href="#5-3-3-1-窗口机制" class="headerlink" title="5.3.3.1 窗口机制"></a><strong>5.3.3.1 窗口机制</strong></h3><ul>
+<li><p>滑动窗口协议的基本原理就是在任意时刻，发送方都维持了一个连续的允许发送的帧的序号，称为发送窗口；同时，接收方也维持了一个连续的允许接收的帧的序号，称为接收窗口</p>
+</li>
+<li><p>发送窗口和接收窗口的序号的上下界不一定要一样，甚至大小也可以不同</p>
+</li>
+<li><p>不同的滑动窗口协议窗口大小一般不同</p>
+</li>
+<li><p>发送方窗口内的序列号代表了那些已经被发送，但是还没有被确认的帧，或者是那些可以被发送的帧</p>
+</li>
+</ul>
+<p><img src="slidewindow.png" alt=""></p>
+<h3 id="5-3-3-2-拥塞控制"><a href="#5-3-3-2-拥塞控制" class="headerlink" title="5.3.3.2 拥塞控制"></a><strong>5.3.3.2 拥塞控制</strong></h3><ul>
+<li><p>TCP拥塞控制是传输控制协议（英语：Transmission Control Protocol，缩写TCP）避免网络拥塞的算法，是互联网上主要的一个拥塞控制措施</p>
+</li>
+<li><p>TCP使用多种拥塞控制策略来避免雪崩式拥塞。TCP会为每条连接维护一个“拥塞窗口”来限制可能在端对端间传输的未确认分组总数量</p>
+</li>
+<li><p>这类似TCP流量控制机制中使用的滑动窗口，是由发送方控制的</p>
+</li>
+<li><p>TCP在一个连接初始化或超时后使用一种“慢启动”机制来增加拥塞窗口的大小。它的起始值一般为最大分段大小（Maximum segment size，MSS）的两倍，虽然名为“慢启动”，初始值也相当低，但其增长极快：当每个分段得到确认时，拥塞窗口会增加一个MSS，使得在每次往返时间（round-trip time，RTT）内拥塞窗口能高效地双倍增长</p>
+</li>
+<li><p>在流量控制中，接收方通过TCP的“窗口”值（Window Size）来告知发送方，由发送方通过对拥塞窗口和接收窗口的大小比较，来确定任何时刻内需要传输的数据量</p>
+</li>
+<li><p>和式增加，积式减少（additive-increase/multiplicative-decrease，AIMD，这里简称“线增积减”）是一种反馈控制算法，其包含了对拥塞窗口线性增加，和当发生拥塞时对窗口积式减少。多个使用AIMD控制的TCP流最终会收敛到对线路的等量竞争使用。</p>
+</li>
+<li><p>未确认的数据包刚好等于带宽等于延迟</p>
+</li>
+<li><p>当发现丢包的时候立刻减半</p>
+</li>
+</ul>
+<p><img src="traffic.png" alt=""></p>
+<h2 id="5-4-UDP"><a href="#5-4-UDP" class="headerlink" title="5.4 UDP"></a><strong>5.4 UDP</strong></h2><ul>
+<li><p>UDP是一个无连接、不保证可靠性的传输层协议，也就是说发送端不关心发送的数据是否到达目标主机、数据是否出错等，收到数据的主机也不会告诉 发送方是否收到了数据，它的可靠性由上层协议来保障</p>
+</li>
+<li><p>首部结构简单，在数据传输时能实现最小的开销，如果进程想发送很短的报文而对可靠性要求不高可以使用</p>
+</li>
+<li><p>没有握手，也没有挥手</p>
+</li>
+</ul>
+<h3 id="5-4-1-UDP的封装格式"><a href="#5-4-1-UDP的封装格式" class="headerlink" title="5.4.1 UDP的封装格式"></a><strong>5.4.1 UDP的封装格式</strong></h3><h4 id="5-4-1-1-数据包"><a href="#5-4-1-1-数据包" class="headerlink" title="5.4.1.1 数据包"></a><strong>5.4.1.1 数据包</strong></h4><p><img src="15.udp.png" alt=""></p>
+<h4 id="5-4-1-2-数据长度"><a href="#5-4-1-2-数据长度" class="headerlink" title="5.4.1.2 数据长度"></a><strong>5.4.1.2 数据长度</strong></h4><p><img src="udplength.png" alt=""></p>
+<h4 id="5-4-1-3-差错控制"><a href="#5-4-1-3-差错控制" class="headerlink" title="5.4.1.3 差错控制"></a><strong>5.4.1.3 差错控制</strong></h4><p><img src="udpcheck.png" alt=""></p>
+<h4 id="5-4-2-UDP的应用"><a href="#5-4-2-UDP的应用" class="headerlink" title="5.4.2 UDP的应用"></a><strong>5.4.2 UDP的应用</strong></h4><ul>
+<li><p>QQ</p>
+</li>
+<li><p>视频软件</p>
+</li>
+<li><p>TFTP 简单文件传输协议(短信)</p>
+</li>
+</ul>
+<h2 id="5-4-3-UDP服务器"><a href="#5-4-3-UDP服务器" class="headerlink" title="5.4.3 UDP服务器"></a><strong>5.4.3 UDP服务器</strong></h2><h3 id="5-4-3-1-点对点"><a href="#5-4-3-1-点对点" class="headerlink" title="5.4.3.1 点对点"></a><strong>5.4.3.1 点对点</strong></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="comment">// udp_server.js*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dgram = <span class="built_in">require</span>(<span class="string">'dgram'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> socket = dgram.createSocket(<span class="string">'udp4'</span>);</span><br><span class="line"></span><br><span class="line">socket.on(<span class="string">'message'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">msg,rinfo</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(msg.toString());</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(rinfo);</span><br><span class="line"></span><br><span class="line">   socket.send(msg,<span class="number">0</span>,msg.length,rinfo.port,rinfo.address);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">socket.bind(<span class="number">41234</span>,<span class="string">'localhost'</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="comment">// udp_client.js*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dgram = <span class="built_in">require</span>(<span class="string">'dgram'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> socket = dgram.createSocket(<span class="string">'udp4'</span>);</span><br><span class="line"></span><br><span class="line">socket.on(<span class="string">'message'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">msg,rinfo</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(msg.toString());</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(rinfo);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">socket.send(<span class="keyword">new</span> Buffer(<span class="string">'helloworld'</span>),<span class="number">0</span>,<span class="number">5</span>,<span class="number">41234</span>,<span class="string">'localhost'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,bytes</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'发送了个%d字节'</span>,bytes);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">socket.on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.error(err);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="sendudp.png" alt=""></p>
+<p><img src="receiveudp.png" alt=""></p>
+<h4 id="5-4-3-2-广播"><a href="#5-4-3-2-广播" class="headerlink" title="5.4.3.2 广播"></a><strong>5.4.3.2 广播</strong></h4><blockquote>
+<p><em>创建一个UDP服务器并通过该服务器进行数据的广播</em></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="comment">// udp_server.js*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dgram = <span class="built_in">require</span>(<span class="string">'dgram'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = dgram.createSocket(<span class="string">'udp4);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">server.on('</span>message<span class="string">',function(msg)&#123;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let buf = new Bufffer('</span>已经接收客户端发送的数据<span class="string">'+msg);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">server.setBroadcast(true);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">server.send(buf,0,buf.length,41235,"192.168.1.255");</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#125;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">server.bind(41234,'</span><span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span><span class="string">');</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="comment">//udp_client.js*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dgram = <span class="built_in">require</span>(<span class="string">'dgram'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> client = dgram.createSocket(<span class="string">'udp4);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">client.bind(41235,'</span><span class="number">192.168</span><span class="number">.1</span><span class="number">.102</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> buf = <span class="keyword">new</span> Buffer(<span class="string">'hello'</span>);</span><br><span class="line"></span><br><span class="line">client.send(buf,<span class="number">0</span>,buf.length,<span class="number">41234</span>,<span class="string">'192.168.1.100'</span>);</span><br><span class="line"></span><br><span class="line">client.on(<span class="string">'message'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">msg,rinfo</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'received : '</span>,msg);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-4-3-3-组播"><a href="#5-4-3-3-组播" class="headerlink" title="5.4.3.3 组播"></a><strong>5.4.3.3 组播</strong></h4><ul>
+<li><p>所谓的组播，就是将网络中同一业务类型进行逻辑上的分组，从某个socket端口上发送的数据只能被该组中的其他主机所接收，不被组外的任何主机接收。</p>
+</li>
+<li><p>实现组播时，并不直接把数据发送给目标地址，而是将数据发送到组播主机，操作系统将把该数据组播给组内的其他所有成员。</p>
+</li>
+<li><p>在网络中，使用D类地址作为组播地址。范围是指 224.0.0.0 ~ 239.255.255.255,分为三类</p>
+<ul>
+<li><p>局部组播地址: 224.0.0.0 ~ 224.0.0.255 为路由协议和其他用途保留</p>
+</li>
+<li><p>预留组播地址: 224.0.1.0 ~ 238.255.255.255 可用于全球范围或网络协议</p>
+</li>
+<li><p>管理权限组播地址 ： 239.0.0.0 ～ 239.255.255.255 组织内部使用，不可用于Internet</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="comment">//udp_server.js*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dgram = <span class="built_in">require</span>(<span class="string">'dgram'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = dgram.createSocket(<span class="string">'udp4'</span>);</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">'listening'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">server.MulticastTTL(<span class="number">128</span>);</span><br><span class="line"></span><br><span class="line">server.setMulticastLoopback(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">server.addMembership(<span class="string">'230.185.192.108'</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">setInterval(broadcast,<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">broadcast</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> buffer = Buffer.from(<span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleString());</span><br><span class="line"></span><br><span class="line">server.send(buffer,<span class="number">0</span>,buffer.length,<span class="number">8080</span>,<span class="string">"230.185.192.108"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="comment">//udp_client.js*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dgram = <span class="built_in">require</span>(<span class="string">'dgram'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> client = dgram.createSocket(<span class="string">'udp4'</span>);</span><br><span class="line"></span><br><span class="line">client.on(<span class="string">'listening'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">client.addMembership(<span class="string">'230.185.192.108'</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">client.on(<span class="string">'message'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">message,remote</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(message.toString());</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">client.bind(<span class="number">8080</span>,<span class="string">'192.168.1.103'</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="5-4-3-DNS服务器"><a href="#5-4-3-DNS服务器" class="headerlink" title="5.4.3 DNS服务器"></a><strong>5.4.3 DNS服务器</strong></h3><h4 id="3-4-3-1-域名"><a href="#3-4-3-1-域名" class="headerlink" title="3.4.3.1 域名"></a><strong>3.4.3.1 域名</strong></h4><ul>
+<li><p>域名空间结构</p>
+</li>
+<li><p>根域</p>
+</li>
+<li><p>顶级域</p>
+<ul>
+<li><p>组织域</p>
+</li>
+<li><p>国家/地区域名</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>二级域名</li>
+</ul>
+<p><img src="arealocal.png" alt=""></p>
+<h4 id="3-4-3-2-DNS服务器"><a href="#3-4-3-2-DNS服务器" class="headerlink" title="3.4.3.2 DNS服务器"></a><strong>3.4.3.2 DNS服务器</strong></h4><blockquote>
+<p><em>DNS是Domain Name Service的缩写，DNS服务器进行域名和与之对应的IP地址转换的服务器</em></p>
+</blockquote>
+<ul>
+<li><p>IP地址不易记忆</p>
+</li>
+<li><p>早期使用Hosts文件解析域名</p>
+<ul>
+<li><p>主要名称重复</p>
+</li>
+<li><p>主机维护困难</p>
+</li>
+</ul>
+</li>
+<li><p>DNS(Domain Name System 域名系统)</p>
+<ul>
+<li><p>分布式</p>
+</li>
+<li><p>层次性</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-4-3-3-查找过程"><a href="#3-4-3-3-查找过程" class="headerlink" title="3.4.3.3 查找过程"></a><strong>3.4.3.3 查找过程</strong></h4><p><img src="dnsquery.jpg" alt=""></p>
+<ul>
+<li><p>客户端向本地域名服务器发出请求，我要访问<a href="http://www.163.com，请告诉我它的IP地址" target="_blank" rel="noopener">www.163.com，请告诉我它的IP地址</a></p>
+</li>
+<li><p>本地DNS服务器向DNS根服务器发出请求，根DNS服务器会告诉本地服务器(.com)的服务器地址</p>
+</li>
+<li><p>本地DNS服务器会向(.com域)发请求，会得到(163.com)的服务器地址</p>
+</li>
+<li><p>本地DNS服务器会向(163.com)发请求,会得到(<a href="http://www.163.com)的IP地址1.1.1.1" target="_blank" rel="noopener">www.163.com)的IP地址1.1.1.1</a></p>
+</li>
+<li><p>本地DNS服务器向客户端回复域名(<a href="http://www.163.com)对应的IP地址是1.1.1.1" target="_blank" rel="noopener">www.163.com)对应的IP地址是1.1.1.1</a></p>
+</li>
+</ul>
+<h3 id="5-4-4-DHCP服务器（Dynamic-Host-Configuration-Protocol）"><a href="#5-4-4-DHCP服务器（Dynamic-Host-Configuration-Protocol）" class="headerlink" title="5.4.4 DHCP服务器（Dynamic Host Configuration Protocol）"></a><strong>5.4.4 DHCP服务器（Dynamic Host Configuration Protocol）</strong></h3><ul>
+<li><p>保证任何IP地址在同一时刻只能由一台DHCP客户机所使用。</p>
+</li>
+<li><p>DHCP应当可以给用户分配永久固定的IP地址。</p>
+</li>
+<li><p>DHCP应当可以同用其他方法获得IP地址的主机共存（如手工配置IP地址的主机）</p>
+</li>
+<li><p>DHCP服务器应当向现有的BOOTP客户端提供服务。</p>
+</li>
+</ul>
+<h4 id="5-4-4-1-工作流程"><a href="#5-4-4-1-工作流程" class="headerlink" title="5.4.4.1 工作流程"></a><strong>5.4.4.1 工作流程</strong></h4><ul>
+<li><p>主机发送DHCPDISCOVER广播包在网络上寻找DHCP服务器；</p>
+</li>
+<li><p>DHCP服务器向主机发送DHCPOFFER单播数据包，包含IP地址、MAC地址、域名信息以及地址租期；</p>
+</li>
+<li><p>主机发送DHCPREQUEST广播包，正式向服务器请求分配已提供的IP地址；</p>
+</li>
+<li><p>DHCP服务器向主机发送DHCPACK单播包，确认主机的请求</p>
+</li>
+</ul>
+<p><img src="dhcpserver.jpg" alt=""></p>
+<h4 id="5-4-4-2-抓包"><a href="#5-4-4-2-抓包" class="headerlink" title="5.4.4.2 抓包"></a><strong>5.4.4.2 抓包</strong></h4><p><img src="dhcprequest.png" alt=""></p>
+<p><img src="dhcpack.png" alt=""></p>
+<h2 id="6-应用层"><a href="#6-应用层" class="headerlink" title="6. 应用层"></a><strong>6. 应用层</strong></h2><h3 id="6-1-协议"><a href="#6-1-协议" class="headerlink" title="6.1 协议"></a><strong>6.1 协议</strong></h3><p><img src="17.mail.png" alt=""></p>
+<h3 id="6-2-应用层常见协议"><a href="#6-2-应用层常见协议" class="headerlink" title="6.2 应用层常见协议"></a><strong>6.2 应用层常见协议</strong></h3><ul>
+<li><p>HTTP 超文件传输协议</p>
+</li>
+<li><p>FTP 文件传输协议</p>
+</li>
+<li><p>SMTP(发送邮件)和POP3(接收邮件)</p>
+</li>
+</ul>
+<h3 id="6-3-案例"><a href="#6-3-案例" class="headerlink" title="6.3 案例"></a><strong>6.3 案例</strong></h3><p>数据-&gt;传输层(包)-&gt;网络层(段Segment)-&gt;数据链路层(帧)</p>
+<h3 id="6-3-1-发送方是从高层到低层封装数据"><a href="#6-3-1-发送方是从高层到低层封装数据" class="headerlink" title="6.3.1 发送方是从高层到低层封装数据"></a><strong>6.3.1 发送方是从高层到低层封装数据</strong></h3><ul>
+<li><p>在应用层要把各式各样的数据如字母、数字、汉字、图片等转换成二进制</p>
+</li>
+<li><p>在TCP传输层中，上层的数据被分割成小的数据段，并为每个分段后的数据封装TCP报文头部</p>
+</li>
+<li><p>在TCP头部有一个关键的字段信息端口号，它用于标识上层的协议或应用程序，确保上层数据的正常通信</p>
+</li>
+<li><p>计算机可以多进程并发运行，例如在发邮件的同时也可以通过浏览器浏览网页，这两种应用通过端口号进行区分</p>
+</li>
+<li><p>在网络层，上层数据被封装上亲的报文头部(IP头部)，上层的数据是包括TCP头部的。IP地址包括的最关键字段信息就是IP地址，用于标识网络的逻辑地址。</p>
+</li>
+<li><p>数据链路径层，上层数据成一个MAC头部，内部有最关键的是MAC地址。MAC地址就是固化在硬件设备内部的全球唯一的物理地址。</p>
+</li>
+<li><p>在物理层，无论在之前哪一层封装的报文头和还是上层数据都是由二进制组成的，物理将这些二进制数字比特流转换成电信号在网络中传输</p>
+</li>
+</ul>
+<p><img src="18.send.png" alt=""></p>
+<h3 id="6-3-2-接收方是从低层到高层解封装"><a href="#6-3-2-接收方是从低层到高层解封装" class="headerlink" title="6.3.2 接收方是从低层到高层解封装"></a><strong>6.3.2 接收方是从低层到高层解封装</strong></h3><ul>
+<li><p>数据封装完毕传输到接收方后，将数据要进行解封装</p>
+</li>
+<li><p>在物理层，先把电信号转成二进制数据，并将数据传送至数据链路层</p>
+</li>
+<li><p>在数据链路层，把MAC头部拆掉，并将剩余的数据传送至上一层</p>
+</li>
+<li><p>在网络层，数据的IP头部被拆掉，并将剩余的数据送至上一层</p>
+</li>
+<li><p>在传输层，把TCP头部拆掉，将真实的数据传送至应用层</p>
+</li>
+</ul>
+<p><img src="19.receive.png" alt=""></p>
+<h3 id="6-3-3-真实网络环境"><a href="#6-3-3-真实网络环境" class="headerlink" title="6.3.3 真实网络环境"></a><strong>6.3.3 真实网络环境</strong></h3><ul>
+<li><p>发送方和接收方中间可能会有多个硬件中转设备</p>
+</li>
+<li><p>中间可能会增加交换机和路由器</p>
+</li>
+<li><p>数据在传输过程中不断地进行封装和解封装的过程，每层设备只能处理哪一层的数据</p>
+<ul>
+<li><p>交换机属于数据链路层</p>
+</li>
+<li><p>路由器属于网络层</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="reaenv2.png" alt=""></p>
+<p>A电脑 -&gt; A交换机 -&gt; A路由器 -&gt; B路由器 -&gt; B交换机 -&gt; B电脑</p>
+<h2 id="7-附录"><a href="#7-附录" class="headerlink" title="7. 附录"></a><strong>7. 附录</strong></h2><h3 id="7-1-不同层中的称谓"><a href="#7-1-不同层中的称谓" class="headerlink" title="7.1 不同层中的称谓"></a><strong>7.1 不同层中的称谓</strong></h3><ul>
+<li>数据帧（Frame）：是一种信息单位，它的起始点和目的点都是数据链路层。</li>
+</ul>
+<ul>
+<li>数据包（Packet）：也是一种信息单位，它的起始和目的地是网络层。</li>
+</ul>
+<ul>
+<li>段（Segment）：通常是指起始点和目的地都是传输层的信息单元。</li>
+</ul>
+<ul>
+<li>消息（message）：是指起始点和目的地都在网络层以上（经常在应用层）的信息单元。</li>
+</ul>
+<h3 id="7-2-IP头服务类型"><a href="#7-2-IP头服务类型" class="headerlink" title="7.2 IP头服务类型"></a><strong>7.2 IP头服务类型</strong></h3><ul>
+<li>IP首部中的服务类型（TOS）</li>
+</ul>
+<ul>
+<li>TOS包括共8位，包括3 bit的优先权字段（取值可以从000-111所有值），4 bit的TOS子字段和1 bit未用位但必须置0。</li>
+</ul>
+<ul>
+<li>3bit的8个优先级的定义如下：</li>
+</ul>
+<ul>
+<li>111–Network Control(网络控制）一般保留给网络控制数据使用，如路由。</li>
+</ul>
+<ul>
+<li><p>110–Internetwork Control(网间控制)</p>
+</li>
+<li><p>101–Critic(关键)语音数据使用。</p>
+</li>
+<li><p>100–Flash Override(疾速)视频会议和视频流使用。</p>
+</li>
+<li><p>011–Flash(闪速)语音控制数据使用。</p>
+</li>
+<li><p>010–Immediate(快速)数据业务使用</p>
+</li>
+<li><p>001–Priority(优先)数据业务使用</p>
+</li>
+<li><p>000–Routine(普通)默认标记值。</p>
+</li>
+</ul>
+<ul>
+<li>4 bit的TOS分别代表：最小时延、最大吞吐量、最高可靠性和最小费用。4 bit中只能置其中1 bit。如果所有4 bit均为0，那么就意味着是一般服务。</li>
+</ul>
+<ul>
+<li>Telnet、Rlogin这两个交互应用要求最小的传输时延，FTP文件传输要求最大吞吐量，最高可靠性是指网络管理（SNMP）和路由选择协议。用户网络新闻要求最小费用</li>
+</ul>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2021/03/24/go2/">
+      go2
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/go/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>go</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 24, 2021</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Advanced tutorial</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/2021/03/24/go2/">
+            <div>阅读全文 <i class="fas fa-chevron-right "></i></div>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
     <a href="/2021/03/16/go-web/">
       go_web
     </a>
@@ -1068,303 +2733,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2021/02/02/dp/">
-      dp
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/algo/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>algo</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Feb 2, 2021</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>dp解题原理</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2021/02/02/dp/">
-            <div>阅读全文 <i class="fas fa-chevron-right "></i></div>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2021/01/28/webgl01/">
-      webgl01
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/webgl/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>webgl</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jan 28, 2021</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>绘图基本原理</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2021/01/28/webgl01/">
-            <div>阅读全文 <i class="fas fa-chevron-right "></i></div>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2021/01/26/canvas/">
-      canvas
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/canvas/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>canvas</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jan 26, 2021</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>canvas base</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2021/01/26/canvas/">
-            <div>阅读全文 <i class="fas fa-chevron-right "></i></div>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1495,7 +2863,7 @@
           <li><a class="flat-box"
             title="/categories/go/" href="/categories/go/"
             id="categoriesgo"
-            ><div class='name'>go</div><div class='badge'>(2)</div></a></li>
+            ><div class='name'>go</div><div class='badge'>(3)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/graphics/" href="/categories/graphics/"
@@ -1513,6 +2881,11 @@
             ><div class='name'>language</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
+            title="/categories/net/" href="/categories/net/"
+            id="categoriesnet"
+            ><div class='name'>net</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/categories/project/" href="/categories/project/"
             id="categoriesproject"
             ><div class='name'>project</div><div class='badge'>(3)</div></a></li>
@@ -1525,7 +2898,7 @@
           <li><a class="flat-box"
             title="/categories/tools/" href="/categories/tools/"
             id="categoriestools"
-            ><div class='name'>tools</div><div class='badge'>(4)</div></a></li>
+            ><div class='name'>tools</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/ts/" href="/categories/ts/"
@@ -1564,7 +2937,7 @@
 
 
     <div class='content'>
-      <a href="/tags/C/" style="font-size: 14px; color: #999">C</a> <a href="/tags/doc/" style="font-size: 24px; color: #555">doc</a> <a href="/tags/dp/" style="font-size: 14px; color: #999">dp</a> <a href="/tags/gitlab/" style="font-size: 19px; color: #777">gitlab</a> <a href="/tags/guide/" style="font-size: 21.5px; color: #666">guide</a> <a href="/tags/hexo/" style="font-size: 16.5px; color: #888">hexo</a> <a href="/tags/markdown/" style="font-size: 16.5px; color: #888">markdown</a> <a href="/tags/server/" style="font-size: 14px; color: #999">server</a> <a href="/tags/skill/" style="font-size: 16.5px; color: #888">skill</a>
+      <a href="/tags/C/" style="font-size: 14px; color: #999">C</a> <a href="/tags/doc/" style="font-size: 24px; color: #555">doc</a> <a href="/tags/dp/" style="font-size: 14px; color: #999">dp</a> <a href="/tags/gitlab/" style="font-size: 19px; color: #777">gitlab</a> <a href="/tags/guide/" style="font-size: 21.5px; color: #666">guide</a> <a href="/tags/hexo/" style="font-size: 16.5px; color: #888">hexo</a> <a href="/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/tags/markdown/" style="font-size: 16.5px; color: #888">markdown</a> <a href="/tags/server/" style="font-size: 14px; color: #999">server</a> <a href="/tags/skill/" style="font-size: 16.5px; color: #888">skill</a>
     </div>
   </section>
 
