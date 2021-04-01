@@ -415,7 +415,7 @@
 
 
 
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/goroutine1.png" alt="image-20210325101308012"></p>
+<p><img src="goroutine1.png" alt="image-20210325101308012"></p>
 <p>Goroutine 的并发机制；main goroutine中的for{} 占据较长的时间。可以确保两个goroutine能执行完毕；</p>
 <p><strong>Goroutine的特性：</strong></p>
 <p>主go程结束，子go程随之退出；</p>
@@ -476,7 +476,7 @@
 
 <h4 id="4-3-1-channel同步，数据传递"><a href="#4-3-1-channel同步，数据传递" class="headerlink" title="4.3.1 channel同步，数据传递"></a>4.3.1 channel同步，数据传递</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	channel := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">2</span>; i++ &#123;</span><br><span class="line">			fmt.Println(<span class="string">"i="</span>, i)</span><br><span class="line">		&#125;</span><br><span class="line">		channel &lt;- <span class="string">"123"</span></span><br><span class="line">	&#125;()</span><br><span class="line">	str := &lt;-channel <span class="comment">// 阻塞写，上面的go程才有机会执行；</span></span><br><span class="line">	fmt.Println(str) </span><br><span class="line">  </span><br><span class="line"><span class="comment">//  i= 0</span></span><br><span class="line"><span class="comment">//  i= 1</span></span><br><span class="line"><span class="comment">//  123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/channel.png" alt="image-20210325154035381"></p>
+<p><img src="channel.png" alt="image-20210325154035381"></p>
 <p>第1步，两个goroutine都到达通道，但哪个都没有开始执行发送或接收</p>
 <p>第2步，左侧的goroutine将它的手伸进了通道，这模拟了向通道发送数据的行为，这时，这个goroutine会在通道中被锁住，直到交换完成；</p>
 <p>第3步，右侧的goroutine将它的手放入通道，这模拟了从通道里接收数据，这个goroutine一样也会在通道中被锁住，直到交换完成</p>
@@ -560,7 +560,7 @@
 <li>生产者把制造出来的数据往缓冲区一丢，就可以再去生产下一个数据了；（生产者和消费者数量不对等时，能保持正常通信）基本不需要依赖消费者的处理速度；</li>
 <li>缓存，生产者和消费者处理数据速度不一致时，暂存数据（如果生产者制造数据时快时慢，缓冲区的好处就提体现出来了。当数据制造快消费者来不及处理，未处理的数据可以暂时存在缓冲区中。等生产者的制造速度慢下来，消费者再慢慢处理掉）</li>
 </ol>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/buffer.png" alt="image-20210325223551771"></p>
+<p><img src="buffer.png" alt="image-20210325223551771"></p>
 <p>Channel 实现缓冲区</p>
 <p>有缓冲channel和无缓冲channel都能实现缓冲区</p>
 <p>有缓冲channel 异步通信 用于对实时不敏感的需求；</p>
@@ -648,7 +648,7 @@
 <p><strong>上层应用使用的锁全部都是建议锁</strong></p>
 <p>强制锁机制是这样规定的：所有记录或文件锁功能内核执行的。破坏性的IO操作会被内核禁止。被锁的文件，内核会强制阻止任何对该文件的读或写违规访问。每次读或写访问都得检查锁是否存在。也就是强制性锁机制。</p>
 <p><strong>强制锁只在操作系统底层它自己会用到，编程用不上</strong></p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/metux.png" alt="阻塞在锁上"><br>阻塞在锁上</p>
+<p><img src="metux.png" alt="阻塞在锁上"><br>阻塞在锁上</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用互斥锁完成同步</span></span><br><span class="line"><span class="keyword">var</span> mutex sync.Mutex</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printer</span><span class="params">(str <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	mutex.Lock() <span class="comment">// 访问共享数据之前，</span></span><br><span class="line">	<span class="keyword">for</span> _, ch := <span class="keyword">range</span> str &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"%c"</span>, ch)</span><br><span class="line">		time.Sleep(time.Millisecond * <span class="number">300</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	mutex.Unlock() <span class="comment">// 访问共享数据之后</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">person1</span><span class="params">()</span></span> &#123;</span><br><span class="line">	printer(<span class="string">"hello"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">person2</span><span class="params">()</span></span> &#123;</span><br><span class="line">	printer(<span class="string">"mutex"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">go</span> person1()</span><br><span class="line">	<span class="keyword">go</span> person2()</span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="6-3-读写锁"><a href="#6-3-读写锁" class="headerlink" title="6.3 读写锁"></a>6.3 读写锁</h3><p>互斥锁的本质是当一个goroutine访问的时候，其他goroutinue都不能 访问，这样在资源同步，避免竞争的同时也降低了程序的并发性能。程序由原来的并行执行变成了串行执行。</p>
@@ -677,7 +677,7 @@
 <p>本身不是锁！！但条件变量总是与锁一起使用</p>
 <p>条件变量的作用并不保证在同一时刻仅有一个协程访问某个共享的数据资源，而是在对应的共享数据的状态发生变化时，通知阻塞在某个条件上的协程（线程）。条件变量不是锁，在并发中不能达到同步的目的，因此条件变量总是与锁一块使用</p>
 <p>例如，如果仓库队列满了，我们可以使用条件变量让生产者对应的go程暂停（阻塞），但是当消费者消费了某个产品后，仓库就不再满了，应该唤醒（发送通知给）阻塞的生产者go程继续生产产品</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/cond.png" alt="image-20210329110413577"></p>
+<p><img src="cond.png" alt="image-20210329110413577"></p>
 <p>在抢锁之前，咨询条件变量。是否有必要抢锁（如果缓冲区满或空的时候）</p>
 <p><strong>以前的顺序</strong></p>
 <ol>
@@ -793,9 +793,9 @@
 <td>链路层</td>
 </tr>
 </tbody></table>
-<h3 id="8-4-层与协议"><a href="#8-4-层与协议" class="headerlink" title="8.4 层与协议"></a>8.4 层与协议</h3><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/ceng.png" alt="image-20210329133057260"></p>
+<h3 id="8-4-层与协议"><a href="#8-4-层与协议" class="headerlink" title="8.4 层与协议"></a>8.4 层与协议</h3><p><img src="ceng.png" alt="image-20210329133057260"></p>
 <p><strong>各层功能</strong></p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/department.png" alt="image-20210329133147213"></p>
+<p><img src="department.png" alt="image-20210329133147213"></p>
 <p>网络层 -&gt; ip</p>
 <p>传输层 -&gt; port</p>
 <h3 id="8-5-传输过程，"><a href="#8-5-传输过程，" class="headerlink" title="8.5 传输过程，"></a>8.5 传输过程，</h3><blockquote>
@@ -842,7 +842,7 @@
 <p>双向全双工 -&gt; 电话</p>
 <p>单工通信  -&gt; 遥控器</p>
 <p>socket是一种典型的双向全双工通信，它的实现是通信的一端封装了两个channel，对外只提供一个访问接口。</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/socket1.png" alt="image-20210329143133584"></p>
+<p><img src="socket1.png" alt="image-20210329143133584"></p>
 <p>在TCP/IP协议中，“IP地址+TCP或UDP端口号”唯一标识网络通讯中的一个进程，“IP地址+端口号”就对应一个socket，欲建立连接的两个进程各自有一个socket来标识，那么这两个socket组成的socket pair就唯一标识一个连接。因此可以用socket来描述网络连接的一对一关系。</p>
 <p>常用的socket类型有两种： 流式socket（SOCK_STREAM）和数据包式socket  (SOCK_DGRAM)。</p>
 <p>流式是一种面向连接的socket，针对于面向连接的TCP服务应用：</p>
@@ -857,7 +857,7 @@
 <p>B/S模式相比C/S模式而言，由于它没有独立客户端，使用标准浏览器作为客户端，只需要开发服务器端即可（服务端渲染页面可以理解为只开发服务器）。浏览器跨平台兼容，所以不受平台限制。</p>
 <p>B/S的缺点就是网络应用支持受限，其他主要是浏览器本身的性能和os对比的性能差异；</p>
 <h3 id="9-2-TCP的C-S架构"><a href="#9-2-TCP的C-S架构" class="headerlink" title="9.2 TCP的C/S架构"></a>9.2 TCP的C/S架构</h3><p>c/s架构的协议选择，TCP和UDP，TCP和UDP的差别就是在数据传输之前是否先建立好连接。TCP是先建立好连接，UDP是不建立好连接，直接传输数据。</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/tcp.png" alt="image-20210329145859768"></p>
+<p><img src="tcp.png" alt="image-20210329145859768"></p>
 <p>socket 通信架构</p>
 <ol>
 <li>起一个server服务器，Listen方法，该方法不是监听客户端链接。而是指定IP+port，Listen函数也创建了一个socket，但是此socket不用于通信，它只用于创建通信的socket，它保存IP和port。所以后续有客户端请求的socket进来，这个socket就copy一份出去接客；</li>
@@ -865,7 +865,7 @@
 <li>当有客户端链接进来，Accept会返回一个socket，这个socket用于通信。</li>
 <li>此刻在client调用Dial函数，也返回一个socket，用于通信。socket在通信中成对出现</li>
 </ol>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/cs.png" alt="image-20210329155637120"></p>
+<p><img src="cs.png" alt="image-20210329155637120"></p>
 <p><strong>服务器判断关闭</strong></p>
 <p>Read读客户端，返回0， —— 对端关闭！</p>
 <p>nc命令发送数据时，默认在结尾自带’\n’</p>
@@ -879,7 +879,7 @@
 <p>因为服务器端的LISTEN状态下的SOCKET当收到SYN报文建连接请求后，它可以把ACK和SYN(ACK起应答作用，而SYN起同步作用)放在一个报文时发送。但是关闭连接，当收到对应FIN报文通知时，它仅仅表示对方没有数据发送给你了，但未必你所有的数据都全部发送给对方了，所以你可以未必马上会关闭SOCKET，也即你可能还需要发送一些数据给对方之后，再发送FIN报文给对方表示同间现在可以关闭连接了，所以这里的ACK报文和FIN报文多数情况下都是分开发送的</p>
 <p>2.为什么<strong>TIME_WAIT</strong>状态还需要等<strong>2MSL</strong>后才能返回到<strong>CLOSED</strong>状态？</p>
 <p>因为虽然对方同间关闭连接了，而且握手的4个报文也都协调和发送完毕，按理可以直接回到CLOSED状态（就好比从SYN_SEND状态到ESTABLISHED状态）但是因为我们必须要假想网络是不可靠的，你无法保证你最后发送的ACK报文人一定被双方收到，因此处于LAST_ACK状态下的SOCKET可能会因为超时未收到ACK报文，而重发FIN报文，所以这个TIME_WAIT状态的作用就是用来生发可能丢失的ACK报文</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/three_four.png" alt="image-20210329182124969"></p>
+<p><img src="three_four.png" alt="image-20210329182124969"></p>
 <p>三次握手</p>
 <ol>
 <li>主动发起请求短，发送SYN</li>
@@ -901,7 +901,7 @@
 <p><strong>主动关闭连接请求端</strong>：ESTABLISEHED——FIN_WAIT_2（半关闭）  ——TIME_WAIT ——2MSL——确认最后一个ACK被对端成功接收</p>
 <p>（半关闭，TIME_WAIT，2MSL——只会出现在“主动关闭连接请求端” ）</p>
 <p><strong>被动关闭连接请求端</strong>： ESTABLISEHED——CLOSE</p>
-<img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/tcpstatus.jpeg" style="zoom:100%;" />
+<img src="tcpstatus.jpeg" style="zoom:100%;" />
 
 
 
@@ -929,7 +929,7 @@
 <p>无连接的，不可靠的报文传递，UDP因为无连接，所以线路取决于网络，网络状况会导致UDP丢包；只不过UDP的丢包问题系统层面不会执行重传；因此弥补这一缺陷需要在应用层对数据包进行校验；（需要封装针对UDP底层传输丢包问题的协议）</p>
 <p><strong>TCP通信：</strong></p>
 <p>面向连接的，可靠的数据包传输，不是说TCP不丢包，而是说TCP丢包之后会重传，这个重传指令是系统层面在做；</p>
-<h4 id="9-5-1-udp通信流程"><a href="#9-5-1-udp通信流程" class="headerlink" title="9.5.1 udp通信流程"></a>9.5.1 udp通信流程</h4><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go2/udp.png" alt="image-20210330000053239"></p>
+<h4 id="9-5-1-udp通信流程"><a href="#9-5-1-udp通信流程" class="headerlink" title="9.5.1 udp通信流程"></a>9.5.1 udp通信流程</h4><p><img src="udp.png" alt="image-20210330000053239"></p>
 <ol>
 <li>创建用于通信的socket</li>
 <li>阻塞读socket</li>
@@ -1147,10 +1147,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-30T19:12:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-01T10:21:02+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Mar 30, 2021</p>
+    <p>更新于：Apr 1, 2021</p>
   </a>
 </div>
 
