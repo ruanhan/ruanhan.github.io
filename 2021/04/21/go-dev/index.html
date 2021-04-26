@@ -16,12 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>http - Hexo</title>
+    <title>go_dev - Hexo</title>
   
     <meta name="keywords" content="guide">
   
   
-    <meta name="description" content="应用层协议">
+    <meta name="description" content="go开发环境">
   
 
   <!-- feed -->
@@ -283,8 +283,8 @@
         
           
   <h1 class="title">
-    <a href="/2021/04/14/http/">
-      http
+    <a href="/2021/04/21/go-dev/">
+      go_dev
     </a>
   </h1>
 
@@ -309,9 +309,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/http/' rel="nofollow">
+    <a href='/categories/go/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>http</p>
+      <p>go</p>
     </a>
   </div>
 
@@ -322,7 +322,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 14, 2021</p>
+    <p>发布于：Apr 21, 2021</p>
   </a>
 </div>
 
@@ -345,7 +345,61 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2>
+          <h1 id="golang开发环境搭建"><a href="#golang开发环境搭建" class="headerlink" title="golang开发环境搭建"></a>golang开发环境搭建</h1><blockquote>
+<p>环境搭建是开发的一部分，砍柴之前磨磨刀还是很必要的。所以，学习之前我打算在linux上搭建一套golang的开发环境；这里以某厂商的云虚拟机为例，操作系统应该是centos7</p>
+</blockquote>
+<h2 id="1-安装golang"><a href="#1-安装golang" class="headerlink" title="1. 安装golang"></a>1. 安装golang</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$&gt; wget  https://studygolang.com/dl/golang/go1.16.3.linux-amd64.tar.gz -P  /data/ <span class="comment"># 下载并存放到跟目录的 data文件夹中</span></span><br><span class="line">$&gt; tar xzvf /data/go1.16.3.linux-amd64.tar.gz  -C /usr/<span class="built_in">local</span>/</span><br><span class="line"><span class="comment"># -x --extract = extract files from an archive</span></span><br><span class="line"><span class="comment"># -v, --verbose = verbosely list files processed</span></span><br><span class="line"><span class="comment"># -z, --gzip = gzipped files eg. for tar.gz packages</span></span><br><span class="line"><span class="comment"># -f, --file ARCHIVE = use archive file or device ARCHIVE</span></span><br><span class="line"><span class="comment"># -C /usr/local，tar将在执行任何操作之前将其当前目录更改为dir, 也就是将当前文件解压到 /usr/local；</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>配环境变量</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&gt; vim ~/.profile</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOPATH=/opt/go</span><br><span class="line"><span class="built_in">export</span> GOROOT=/usr/<span class="built_in">local</span>/go</span><br><span class="line"><span class="built_in">export</span> GOBIN=<span class="variable">$GOROOT</span>/bin/</span><br><span class="line"><span class="built_in">export</span> GOTOOLS=<span class="variable">$GOROOT</span>/pkg/tool/</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOBIN</span>:<span class="variable">$GOTOOLS</span></span><br><span class="line"><span class="built_in">export</span> GOPROXY=https://goproxy.cn,https://mirrors.aliyun.com/goproxy,direct</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/go</span><br><span class="line">$&gt; <span class="built_in">source</span> ~/.profile</span><br><span class="line">$&gt; go version</span><br><span class="line">$&gt; go1.15.5 linux/amd64  <span class="comment"># 安装成功</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="2-配置goland连接orgin"><a href="#2-配置goland连接orgin" class="headerlink" title="2. 配置goland连接orgin"></a>2. 配置goland连接orgin</h2><p>goland是jetbrains公司开发的IDE，开发go程序体验不错，这里以goland为例，配置一个连接origin的环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">preferences -&gt; Build,Execution,Deployment-&gt;Deployment</span><br></pre></td></tr></table></figure>
+
+<p>点左上角 + 并选择SFTP类型</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-dev/01.png" alt="image-20210421130953352"></p>
+<p> 在connection tabs上添加虚拟机地址</p>
+<p>在mappings分别填上本地的path和远端的path</p>
+<p>点击apply ok 即可；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-dev/02.png" alt="image-20210421131425549"></p>
+<p>选择always，保持文件更新之后往远程push</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/go-dev/03.png" alt="image-20210421131510480"></p>
+<p>在Tools&gt;ssh configuration配置origin机器信息，这样就可以在IDE的tool工具栏中开启origin的命令行并愉快的使用了；</p>
+<h2 id="3-安装protobuf和grpc"><a href="#3-安装protobuf和grpc" class="headerlink" title="3. 安装protobuf和grpc"></a>3. 安装protobuf和grpc</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$&gt; wget https://github.com/protocolbuffers/protobuf/releases/download/v3.13.0/protobuf-all-3.13.0.tar.gz -P /data/ <span class="comment"># 将文件下载至data文件夹中</span></span><br><span class="line">$&gt; tar -zxvf protobuf-all-3.13.0.tar.gz</span><br><span class="line">$&gt; <span class="built_in">cd</span> protobuf-3.13.0/</span><br><span class="line">$&gt; ./configure --prefix=/usr/<span class="built_in">local</span>/protobuf <span class="comment"># 编译安装</span></span><br><span class="line">$&gt; make</span><br><span class="line">$&gt; make install</span><br></pre></td></tr></table></figure>
+
+<p><strong>配置环境变量</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$&gt; vim ~/.profile</span><br><span class="line"><span class="comment">#protobuf config</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#(动态库搜索路径) 程序加载运行期间查找动态链接库时指定除了系统默认路径之外的其他路径</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:/usr/<span class="built_in">local</span>/protobuf/lib/</span><br><span class="line"><span class="comment">#(静态库搜索路径) 程序编译期间查找动态链接库时指定查找共享库的路径</span></span><br><span class="line"><span class="built_in">export</span> LIBRARY_PATH=<span class="variable">$LIBRARY_PATH</span>:/usr/<span class="built_in">local</span>/protobuf/lib/</span><br><span class="line"><span class="comment">#执行程序搜索路径</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/protobuf/bin/</span><br><span class="line"><span class="comment">#c程序头文件搜索路径</span></span><br><span class="line"><span class="built_in">export</span> C_INCLUDE_PATH=<span class="variable">$C_INCLUDE_PATH</span>:/usr/<span class="built_in">local</span>/protobuf/include/</span><br><span class="line"><span class="comment">#c++程序头文件搜索路径</span></span><br><span class="line"><span class="built_in">export</span> CPLUS_INCLUDE_PATH=<span class="variable">$CPLUS_INCLUDE_PATH</span>:/usr/<span class="built_in">local</span>/protobuf/include/</span><br><span class="line"><span class="comment">#pkg-config 路径</span></span><br><span class="line"><span class="built_in">export</span> PKG_CONFIG_PATH=/usr/<span class="built_in">local</span>/protobuf/lib/pkgconfig/</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line">protoc --version</span><br><span class="line"><span class="comment"># libprotoc 3.13.0 install complate!</span></span><br></pre></td></tr></table></figure>
+
+<p>安装go语言插件，因为protobuf并没有直接支持go语言，需要手动安装一下相关插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$&gt; go get -v -u github.com/golang/protobuf/proto</span><br><span class="line">$&gt; <span class="built_in">cd</span> 到 github.com/golang/protobuf/protoc-gen-go/</span><br><span class="line">$&gt; go build <span class="comment"># 执行打包，生成 protoc-gen-go 可执行文件</span></span><br><span class="line">$&gt; sudo cp protoc-gen-go /bin/ 将可以执行命令复制到/bin中</span><br><span class="line"><span class="comment"># 尝试补全 protoc-gen-go， 如果成功，则表示ok</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>测试编译是否成功</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">protoc --go_out=./ *.proto  <span class="comment"># 在远程执行编译</span></span><br><span class="line"><span class="comment"># grpc编译</span></span><br><span class="line">protoc --go_out=plugins=grpc:./ *.proto</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装grpc</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get -u -v google.golang.org/grpc</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-安装微服务相关工具"><a href="#4-安装微服务相关工具" class="headerlink" title="4. 安装微服务相关工具"></a>4. 安装微服务相关工具</h2><h3 id="4-1-安装consul"><a href="#4-1-安装consul" class="headerlink" title="4.1 安装consul"></a>4.1 <strong>安装consul</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://releases.hashicorp.com/consul/1.5.2/consul_1.5.2_linux_amd64.zip</span><br><span class="line">$ unzip consul_1.5.2_linux_amd64.zip</span><br><span class="line">$ sudo mv consul /usr/<span class="built_in">local</span>/bin/ <span class="comment"># 将可执行目录移动到bin目录</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-consul测试"><a href="#4-2-consul测试" class="headerlink" title="4.2 consul测试"></a>4.2 <strong>consul测试</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=n1 -<span class="built_in">bind</span>=0.0.0.0 -ui -rejoin -config-dir=/etc/consul.d/ -client 0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-consul和grpc结合使用"><a href="#4-3-consul和grpc结合使用" class="headerlink" title="4.3 consul和grpc结合使用"></a>4.3 <strong>consul和grpc结合使用</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&gt; go get -u -v github.com/hashicorp/consul</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-go-micro安装"><a href="#4-4-go-micro安装" class="headerlink" title="4.4 go-micro安装"></a>4.4 go-micro安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装go-micro</span></span><br><span class="line">go get -u -v github.com/micro/go-micro</span><br><span class="line"><span class="comment">#安装工具集</span></span><br><span class="line">go get -u -v github.com/micro/micro</span><br><span class="line"><span class="comment">#安装protobuf插件</span></span><br><span class="line">go get -u github.com/golang/protobuf/&#123;proto,protoc-gen-go&#125;</span><br><span class="line">go get -u github.com/micro/protoc-gen-micro</span><br></pre></td></tr></table></figure>
+
+
           
             <div class='article_footer'>
               
@@ -381,7 +435,7 @@
           
         
           
-            <p>本文永久链接是：<a href=http://yoursite.com/2021/04/14/http/>http://yoursite.com/2021/04/14/http/</a></p>
+            <p>本文永久链接是：<a href=http://yoursite.com/2021/04/21/go-dev/>http://yoursite.com/2021/04/21/go-dev/</a></p>
           
         
       </blockquote>
@@ -432,10 +486,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-14T11:54:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-21T18:19:41+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Apr 14, 2021</p>
+    <p>更新于：Apr 21, 2021</p>
   </a>
 </div>
 
@@ -462,7 +516,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/04/14/http/&title=http - Hexo&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/04/21/go-dev/&title=go_dev - Hexo&summary="
           
           >
           
@@ -474,7 +528,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2021/04/14/http/&title=http - Hexo&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2021/04/21/go-dev/&title=go_dev - Hexo&summary="
           
           >
           
@@ -486,7 +540,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/04/14/http/&title=http - Hexo&summary="
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/04/21/go-dev/&title=go_dev - Hexo&summary="
           
           >
           
@@ -510,26 +564,10 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/2021/04/21/go-dev/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>go_dev</p>
-                <p class='content'>golang开发环境搭建
-环境搭建是开发的一部分，砍柴之前磨磨刀还是很必要的。所以，学习之前我打算在linux上搭建一套golang的开发环境；这里以某厂商的云虚拟机为例，操作系统应该是cent...</p>
-              </a>
             
-            
-              <a class='next' href='/2021/04/02/learn/'>
-                <p class='title'>learn<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>1. 核心算法
-知道自己是如何学会的
-回顾不忘、类推
-学会（下）一个
-
-什么是学？
-学的本质是模仿
-冯先生学英语的秘诀：
-
-背诵好文章（例如著名的小说，百科全书）
-他的背诵极其精准——只字不差（...</p>
+              <a class='next' href='/2021/04/14/http/'>
+                <p class='title'>http<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>http</p>
               </a>
             
           </div>
@@ -574,7 +612,7 @@
 
   <script>
     window.subData = {
-      title: 'http',
+      title: 'go_dev',
       tools: true
     }
   </script>
@@ -600,7 +638,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#http"><span class="toc-text">http</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装golang"><span class="toc-text">1. 安装golang</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-配置goland连接orgin"><span class="toc-text">2. 配置goland连接orgin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-安装protobuf和grpc"><span class="toc-text">3. 安装protobuf和grpc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装微服务相关工具"><span class="toc-text">4. 安装微服务相关工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-安装consul"><span class="toc-text">4.1 安装consul</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-consul测试"><span class="toc-text">4.2 consul测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-consul和grpc结合使用"><span class="toc-text">4.3 consul和grpc结合使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-go-micro安装"><span class="toc-text">4.4 go-micro安装</span></a></li></ol></li></ol>
     </div>
   </section>
 
