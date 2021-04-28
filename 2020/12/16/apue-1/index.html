@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#1.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>gitlab 使用 - Hexo</title>
+  
+    <meta name="keywords" content="doc">
+  
+  
+    <meta name="description" content="标准io">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            BELIEF <b><sup style='color:#3AA757'>1.0.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/12/16/apue-1/">
+      gitlab 使用
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/apue/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>apue</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 16, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="APUE"><a href="#APUE" class="headerlink" title="APUE"></a>APUE</h1><p>APUE主要讨论了三部分内容：文件IO、并发、进程间通信。</p>
+<p>*<em>文件IO: *</em></p>
+<p>标准IO：优点是可移植性高，缺点是性能比系统 IO 差，且功能没有系统 IO 丰富。<br>系统IO：因为是内核直接提供的系统调用函数，所以性能比标准 IO 高，但是可移植性比标准 IO 差。</p>
+<p><strong>并发：</strong></p>
+<p>信号 + 多进程；<br>多线程；</p>
+<p><strong>进程间通信：</strong></p>
+<ul>
+<li>FIFO：管道；</li>
+<li>System V：又称为 XSI，支持以下三种方式：<ul>
+<li>msg：消息队列；</li>
+<li>sem：信号量；</li>
+<li>shm：共享存储；</li>
+</ul>
+</li>
+<li>Socket：套接字（网络通信）；</li>
+</ul>
+<h2 id="文件-IO"><a href="#文件-IO" class="headerlink" title="文件 IO"></a>文件 IO</h2><blockquote>
+<p>前面提到了标准 IO（STDIO）和系统 IO（SYSIO），那么这里整理一下它们的差别。</p>
+</blockquote>
+<h3 id="1-1-stdio-和-sysio-异同"><a href="#1-1-stdio-和-sysio-异同" class="headerlink" title="1.1  stdio 和 sysio 异同"></a>1.1  stdio 和 sysio 异同</h3><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="center">可移植性</th>
+<th align="center">实时性</th>
+<th align="center">吞吐量</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">STDIO</td>
+<td align="center">高</td>
+<td align="center">低</td>
+<td align="center">高</td>
+<td align="center">受限</td>
+</tr>
+<tr>
+<td align="left">SYSIO</td>
+<td align="center">低</td>
+<td align="center">高</td>
+<td align="center">低</td>
+<td align="center">自由</td>
+</tr>
+</tbody></table>
+<p>表格中的每一项都是两者之间相对而言，使用哪种 IO 并没有绝对的好坏之分，要根据实际的需求来决定应该使用哪个。</p>
+<h4 id="1-1-1-可移植性："><a href="#1-1-1-可移植性：" class="headerlink" title="1.1.1 可移植性："></a>1.1.1 可移植性：</h4><p>标准 IO 是 C89 支持的函数，所以使用了标准 IO 的程序无论在 Linux 平台还是换成了 Windows 平台，不用修改代码是可以直接编译运行的。</p>
+<p>而系统 IO 是由内核直接提供的函数库实现的，不同的操作系统平台上提供的 IO 操作接口是不同的，所以想要移植使用了系统 IO 的程序，必须按照目标平台的 IO 库修改程序并重新调试。</p>
+<p>所以你写的程序将来可能在不同的平台上运行，那么最好使用标准 IO 库；如果你的程序是专门针对于某个平台而开发的，那么使用系统 IO 库能够得到我们下面说的其它优势。</p>
+<h4 id="1-1-2-实时性和吞吐量："><a href="#1-1-2-实时性和吞吐量：" class="headerlink" title="1.1.2 实时性和吞吐量："></a>1.1.2 实时性和吞吐量：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">      <span class="built_in">putchar</span>(<span class="string">'a'</span>);</span><br><span class="line">      <span class="built_in">write</span>(<span class="number">1</span>, <span class="string">"b"</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">      <span class="built_in">putchar</span>(<span class="string">'a'</span>);</span><br><span class="line">      <span class="built_in">write</span>(<span class="number">1</span>, <span class="string">"b"</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'a'</span>);</span><br><span class="line">      <span class="built_in">write</span>(<span class="number">1</span>, <span class="string">"b"</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -Wall 1.c</span><br><span class="line">$ ./a.out</span><br><span class="line"><span class="comment"># bbbaaa</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>输出的结果为什么不是 ababab 呢，这就是因为标准 IO 具有合并系统调用的功能，putchar(3) 将本应该执行多次的 write(2) 动作合并成了一步来完成，所以 aaa 是作为一个字符串打印的，这一点我们可以通过 strace(1) 命令跟踪系统调用来得出结论(下方第7行)。另外由于 stdout 默认使用的是行缓冲模式(下面会讲缓冲)，所以对 putchar(3) 的调用并没有立即打印出来。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ strace ./a.out</span><br><span class="line"># ... 此处省略n行不相关内容</span><br><span class="line">mmap(<span class="literal">NULL</span>, <span class="number">4096</span>, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS,<span class="number">-1</span>,<span class="number">0</span>) = <span class="number">0x7f077a35f000</span></span><br><span class="line">  <span class="built_in">write</span>(<span class="number">1</span>, <span class="string">"b"</span>, <span class="number">1b</span>)                        = <span class="number">1</span></span><br><span class="line">  <span class="built_in">write</span>(<span class="number">1</span>, <span class="string">"b"</span>, <span class="number">1b</span>)                        = <span class="number">1</span></span><br><span class="line">  <span class="built_in">write</span>(<span class="number">1</span>, <span class="string">"b"</span>, <span class="number">1b</span>)                        = <span class="number">1</span></span><br><span class="line">  <span class="built_in">write</span>(<span class="number">1</span>, <span class="string">"aaa\n"</span>, <span class="number">4</span>aaa</span><br><span class="line">  ) = <span class="number">4</span></span><br><span class="line">  exit_group(<span class="number">0</span>) </span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+
+<p>到这里我们还是没有说明白为什么标准 IO 吞吐量高，而系统 IO 实时性高。我再举个简单的栗子：门卫老大爷负责送信到邮局，他去一次邮局要花费 10 分钟的时间，而每次最多能送 20 封信，每当信件累计到 20 封的时候他就要动身去邮局了。但是当他收到一封加急的邮件时，就会立即去一趟邮局。系统 IO 就好比每收到一封信时都要去一趟邮局，所以实时性高。而标准 IO 就好比要攒够 20 封信才去一趟邮局，所以吞吐量高，因为用户把信件交到老大爷的手上时就会立即返回，响应速度快，用户体验更好。而我们使用 fflush(3) 之类的函数强制刷新缓冲的时候，就相当于是老大爷收到了一封加急信件需要立即去一趟邮局送信。</p>
+<p>至于这里所说的标准 IO 功能受限，是因为标准 IO 在各个平台上都是使用系统 IO 封装的，为了使它具有通用性，又要考虑底层操作系统各自平台在实现上的差异，难免在功能上就要作出让步。</p>
+<h3 id="1-2-文件位置指针"><a href="#1-2-文件位置指针" class="headerlink" title="1.2  文件位置指针"></a>1.2  文件位置指针</h3><p>当我们打开一个文件要对它进行读写的时候，我们怎么能知道要从哪里开始读（写）文件呢？其实标准库准备了一个工具辅助我们读写文件，它就是文件位置指针。当我们使用标准库函数操作文件的时候，它会自动根据文件位置指针找到我们要操作的位置，也会随着我们的读写操作而自动修改指向，而不用我们自己手动记录和修改文件的操作位置。它使用起来非常方便，以至于你完全感觉不到它的存在，但是为了更好的理解文件 IO，你必须知道它的作用。</p>
+<h3 id="1-3-stdio函数"><a href="#1-3-stdio函数" class="headerlink" title="1.3 stdio函数"></a>1.3 stdio函数</h3><h4 id="1-fopen-3"><a href="#1-fopen-3" class="headerlink" title="1.fopen(3)"></a>1.fopen(3)</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fopen - stream <span class="built_in">open</span> functions</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function">FILE *<span class="title">fopen</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *path, <span class="keyword">const</span> <span class="keyword">char</span> *mode)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>这是今天要学习的第一个函数，在操作文件之前，我们需要通过 fopen() 函数将文件打开，通过这个函数我们可以告诉操作系统我们要操作的是哪个文件，以及用什么样的方式操作这个文件。</p>
+<p>参数列表：</p>
+<p>path：要操作的文件路径。</p>
+<p>mode：文件的打开方式，这个打开方式一共分为6种。</p>
+<p>r：以只读的方式打开文件，并且文件位置指针会被定位到文件首。如果要打开的文件不存在则报错。</p>
+<p>r+：以读写的方式打开文件，并且文件位置指针会被定位到文件首。如果要打开的文件不存在则报错。</p>
+<p>w：以只写的方式打开文件，如果文件不存在则创建，如果文件已存在则被截断为 0 字节，并且文件位置指针会被定位到文件首。</p>
+<p>w+：以读写的方式打开文件，如果文件不存在则创建，如果文件已存在则被截断为 0 字节，并且文件位置指针会被定位到文件首。</p>
+<p>a：以追加的方式打开文件，如果文件不存在则创建，且文件位置指针会被定位到文件最后一个有效字符的后面（EOF，end of the file）。</p>
+<p>a+：以读和追加的方式打开文件，如果文件不存在则创建，且读文件位置指针会被初始化到文件首，但是总是写入到最后一个有效字符的后面（EOF，end of the file）。</p>
+<p>返回值：</p>
+<p>FILE 是一个由标准库定义的结构体，各位童鞋不要企图通过手动修改结构体里的内容来实现文件的操作，一定要通过标准库函数来操作文件。</p>
+<p>这个函数返回一个 FILE 类型的指针，它作为我们打开文件的凭据，后面所有对这个文件的操作都需要使用这个指针，而且使用之后一定不要忘记调用 fclose(3) 函数释放资源。</p>
+<p>如果该函数返回了一个指向 NULL 的指针，则表示文件打开失败了，可以通过 errno 获取到具体失败的原因。</p>
+<p>error 是什么呢？它是标准 C 中定义的一个整形值，用来表示上次发生的错误。大家可以在头文件中看看 errno 都定义了哪些值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/include/asm-generic/errno.h</span><br><span class="line">vim /usr/include/asm-generic/errno-base.h</span><br></pre></td></tr></table></figure>
+
+
+<p>通常系统调用会给我们我返回一个整形值来表示是否出现了错误，当出现了错误的时候会设置 errno，通过 errno 我们就可以得知出现了什么错误了。</p>
+<p>当然，直接给我们一个数字，我们自己再从头文件中查找这个数字表示的意义，然后再打印出来给用户看，似乎态麻烦了，没有什么简便的办法吗？</p>
+<p>别担心，其实标准库已经为我们准备好专门的转换函数了：perror(3) 和 strerror(3)</p>
+<p>perror(3) 会自动读取 errno 帮我们转换成对应的文字描述，并且将它们输出到标准错误流中。它的参数是一个字符串，用来让我们自定义一些错误消息给用户看，它的输出格式就是 我们给传递的参数：errno 转换的描述文字。</p>
+<p>strerror(3) 函数也会将 errno 转换为文字，不过它不会自动读取 errno 当前的值，需要我们把 errno 传递给它。它也不会帮我们输出到标准输出中，而是将转换完的字符串返回给我们。</p>
+<p>如果大家是开发一个前台应用，一般可以使用 perror(3) 函数直接将错误输出给用户。</p>
+<p>如果大家开发的是后台应用（如守护进程等），那么一般先使用 strerrno(3) 函数将 errno 转换为字符串，然后再把这个字符串传给日志系统记录下来。</p>
+<p>大家在使用 errno 这个全局变量的时候要导入 errno.h 头文件：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+<p>在使用 strerror(3) 函数时不要忘记导入 string.h 头文件，否则会报段错误！</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include &lt;<span class="built_in">string</span>.h&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>其实现在的很多 *nix 系统中，errno 早已不是全局变量了，为了线程安全它已经变成了一个宏定义，这个我们在后面的博文中介绍线程的时候会讨论它。</p>
+<h4 id="2-fclose-3"><a href="#2-fclose-3" class="headerlink" title="2.fclose(3)"></a>2.fclose(3)</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fclose - <span class="built_in">close</span> a stream</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fclose</span><span class="params">(FILE *fp)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>这个函数是与 fopen(3) 函数对应的，当我们使用完一个文件之后，需要调用 fclose(3) 函数释放相关的资源，否则会造成内存泄漏。当一个 FILE 指针被 fclose(3) 函数成功释放后，这个指针所指向的内容将不能再次被使用，如果需要再次打开文件还需要调用 fopen(3) 函数。</p>
+<p>参数列表：</p>
+<p>fp：fopen(3) 函数的返回值作为参数传入即可。</p>
+<h4 id="3-fgets-3"><a href="#3-fgets-3" class="headerlink" title="3.fgets(3)"></a>3.fgets(3)</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fgets - input of strings</span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgetc</span><span class="params">(FILE *stream)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">fgets</span><span class="params">(<span class="keyword">char</span> *s, <span class="keyword">int</span> <span class="built_in">size</span>, FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>从输入流 stream 中读取一个字符串回填到 s 所指向的空间。</p>
+<p>这里出现了一个 stream 的概念，这个 stream 是什么呢，它被成为“流”，其实就是操作系统对于可以像文件一样操作的东西的一种抽象。它并非像自然界的小河流水一样潺潺细流，而通常是要么没有数据，要么一下子来一坨数据。当然 stream 也未必一定就是文件，比如系统为每个进程默认打开的三个 stream：stdin、stdout、stderr，它们本身就不是文件，就是与文件有着相同的操作方式，所以同样被抽象成了“流”。</p>
+<p>这个函数并没有解决 gets(3) 函数可能会导致的数组越界问题，而是通过牺牲了获取数据的正确性来保证程序不会出现数组越界的错误，实际上是掩盖了 gets(3) 的问题。</p>
+<p>该函数遇到如下四种情况会返回：</p>
+<p>　　1.当读入的数据量达到 size - 1 时；</p>
+<p>　　2.当读取的字符遇到 \n 时；</p>
+<p>　　3.当读取的字符遇到 EOF 时；</p>
+<p>　　4.当读取遇到错误时；</p>
+<p>并且它会在读取到的数据的最后面添加一个 \0 到 s 中。</p>
+<p>返回值：</p>
+<p>成功时返回 s。</p>
+<p>返回 NULL 时表示出现了错误或者读到了 strem 的末尾(EOF)。</p>
+<h4 id="4-fread-3-、fwrite-3"><a href="#4-fread-3-、fwrite-3" class="headerlink" title="4.fread(3)、fwrite(3)"></a>4.fread(3)、fwrite(3)</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fread, fwrite - binary stream input/output</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">fread</span><span class="params">(<span class="keyword">void</span> *ptr, <span class="keyword">size_t</span> <span class="built_in">size</span>, <span class="keyword">size_t</span> nmemb, FILE *stream)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">fwrite</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *ptr, <span class="keyword">size_t</span> <span class="built_in">size</span>, <span class="keyword">size_t</span> nmemb, FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>这两个函数使用得最频繁，用来读写 stream，通常是用来读写文件。</p>
+<p>参数列表：</p>
+<p>ptr：fread(3) 将从 stream 中读取出来的数据回填到 ptr 所指向的位置；fwrite(3) 则将从 ptr 所只想的位置读取数据写入到 stream 中；</p>
+<p>size：要读取的每个对象所占用的字节数；</p>
+<p>nmemb：要读取出多少个对象；</p>
+<p>stream：数据来源或去向；</p>
+<p>返回值：</p>
+<p>注意这两个函数的返回值表示的是成功读（写）的对象的个数，而不是字节数！</p>
+<p>例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">read</span>(buf, <span class="number">1</span>, <span class="number">10</span>, fp); <span class="comment">// 读取 10 个对象，每个对象 1 个字节</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">read</span>(buf, <span class="number">10</span>, <span class="number">1</span>, fp); <span class="comment">// 读取 1 个对象，每个对象 10 个字节</span></span><br></pre></td></tr></table></figure>
+
+<p>当数据量充足的时候，这两种方式是没有区别的。</p>
+<p>但是！！当数据量少于 size 个字节的整倍数时，第二种方法的的最后一个对象会读取失败。比如数据只有 45 个字节，那么第二种方法的返回值为 4，因为它只能成功读取 4 个对象。</p>
+<p>所以通常第一种方式读写数据使用得比较普遍。</p>
+<h4 id="5-atoi-3"><a href="#5-atoi-3" class="headerlink" title="5.atoi(3)"></a>5.atoi(3)</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> atoi, atol, atoll, atoq - convert a <span class="built_in">string</span> to an integer</span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">atoi</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *nptr)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">atol</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *nptr)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">atoll</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *nptr)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">atoq</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *nptr)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>atoi(3) 函数族在这里提一下，主要是为了下面的 printf(3) 函数族做一个铺垫。</p>
+<p>这些函数的作用是方便的将一个字符串形式的数字转换为对应的数字类型的数字。</p>
+<p>上面这句话可能有点坳口，给你看个例子就懂了，下面是伪代码。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *str = <span class="string">"123abc456"</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">i = atoi(str);</span><br></pre></td></tr></table></figure>
+
+
+<p>i 的结果会变成 123。这些函数会转换一个字符串中地一个非有效数字前面的数字。如果很不幸这个字符串中的第一个字符就不是一个有效数字时，那么它们会返回 0。</p>
+<h4 id="6-printf-3"><a href="#6-printf-3" class="headerlink" title="6.printf(3)"></a>6.printf(3)</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>,   <span class="built_in">fprintf</span>,  <span class="built_in">sprintf</span>,  <span class="built_in">snprintf</span> - formatted output conversion</span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">printf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fprintf</span><span class="params">(FILE *stream, <span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sprintf</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">snprintf</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">size_t</span> <span class="built_in">size</span>, <span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>printf(3) 函数大家一定不会陌生了，应该从写 Hello World! 的时候就接触到了的吧，所以我也不多介绍了，主要介绍两个内容。</p>
+<p>一个是面试常考的一个问题，用了这么久的 printf(3) 函数，大家有没有注意过它的返回值表示什么呢？</p>
+<p>printf(3) 的返回值表示成功打印的有效字符数量，不包括 \0。</p>
+<p>另一个要说的就是刚才我们提到了 atoi(3) 函数族，它们负责将字符串转换为数字，那么有没有什么函数可以将数字转换为字符串呢，其实通过 sprintf(3) 或 snprintf(3) 就可以了。</p>
+<p>有了这两个函数，不仅可以方便的将数字转换为字符串，还可以将多个字符串任意拼接为一个完整的字符串。</p>
+<p>这里直接讲解一下 snprintf(3) 函数。</p>
+<p>参数列表：</p>
+<p>　　str：拼接之后的结果会回填到这个指针所指向的位置；</p>
+<p>　　size：size - 1 为回填到 str 中的最大长度，数据超过这个长度的部分则会被舍弃，然后会在拼接的字符串的尾部追加 \0；</p>
+<p>　　format：格式化字符串，用法与 printf(3) 相同，这里不再赘述；</p>
+<p>　　…：格式化字符串的参数，用法与 printf(3) 相同；</p>
+<p>这个函数与 fputs(3) 一样，只是掩盖了 sprintf(3) 可能会导致的数组越界问题，通过牺牲数据的正确性来保证程序不会出现数组越界的错误。</p>
+<h4 id="7-scanf-3"><a href="#7-scanf-3" class="headerlink" title="7.scanf(3)"></a>7.scanf(3)</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>,  <span class="built_in">fscanf</span>, <span class="built_in">sscanf</span> - input format conversion</span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">scanf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fscanf</span><span class="params">(FILE *stream, <span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sscanf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str, <span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>scanf(3) 函数族相信也不用过多的介绍了，这里唯一要强调的就是：scanf(3) 函数支持多种格式化参数，唯独 %s 是不能安全使用的，可能会导致数组越界，所以当需要接收用户输入的时候可以使用 fgets(3) 等函数来替代。</p>
+<h4 id="8-fseek-3"><a href="#8-fseek-3" class="headerlink" title="8.fseek(3)"></a>8.fseek(3)</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fgetpos, fseek, fsetpos, ftell, rewind - reposition a stream</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fseek</span><span class="params">(FILE *stream, <span class="keyword">long</span> offset, <span class="keyword">int</span> whence)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">ftell</span><span class="params">(FILE *stream)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rewind</span><span class="params">(FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>fseek(3) 函数族的函数用来控制和获取文件位置指针所在的位置，从而能够使我们灵活的读写文件。</p>
+<p>介绍一下 fseek(3) 函数的参数列表：</p>
+<p>　　stream：这个已经不需要多介绍了吧，就是准备修改文件位置指针的文件流；</p>
+<p>　　offset：基于 whence 参数的偏移量；</p>
+<p>　　whence：相对于文件的哪里；有三个宏定义可以作为它的参数：SEEK_SET（文件首）, SEEK_CUR（当前位置）, or SEEK_END（文件尾）；</p>
+<p>返回值：</p>
+<p>　　成功返回 0；失败返回 -1，并且会设置 errno。</p>
+<p>单独看参数列表也许你还有所疑惑，那么我写点简单的伪代码作为例子：</p>
+<p>1 fseek(fp, -10, SEEK_CUR); // 从当前位置向前偏移10个字节。<br>2 fseek(fp, 2GB, SEEK_SET); // 可以制造一个空洞文件，如迅雷刚开始下载时产生的文件。<br>ftell(3) 函数以字节为单位获得文件指针的位置。</p>
+<p>fseek(fp, 0, SEEK_END) + ftell(3) 可以计算出文件总字节大小。</p>
+<p>还有一个值得大家注意的问题：</p>
+<p>fseek(3) 和 ftell(3) 的参数和返回值使用了 long，所以取值范围为 -2GB ~ (2GB-1)，而 ftell(3) 只能表示 2G-1 之内的文件大小，所以可以使用 fseeko(3) 和 ftello(3) 函数替代它们，但它们只是方言（SUSv2, POSIX.1-2001.）。</p>
+<p>由于这两个函数比较古老，所以设计的时候认为 +-2GB 的取值范围已经足够用了，而没有意识到科技发展如此迅速的今天，2GB 大小的文件已经完全不能满足实际的需求了。</p>
+<p>rewind(3) 函数将文件位置指针移动到文件起始位置，相当于：</p>
+<p>1 (void) fseek(stream, 0L, SEEK_SET)</p>
+<h4 id="9-getline-3"><a href="#9-getline-3" class="headerlink" title="9.getline(3)"></a>9.getline(3)</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">getline - delimited <span class="built_in">string</span> input</span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">getline</span><span class="params">(<span class="keyword">char</span> **lineptr, <span class="keyword">size_t</span> *n, FILE *stream)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function">Feature Test Macro Requirements <span class="keyword">for</span> <span class="title">glibc</span> <span class="params">(see feature_test_macros(<span class="number">7</span>))</span>:</span></span><br><span class="line"><span class="function"> </span></span><br><span class="line"><span class="function"><span class="title">getline</span><span class="params">()</span>:</span></span><br><span class="line">    Since glibc 2.10:</span><br><span class="line">        _POSIX_C_SOURCE &gt;= <span class="number">200809L</span> || _XOPEN_SOURCE &gt;= <span class="number">700</span></span><br><span class="line">    Before glibc <span class="number">2.10</span>:</span><br><span class="line">        _GNU_SOURCE</span><br></pre></td></tr></table></figure>
+
+
+<p>这个函数是一个非常好用的函数，它能帮助我们一次获取一行数据，而无论这个数据有多长。</p>
+<p>参数列表：<br>　　lineptr：一个一级指针的地址，它会将读取到的数据填写到一级指针指向的位置，并将&gt;该位置回填到该参数中。指针初始必须置为NULL，该函数会根据指针是否为 NULL 来决定是否需要分配新的内存。<br>　　n：是由该函数回填的申请的内存缓冲区的总大小，长度初始必须置为0。<br>虽然很好用，但是各位童鞋别高兴得太早了，该函数仅支持 GNU 标准，所以是方言，大家还是自己封装一个备用吧。</p>
+<p>另外，想要使用这个函数必须在编译的时候指定 -D_GNU_SOURCE 参数：</p>
+<p><code>$&gt; gcc -D_GNU_SOURCE</code></p>
+<p>当然如果不想在编译的时候添加参数，也可以在引用头文件之前 #define _GNU_SOURCE，只是比较丑陋而已。</p>
+<p>还有一个办法，是在 makefile 中配置 CFLAGS += -D_GNU_SOURCE，这样即省去了编译时手动写参数的麻烦，也避免了代码中的丑陋。</p>
+<h4 id="10-fflush-3"><a href="#10-fflush-3" class="headerlink" title="10.fflush(3)"></a>10.fflush(3)</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fflush - <span class="built_in">flush</span> a stream</span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fflush</span><span class="params">(FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>fflush(3) 函数的作用是刷新缓冲区，提到这个函数就要讲讲缓冲区了。</p>
+<p> 缓冲区的作用是为了合并系统调用，在上面讲 STDIO 与 SYSIO 的区别时大家已经看到什么是合并系统调用了。</p>
+<p>Linux 系统中有三种缓冲形式：无缓冲、行缓冲和全缓冲。</p>
+<p>无缓冲：需要立刻输出时使用，例如 stderr；</p>
+<p>行缓冲：遇到换行符时进行刷新、缓冲区满了的时候刷新、强制刷新(fflush(3))；而标准输出(stdout)是行缓冲，因为涉及到终端设备；</p>
+<p>全缓冲：只有缓冲区满了的时候和强制刷新(fflush(3))时才会刷新，这是 Linux 默认的缓冲模式，但终端设备除外，终端设备使用行缓冲模式；</p>
+<p>当数据被放入缓冲区的时候是不会通过系统调用(read(3)、write(3))送到内核中的，只有缓冲区被刷新的时候数据才会通过系统调用进入内核。而刷新缓冲区就是 fflush(3) 函数的作用。</p>
+<p>fflush(3) 的参数是具体要刷新的流，当参数为 NULL 时会刷新所有的输出流。</p>
+<h2 id="man手册"><a href="#man手册" class="headerlink" title="man手册"></a>man手册</h2><p>man 手册一共有 8 章，每一章保存不一样的内容，这八章的内容分别是：</p>
+<ul>
+<li><p>第一章：shell 命令。如：ls、vim，查询方法： <code>man ls</code></p>
+</li>
+<li><p>第二章：系统调用。如：open、close，查询方法：<code>man 2 open</code> 或 <code>man close</code>。因为第一章也有 open，所以 man 的参数中要加章节号；因为第一章中没有 close，所以查询 close 不需要加章节号。</p>
+</li>
+<li><p>第三章：库函数。如：printf、fopen，查询方法：<code>man 3 printf</code> 或 <code>man fopen</code></p>
+</li>
+<li><p>第四章：/dev 下的文件。如：zero。</p>
+</li>
+<li><p>第五章：一些配置文件的格式。如：/etc/shadow，查询方法：<code>man shadow</code></p>
+</li>
+<li><p>第六章：预留给游戏的，由游戏自己定义。如：sol。</p>
+</li>
+<li><p>第七章：附件和变量。如 iso-8859-1。</p>
+</li>
+<li><p>第八章：只能由 root 执行的系统管理命令。如 mkfs。</p>
+</li>
+</ul>
+<p>因为有些函数的名字会在不同的章节出现，这种函数在查询 man 手册的时候如果不加上章节号默认会查询低编号的章节。</p>
+<p>比如 printf，如果你输入的查询命令是 <code>man printf</code>，那么打开的并不是 printf 标准库函数的手册，而是 printf shell 命令的手册，想要查询 printf 函数的手册就需要在 man 命令后面加上该函数所在的章节数，正确的命令是 <code>man 3 printf</code>，这样就会打开 man 手册第三章的 printf 函数。</p>
+<p>另外，如果想查看每个章节中都有哪些内容，可以使用 <code>man -aw</code> 命令得到 man 手册的安装路径，然后找到对应的 man 章节的目录，再用 zcat 命令查看那些 gz 文件。</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2020/12/16/apue-1/>http://yoursite.com/2020/12/16/apue-1/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-28T18:45:42+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 28, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/doc/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>doc</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/12/16/apue-1/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/12/16/apue-1/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/12/16/apue-1/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/12/16/apue-9/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>gitlab 使用</p>
+                <p class='content'>高级IO非阻塞IO – 阻塞IO补充： 有限状态机编程
+
+非阻塞io
+io多路转接（文件描述符的监视）
+其他读写函数
+存储映射io
+文件锁
+
+1.1 非阻塞 I/O
+非阻塞本身非常容易，对比阻塞...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/12/16/apue-6/'>
+                <p class='title'>gitlab 使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>信号
+信号的概念
+signal();
+信号的不可靠
+可重入函数
+信号的响应过程（非常重要的图）
+常用函数（kill raise alarm pause abort system sleep ）
+...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'gitlab 使用',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件-IO"><span class="toc-text">文件 IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-stdio-和-sysio-异同"><span class="toc-text">1.1  stdio 和 sysio 异同</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-可移植性："><span class="toc-text">1.1.1 可移植性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-实时性和吞吐量："><span class="toc-text">1.1.2 实时性和吞吐量：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-文件位置指针"><span class="toc-text">1.2  文件位置指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-stdio函数"><span class="toc-text">1.3 stdio函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-fopen-3"><span class="toc-text">1.fopen(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-fclose-3"><span class="toc-text">2.fclose(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-fgets-3"><span class="toc-text">3.fgets(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-fread-3-、fwrite-3"><span class="toc-text">4.fread(3)、fwrite(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-atoi-3"><span class="toc-text">5.atoi(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-printf-3"><span class="toc-text">6.printf(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-scanf-3"><span class="toc-text">7.scanf(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-fseek-3"><span class="toc-text">8.fseek(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-getline-3"><span class="toc-text">9.getline(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-fflush-3"><span class="toc-text">10.fflush(3)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#man手册"><span class="toc-text">man手册</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">belief</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

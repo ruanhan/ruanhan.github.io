@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#1.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>gitlab 使用 - Hexo</title>
+  
+    <meta name="keywords" content="doc">
+  
+  
+    <meta name="description" content="进程环境">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            BELIEF <b><sup style='color:#3AA757'>1.0.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/12/16/apue-3/">
+      gitlab 使用
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/apue/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>apue</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 16, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="进程环境"><a href="#进程环境" class="headerlink" title="进程环境"></a>进程环境</h1><p>本章前半部分讨论进程的开始和结束，后半部分讨论参数列表、环境变量、C 程序虚拟地址空间布局等内容。</p>
+<ol>
+<li>main函数</li>
+<li>进程的终止</li>
+<li>命令行参数的分析</li>
+<li>环境变量</li>
+<li>C程序的存储空间布局</li>
+<li>库</li>
+<li>函数跳转</li>
+<li>资源的获取及控制</li>
+</ol>
+<h2 id="1-main-函数"><a href="#1-main-函数" class="headerlink" title="1. main() 函数"></a>1. main() 函数</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>其实最早的 main 函数是三个参数的，除了 argc 和 argv 以外，还有一个环境变量。后来发现环境变量越来越好用，所以就独立出来成了单独的功能。</p>
+<h2 id="2-进程终止"><a href="#2-进程终止" class="headerlink" title="2. 进程终止"></a>2. 进程终止</h2><blockquote>
+<p>Linux 系统一共有 8 种进程终止方式.1-5为正常终止方式, 6-8为异常终止方式（必知必会）</p>
+</blockquote>
+<ol>
+<li>从 main() 函数返回；</li>
+<li>调用 exit(3) 函数；</li>
+<li>调用 _exit(2) 或 _Exit(2) 函数；</li>
+<li>最后一个线程从其启动例程返回；</li>
+<li>从最后一个线程调用 pthread_exit(3) 函数；</li>
+<li>调用 abort(3) 函数；</li>
+<li>接收到一个信号并终止；（ctrl+c）</li>
+<li>最后一个线程对取消请求作出响应；</li>
+</ol>
+<p>第 1 条：在 main() 函数中执行 return 语句，可以将一个 int 值作为程序的返回值返回给调用者，一般是 shell。返回 0 表示程序正常结束，返回 非零值 表示程序异常结束。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> $?  <span class="comment"># 打印上一条语句的执行状态</span></span><br></pre></td></tr></table></figure>
+
+<p>第 2 条：在 main() 函数中执行 return 语句相当于调用 exit(3) 函数，exit(3) 是专门用于结束进程的，它依赖于 _exit(2) 或 _Exit(2) 系统调用。程序中任何地方调用 exit(3) 都会退出，但 return 语句只有在 main() 函数中才能结束进程，在其它函数中执行 return 语句只能退出当前函数。exit 能返回的值在<code>-128 ～ 127</code>之间；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>第 3 条：_exit(2) 和 _Exit(2) 函数都是系统调用，在程序中的任何地方调用它们程序都会立即结束。</p>
+<p>上面三条有两点需要大家注意，我先把问题提出来大家思考一下，下面会有讲解：</p>
+<p>(1) return 、exit(3)、_exit(2) 和 _Exit(2) 的返回值取值范围是多少呢？</p>
+<p>(2) exit(3)、_exit(2) 和 _Exit(2) 之间有什么区别呢？</p>
+<p>第 4、5 条 等到第 11 章我们讨论线程的时候再说，总之进程就是线程的容器，最后一个线程的退出会导致整个进程的消亡。</p>
+<p>第 6 条：abort(3) 函数一般用在程序中出现了不可预知的错误时，为了避免异常影响范围扩大，直接调用 abort(3) 函数自杀。实际上 abort(3) 函数也是通过信号实现的。</p>
+<p>第 7 条：信号有很多种，有些默认动作是被忽略的，有些默认动作则是杀死进程。<br>比如程序接收到 SIGINT（Ctrl+C） 信号就会结束，Ctrl + C 是 SIGINT 的一个快捷方式，而不是 Ctrl + C 触发了 SIGINT 信号。第 10 章我们会详细的讨论信号。</p>
+<p>第 8 条 也要等到第 11 章我们讨论线程的时候再详细说。</p>
+<p>3.exit(2)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// exit - cause normal process termination</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span><span class="params">(<span class="keyword">int</span> status)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p> status 参数的取值范围并非是所有 int 的取值范围，计算方法是 status &amp; 0377，也就相当于一个有符号的 char 型数据，取值范围是 -128～127，最多256种可能。</p>
+<p>所有通过 atexit(3) 和 on_exit(3) 注册的函数会被以注册的逆序来调用。</p>
+<p>它在执行完钩子函数之后再执行IO清理，然后才使进程结束。</p>
+<h3 id="atexit-3-钩子函数"><a href="#atexit-3-钩子函数" class="headerlink" title="atexit(3)  钩子函数"></a>atexit(3)  钩子函数</h3><blockquote>
+<p>所有的函数由 atexit(3) 和  on_exit(3) 声明的，将会以他们注册的逆序来调用</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// atexit - register a function to be called at normal process termination</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">atexit</span><span class="params">(<span class="keyword">void</span> (*function)(<span class="keyword">void</span>))</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>用该函数注册过的函数会在程序正常终止之前被调用，被注册的函数称为“钩子函数”。</p>
+<p>注册的钩子函数形式必须是这样：void (*function)(void)，因为它不会接收任何参数，也没有任何机会返回什么值，所以是一个无参数无返回值的函数。</p>
+<p>当多次调用 atexit(3) 函数注册了多个钩子函数的时候，程序结束时钩子函数是以注册的逆序被调用的。</p>
+<p>比如按照 a()、b()、c()、d() 的形式注册了 4 个钩子函数，那么程序结束时，它们的调用顺序是：d()、c()、b()、a()。</p>
+<p>下面举个栗子来说明这个逆序调用是怎么回事。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">f1</span> <span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"f1"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">f2</span> <span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"f2"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f3</span> <span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"f3"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Begin!"</span>);</span><br><span class="line"></span><br><span class="line">    atexit(f1); <span class="comment">// 只是声明一个函数，相当于把一个函数挂在钩子上，并不调用</span></span><br><span class="line">    atexit(f2);</span><br><span class="line">   atexit(f3);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"End!"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行结果</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Begin!</span><br><span class="line">End!</span><br><span class="line">f3</span><br><span class="line">f2</span><br><span class="line">f1</span><br></pre></td></tr></table></figure>
+
+
+<p>这回小伙伴们明白逆序调用是怎么回事了吧。</p>
+<p>为什么 “End!” 先输出了，而 “f3” 后输出了呢？因为使用 atexit(3) 函数注册钩子函数的时候并不会调用钩子函数，仅仅是注册而已，<em>只有在程序正常结束的时候钩子函数才会被调用</em>。</p>
+<p>还记得我们上面提到的什么情况是正常结束吧？注意是只有正常结束才会调用钩子哟，异常结束是不会调用钩子函数的。</p>
+<ul>
+<li>疑问</li>
+</ul>
+<p>为什么main函数 return 非int型，还是调用了注册的钩子函数呢？</p>
+<p>下面写几段伪代码来举栗子说明一下什么场景更适合使用钩子函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">  * 这段代码要表现的是，当我们的程序需要申请很多资源的时候，</span></span><br><span class="line"><span class="comment">  * 比如打开文件、申请堆内存等。</span></span><br><span class="line"><span class="comment">  * 如果有一个资源申请失败时需要释放之前所有成功申请的资源并退出程序，</span></span><br><span class="line"><span class="comment">  * 那么就需要在申请每个资源之后都进行错误判断，并手工填写所有的资源释放代码。</span></span><br><span class="line"><span class="comment">  * 假如要申请的资源数量很庞大，而恰巧加班又加得老眼昏花</span></span><br><span class="line"><span class="comment">  * 结果手一抖，后果。。。 @...@</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> fd0 = <span class="built_in">open</span>(<span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">if</span> (fd0 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">"open(0)"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"> fd1 = <span class="built_in">open</span>(<span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">if</span> (fd1 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">"open(1)"</span>);</span><br><span class="line">    <span class="built_in">close</span>(fd0);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fd2 = <span class="built_in">open</span>(<span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">if</span> (fd2 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">"open(1)"</span>);</span><br><span class="line">    <span class="built_in">close</span>(fd2);</span><br><span class="line">   <span class="built_in">close</span>(fd1);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">fd10000 = <span class="built_in">open</span>(<span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">if</span> (fd10000 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">"open(10000)"</span>);</span><br><span class="line">    <span class="built_in">close</span>(fd9999);</span><br><span class="line">    ......</span><br><span class="line">    <span class="built_in">close</span>(fd3);</span><br><span class="line">    <span class="built_in">close</span>(fd2);</span><br><span class="line">    <span class="built_in">close</span>(fd1);</span><br><span class="line">    <span class="built_in">close</span>(fd0);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>上面这种写法是不是太恐怖了，这还只是打开文件而已，如果中间有夹杂着 malloc(3) 和 free(3) 呢？想都不敢想了。。</p>
+<p>其实想要解决也很简单，钩子函数帮你轻松搞定！下面是改版之后的伪代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> fd0 = <span class="built_in">open</span>(<span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line"> <span class="keyword">if</span> (fd0 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">     perror(<span class="string">"open(0)"</span>);</span><br><span class="line">     <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> atexit(closefd0); <span class="comment">// 一切都交给钩子函数来处理吧，它会以注册顺序的逆序逐一被调用。</span></span><br><span class="line"> </span><br><span class="line"> fd1 = <span class="built_in">open</span>(<span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line"> <span class="keyword">if</span> (fd1 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">"open(1)"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">atexit(closefd1);</span><br><span class="line"></span><br><span class="line">fd2 = <span class="built_in">open</span>(<span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">if</span> (fd2 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">"open(1)"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">atexit(closefd2);</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">fd10000 = <span class="built_in">open</span>(<span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">if</span> (fd10000 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">"open(10000)"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">atexit(closefd2);</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="exit-2-、-Exit-2"><a href="#exit-2-、-Exit-2" class="headerlink" title="_exit(2)、_Exit(2)"></a>_exit(2)、_Exit(2)</h3><blockquote>
+<p>_exit() 和 _Exit(2) 为系统调用, exit 依赖于 _exit(2)或者_Exit(2)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// _exit, _Exit - terminate the calling process</span></span><br><span class="line"> </span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="keyword">void</span> _exit(<span class="keyword">int</span> status);</span><br><span class="line"> </span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="keyword">void</span> _Exit(<span class="keyword">int</span> status);</span><br></pre></td></tr></table></figure>
+
+<h4 id="exit-2-、-Exit-2-与-exit-3-的区别"><a href="#exit-2-、-Exit-2-与-exit-3-的区别" class="headerlink" title="_exit(2)、_Exit(2) 与 exit(3) 的区别"></a>_exit(2)、_Exit(2) 与 exit(3) 的区别</h4><p>在程序的任何地方调用 _exit(2) 或 _Exit(2) 函数程序都会立即结束，任何钩子函数都不会被调用，也不会做 IO 清理。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="built_in">puts</span>(<span class="string">"f1"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">f2</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="built_in">puts</span>(<span class="string">"f2"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">f3</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="built_in">puts</span>(<span class="string">"f3"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">f4</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="built_in">puts</span>(<span class="string">"f4"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     atexit(f4);</span><br><span class="line">     atexit(f3);</span><br><span class="line">     atexit(f2);</span><br><span class="line">     atexit(f1);</span><br><span class="line">     _exit(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">// 没有打印出 任何东西</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="什么时候用-exit-3-，什么时候用-exit-2-、-Exit-2"><a href="#什么时候用-exit-3-，什么时候用-exit-2-、-Exit-2" class="headerlink" title="什么时候用 exit(3)，什么时候用 _exit(2)、_Exit(2)"></a>什么时候用 exit(3)，什么时候用 _exit(2)、_Exit(2)</h4><p>下面我们写一段伪代码来查看 _exit(2) 函数的常用场景。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">function</span> <span class="params">(.........)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> ()</span><br><span class="line">         <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">if</span> ()</span><br><span class="line">         <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">     <span class="keyword">else</span></span><br><span class="line">         <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    ret = function();</span><br><span class="line"></span><br><span class="line">    ...... <span class="comment">// 假定没有任何地方修改过 ret</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(ret) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            ...</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            ...</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            ...</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="comment">// 出现这种情况的时候一定是上面的代码出现了逻辑问题，或程序中出现了越界等问题，所以不能调用钩子函数执行清理了，而且也不能做IO清理了。为了防止故障扩散，一定要让程序立即结束。（错的不行了，不敢动了。调_exit()杀掉进程）</span></span><br><span class="line">            <span class="comment">//exit(1);</span></span><br><span class="line">            _exit(<span class="number">1</span>); <span class="comment">// abort(); 发信号结束进程</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-命令行参数"><a href="#3-命令行参数" class="headerlink" title="3. 命令行参数"></a>3. 命令行参数</h2><p>我们在使用 shell 命令的时候经常为传递各种参数来完成不同的工作。这个参数实际上就是传递到程序 main() 函数的 argc 和 argv 两个参数中去了</p>
+<p>我们再来看一下 main() 函数的原型：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>参数列表：</p>
+<p>　　argc：argv 中字符串的数量，也就是传递给程序的命令行参数的数量。</p>
+<p>　　argv：在 shell 中传递给进程的命令行参数列表，argv[0] 永远是命令本身，第一个参数从 argv[1] 开始。</p>
+<p>　　　　这是一个二维数组，其实就是一个字符串数组而已。很多童鞋不理解它为什么是一个二维数组，说明你的 C 语言基础没有学好。</p>
+<p>　　　　字符串本身就是一个 char 数组，而保存多个字符串的数组自然就是一个 char 型二维素组了。</p>
+<p>常见的命令行参数分类：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ cmd [opt] [!opt]</span><br><span class="line">&gt;$ ls <span class="comment"># 无参数</span></span><br><span class="line">&gt;$ ls -l -a -i  <span class="comment"># 仅选项</span></span><br><span class="line"></span><br><span class="line">&gt;$ ls /etc/ /tmp  <span class="comment"># 非选项传参</span></span><br><span class="line">&gt;$ ls -l /tmp -a /etc</span><br><span class="line">&gt;$ ./myplayer -H 500 -W 500 a.avi <span class="comment"># 选项带参数</span></span><br><span class="line">&gt;$ ./myplayer -H -W a.avi <span class="comment"># 假设 H 和 W 选项必须带参数，这样传惨会报错，因为找不到任何参数修饰 -H 和 -W</span></span><br><span class="line">&gt;$ cmd [opt opt-arg] [!opt]</span><br><span class="line"></span><br><span class="line">&gt;$ ./myplayer -H 100 px -W 500 cm a.avi <span class="comment"># 选项带参数，参数又带参数，这种没有函数能搞定，只能自己写函数解析了。</span></span><br></pre></td></tr></table></figure>
+
+<p>选项分为两种形式，一种是以 - 开头的短格式选项，只能是一个字母或一个数字；</p>
+<p>另一种是长格式选项，以 – 开头，可以由多个字母和数字组成。</p>
+<p>短格式最多支持 26个小写字母+26个大写字母+10个数字，共 62 个选项。这些选项足够一个程序的使用了，为什么还需要长格式的选项呢？</p>
+<p>使用长格式选项是为了便于使用者记忆，辅助短格式参数的使用。如果有一些单词的缩写碰撞了或者不容易记忆，则可以选用长格式的参数。</p>
+<p>这些命令行参数可以随意松散的传给命令，那么命令是如何解析这些参数的呢？别着急，其实已经有优秀的库函数供我们使用了。</p>
+<h3 id="getopt-3"><a href="#getopt-3" class="headerlink" title="getopt(3)"></a>getopt(3)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// getopt, optind - Parse command-line options</span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">getopt</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> * <span class="keyword">const</span> argv[], <span class="keyword">const</span> <span class="keyword">char</span> *optstring)</span></span>;</span><br><span class="line"> <span class="keyword">extern</span> <span class="keyword">int</span> optind;</span><br></pre></td></tr></table></figure>
+
+
+<p>该函数用于解析短格式参数。</p>
+<p>参数列表：</p>
+<p>　　argc、argv：就是 main() 函数的 argc 和 argv 参数；</p>
+<p>　　optstring：想要从 argv 中解析的所有选项列表，不用加 - 前导符；例如程序支持 -y -m -d -h -M -s 参数，则 optstring 填写 “y:mdh:Ms” 即可。</p>
+<p>加冒号表示某个选项后面要带参数，比如 y 和 h 后面都需要带参数，需要用到全局变量：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">char</span> *optarg;</span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> optind;</span><br></pre></td></tr></table></figure>
+
+
+<p>optarg：表示选项后面的参数，也就是 -y 和 -h 后面的参数。例如：-y 4 -h 24。<br>optind：用于记录 getopt(3) 函数目前读到了 argv 的哪个下标。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">define</span> FMTSTRSIZE 1024</span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">define</span> TIMESTRSIZE 1024</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * -y: year</span></span><br><span class="line"><span class="comment">  * -m: month</span></span><br><span class="line"><span class="comment">  *  -d: day</span></span><br><span class="line"><span class="comment">  *  -H: hour</span></span><br><span class="line"><span class="comment">  *  -M: minute</span></span><br><span class="line"><span class="comment">  *  -S: second</span></span><br><span class="line"><span class="comment">  * */</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">time_t</span> stamp;</span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">tm</span>*<span class="title">tm</span>;</span></span><br><span class="line">     <span class="keyword">char</span> timestr[TIMESTRSIZE];</span><br><span class="line">     <span class="keyword">int</span> c;</span><br><span class="line">     <span class="keyword">char</span> fmtstr[FMTSTRSIZE];</span><br><span class="line">     stamp = time(<span class="literal">NULL</span>);</span><br><span class="line">     fmtstr[<span class="number">0</span>] = <span class="string">'\0'</span>;</span><br><span class="line">     tm = localtime(&amp;stamp);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 命令行分析</span></span><br><span class="line">     <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">     &#123;</span><br><span class="line">         c = getopt(argc,argv,<span class="string">"HMSymd"</span>);</span><br><span class="line">         <span class="keyword">if</span>(c&lt;<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">switch</span>(c)</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="keyword">case</span> <span class="string">'H'</span>:</span><br><span class="line">                 <span class="keyword">if</span>(<span class="built_in">strcmp</span>(optarg, <span class="string">"12"</span>)== <span class="number">0</span>)</span><br><span class="line">                     <span class="built_in">strncat</span>(fmtstr, <span class="string">"%I(%P)"</span>, FMTSTRSIZE);</span><br><span class="line">                 <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">strcmp</span>(optarg, <span class="string">"24"</span>)==<span class="number">0</span>)</span><br><span class="line">                          <span class="built_in">strncat</span>(fmtstr, <span class="string">"%H"</span>, FMTSTRSIZE);</span><br><span class="line">                     <span class="keyword">else</span></span><br><span class="line">                          <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"incvalid arguments"</span>);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             <span class="keyword">case</span> <span class="string">'M'</span>:</span><br><span class="line">                 <span class="built_in">strncat</span>(fmtstr, <span class="string">"%M "</span>, FMTSTRSIZE);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             <span class="keyword">case</span> <span class="string">'S'</span>:</span><br><span class="line">                 <span class="built_in">strncat</span>(fmtstr, <span class="string">"%S "</span>, FMTSTRSIZE);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             <span class="keyword">case</span> <span class="string">'y'</span>:</span><br><span class="line">                 <span class="keyword">if</span>(<span class="built_in">strcmp</span>(optarg,<span class="string">"2"</span>)==<span class="number">0</span>)</span><br><span class="line">                     <span class="built_in">strncat</span>(fmtstr,<span class="string">"%y"</span>,FMTSTRSIZE);</span><br><span class="line">                 <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">strcmp</span>(optarg,<span class="string">"4"</span>)==<span class="number">0</span>)</span><br><span class="line">                     <span class="built_in">strncat</span>(fmtstr,<span class="string">"%Y"</span>,FMTSTRSIZE);</span><br><span class="line">                 <span class="keyword">else</span></span><br><span class="line">                     <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"invalid arguments"</span>);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             <span class="keyword">case</span> <span class="string">'m'</span>:</span><br><span class="line"> </span><br><span class="line">                 <span class="built_in">strncat</span>(fmtstr, <span class="string">"%m "</span>, FMTSTRSIZE);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             <span class="keyword">case</span> <span class="string">'d'</span>:</span><br><span class="line">                 <span class="built_in">strncat</span>(fmtstr, <span class="string">"%d "</span>, FMTSTRSIZE);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">default</span>:</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="comment">//根据命令行分析的结果 决定要输出什么格式的文本</span></span><br><span class="line">     strftime(timestr, TIMESTRSIZE, fmtstr, tm);</span><br><span class="line">    <span class="comment">// strftime(timestr, TIMESTRSIZE, "Now:%Y-%m-%d", tm);</span></span><br><span class="line">     <span class="built_in">puts</span>(timestr);</span><br><span class="line">     <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./myDate -H 12 <span class="comment"># 02(pm)</span></span><br><span class="line">./myDate -H 24 <span class="comment"># 14</span></span><br><span class="line">./myDate -y 2  <span class="comment">#20</span></span><br><span class="line">./myDate -y 4  <span class="comment">#2020</span></span><br></pre></td></tr></table></figure>
+
+<p>下面伪代码演示了如何解析选项以及带参的选项：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line"> </span><br><span class="line"> &#123;</span><br><span class="line"> </span><br><span class="line"> 　　op = getopt(argc, argv, <span class="string">"y:mdh:Ms"</span>); <span class="comment">// 支持的选项是 -y &lt;2|4&gt; -m -d -h &lt;12|24&gt; -M -s</span></span><br><span class="line"> </span><br><span class="line"> 　　<span class="keyword">if</span> (op &lt; <span class="number">0</span>) &#123;</span><br><span class="line"> </span><br><span class="line"> 　　　　<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">　　<span class="keyword">switch</span> (op) &#123;</span><br><span class="line"></span><br><span class="line">　　　　<span class="keyword">case</span> <span class="number">1</span>: <span class="comment">// 非选项传参，op 的值为 1</span></span><br><span class="line"></span><br><span class="line">　　　　　　<span class="comment">// &gt;$ ls /etc/ -a</span></span><br><span class="line"></span><br><span class="line">　　　　　　<span class="comment">// 当进入这个 case 的时候，optind 已经 +1 了，所以想要通过 optind 在 argv 中得到对应的参数应，应该进行 -1，但是不要去修改 optind 本身的值，否则下次读取就不准确了。</span></span><br><span class="line"></span><br><span class="line">　　　　　　fp = fopen(argv[optind<span class="number">-1</span>], <span class="string">"w"</span>);</span><br><span class="line"></span><br><span class="line">　　　　　　......</span><br><span class="line"></span><br><span class="line">　　　　　　<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">　　　　<span class="keyword">case</span> <span class="string">'y'</span>:</span><br><span class="line"></span><br><span class="line">　　　　　　　<span class="keyword">if</span> (<span class="number">0</span> == <span class="built_in">strcmp</span>(optarg, <span class="string">"2"</span>)) &#123; <span class="comment">// y 后面的参数是 2</span></span><br><span class="line">                ......</span><br><span class="line">　　　　　　　　&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">0</span> == <span class="built_in">strcmp</span>(optarg, <span class="string">"4"</span>)) &#123; <span class="comment">// y 后面的参数是 4</span></span><br><span class="line">                ......</span><br><span class="line">　　　　　　　　&#125; <span class="keyword">else</span> &#123; <span class="comment">// y 后面的参数即不是 2 也不是 4</span></span><br><span class="line">                ......</span><br><span class="line">　　　　　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　　　　　<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">　　　　<span class="keyword">case</span> <span class="string">'m'</span>:</span><br><span class="line"></span><br><span class="line">　　　　　　<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">　　　　......</span><br><span class="line"></span><br><span class="line">　　　　<span class="keyword">default</span>:</span><br><span class="line"></span><br><span class="line">　　　　　　<span class="comment">// 通常传入了不支持的参数，不响应就可以了，没必要结束程序，因为没有达到那种严重的程度。</span></span><br><span class="line"></span><br><span class="line">　　　　　　<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>参数可以连写，但带参数的选项必须和参数是挨着的，不能分开，举几个栗子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 1. -x -z -v -f 可以连写</span></span><br><span class="line"> <span class="comment"># 2. -x -z -v 是不带参数的选项，-f 是带参数的选项，所以 -f 必须和后面的参数挨着</span></span><br><span class="line"> tar -xzvf xxx.tar.gz /home</span><br><span class="line"> </span><br><span class="line"> <span class="comment"># 下面这几个是错误的用法</span></span><br><span class="line"> tar -fxzv xxx.tar.gz /home</span><br><span class="line"> tar -xzvfxxxtar.gz /home</span><br><span class="line"> tar fxxxtar.gzxzvf /home</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 下面这种用法是可以的</span></span><br><span class="line">tar -f xxx.tar.gz -xzv /home</span><br></pre></td></tr></table></figure>
+
+<h3 id="getopt-long-3-用于解析长格式参数，函数原型就不列出来了。"><a href="#getopt-long-3-用于解析长格式参数，函数原型就不列出来了。" class="headerlink" title="getopt_long(3) 用于解析长格式参数，函数原型就不列出来了。"></a>getopt_long(3) 用于解析长格式参数，函数原型就不列出来了。</h3><p>关于命令行参数要再补充一点，经常拷运维人员的一道面试题大概是这样的：如何使用 touch(1) 命令在当前目录创建一个名字叫做 -a 的文件？</p>
+<p>通常有两个办法可以实现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1) touch -- -a      当命令行遇到两个 - 和空格时(-- )，会认为后面不会有任何选项，也就不会将 - 再作为参数的前导符。</span><br><span class="line"></span><br><span class="line">2) touch ./-a       ./ 表示当前目录</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-环境变量"><a href="#4-环境变量" class="headerlink" title="4. 环境变量"></a>4. 环境变量</h2><blockquote>
+<p>KEY = VLAUE</p>
+</blockquote>
+<h3 id="环境表"><a href="#环境表" class="headerlink" title="环境表"></a>环境表</h3><p>export(1) 命令可以查看当前所有的环境变量或设置某个环境变量。</p>
+<p>访问环境变量可以使用 getenv(3) 和 putenv(3) 函数，下面我们会提到它们。</p>
+<p>环境表就是将环境变量保存在了一个字符指针数组中，很多 Unix 系统都支持三个参数的 main() 函数，第三个参数就是环境表。</p>
+<p>环境变量是为了保存常用的数据。以当前 terminal 为例，把 terminal 当作是一个大的程序来跑，就可以将环境变量看作是这个程序的全局变量。</p>
+<p>环境变量相当于在某个位置声明 extern char **environ;</p>
+<p>上面说了，环境表就是一个字符指针数组，所以使用环境变量就相当于<br><code>environ[i] - &gt;name=value;</code></p>
+<h3 id="如何查看环境变量"><a href="#如何查看环境变量" class="headerlink" title="如何查看环境变量"></a>如何查看环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出环境变量"><a href="#输出环境变量" class="headerlink" title="输出环境变量"></a>输出环境变量</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">char</span> **environ;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;environ[i]!= <span class="literal">NULL</span>; i++)</span><br><span class="line">        <span class="built_in">puts</span>(environ[i]);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>上面提到了环境表，在这一节我们看看操作环境变量的两个函数如何使用。</p>
+<p>环境变量的作用到底是什么？有很多小伙伴不明白环境变量是个什么东西，一听感觉好深奥啊，惧怕得不行。</p>
+<p>就像我们使用 ls(1) 命令的时候是在任何位置都可以使用的，而没有用 /bin/ls 的方式来使用 ls(1)，是因为有 PATH 环境变量的存在，它会保存所有常用的可执行文件的路径。</p>
+<p>其实环境变量无非就是一个字符串而已，它由 key(变量名) 和 value 两部分组成，我们可以通过 key 来读写 value。</p>
+<p>我们通常所说的环境变量就是环境表，也就是由多个环境变量组成的一个字符指针数组，它的存在也就是为了方便我们在程序中获得一些经常使用的变量数据，仅此而已。</p>
+<h3 id="getenv-3-获取某个环境变量"><a href="#getenv-3-获取某个环境变量" class="headerlink" title="getenv(3) 获取某个环境变量"></a>getenv(3) 获取某个环境变量</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// getenv - get an environment variable</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">getenv</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *name)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">puts</span>(getenv(<span class="string">"PATH"</span>));</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个函数的作用是获取一个环境变量，用法很简单，就是通过 name 获得 value， value 是返回值。</p>
+<p>在这里补充一点，在程序中获得当前工作路径有两种办法，一种是通过环境变量，一种是通过专门的函数：</p>
+<p>　　puts(getevn(“PWD”)); // 通过环境变量获取当前路径，也可以使用 getcwd(3) 函数获得当前路径。</p>
+<h3 id="setenv-3"><a href="#setenv-3" class="headerlink" title="setenv(3)"></a>setenv(3)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// setenv - change or add an environment variable</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setenv</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *name, <span class="keyword">const</span> <span class="keyword">char</span> *value, <span class="keyword">int</span> overwrite)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>这个函数和 getenv(3) 函数的作用正好相反，是将 value 赋给 name 环境变量。</p>
+<p>如果 name 不存在，则添加新的环境变量。</p>
+<p>如果 name 存在：如果 overwrite 为真，就用 value 覆盖 name 原来的值；如果 overwrite 为假则保留 name 原来的值。</p>
+<h3 id="putenv-3"><a href="#putenv-3" class="headerlink" title="putenv(3)"></a>putenv(3)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// putenv - change or add an environment variable</span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">putenv</span><span class="params">(<span class="keyword">char</span> *<span class="built_in">string</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>用 “name=value” 的形式添加或修改环境变量的值。如果 name 已存在则会用新值覆盖原来的值。</p>
+<p>小伙伴们要注意：参数不是 const 的，所以某些情况下可能会修改参数的值，所以还是使用 setenv(3) 更保险。</p>
+<p>大家思考一个问题：如 图1 所示，环境表是存放在堆与内核空间之间的薄层中的，如果新字符串比原字符串长怎么办，会不会出现越界的情况呢？</p>
+<p>其实不用担心这个问题，因为无论新的值与原来的值谁长谁短，都会先将原来的空间释放，在堆上新申请一块空间来存放新的值。</p>
+<h2 id="5-C-程序的存储空间布局"><a href="#5-C-程序的存储空间布局" class="headerlink" title="5. C 程序的存储空间布局"></a>5. C 程序的存储空间布局</h2><p>一个C程序的虚拟空间是4GB，什么是虚拟空间，它跟实实在在4gb的内存空间是不一样的。</p>
+<p>通常 malloc(3) 失败有两种情况，一种是内存真的耗尽了；另一种是不断的申请小的内存，即使堆上全部存放指针也有放满了的情况。</p>
+<p>在 Linux 环境中内存是延时分配的，也就是说当 malloc(3) 分配内存时并没有真正的分配物理内存给你，只是给了你一个非空指针，当你真正使用内存的时候通过引发一个缺页异常，内核才真正分配内存给你。</p>
+<p>好比有人跟你借100块钱，你也承诺了可以借，但是他并不马上要钱，等到当他跟你要的时候你已经花掉了50块钱，这时候你有两个选择：一是把借钱的人杀掉，这样就不用借钱给他了；二是去抢钱，抢够了足够的钱再给他。</p>
+<p>如果让你选择，你会采用哪种方式呢？</p>
+<p>内核采用的是第二种方式，当它发现内存不足够它承诺给你的容量时，它会结束某些不常用的后台进程，再将释放出来的内存分配给你。</p>
+<p><img src="./jincheng_huanjing_01.png" alt=""><br>图1 32位系统 C 程序典型存储空间布局</p>
+<p>另外使用 pmap(1) 命令可以查看进程的内存分配情况，查看的必须是正在运行的进程。使用方法很简单，具体请自行查询 man 手册，这里就不再赘述了。 </p>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// getpread.c</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">puts</span>(getenv(<span class="string">"PATH"</span>));</span><br><span class="line">  getchar(); <span class="comment">//阻塞进程</span></span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps axf  <span class="comment">#查看当前进程关系 找到 getpread 所在的进程</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pmap 64003  <span class="comment">#查看  getpread 进程 空间布局</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="pmap-1-查看进程空间分布-布局表"><a href="#pmap-1-查看进程空间分布-布局表" class="headerlink" title="pmap(1) 查看进程空间分布 布局表"></a>pmap(1) 查看进程空间分布 布局表</h3><h2 id="6-库"><a href="#6-库" class="headerlink" title="6. 库"></a>6. 库</h2><h3 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h3><h3 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h3><h3 id="手工装载库-（共享库）"><a href="#手工装载库-（共享库）" class="headerlink" title="手工装载库 （共享库）"></a>手工装载库 （共享库）</h3><p>类似于插件，当一个模块失败时不会影响其它模块。</p>
+<p>内核采用插件的这种形式是有好处的，比如系统启动的时候，如果某个服务（如 ftp 服务、DHCP 等服务）启动未成功，系统会继续启动其它服务而不会立即关机。</p>
+<p>否则如果因为 ftp 服务启动失败就关机那就坏了，想要修复 ftp 服务需要先开机，而开机需要成功启动 ftp 服务，那么系统就无法启动了。</p>
+<p>内核中任何一个模块的加载都要以插件的形式运行，也就是尝试加载，即使加载失败也不能影响其它模块。</p>
+<ul>
+<li>dlopen</li>
+<li>dlclose</li>
+<li>dlerror</li>
+<li>dlsym</li>
+</ul>
+<h4 id="dlopen-3"><a href="#dlopen-3" class="headerlink" title="dlopen(3)"></a>dlopen(3)</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dlopen - programming interface to dynamic linking loader</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 该函数就是用来手工装载共享库的。</span></span><br><span class="line"><span class="comment">// filename：加载的共享库文件路径</span></span><br><span class="line"><span class="comment">// flag：打开方式</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;dlfcn.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">dlopen</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename, <span class="keyword">int</span> flag)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="7-函数跳转"><a href="#7-函数跳转" class="headerlink" title="7. 函数跳转"></a>7. 函数跳转</h2><blockquote>
+<p>函数 setjmp(3) 和 longjmp(3)</p>
+</blockquote>
+<p>goto 语句想必大家都很熟悉了吧，但是它们有一个缺点，就是不能跨函数跳转。C 标准给我们提供了两个函数增强了程序跳转的能力，它们可以使程序跨函数跳转。</p>
+<p><img src="./jincheng_huanjing_02.png" alt=""><br>图2 函数栈帧</p>
+<p>很多人都忌讳跳转这种东西，认为它会破坏程序的结构。LZ 刚也反对在程序中随意使用跳转，跳转是把利刃，好钢要用到刀刃上，所以一定要把跳转用在合适的地方，这样能让你的程序写得非常漂亮。</p>
+<p>那么长跳转的好处是什么呢？</p>
+<p>见图2，如果 a() b() c() d() 是同一个函数，则是递归调用。</p>
+<p>例如当利用递归在一个树状结构中查找一个数据时，查找到最深的层次发现没有找到想要的数据，这时候没有必要再一层一层的返回了，可以直接跳转回递归点。goto是做不到的，需要用 setjmp(3)或longjmp(3)函数安全的返回。</p>
+<p>下面我们来看看这两个函数怎么使用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// setjmp - save stack context for nonlocal goto</span></span><br><span class="line"></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;setjmp.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">setjmp</span><span class="params">(jmp_buf env)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// longjmp, siglongjmp - nonlocal jump to a saved stack context</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;setjmp.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">longjmp</span><span class="params">(jmp_buf env, <span class="keyword">int</span> val)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>首先要通过 setjmp(3) 设置一个跳转点，然后可以通过 longjmp(3) 跳转到 setjmp(3) 所在的位置。</p>
+<p>setjmp(3) 设置跳转点时返回值为0，被跳转过来时返回值为非零，也就是 longjmp(3) 的 val 参数。所以 setjmp(3) 下面一定跟着一组分支语句来根据不同的返回值做不同的操作。</p>
+<p>longjmp(3) 无需返回值，因为执行的时候程序已经跳转了，无法获得返回值了。</p>
+<p>参数列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">env： 是指定条准到哪</span><br><span class="line">val：带回去的值，如果值为 0，则 setjmp(3) 收到的返回值是 1，避免跳转出现死循环。</span><br></pre></td></tr></table></figure>
+
+<p>下面来看举个栗子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;setjmp.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="keyword">static</span> jmp_buf save;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">d</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"%s():Begin.\n"</span>,__FUNCTION__);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():Jump now.\n"</span>,__FUNCTION__);</span><br><span class="line">    <span class="comment">// if longjmp() invoked with a second argument of 0, i will be returned will instead; 所以，该函数第二个函数 恶意传0 也不会造成死循环</span></span><br><span class="line">    longjmp(save,<span class="number">8</span>); <span class="comment">// 跳</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():End.\n"</span>,__FUNCTION__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">c</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():Begin.\n"</span>,__FUNCTION__);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():Call d().\n"</span>,__FUNCTION__);</span><br><span class="line">    d();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():d() returned.\n"</span>,__FUNCTION__);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():End.\n"</span>,__FUNCTION__);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">b</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():Begin.\n"</span>,__FUNCTION__);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():Call c().\n"</span>,__FUNCTION__);</span><br><span class="line">    c();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():c() returned.\n"</span>,__FUNCTION__);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():End.\n"</span>,__FUNCTION__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">a</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():Begin.\n"</span>,__FUNCTION__);</span><br><span class="line">    ret = setjmp(save);</span><br><span class="line">   <span class="keyword">if</span>(ret == <span class="number">0</span>) <span class="comment">// 设置跳转点</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s():Call b().\n"</span>,__FUNCTION__);</span><br><span class="line">        b();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s():b() returned.\n"</span>,__FUNCTION__);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 跳回到这</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s():Jumped back here with code %d\n"</span>,__FUNCTION__,ret);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():End.\n"</span>,__FUNCTION__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():Begin.\n"</span>,__FUNCTION__);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():Call a().\n"</span>,__FUNCTION__);</span><br><span class="line">    a();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s():a() returned.\n"</span>,__FUNCTION__);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%s():End.\n"</span>,__FUNCTION__);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ gcc jmp.c -Wall -o jmp</span><br><span class="line">&gt;$ ./jmp</span><br><span class="line">main():Begin.</span><br><span class="line">main():Call a().</span><br><span class="line">a():Begin.</span><br><span class="line">a():Call b().</span><br><span class="line">b():Begin.</span><br><span class="line">b():Call c().</span><br><span class="line">c():Begin.</span><br><span class="line">c():Call d().</span><br><span class="line">d():Begin.</span><br><span class="line">d():Jump now.</span><br><span class="line">a():Jumped back here with code 8</span><br><span class="line">a():End.</span><br><span class="line">main():a() returned.</span><br><span class="line">main():End.</span><br><span class="line">&gt;$</span><br></pre></td></tr></table></figure>
+
+<p>注意：setjmp(3) 和 longjmp(3) 函数不能从信号处理函数中跳转，具体原因我们在后面讨论信号的时候会说明。</p>
+<h2 id="8-资源的获取及控制"><a href="#8-资源的获取及控制" class="headerlink" title="8. 资源的获取及控制"></a>8. 资源的获取及控制</h2><p><code>ulimit -a</code> 关乎一个进程能使用的资源量是多少；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-t: cpu time (seconds)              unlimited</span><br><span class="line">-f: file size (blocks)              unlimited</span><br><span class="line">-d: data seg size (kbytes)          unlimited</span><br><span class="line">-s: stack size (kbytes)             8192</span><br><span class="line">-c: core file size (blocks)         0</span><br><span class="line">-m: resident <span class="built_in">set</span> size (kbytes)      unlimited</span><br><span class="line">-u: processes                       4096</span><br><span class="line">-n: file descriptors                1024   <span class="comment"># 一个进程能打开文件最多个数</span></span><br><span class="line">-l: locked-in-memory size (kbytes)  64</span><br><span class="line">-v: address space (kbytes)          unlimited</span><br><span class="line">-x: file locks                      unlimited</span><br><span class="line">-i: pending signals                 7144</span><br><span class="line">-q: bytes <span class="keyword">in</span> POSIX msg queues       819200</span><br><span class="line">-e: max nice                        0</span><br><span class="line">-r: max rt priority                 0</span><br><span class="line">-N 15:                              unlimited</span><br></pre></td></tr></table></figure>
+
+<p>13.函数 getrlimit(2) 和 setrlimit(2)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// getrlimit, setrlimit - get/set resource limits</span></span><br><span class="line"></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">getrlimit</span><span class="params">(<span class="keyword">int</span> resource, struct rlimit *rlim)</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">setrlimit</span><span class="params">(<span class="keyword">int</span> resource, <span class="keyword">const</span> struct rlimit *rlim)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>每个进程都有一组对资源使用的上限，通过这两个函数可以获取或设置这些上限。</p>
+<p>ulimit(P) 命令就是使用这两个函数封装的。</p>
+<p>getrlimit(2) 获取 resource 资源，并且把读取结果回填到 rlptr 中。</p>
+<p>setrlimit(2) 设置 resource 资源，设置的值由用户填在 rlimit 中。</p>
+<p>rlimit 结构体的内容也很简单，当然这些资源上限也不是随便可以修改的，下面的规则同样适用于 ulimit(P) 命令。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">rlimit</span> &#123;</span></span><br><span class="line">  <span class="keyword">rlim_t</span> rlim_cur; <span class="comment">/* 软限制。普通用户能提高和降低软限制，但是不能高过硬限制。超级用户也一样。 */</span></span><br><span class="line">  <span class="keyword">rlim_t</span> rlim_max; <span class="comment">/* 硬限制。普通用户只能降低自己的硬限制，不能提高硬限制。超级用户能提高硬限制也能降低硬限制。 */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2020/12/16/apue-3/>http://yoursite.com/2020/12/16/apue-3/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-28T18:48:01+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 28, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/doc/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>doc</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/12/16/apue-3/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/12/16/apue-3/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/12/16/apue-3/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/12/16/apue-10/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>gitlab 使用</p>
+                <p class='content'>进程间通信
+进程间通信（IPC） 分为 PIPE（管道）、Socket（套接字） 和 XSI（System V）。XSI 又分为 msg（消息队列）、sem（信号量数组） 和 shm（共享内存）...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/12/16/apue-2/'>
+                <p class='title'>gitlab 使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>sysio1.文件描述符在 SYSIO 中贯穿了一个整形数，它就是文件描述符。对内核而言，所有打开的文件都是通过文件描述符引用的。它的作用与 STDIO 中的 FILE 结构体类似，但是它们的工...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'gitlab 使用',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-main-函数"><span class="toc-text">1. main() 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进程终止"><span class="toc-text">2. 进程终止</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#atexit-3-钩子函数"><span class="toc-text">atexit(3)  钩子函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exit-2-、-Exit-2"><span class="toc-text">_exit(2)、_Exit(2)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#exit-2-、-Exit-2-与-exit-3-的区别"><span class="toc-text">_exit(2)、_Exit(2) 与 exit(3) 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么时候用-exit-3-，什么时候用-exit-2-、-Exit-2"><span class="toc-text">什么时候用 exit(3)，什么时候用 _exit(2)、_Exit(2)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-命令行参数"><span class="toc-text">3. 命令行参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#getopt-3"><span class="toc-text">getopt(3)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getopt-long-3-用于解析长格式参数，函数原型就不列出来了。"><span class="toc-text">getopt_long(3) 用于解析长格式参数，函数原型就不列出来了。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-环境变量"><span class="toc-text">4. 环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境表"><span class="toc-text">环境表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何查看环境变量"><span class="toc-text">如何查看环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出环境变量"><span class="toc-text">输出环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getenv-3-获取某个环境变量"><span class="toc-text">getenv(3) 获取某个环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setenv-3"><span class="toc-text">setenv(3)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#putenv-3"><span class="toc-text">putenv(3)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-C-程序的存储空间布局"><span class="toc-text">5. C 程序的存储空间布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验"><span class="toc-text">实验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pmap-1-查看进程空间分布-布局表"><span class="toc-text">pmap(1) 查看进程空间分布 布局表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-库"><span class="toc-text">6. 库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态库"><span class="toc-text">动态库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态库"><span class="toc-text">静态库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#手工装载库-（共享库）"><span class="toc-text">手工装载库 （共享库）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dlopen-3"><span class="toc-text">dlopen(3)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-函数跳转"><span class="toc-text">7. 函数跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-资源的获取及控制"><span class="toc-text">8. 资源的获取及控制</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">belief</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#1.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>gitlab 使用 - Hexo</title>
+  
+    <meta name="keywords" content="doc">
+  
+  
+    <meta name="description" content="线程控制">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            BELIEF <b><sup style='color:#3AA757'>1.0.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/12/16/apue-8/">
+      gitlab 使用
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/apue/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>apue</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 16, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="线程控制"><a href="#线程控制" class="headerlink" title="线程控制"></a>线程控制</h1><blockquote>
+<p>之前我们在创建线程的时候都是使用的默认属性，本章主要讨论的是自定义线程的属性。使用默认属性基本上能解决掉遇到的大部分问题，所以自定义属性在实际项目中用得比较少。</p>
+</blockquote>
+<h2 id="1-1-线程属性"><a href="#1-1-线程属性" class="headerlink" title="1.1 线程属性"></a>1.1 线程属性</h2><p>《APUE》第三版 P341 表中的属性可以用来限定一个进程能创建线程的最大数量，但是限定线程数量的宏不必太当真，因为在上一篇博文中我们说过了一个线程能创建的线程的数量是受很多因素影响的，并非一定是以这几个宏值为准的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span><span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr, <span class="keyword">void</span> *(*start_routine)(<span class="keyword">void</span> *), <span class="keyword">void</span> *arg)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>线程属性使用 pthread_attr_t 类型表示。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_attr_init</span><span class="params">(<span class="keyword">pthread_attr_t</span> *attr)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_attr_destroy</span><span class="params">(<span class="keyword">pthread_attr_t</span> *attr)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_attr_setstacksize</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">// 见手册 man  pthread_attr_init 的 see also</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> *<span class="title">func</span><span class="params">(<span class="keyword">void</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"Thread is working."</span>);</span><br><span class="line">  pthread_exit(<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> tid;</span><br><span class="line">    <span class="keyword">int</span> err, i;</span><br><span class="line">    <span class="keyword">pthread_attr_t</span> attr;</span><br><span class="line"></span><br><span class="line">    pthread_attr_init(&amp;attr);</span><br><span class="line">    <span class="comment">// 修改每个线程的栈大小</span></span><br><span class="line">    pthread_attr_setstacksize(&amp;attr,<span class="number">1024</span>*<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span> ; ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 测试当前进程能创建多少个线程</span></span><br><span class="line">        err = pthread_create(&amp;tid,&amp;attr,func,<span class="literal">NULL</span>);</span><br><span class="line">        <span class="keyword">if</span>(err)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"pthread_create():%s\n"</span>,strerror(err));</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"i = %d\n"</span>,i);</span><br><span class="line">    pthread_attr_destroy(&amp;attr);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的栗子就是通过线程的属性修改了为每个线程分配的栈空间大小，这样创建出来的线程数量与默认的就不同了。</p>
+<p>线程属性使用 pthread_attr_init(3) 函数初始化，用完之后使用 pthread_attr_destroy(3) 函数销毁。</p>
+<p>线程属性不仅可以设定线程的栈空间大小，还可以创建分离的线程等等。</p>
+<h3 id="1-1-1-互斥量属性"><a href="#1-1-1-互斥量属性" class="headerlink" title="1.1.1 互斥量属性"></a>1.1.1 互斥量属性</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_init</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *<span class="keyword">restrict</span> mutex,</span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">const</span> <span class="keyword">pthread_mutexattr_t</span> *<span class="keyword">restrict</span> attr)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>互斥量属性使用 pthread_mutexattr_t 类型表示，与线程属性一样，使用之前要初始化，使用完毕要销毁。</p>
+<p>pthread_mutexattr_init(3) 函数用于初始化互斥量的属性，用法跟线程的属性很相似。</p>
+<h4 id="1-1-1-1-互斥量属性常用函数"><a href="#1-1-1-1-互斥量属性常用函数" class="headerlink" title="1.1.1.1 互斥量属性常用函数"></a>1.1.1.1 互斥量属性常用函数</h4><p>pthread_mutexattr_init();<br>pthread_mutexattr_destroy();<br>pthread_mutexattr_getpshared();<br>pthread_mutexattr_setpshared();</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pthread_mutexattr_getpshared, pthread_mutexattr_setpshared  -  get  and set the process-shared attribute</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutexattr_getpshared</span><span class="params">(<span class="keyword">const</span> <span class="keyword">pthread_mutexattr_t</span> *</span></span></span><br><span class="line"><span class="function"><span class="params">        <span class="keyword">restrict</span> attr, <span class="keyword">int</span> *<span class="keyword">restrict</span> pshared)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutexattr_setpshared</span><span class="params">(<span class="keyword">pthread_mutexattr_t</span> *attr,</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">int</span> pshared)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>函数名称里面的 p 是指 process，这两个函数的作用是设定线程的属性是否可以跨进程使用。这条有点乱是吧，线程的属性怎么能跨进程使用呢？别急，我们先看看 clone(2) 函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// clone, __clone2 - create a child process</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sched.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">clone</span><span class="params">(<span class="keyword">int</span> (*fn)(<span class="keyword">void</span> *), <span class="keyword">void</span> *child_stack,</span></span></span><br><span class="line"><span class="function"><span class="params">          <span class="keyword">int</span> flags, <span class="keyword">void</span> *arg, ...</span></span></span><br><span class="line"><span class="function"><span class="params">          <span class="comment">/* pid_t *ptid, struct user_desc *tls, pid_t *ctid */</span> )</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>clone(2) 进程的 flags 如果设置了 CLONE_FILES 则父子进程共享文件描述符表，正常情况文件描述符表是线程之间共享的，因为多线程是运行在同一个进程的地址空间之内的。</p>
+<p>虽然 clone(2) 函数的描述是创建子进程，但实际上如果将 flags 属性设置得极端分离(各种资源都独享)，相当于创建了一个子进程；</p>
+<p>而如果 flags 属性设置得极端近似(各种资源都共享)，则相当于创建了兄弟线程。所以对于内核来讲并没有进程这个概念，只有线程的概念。你创建出来的到底是进程还是线程，并不影响内核进行调度。</p>
+<p>如果需要创建一个“东西”与当前的线程既共享一部分资源，又独占一部分资源，就可以使用 clone(2) 函数创建一个既不是线程也不是进程的“东西”，因为对内核来说进程和线程本来就是模糊的概念。</p>
+<p>现在能理解为什么上面说 pthread_mutexattr_setpshared(3) 函数的作用是设定线程的属性是否可以跨进程使用了吧？</p>
+<p>互斥量分为四种，不同的互斥量在遇到不同的情况时效果是不同的，《APUE》第三版 P347 有图12-5 说明了这个现象，LZ 把它照搬到这里。</p>
+<table>
+<thead>
+<tr>
+<th align="center">互斥量类型</th>
+<th align="center">没有解锁时重新加锁</th>
+<th align="center">不占用时解锁</th>
+<th align="center">在已解锁时解锁</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PTHREAD_MUTEX_NORMAL（常规）</td>
+<td align="center">死锁</td>
+<td align="center">未定义</td>
+<td align="center">未定义</td>
+</tr>
+<tr>
+<td align="center">PTHREAD_MUTEX_ERRORCHECK（检错）</td>
+<td align="center">返回错误</td>
+<td align="center">返回错误</td>
+<td align="center">返回错误</td>
+</tr>
+<tr>
+<td align="center">PTHREAD_MUTEX_RECURSIVE（递归）</td>
+<td align="center">允许</td>
+<td align="center">返回错误</td>
+<td align="center">返回错误</td>
+</tr>
+<tr>
+<td align="center">PTHREAD_MUTEX_DEFAULT（默认，我们平时使用的就是这个）</td>
+<td align="center">未定义</td>
+<td align="center">未定义</td>
+<td align="center">未定义</td>
+</tr>
+<tr>
+<td align="center">表1 互斥量类型行为</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>LZ 解释一下表头上的描述是什么意思：</p>
+<p>1）没有解锁时重新加锁：当前 mutex 已 lock，再次 lock 的情况；</p>
+<p>2）不占用时解锁：他人锁定由你解锁的情况；</p>
+<p>3）在已解锁时解锁：当前 mutex 已 unlock，再次 unlock 的情况；</p>
+<h3 id="1-1-2-条件变量的属性"><a href="#1-1-2-条件变量的属性" class="headerlink" title="1.1.2 条件变量的属性"></a>1.1.2 条件变量的属性</h3><h4 id="1-1-2-1-条件变量常见属性"><a href="#1-1-2-1-条件变量常见属性" class="headerlink" title="1.1.2.1 条件变量常见属性"></a>1.1.2.1 条件变量常见属性</h4><p>pthread_condattr_init();<br>pthread_condattr_destroy();</p>
+<h3 id="1-1-3-读写锁属性"><a href="#1-1-3-读写锁属性" class="headerlink" title="1.1.3 读写锁属性"></a>1.1.3 读写锁属性</h3><h2 id="1-2-重入"><a href="#1-2-重入" class="headerlink" title="1.2 重入"></a>1.2 重入</h2><p>第一次见到重入是在信号阶段是吧。</p>
+<p>如果一个函数在相同的时间点可以被多个线程安全地调用，就称该函数是线程安全的。</p>
+<p>POSIX 标准要求，在线程标准制定之后，所有的库必须支持线程安全，如果不支持线程安全需要在函数名添加 <code>_unlocked</code> 后缀，或发布一个支持线程安全的函数，函数名要添加 <code>_r</code> 后缀。</p>
+<p>我们在 man 手册中已经见过很多带有 <code>_r</code> 后缀的函数了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拿puts举例</span></span><br><span class="line"></span><br><span class="line">puts('aaaaa');</span><br><span class="line">puts('bbbbb');</span><br><span class="line">puts('ccccc');</span><br><span class="line"></span><br><span class="line"><span class="comment">// bbbbbcccccaaaaa</span></span><br><span class="line"><span class="comment">// 绝对不可能出现 abccbabac... 之类的</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么看不到 <code>abccbabac</code>, 是因为puts函数有这样的功能，</p>
+<p>先锁住缓冲区，把内容填充进去，然后unlock。当三个puts几乎同时调用的时候。就看谁先抢到缓冲区。</p>
+<h3 id="1-2-1-多线程IO"><a href="#1-2-1-多线程IO" class="headerlink" title="1.2.1 多线程IO"></a>1.2.1 多线程IO</h3><h3 id="1-2-2-线程与信号"><a href="#1-2-2-线程与信号" class="headerlink" title="1.2.2 线程与信号"></a>1.2.2 线程与信号</h3><h3 id="1-2-3-线程与fork"><a href="#1-2-3-线程与fork" class="headerlink" title="1.2.3 线程与fork"></a>1.2.3 线程与fork</h3><p>4.线程特定数据</p>
+<p>就是为了某些数据支持多线程并发而做的改进。最典型的就是 errno，errno 最初是全局变量，现在早已变成宏定义了。</p>
+<p>我们把 errno 预编译一下，看看它的庐山真面目。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br><span class="line">errno;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -E errno.<span class="keyword">c</span></span><br><span class="line"># <span class="number">2</span> <span class="string">"errno.c"</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"> (*__errno_location ());</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="1-3-线程的取消"><a href="#1-3-线程的取消" class="headerlink" title="1.3 线程的取消"></a>1.3 线程的取消</h2><p>在上一篇博文中我们说过，pthread_cancel(3) 函数只是提出取消请求，并不能强制取消线程。</p>
+<p>线程的取消分为两种情况：允许取消 或 不允许取消。</p>
+<p>pthread_cancel(3) 提出取消请求后，是否允许取消是由被请求取消的线程自己决定的。</p>
+<p>不允许取消没什么好说的，我们说说允许取消。</p>
+<p>允许取消分为两种情况：异步 cancel 和 推迟 cancel（默认）</p>
+<p>1）异步 cancel：是内核的操作方式，这里不做解释。</p>
+<p>2）推迟 cancel：推迟到取消点再响应取消操作。取消点其实就是一个函数，收到取消请求时取消点的代码不会执行。</p>
+<p>《APUE》第三版 P362 图12-14 都是可能导致阻塞的系统调用，它们都是 POSIX 定义的一定存在的取消点。P363 图12-15 是 POSIX 定义的可选取消点，这些函数实际是否为取消点要看平台具体的实现。</p>
+<p>为什么要采用推迟取消的策略，而不是收到请求在任何地方都立即取消呢？我们先举个栗子说明这个问题，大家请看下面的伪代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">thr_func()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    p = <span class="built_in">malloc</span>();</span><br><span class="line"></span><br><span class="line">　　--------------------------&gt;收到了一个取消请求</span><br><span class="line"></span><br><span class="line">　　--------------------------&gt;pthread_cleanup_push();-&gt;<span class="built_in">free</span>(p); <span class="comment">// 不是取消点，继续执行</span></span><br><span class="line"></span><br><span class="line">fd1 = <span class="built_in">open</span>(); <span class="comment">// 是取消点，在取消点执行之前响应取消动作</span></span><br><span class="line"></span><br><span class="line">　　--------------------------&gt;pthread_cleanup_push();-&gt;<span class="built_in">close</span>(fd1);</span><br><span class="line"></span><br><span class="line">fd2 = <span class="built_in">open</span>();</span><br><span class="line"></span><br><span class="line">　　--------------------------&gt;pthread_cleanup_push();-&gt;<span class="built_in">close</span>(fd2);</span><br><span class="line"></span><br><span class="line">pthread_exit();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>在线程执行函数运行的任何时候都可能收到取消请求，假设上面的函数刚刚使用 malloc(3) 函数动态分配了一段内存，还没来得及挂钩子函数的时候就收到了一个取消请求，如果立即响应这个取消请求就会导致内存泄漏。而挂载钩子函数的宏 pthread_cleanup_push 不是取消点，所以会推迟这个取消请求继续工作。等它把钩子函数挂载完毕之后继续运行来到 open(2) 函数，由于 open(2) 函数时有效的取消点，所以响应了这个取消请求，线程被取消并且通过钩子函数释放了上面 malloc(3) 所申请的空间。这就是推迟取消最明显的作用。</p>
+<p>pthread_setcancelstate(3) 函数的作用就是修改线程的可取消状态，可以将线程设置为可取消的或不可取消的。</p>
+<p>pthread_setcanceltype(3) 函数用来修改取消类型，也就是可以选择 异步 cancel 和 推迟 cancel。</p>
+<p>pthread_testcancel(3) 函数的作用是人为放置取消点。假如某个线程一启动就疯狂的做数学运算10分钟，没有调用任何函数，则这个线程无法响应取消，为了使这个线程可以响应取消就可以通过这个函数人为放置取消点。</p>
+<h3 id="1-3-1-线程和信号"><a href="#1-3-1-线程和信号" class="headerlink" title="1.3.1 线程和信号"></a>1.3.1 线程和信号</h3><p><img src="./thread_01.png" alt=""><br>图1 线程级别的信号位图</p>
+<p>在前面讨论信号的博文中，LZ 给大家画过一张信号处理过程的草图，在那幅图中简单的把一个线程的标准信号画成了两个位图。而实际上每个线程级别都持有一个 mask 位图和一个 padding 位图，每个进程级别持有一个 padding 位图而没有 mask 位图。从内核态回到用户态之前，当前线程先用自己的 mask 位图与进程级别的 padding 做按位与（&amp;）运算，如果有信号就要去处理；然后再用自己的 mask 位图与自己的 padding 位图做按位与运算，再处理相应的信号。</p>
+<p>所以其实是哪个线程被调度，就由哪个线程响应进程级别的信号。</p>
+<p>由此可见，线程之间也是可以互相发信号的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pthread_kill - send a signal to a thread</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_kill</span><span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">int</span> sig)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Compile and link with -pthread.</span></span><br></pre></td></tr></table></figure>
+
+<p>pthread_kill(3) 函数的作用就是在线程阶段发信号，thread 表示给哪个线程发送信号，sig 是发送哪个信号。</p>
+<p>由于这个函数使用起来很简单，这里 LZ 就不把栗子贴出来了，大家自己动手写写试试吧。</p>
+<p>pthread_sigmask(3) 函数的作用时人为的干预线程级别的 mask 位图。与 sigsetmask(3) 函数很像，大家自己动手试试吧。</p>
+<h3 id="1-3-2-线程和-fork"><a href="#1-3-2-线程和-fork" class="headerlink" title="1.3.2 线程和 fork"></a>1.3.2 线程和 fork</h3><p>这一小节主要说的是 fork(2) 在不同平台上实现有歧义。</p>
+<p>在fork的发展过程中主要有两大阵营，一大阵营使用写时拷贝技术，另一大阵营使用类似 vfork(2) 的策略。</p>
+<p>这两种策略在前面我们讨论进程关系的博文中都讨论过，感兴趣的童鞋可以自己看看书上的描述，这里就不做太多的介绍了。</p>
+<h3 id="1-3-3-线程和-I-O"><a href="#1-3-3-线程和-I-O" class="headerlink" title="1.3.3 线程和 I/O"></a>1.3.3 线程和 I/O</h3><p>这一小节主要就是介绍了下 pread(2) 和 pwrite(2) 函数，这两个函数实际当中用得并不多，感兴趣的童鞋自己看看书上的介绍或者看看 man 手册里的说明吧，这里不做过多的讨论了。如果有什么问题可以在评论中留言。</p>
+<p>到这里 POSIX 标准的线程就介绍完了。*nix 平台线程的标准不只有 POSIX 一家，还有像 OpenMP 等标准也定义了不同的线程实现方式。</p>
+<h3 id="1-3-4-OpenMP-标准"><a href="#1-3-4-OpenMP-标准" class="headerlink" title="1.3.4 OpenMP 标准"></a>1.3.4 OpenMP 标准</h3><p>我们使用 OpenMP 标准写一个 Hello World 程序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;omp.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">pragma</span> omp parallel sections</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">pragma</span> omp section</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"[%d]:Hello\n"</span>,omp_get_thread_num());</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">pragma</span> omp section</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"[%d]:World\n"</span>,omp_get_thread_num());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>OpenMP 标准的多线程就是使用 # 这种预处理标签实现的，使用 GCC 编译的时候需要加 -fopenmp 参数。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">make</span> hello</span><br><span class="line"><span class="keyword">cc</span> -fopenmp -Wall    hello.<span class="keyword">c</span>   -<span class="keyword">o</span> hello</span><br><span class="line">$ ./hello</span><br><span class="line">[<span class="number">0</span>]:Hello</span><br><span class="line">[<span class="number">1</span>]:World</span><br><span class="line">$ ./hello</span><br><span class="line">[<span class="number">1</span>]:World</span><br><span class="line">[<span class="number">0</span>]:Hello</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+<p>从上面的运行结果可以看出来，线程已经创建，并且已经发生了竞争。</p>
+<p>GCC 从 4.0 以上的版本开始支持 OpenMP 标准。</p>
+<p>由于 OpenMP 标准不是 《APUE》里面介绍的，所以我们这里就不做过多的探讨了，感兴趣的小伙伴们可以去 <a href="http://www.openmp.org" target="_blank" rel="noopener">http://www.openmp.org</a> 了解更多内容</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2020/12/16/apue-8/>http://yoursite.com/2020/12/16/apue-8/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-28T18:47:19+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 28, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/doc/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>doc</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/12/16/apue-8/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/12/16/apue-8/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/12/16/apue-8/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/12/16/apue-2/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>gitlab 使用</p>
+                <p class='content'>sysio1.文件描述符在 SYSIO 中贯穿了一个整形数，它就是文件描述符。对内核而言，所有打开的文件都是通过文件描述符引用的。它的作用与 STDIO 中的 FILE 结构体类似，但是它们的工...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/12/16/apue-4/'>
+                <p class='title'>gitlab 使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>进程脉络
+
+进程是什么
+进程是怎么产生的，怎么消亡的，父子进程是何关系
+进程中的一种特殊方式 —— 守护进程
+线程是什么
+线程和进程的关系
+多线程之间通信和多进程之间通信的区别
+
+
+进程标识符 ...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'gitlab 使用',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-线程属性"><span class="toc-text">1.1 线程属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-互斥量属性"><span class="toc-text">1.1.1 互斥量属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-1-互斥量属性常用函数"><span class="toc-text">1.1.1.1 互斥量属性常用函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-条件变量的属性"><span class="toc-text">1.1.2 条件变量的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-1-条件变量常见属性"><span class="toc-text">1.1.2.1 条件变量常见属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-3-读写锁属性"><span class="toc-text">1.1.3 读写锁属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-重入"><span class="toc-text">1.2 重入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-多线程IO"><span class="toc-text">1.2.1 多线程IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-线程与信号"><span class="toc-text">1.2.2 线程与信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-3-线程与fork"><span class="toc-text">1.2.3 线程与fork</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-线程的取消"><span class="toc-text">1.3 线程的取消</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-线程和信号"><span class="toc-text">1.3.1 线程和信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2-线程和-fork"><span class="toc-text">1.3.2 线程和 fork</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-3-线程和-I-O"><span class="toc-text">1.3.3 线程和 I&#x2F;O</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-4-OpenMP-标准"><span class="toc-text">1.3.4 OpenMP 标准</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">belief</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

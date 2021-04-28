@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#1.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>gitlab 使用 - Hexo</title>
+  
+    <meta name="keywords" content="doc">
+  
+  
+    <meta name="description" content="进程">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            BELIEF <b><sup style='color:#3AA757'>1.0.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/12/16/apue-4/">
+      gitlab 使用
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/apue/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>apue</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 16, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><p>脉络</p>
+<ul>
+<li>进程是什么</li>
+<li>进程是怎么产生的，怎么消亡的，父子进程是何关系</li>
+<li>进程中的一种特殊方式 —— 守护进程</li>
+<li>线程是什么</li>
+<li>线程和进程的关系</li>
+<li>多线程之间通信和多进程之间通信的区别</li>
+</ul>
+<ol>
+<li>进程标识符 pid</li>
+<li>进程的产生 fork vfork</li>
+<li>进程的消亡及释放资源</li>
+<li>exec函数族</li>
+<li>用户权限及组权限</li>
+<li>观摩：解释器文件</li>
+<li>system(); (2,3,4的封装)</li>
+<li>进程会计</li>
+<li>进程时间</li>
+<li>守护进程</li>
+<li>系统日志</li>
+</ol>
+<h2 id="1-进程标识符-pid"><a href="#1-进程标识符-pid" class="headerlink" title="1. 进程标识符 pid"></a>1. 进程标识符 pid</h2><p>pid 是系统中进程的唯一标志，在系统中使用 pid_t 类型表示，它是一个非负整型， 严格来说是一个有符号的16位整型数。 一台机器同时能有3万多个进程；正常情况下有3万多个进程是够用的；不够用的话，结合现在的虚拟机技术，同一台机器上 弄多个虚拟机。</p>
+<h3 id="1-1-ps-（当前进程的情况）"><a href="#1-1-ps-（当前进程的情况）" class="headerlink" title="1.1 ps （当前进程的情况）"></a>1.1 ps （当前进程的情况）</h3><p>ps(1) 命令可以帮助我们分析本章中的一些示例，所以简单介绍一些参数的组合方式，更详细的信息请查阅 man 手册。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps axf <span class="comment">#主要用于查看当前系统中进程的 PID 以及执行终端(tty)和状态等信息，更重要的是它能显示出进程的父子关系。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PID TTY      STAT   TIME COMMAND</span><br><span class="line">  2 ?        S      0:00 [kthreadd]</span><br><span class="line">  4 ?        S&lt;     0:00  \_ [kworker/0:0H]</span><br><span class="line">  6 ?        S      0:04  \_ [ksoftirqd/0]</span><br><span class="line">  7 ?        S      0:00  \_ [migration/0]</span><br><span class="line">  8 ?        S      0:00  \_ [rcu_bh]</span><br></pre></td></tr></table></figure>
+
+<p>TTY： 所占据终端</p>
+<p>STAT： 进程状态</p>
+<p>TIME： 消耗时间</p>
+<p>COMMAND： 哪个命令触发的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps axm <span class="comment">#显示进程的详细信息，PID 列下面的减号(-)是这个进程中的线程。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps ax -L <span class="comment">#以 Linux 的形式显示当前系统中的进程列表。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PID    LWP TTY      STAT   TIME COMMAND</span><br><span class="line">   1      1 ?        Ss     0:18 /usr/lib/systemd/systemd --switched-root --system --deserialize 22</span><br><span class="line">   2      2 ?        S      0:00 [kthreadd]</span><br><span class="line">   4      4 ?        S&lt;     0:00 [kworker/0:0H]</span><br></pre></td></tr></table></figure>
+
+<p>LWP: 轻量级进程编号，简单来说就是线程编号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps axj  <span class="comment">#以查看当前系统中进程的 PPID、PID、PGID、SID、TTY 等信息。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-进程号是顺次向下使用"><a href="#1-2-进程号是顺次向下使用" class="headerlink" title="1.2 进程号是顺次向下使用"></a>1.2 进程号是顺次向下使用</h3><blockquote>
+<p>比如当前有个进程是10001，然后下一个就是 10002，再下就是10003，即使前面有进程号已经释放掉了，也不会回去去找。进程号是不断向后使用的，当进程号达到最大值的时候，再回到最小一个可用的数值重新使用。</p>
+</blockquote>
+<h3 id="1-3-getpid-获取当前进程号-getppid-获取当前进程父进程号"><a href="#1-3-getpid-获取当前进程号-getppid-获取当前进程父进程号" class="headerlink" title="1.3 getpid() 获取当前进程号  getppid() 获取当前进程父进程号"></a>1.3 getpid() 获取当前进程号  getppid() 获取当前进程父进程号</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">getpid</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">getppid</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-进程的产生-fork-vfork"><a href="#2-进程的产生-fork-vfork" class="headerlink" title="2. 进程的产生 fork vfork"></a>2. 进程的产生 fork vfork</h2><p>今天讨论进程控制这一章，也是进程中最终要的一部分，其实主要就是围绕着 fork(2)、exec(2)、wait(2) 这三个函数来讨论 *nix 系统是如何管理进程的。</p>
+<h3 id="2-1-fork"><a href="#2-1-fork" class="headerlink" title="2.1 fork"></a>2.1 fork</h3><blockquote>
+<p>fork(2) 函数的作用就是创建子进程，creates a new process by duplication the calling process。 通过复制父进程来创建子进程</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fork - create a child process</span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"> <span class="function"><span class="keyword">pid_t</span> <span class="title">fork</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-1-fork函数返回值"><a href="#2-1-1-fork函数返回值" class="headerlink" title="2.1.1 fork函数返回值"></a>2.1.1 fork函数返回值</h4><blockquote>
+<p>fork函数之后，在父进程中返回的是子进程的 pid。在子进程中返回值为0.如果失败返回值为 -1.fork语句下面一定跟分支语句。来确定父子关系是什么样的情况。</p>
+</blockquote>
+<p>注意理解关键字 duplication， 拷贝，一摸一样。</p>
+<h4 id="2-1-2-init进程"><a href="#2-1-2-init进程" class="headerlink" title="2.1.2  init进程"></a>2.1.2  init进程</h4><blockquote>
+<p>1号进程， init 进程是所有进程的祖先进程（但不一定是父进程），内核启动后会启动 init 进程，然后内核就会像一个库一样守在后台等待出现异常等情况的时候再出来处理一下，其它的事情都由 init 进程创建子进程来完成。</p>
+</blockquote>
+<p>调用 fork(2) 创建子进程的时候，刚开始父子进程是一模一样的，就连代码执行到的位置都是一模一样的。</p>
+<p>fork(2) 执行一次，但返回两次。它在父进程中的返回值是子进程的 PID，在子进程中的返回值是 0。子进程想要获得父进程的 PID 需要调用 getppid(2) 函数。</p>
+<p>一般来说调用fork后会执行 if(依赖fork的返回值) 分支语句，用来区分下面的哪些代码由父进程执行，哪些代码由子进程执行。</p>
+<p>好了，既然父进程通过复制一份自己创建了子进程，难道父子进程就是一模一样的吗？只有下面这5点不一样。</p>
+<h4 id="2-1-3-fork后父子进程的区别"><a href="#2-1-3-fork后父子进程的区别" class="headerlink" title="2.1.3  fork后父子进程的区别"></a>2.1.3  fork后父子进程的区别</h4><p>(1) fork(2) 的返回值不同；</p>
+<p>(2) 父子进程的 PID 不相同；</p>
+<p>(3) 父子进程的 PPID 不相同； // PPID 就是父进程 PID</p>
+<p>(4) 在子进程中资源的利用量清零，否则如果父进程打开了很多资源，子进程能使用的资源量就很少了；</p>
+<p>(5) 未决信号和文件锁不继承。</p>
+<p>父进程与子进程谁先运行是不确定的，这个执行顺序是由进程调度器决定的，不过 vfork(2) 会保证子进程先运行。进程调度器不是一个工具，是在内核中的一块代码。</p>
+<p>写个简单的小栗子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="keyword">pid_t</span> pid;</span><br><span class="line"> </span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"[%d]Begin!\n"</span>, getpid());</span><br><span class="line"> </span><br><span class="line">     pid = fork();</span><br><span class="line">     <span class="keyword">if</span> (pid &lt; <span class="number">0</span>)</span><br><span class="line">     &#123;</span><br><span class="line">         perror(<span class="string">"fork()"</span>);</span><br><span class="line">         <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(<span class="number">0</span> == pid)</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="built_in">printf</span>(<span class="string">"[%d] Child is working!\n"</span>, getpid());</span><br><span class="line">     &#125; <span class="keyword">else</span></span><br><span class="line">     &#123;</span><br><span class="line">         <span class="built_in">printf</span>(<span class="string">"[%d] parent is working!\n"</span>, getpid());</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"[%d]End!\n"</span>, getpid());</span><br><span class="line"> </span><br><span class="line">     <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[95852]Begin!</span><br><span class="line">[95852] parent is working!</span><br><span class="line">[95852]End!</span><br><span class="line">[95853] Child is working!</span><br><span class="line">[95853]End!</span><br></pre></td></tr></table></figure>
+
+<p><strong>第一个结论</strong> </p>
+<blockquote>
+<p>永远不要猜测父子进程 谁先被调度。调度器的调度策略来决定哪个进程先运行</p>
+</blockquote>
+<ul>
+<li>如果非得决定两个进程得执行顺序</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pid = fork();</span><br><span class="line">   <span class="keyword">if</span> (pid &lt; <span class="number">0</span>)</span><br><span class="line">   &#123;</span><br><span class="line">      perror(<span class="string">"fork()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span>(<span class="number">0</span> == pid)</span><br><span class="line">   &#123;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"[%d] Child is working!\n"</span>, getpid());</span><br><span class="line">   &#125; <span class="keyword">else</span></span><br><span class="line">   &#123;</span><br><span class="line">      sleep(<span class="number">1</span>); <span class="comment">// 可以加sleep 来约定</span></span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"[%d] parent is working!\n"</span>, getpid());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>阻塞程序 来查看它们的父子进程关系</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getchar();</span><br><span class="line"><span class="built_in">exit</span>();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ ps axf</span><br><span class="line"></span><br><span class="line">11220 pts/0    Ss     0:10  \_ shell</span><br><span class="line">96877 pts/0    S+     0:00  |   \_ ./fork1</span><br><span class="line">96878 pts/0    S+     0:00  |       \_ ./fork1</span><br></pre></td></tr></table></figure>
+
+<p> 从 ps(1) 命令可以看出来，96877 进程确实产生了一个子进程 96878。</p>
+<p><strong>第二个结论</strong> </p>
+<blockquote>
+<p>当前的shell 创建了 fork1这个进程，因为是在 shell环境下， ./fork1 的。在fork1 这个进程中有产生了一个进程 fork1，（名字也是自己）有 shell/fork1/fork1 这种阶梯关系的，就能看出父子进程之间的关系。 我们发现还有很多进程 都类似 shell 前面的 <code>\</code> 这种顶格写的，他们的父进程都是1，即init。所以不是 1号 init进程直接 fork出来所有进程的。有可能 init fork出来A， Afork出来B，1号进程是所有进程的祖先进程。不能认为是所有进程的父进程。</p>
+</blockquote>
+<p>后面在讨论释放进程的时候，会涉及到 孤儿进程，僵尸进程。有些进程会父进程消亡，然后由init来接管。</p>
+<p>重定向到文件中</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fork1.c</span></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="keyword">pid_t</span> pid;</span><br><span class="line"></span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"[%d]Begin!\n"</span>, getpid());</span><br><span class="line"></span><br><span class="line">     fflush(<span class="literal">NULL</span>); <span class="comment">//一定要在fork之前  刷新所有成功打开的流</span></span><br><span class="line"></span><br><span class="line">     pid = fork();</span><br><span class="line">     <span class="keyword">if</span> (pid &lt; <span class="number">0</span>)</span><br><span class="line">     &#123;</span><br><span class="line">         perror(<span class="string">"fork()"</span>);</span><br><span class="line">         <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(<span class="number">0</span> == pid)</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="built_in">printf</span>(<span class="string">"[%d] Child is working!\n"</span>, getpid());</span><br><span class="line">     &#125; <span class="keyword">else</span></span><br><span class="line">     &#123;</span><br><span class="line">         <span class="built_in">printf</span>(<span class="string">"[%d] parent is working!\n"</span>, getpid());</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"[%d]End!\n"</span>, getpid());</span><br><span class="line"> </span><br><span class="line">     <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是这里面有一个问题，我们重新执行一遍这个程序，这次将输出重定向到文件中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> &gt;$ ./fork1 &gt; result.txt</span><br><span class="line"> &gt;$ cat result.txt</span><br><span class="line">[97309]Begin!</span><br><span class="line">[97309] parent is working!</span><br><span class="line">[97309]End!</span><br><span class="line">[97309]Begin!</span><br><span class="line">[97310] Child is working!</span><br><span class="line">[97310]End!</span><br></pre></td></tr></table></figure>
+
+<p><strong>第三个结论</strong></p>
+<blockquote>
+<p>fflush 的重要性</p>
+</blockquote>
+<p>发现有什么不同了吗？父进程竟然输出了两次 Start!，这是为什么呢？</p>
+<p>其实第二次 Start! 并不是父进程输出的，而是子进程输出的。但是为什么 PID 却是父进程的呢？</p>
+<p>其实这是因为行缓冲变成了全缓冲导致的，之前我们讲过，标准输出默认是行缓冲模式，而系统默认的是全缓冲模式。所以当我们将它输出到控制台的时候是可以得到预期结果的，但是一旦重定向到文件的时候就由行缓冲模式变成了全缓冲模式，全缓冲模式下， <code>\n</code> 只起到一个 换行的作用，是不刷新缓冲区的。</p>
+<p>也就是说在 <code>Begin!</code>放到了缓冲区当中，还没来得及写到文件里面的时候。马上fork了。而子进程产生的时候是会复制父进程的缓冲区的数据的，所以子进程刷新缓冲区的时候子进程也会将从父进程缓冲区中复制到的内容刷新出来。这样，父子进程的缓冲区里面各自有了这句 <code>Begin!</code><br>同时这也印证了为什么两次输出的 <code>Begin</code> 都带着父进程的进程号<code>[97309]Begin!...[97309]Begin!</code>. 正是因为这个语句在第一次执行的时候已经固定了，后面直接复制的。</p>
+<p>因此，在使用 fork(2) 产生子进程之前一定要使用 <code>fflush(NULL)</code> 刷新所有缓冲区！</p>
+<p>那么再考虑一个问题，当程序运行的时候，为什么子进程的输出结果是在当前 shell 中，而没有打开一个新的 shell 呢？</p>
+<p>这是因为子进程被创建的时候会复制父进程所有打开的文件描述符，所谓的“复制”是指就像执行了 dup(2) 函数一样，父子进程每个相同的打开的文件描述符共享一个文件表项。</p>
+<p>而父进程默认开启了 0(stdin)、1(stdout)、2(stderr) 三个文件描述符，所以子进程中也同样存在这三个文件描述符。</p>
+<p>既然子进程会复制父进程的文件描述符，也就是说如果父进程在创建子进程之前关闭了三个标准的文件描述符，那么子进程也就没有这三个文件描述符可以使用了。</p>
+<p>从上面的 ps(1) 命令执行结果可以看出来，我们的父进程是 bash 的子进程，所以我们父进程的三个标准文件描述符是从 bash 中复制过来的。</p>
+<h3 id="2-2-继续理解父子进程的关系"><a href="#2-2-继续理解父子进程的关系" class="headerlink" title="2.2 继续理解父子进程的关系"></a>2.2 继续理解父子进程的关系</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单机版程序</span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">define</span> LEFT   30000000</span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">define</span>  RIGHT 30000200</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="keyword">int</span> i, j, mark;</span><br><span class="line">     <span class="keyword">for</span>(i = LEFT; i&lt;=RIGHT; i++)</span><br><span class="line">     &#123;</span><br><span class="line">         mark = <span class="number">1</span>;</span><br><span class="line">         <span class="keyword">for</span>(j=<span class="number">2</span>;j&lt;i/<span class="number">2</span>;j++)</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="keyword">if</span>(i%j==<span class="number">0</span>)</span><br><span class="line">             &#123;</span><br><span class="line">                 mark = <span class="number">0</span>;</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">if</span> (mark)</span><br><span class="line">             <span class="built_in">printf</span>(<span class="string">"%d is a primer\n"</span>, i);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ ./primer0</span><br><span class="line">30000001 is a primer</span><br><span class="line">30000023 is a primer</span><br><span class="line">30000037 is a primer</span><br><span class="line">30000041 is a primer</span><br><span class="line">30000049 is a primer</span><br><span class="line">30000059 is a primer</span><br><span class="line">30000071 is a primer</span><br><span class="line">30000079 is a primer</span><br><span class="line">30000083 is a primer</span><br><span class="line">30000109 is a primer</span><br><span class="line">30000133 is a primer</span><br><span class="line">30000137 is a primer</span><br><span class="line">30000149 is a primer</span><br><span class="line">30000163 is a primer</span><br><span class="line">30000167 is a primer</span><br><span class="line">30000169 is a primer</span><br><span class="line">30000193 is a primer</span><br><span class="line">30000199 is a primer</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ./primer0| wc -l</span><br><span class="line">18</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ time ./primer0 &gt; /dev/null</span><br><span class="line">./primer0 &gt; /dev/null  </span><br><span class="line"></span><br><span class="line">0.97s  user</span><br><span class="line">0.00s  system</span><br><span class="line">101%   cpu</span><br><span class="line">0.958  total</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用201 个 子进程 来计算这201个等待计算的任务</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="meta">#<span class="meta-keyword">define</span> LEFT   30000000</span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">define</span>  RIGHT 30000200</span></span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="keyword">int</span> i, j, mark;</span><br><span class="line">     <span class="keyword">pid_t</span> pid;</span><br><span class="line">     <span class="keyword">for</span>(i = LEFT; i&lt;=RIGHT; i++)</span><br><span class="line">     &#123;</span><br><span class="line">         pid = fork();</span><br><span class="line">         <span class="keyword">if</span>(pid&lt;<span class="number">0</span>)</span><br><span class="line">         &#123;</span><br><span class="line">           perror(<span class="string">"fork()"</span>);</span><br><span class="line">           <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">         &#125;</span><br><span class="line"> </span><br><span class="line">         <span class="keyword">if</span>(pid == <span class="number">0</span>)     <span class="comment">// child</span></span><br><span class="line">        &#123;</span><br><span class="line"> </span><br><span class="line">              mark = <span class="number">1</span>;</span><br><span class="line">              <span class="keyword">for</span>(j=<span class="number">2</span>;j&lt;i/<span class="number">2</span>;j++)</span><br><span class="line">              &#123;</span><br><span class="line">                  <span class="keyword">if</span>(i%j==<span class="number">0</span>)</span><br><span class="line">                 &#123;</span><br><span class="line">                      mark = <span class="number">0</span>;</span><br><span class="line">                     <span class="keyword">break</span>;</span><br><span class="line">                 &#125;</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">if</span> (mark)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d is a primer\n"</span>, i);</span><br><span class="line"></span><br><span class="line">             <span class="built_in">exit</span>(<span class="number">0</span>); <span class="comment">// 子进程正常结束</span></span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 无序</span></span><br><span class="line">30000023 is a primer</span><br><span class="line">30000037 is a primer</span><br><span class="line">30000079 is a primer</span><br><span class="line">30000001 is a primer</span><br><span class="line">30000041 is a primer</span><br><span class="line">30000049 is a primer</span><br><span class="line">30000083 is a primer</span><br><span class="line">30000059 is a primer</span><br><span class="line">30000133 is a primer</span><br><span class="line">30000071 is a primer</span><br><span class="line">30000137 is a primer</span><br><span class="line">30000109 is a primer</span><br><span class="line">30000149 is a primer</span><br><span class="line">30000169 is a primer</span><br><span class="line">30000163 is a primer</span><br><span class="line">30000193 is a primer</span><br><span class="line">30000167 is a primer</span><br><span class="line">30000199 is a primer</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./primer1 | wc -l</span><br><span class="line">18</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">time  ./primer0</span><br><span class="line">./primer0  </span><br><span class="line"></span><br><span class="line">0.99s  user</span><br><span class="line">0.00s  system</span><br><span class="line">61%    cpu</span><br><span class="line">1.623  total</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">time ./primer1</span><br><span class="line">./primer1  </span><br><span class="line"></span><br><span class="line">0.00s  user</span><br><span class="line">0.01s  system</span><br><span class="line">7%     cpu</span><br><span class="line">0.186  total</span><br></pre></td></tr></table></figure>
+
+<p>解析：</p>
+<blockquote>
+<p>严格来讲，primer0 是201个数，1个人在干活，要计算201个数值。它消耗合计是 1.623。primer1是201个人 干201个活。总耗时是 0.186。 要计算的话 相当于 1.623/500 才对。但事实上，0.186要远远大于 1.623/500的时长。然而事实并非如此。假设当前机器是单核处理器，尽管创建出来这么多进程。但并发还是取决于调度。那这201个任务，不知道先调度到谁，后调度到谁。但是只有一个处理器在工作。所以任务消耗的时间减少不到哪里去。 </p>
+</blockquote>
+<blockquote>
+<p>而事实上,应该减少。因为本机是双核的处理器。最多的时候是两个任务在并列运行。相当于201个人在干活，要排队用处理器。 当前的时间就应该是 单进程的时间/2，所以一个 0.7到0.8的时间是靠谱的。但为啥小到只有 0.186呢？</p>
+</blockquote>
+<p>暂缓回答问题，先观察一个现象</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEFT   30000000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>  RIGHT 30000200</span></span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i, j, mark;</span><br><span class="line">        <span class="keyword">pid_t</span> pid;</span><br><span class="line">     <span class="keyword">for</span>(i = LEFT; i&lt;=RIGHT; i++)</span><br><span class="line">     &#123;</span><br><span class="line">         pid = fork();</span><br><span class="line">         <span class="keyword">if</span>(pid&lt;<span class="number">0</span>)</span><br><span class="line">         &#123;</span><br><span class="line">           perror(<span class="string">"fork()"</span>);</span><br><span class="line">           <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">         &#125;</span><br><span class="line"> </span><br><span class="line">         <span class="keyword">if</span>(pid == <span class="number">0</span>)     <span class="comment">// child</span></span><br><span class="line">         &#123;</span><br><span class="line"> </span><br><span class="line">              mark = <span class="number">1</span>;</span><br><span class="line">              <span class="keyword">for</span>(j=<span class="number">2</span>;j&lt;i/<span class="number">2</span>;j++)</span><br><span class="line">              &#123;</span><br><span class="line">                  <span class="keyword">if</span>(i%j==<span class="number">0</span>)</span><br><span class="line">                 &#123;</span><br><span class="line">                      mark = <span class="number">0</span>;</span><br><span class="line">                     <span class="keyword">break</span>;</span><br><span class="line">                 &#125;</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">if</span> (mark)</span><br><span class="line">                  <span class="built_in">printf</span>(<span class="string">"%d is a primer\n"</span>, i);</span><br><span class="line">              sleep(<span class="number">1000</span>); <span class="comment">// sleep 阻塞进程</span></span><br><span class="line">              <span class="built_in">exit</span>(<span class="number">0</span>); <span class="comment">// 子进程正常结束</span></span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">5468 pts/0    S      0:00 ./primer2</span><br><span class="line">5469 pts/0    S      0:00 ./primer2</span><br><span class="line">5470 pts/0    S      0:00 ./primer2</span><br><span class="line">5471 pts/0    S      0:00 ./primer2</span><br><span class="line">5472 pts/0    S      0:00 ./primer2</span><br><span class="line">5473 pts/0    S      0:00 ./primer2</span><br><span class="line">5474 pts/0    S      0:00 ./primer2</span><br><span class="line">5475 pts/0    S      0:00 ./primer2</span><br><span class="line">5476 pts/0    S      0:00 ./primer2</span><br><span class="line">5477 pts/0    S      0:00 ./primer2</span><br><span class="line">5478 pts/0    S      0:00 ./primer2</span><br><span class="line">5479 pts/0    S      0:00 ./primer2</span><br><span class="line">5480 pts/0    S      0:00 ./primer2</span><br><span class="line">5481 pts/0    S      0:00 ./primer2</span><br><span class="line">5482 pts/0    S      0:00 ./primer2</span><br><span class="line">。</span><br><span class="line">。</span><br><span class="line">。</span><br><span class="line"><span class="comment"># 观察到有201个 S状态的进程，它们的父进程是 init。</span></span><br></pre></td></tr></table></figure>
+
+<p><code>“man ps  -&gt;  process state codes”</code>status  S 代表可中断的睡眠态</p>
+<p><code>killall primer2</code> 杀掉相关进程</p>
+<p>继续举个例子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">       <span class="keyword">int</span> i, j, mark;</span><br><span class="line">       <span class="keyword">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">for</span>(i = LEFT; i&lt;=RIGHT; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        pid = fork();</span><br><span class="line">        <span class="keyword">if</span>(pid&lt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">          perror(<span class="string">"fork()"</span>);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(pid == <span class="number">0</span>)     <span class="comment">// child</span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">             mark = <span class="number">1</span>;</span><br><span class="line">             <span class="keyword">for</span>(j=<span class="number">2</span>;j&lt;i/<span class="number">2</span>;j++)</span><br><span class="line">             &#123;</span><br><span class="line">                 <span class="keyword">if</span>(i%j==<span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                     mark = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">if</span> (mark)</span><br><span class="line">                 <span class="built_in">printf</span>(<span class="string">"%d is a primer\n"</span>, i);</span><br><span class="line">           <span class="comment">//  sleep(1000); // sleep 阻塞进程</span></span><br><span class="line">             <span class="built_in">exit</span>(<span class="number">0</span>); <span class="comment">// 子进程正常结束， 这里如果不结束的话，子进程还会继续fork，递归fork导致资源被占满，系统卡死</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(<span class="number">1000</span>); <span class="comment">// sleep 阻塞父进程</span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ ps axf</span><br><span class="line">  3115 pts/0    Ss     0:00  \_ zsh</span><br><span class="line">  7114 pts/0    S+     0:00  |   \_ ./primer3</span><br><span class="line">  7115 pts/0    Z+     0:00  |       \_ [primer3] &lt;defunct&gt;</span><br><span class="line">  7116 pts/0    Z+     0:00  |       \_ [primer3] &lt;defunct&gt;</span><br><span class="line">  7117 pts/0    Z+     0:00  |       \_ [primer3] &lt;defunct&gt;</span><br><span class="line">  7118 pts/0    Z+     0:00  |       \_ [primer3] &lt;defunct&gt;</span><br><span class="line">  7119 pts/0    Z+     0:00  |       \_ [primer3] &lt;defunct&gt;</span><br><span class="line">  7120 pts/0    Z+     0:00  |       \_ [primer3] &lt;defunct&gt;</span><br><span class="line">  7121 pts/0    Z+     0:00  |       \_ [primer3] &lt;defunct&gt;</span><br><span class="line">  7122 pts/0    Z+     0:00  |       \_ [primer3] &lt;defunct&gt;</span><br><span class="line">  7123 pts/0    Z+     0:00  |       \_ [primer3] &lt;defunct&gt;</span><br><span class="line">  7124 pts/0    Z+     0:00  |       \_ [primer3] &lt;defunct&gt;</span><br><span class="line">  .</span><br><span class="line">  .</span><br><span class="line">  .</span><br></pre></td></tr></table></figure>
+
+
+<p>当前的 primer3是 S+ ,可中断的睡眠态，从执行结果来看，子进程的状态已经变为 Z+ 了，说明子进程执行完成之后变成了“僵尸进程”。在程序中，父进程在sleep 1000之后，会exit掉。那么这些 zombie 进程会变成 孤儿进程；这些孤儿进程将全部由init来接管。</p>
+<p>在进程关系当中出现 zombie状态是一种正常的。在这里要把子进程看做是 父进程创建出来的资源。当然用完要释放资源。</p>
+<p>那么为什么子进程会变为僵尸进程呢？是因为子进程比父进程先结束了，它们必须得等待父进程为其“收尸”才能彻底释放。</p>
+<p>如果父进程先结束了，那么这些子进程的父进程会变成 1 号 init 进程，当这些子进程运行结束时会变成僵尸进程，然后 1 号 init 进程就会及时为它们收尸。</p>
+<p>很多人会认为僵尸进程不应该出现，它们会占用大量的资源。其实不然，僵尸进程不是不应该存在，而是它可以存在。但它一定要是一闪即逝的。这表示及时收尸了。</p>
+<p>zombie大量存在其实占据不了多少内存。一个zombie进程其实连那个4GB虚拟空间都不占据。 它们在内核中仅仅保留一个结构体，也就是自身的状态信息，其它的资源都释放了。但是它占用了一个重要的系统资源：PID，因为系统中 PID 的数量是有限的，所以及时释放僵尸进程还是很有必要的。</p>
+<p>我们的父进程没有对子进程进行收尸，所以才会出现这样的情况。其实对于这种转瞬即逝的程序而言不会有什么危害，但是假设父进程是一个要不断执行一个月的程序，而它却又不为子进程收尸，那么子进程就会占用这些 PID 一个月之久，那么就可能出现问题了。</p>
+<p>所以在一个完善的程序中，父进程是要为子进程收尸的.</p>
+<h3 id="2-3-父进程为何要对子进程进行收尸"><a href="#2-3-父进程为何要对子进程进行收尸" class="headerlink" title="2.3 父进程为何要对子进程进行收尸"></a>2.3 父进程为何要对子进程进行收尸</h3><blockquote>
+<p>为何不让子进程自行消亡，而是让父进程等待收尸。假如进程号1000的进程fork了一个子进程1001.（父进程空间里面，父进程fork的返回值会是子进程的进程号）还是因为进程消亡之后，如果不收尸，那么1001这个进程号有可能已经被别的进程征用了，导致当前进程里面重复调用1001进程引发其他程序的血崩。</p>
+</blockquote>
+<h3 id="2-4-fork的成本，引出vofork"><a href="#2-4-fork的成本，引出vofork" class="headerlink" title="2.4 fork的成本，引出vofork"></a>2.4 fork的成本，引出vofork</h3><p>父进程中从数据库导入30万条记录，我需要子进程帮我干另外一件事儿。 “打印一个helloworld 然后退出。” 这个消耗有点大， 首先子进程拷贝了这 30万条数据，然后子进程完全没用上。很显然fork的成本是很高的。</p>
+<p>我们画幅图来辅助解释上面说的一大坨是什么意思。</p>
+<p><img src="./jincheng_01.png" alt=""><br>图1 fork(2) 与写时拷贝</p>
+<p>结合上图，我们来聊聊 fork(2) 的前世今生。</p>
+<p>最初的 frok(2) 函数在创建子进程的时候会把父进程的数据空间、堆和栈的副本等数据统统给子进程拷贝一份，如果父进程携带的数据量特别大，那么这种情况创建子进程就会比较耗费资源。</p>
+<p>这还不是最要命的，万一费了这么大劲创建了一个子进程出来，结果子进程没有使用父进程给它的数据，而只是打印了一句 “Hello World!” 就结束退出了，岂不是白白的浪费了之前的资源开销？</p>
+<p>于是聪明的程序猿们想出了一个办法来替代：让父子进程共享同一块数据空间，这样创建子进程的时候就不必担心复制数据耗费的资源较高的问题了，这就是传说中的 vfork(2) 函数实现的效果。</p>
+<p>那么问题来了，如果子进程修改了数据会发生什么情况呢？Sorry，这个标准里没说，天知道会发生什么事情，所以 vfork(2) 通常被认为是过时了的函数，已经不推荐大家使用了。</p>
+<p>既然上面两个办法都不完美，程序猿们只好再次改良 fork(2) 函数，这次虽然效率稍微比 vfork(2) 稍稍低了那么一点点，但是安全性是可以保证的，这就是写时拷贝技术。</p>
+<p>写时复制（Copy-On-Write，COW）简单来说就是，需要改变的时候，才复制一份进行改动。就是 图1 里下面的部分，fork(2) 函数刚刚创建子进程的时候父子进程的数据指向同一块物理内存，但是内核将这些内存的访问变为只读的了，当父子进程中的任何一个想要修改数据的时候，内核会为修改区域的那块内存制作一个副本，并将自己的虚拟地址映射到物理地址的指向修改为副本的地址，从此父子进程自己玩自己的，谁也不影响谁，效率也提高了许多。新分配的副本大小通常是虚拟存储系统中的一“页”。</p>
+<p>当然，写是复制技术中所谓制作一个副本，这个是在物理地址中制作的，并非是我们在程序中拿到的那个指针所指向的地址，我们的指针所指向的地址其实是虚拟地址，所以这些动作对用户态程序员是透明的，不需要我们自己进行管理，内核会自动为我们打点好一切。</p>
+<p><strong>fork别忘了写exit</strong></p>
+<blockquote>
+<p>子进程一定要exit， 否则会额外次数 创建 进程；甚至是阶乘次数</p>
+</blockquote>
+<h3 id="2-4-vfork-2-已废弃的方法"><a href="#2-4-vfork-2-已废弃的方法" class="headerlink" title="2.4 vfork(2) 已废弃的方法"></a>2.4 vfork(2) 已废弃的方法</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vfork - create a child process and block parent</span></span><br><span class="line"> </span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">pid_t</span> <span class="title">vfork</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//    Feature Test Macro Requirements for glibc (see feature_test_macros(7)):</span></span><br><span class="line"></span><br><span class="line">       vfork():</span><br><span class="line">           Since glibc <span class="number">2.12</span>:</span><br><span class="line">               _BSD_SOURCE ||</span><br><span class="line">                   (_XOPEN_SOURCE &gt;= <span class="number">500</span> ||</span><br><span class="line">                       _XOPEN_SOURCE &amp;&amp; _XOPEN_SOURCE_EXTENDED) &amp;&amp;</span><br><span class="line">                   !(_POSIX_C_SOURCE &gt;= <span class="number">200809L</span> || _XOPEN_SOURCE &gt;= <span class="number">700</span>)</span><br><span class="line">           Before glibc <span class="number">2.12</span>:</span><br><span class="line">               _BSD_SOURCE || _XOPEN_SOURCE &gt;= <span class="number">500</span> ||</span><br><span class="line">               _XOPEN_SOURCE &amp;&amp; _XOPEN_SOURCE_EXTENDED</span><br></pre></td></tr></table></figure>
+
+
+<p> vfork(2) 函数在上面介绍写时拷贝技术的时候我们就提到了它的工作方式，并且也说了这是一个过时的函数，不推荐大家使用了，简单了解一下就可以了。</p>
+<p>使用 vfork(2) 函数创建的子进程除了与父进程共享数据外，vfork(2) 还保证子进程先运行，在子进程调用 exec(3) 函数族 或 exit(3)(_exit(2)、_Exit(2)) 函数前父进程处于休眠状态。</p>
+<p>另外，使用 vfork(2) 创建的子进程是不允许使用 return 语句返回的，只能使用 exit(3) 函数族的函数结束，否则会被信号杀死，父进程则不受这个限制。</p>
+<h2 id="3-进程的消亡及释放资源"><a href="#3-进程的消亡及释放资源" class="headerlink" title="3. 进程的消亡及释放资源"></a>3. 进程的消亡及释放资源</h2><blockquote>
+<p>主要涉及的函数是 wait 和 waitpid， 另外还有waitid，wait3，wait4</p>
+</blockquote>
+<h3 id="3-1-收尸模块"><a href="#3-1-收尸模块" class="headerlink" title="3.1 收尸模块"></a>3.1 收尸模块</h3><blockquote>
+<p>父进程创建完子进程，子进程干完活。在干活期间，父进程在等着。等子进程状态终止了，再把它收尸回来。收尸最主要的两件事，第一，你是否关心子进程的退出状态。如果关心的话，应该从它那个僵尸进程中把它的状态取过来。第二， 释放pid（这个资源相对重要）</p>
+</blockquote>
+<h3 id="3-2-wait-2-2是系统调用"><a href="#3-2-wait-2-2是系统调用" class="headerlink" title="3.2 wait(2) 2是系统调用"></a>3.2 wait(2) 2是系统调用</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// wait, waitpid, waitid - wait for process to change state</span></span><br><span class="line"> </span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">pid_t</span> <span class="title">wait</span><span class="params">(<span class="keyword">int</span> *status)</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">pid_t</span> <span class="title">waitpid</span><span class="params">(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> *status, <span class="keyword">int</span> options)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>wait(2) 阻塞的等待子进程资源的释放，相当于上面提到的“收尸”。</p>
+<p>每次调用 wait(2) 函数会为一个子进程收尸，而 wait(2) 函数并没有让我们指定是哪个特定的子进程。如果想要为特定的子进程收尸，需要调用 waitpid(2) 函数。</p>
+<p>收尸这件事只能是父进程对子进程做，而且只能对自己的子进程做。子进程是不能为父进程收尸的，父进程也不能为别人的子进程收尸。</p>
+<p>参数列表：</p>
+<p>status：由函数回填，表示子进程的退出状态。如果填 NULL，表示仅回收资源，并不关心子进程的退出状态。</p>
+<p>status 参数可以使用以下的宏进行解析：</p>
+<table>
+<thead>
+<tr>
+<th align="left">宏</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">WIFEXITED(status)</td>
+<td align="center">返回真表示子进程正常终止，返回假表示子进程异常终止。正常与异常终止的8种方式上面讲过。</td>
+</tr>
+<tr>
+<td align="left">WEXITSTATUS(status)</td>
+<td align="center">返回子进程的退出码。只有上一个宏返回正常终止时才能使用，异常终止是不会有返回值的。</td>
+</tr>
+<tr>
+<td align="left">WTERMSIG(status)</td>
+<td align="center">可以获得子进程具体被哪个信号杀死了。</td>
+</tr>
+<tr>
+<td align="left">WIFSTOPPED(status)</td>
+<td align="center">子进程是否被信号 stop 了。stop 和杀死是不同的，stop 的进程可以被恢复(resumed)。</td>
+</tr>
+<tr>
+<td align="left">WSTOPSIG(status)</td>
+<td align="center">如果子进程是被信号 stop 了，可以查看具体是被哪个信号 stop 了。</td>
+</tr>
+<tr>
+<td align="left">WIFCONTINUED(status)</td>
+<td align="center">如果子进程被 stop 了，可以查看它是否被 resumed 了。</td>
+</tr>
+<tr>
+<td align="left">表1 解析 wait(2) 函数 status 参数的宏</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>pid：一共分为四种情况：</p>
+<table>
+<thead>
+<tr>
+<th align="center">pid参数</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt; -1</td>
+<td align="center">为归属于进程组 ID 为 pid 参数的绝对值的进程组中的任何一个子进程收尸</td>
+</tr>
+<tr>
+<td align="center">== -1</td>
+<td align="center">为任意一个子进程收尸</td>
+</tr>
+<tr>
+<td align="center">== 0</td>
+<td align="center">为与父进程同一个进程组中的任意一个子进程收尸</td>
+</tr>
+<tr>
+<td align="center">&gt; 0</td>
+<td align="center">为一个 PID 等于参数 pid 的子进程收尸</td>
+</tr>
+<tr>
+<td align="center">表2 wait(2) 函数 pid 参数的取值说明</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>　　options：为特殊要求；这个参数是这个函数的设计精髓。可以通过 WNOHANG 宏要求 waitpid(2) 函数以非阻塞的形式为子进程收尸，这个也是最常用的特殊要求。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">pid_t</span> pid;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">                fflush(<span class="literal">NULL</span>);</span><br><span class="line">                pid = fork();</span><br><span class="line">                <span class="keyword">if</span> (pid &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                        perror(<span class="string">"fork()"</span>);</span><br><span class="line">                        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">0</span> == pid) &#123;</span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">"pid = %d\n"</span>, getpid());</span><br><span class="line">                        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 为所有的子进程收尸</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">                wait(<span class="literal">NULL</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>大家有没有想过为什么要由父进程为子进程收尸呢，为什么不让子进程结束后自动释放所有资源？试想如果没有收尸这步会发生什么。</p>
+<p>假设父进程需要创建一个子进程并且要让它做 3 秒钟的事情，很不巧子进程刚启动就出现了一个异常然后就挂掉了，并且直接释放了自己的资源。<br>而此时系统 PID 资源紧张，很快已死掉的子进程的 PID 被分配给了其它进程，而父进程此时并不知道手里的子进程的 PID 已经不属于它了。</p>
+<p>如果这时候父进程后悔执行子进程了，它要 kill 掉这个子进程。。。。。后果就是系统大乱对吧。</p>
+<p>而使用了收尸技术之后，子进程状态改变时会给父进程发送一个 SIGCHLD 信号，wait(2) 函数其实就是阻塞等待被这个信号打断，然后为子进程收尸。</p>
+<p>系统通过收尸这种机制来保证父进程未执行收尸动作之前，手里拿到的子进程 PID 一定是有效的了（即使子进程已死掉，但是这个 PID 依然是属于父进程的子进程的，而不会归属于别人）。</p>
+<h3 id="3-3-进程分配-——-交叉分配法"><a href="#3-3-进程分配-——-交叉分配法" class="headerlink" title="3.3 进程分配 —— 交叉分配法"></a>3.3 进程分配 —— 交叉分配法</h3><blockquote>
+<p>从30000000 至 30000200 之间有201个等待计算的数，但是我们不可能每个数都创建出一个进程。因为如果这个等待计算的数进一步扩大时，因为 系统提供的pid 规模是固定的，所以这套方案是没法通用的。</p>
+</blockquote>
+<h4 id="3-3-1-分块法"><a href="#3-3-1-分块法" class="headerlink" title="3.3.1 分块法"></a>3.3.1 分块法</h4><blockquote>
+<p>将被选数 等分为N份，这样的缺点在于可能某一块负载最重，是因为质数的分布是随着数值越大分布越少的</p>
+</blockquote>
+<h4 id="3-3-2-交叉分配"><a href="#3-3-2-交叉分配" class="headerlink" title="3.3.2 交叉分配"></a>3.3.2 交叉分配</h4><blockquote>
+<p>依然将被选数分为N份，但是不再是整个数据集切片，而是发牌一样，每个块分一张，循环下去。缺点是，面对连续数据时候，每一块可能是某个数的倍数集合。这样会导致有些块可能一个质数都没有的情况。尽管如此，交叉分配仍然是一个相对合理的选择</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">define</span> LEFT   30000000</span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">define</span>  RIGHT 30000200</span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">define</span> N 3</span></span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="keyword">int</span> i, j, mark;</span><br><span class="line">     <span class="keyword">pid_t</span> pid;</span><br><span class="line">     <span class="keyword">int</span> n;</span><br><span class="line">     <span class="keyword">for</span>(n= <span class="number">0</span>; n&lt;N; n++)</span><br><span class="line">     &#123;</span><br><span class="line">         pid = fork();</span><br><span class="line">         <span class="keyword">if</span>(pid&lt;<span class="number">0</span>)</span><br><span class="line">         &#123;</span><br><span class="line">             perror(<span class="string">"fork()"</span>);</span><br><span class="line">             <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">if</span> (pid ==<span class="number">0</span>)</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="keyword">for</span>(i = LEFT+n; i&lt;=RIGHT; i+=N)</span><br><span class="line">             &#123;</span><br><span class="line">                mark = <span class="number">1</span>;</span><br><span class="line">                 <span class="keyword">for</span>(j=<span class="number">2</span>;j&lt;i/<span class="number">2</span>;j++)</span><br><span class="line">                 &#123;</span><br><span class="line">                      <span class="keyword">if</span>(i%j==<span class="number">0</span>)</span><br><span class="line">                     &#123;</span><br><span class="line">                          mark = <span class="number">0</span>;</span><br><span class="line">                         <span class="keyword">break</span>;</span><br><span class="line">                     &#125;</span><br><span class="line">                 &#125;</span><br><span class="line">                 <span class="keyword">if</span> (mark)</span><br><span class="line">                      <span class="built_in">printf</span>(<span class="string">"[%d]%d is a primer\n"</span>,n, i);</span><br><span class="line">             &#125;</span><br><span class="line">              <span class="built_in">exit</span>(<span class="number">0</span>); <span class="comment">// 子进程正常结束</span></span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">int</span> st;</span><br><span class="line">     <span class="keyword">for</span> (n = <span class="number">0</span>; n&lt;= N; n++)</span><br><span class="line">         wait(<span class="literal">NULL</span>);</span><br><span class="line">     <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[1]30000001 is a primer</span><br><span class="line">[2]30000023 is a primer</span><br><span class="line">[1]30000037 is a primer</span><br><span class="line">[2]30000041 is a primer</span><br><span class="line">[1]30000049 is a primer</span><br><span class="line">[2]30000059 is a primer</span><br><span class="line">[1]30000079 is a primer</span><br><span class="line">[2]30000071 is a primer</span><br><span class="line">[2]30000083 is a primer</span><br><span class="line">[1]30000109 is a primer</span><br><span class="line">[1]30000133 is a primer</span><br><span class="line">[2]30000137 is a primer</span><br><span class="line">[1]30000163 is a primer</span><br><span class="line">[2]30000149 is a primer</span><br><span class="line">[1]30000169 is a primer</span><br><span class="line">[2]30000167 is a primer</span><br><span class="line">[1]30000193 is a primer</span><br><span class="line">[1]30000199 is a primer</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-池"><a href="#3-4-池" class="headerlink" title="3.4 池"></a>3.4 池</h3><blockquote>
+<p>大致是上流的 父进程，将任何发布于池中，下流的N个进程（线程）轮番抢任务执行。具体后续再写标准进程池 和标准线程池 的标准写法 </p>
+</blockquote>
+<h2 id="4-exec函数族"><a href="#4-exec函数族" class="headerlink" title="4.exec函数族"></a>4.exec函数族</h2><p>终于轮到我们今天第三个主角：exec(3) 函数上场了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// execl, execlp, execle, execv, execvp, execvpe - execute a file</span></span><br><span class="line"><span class="comment">// the exec() family of functions replaces the current process image with a new process image.</span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">extern</span> <span class="keyword">char</span> **environ;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">execl</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *path, <span class="keyword">const</span> <span class="keyword">char</span> *arg, ...)</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">execlp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file, <span class="keyword">const</span> <span class="keyword">char</span> *arg, ...)</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">execle</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *path, <span class="keyword">const</span> <span class="keyword">char</span> *arg,</span></span></span><br><span class="line"><span class="function"><span class="params">                   ..., <span class="keyword">char</span> * <span class="keyword">const</span> envp[])</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">execv</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *path, <span class="keyword">char</span> *<span class="keyword">const</span> argv[])</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">execvp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file, <span class="keyword">char</span> *<span class="keyword">const</span> argv[])</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">execvpe</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file, <span class="keyword">char</span> *<span class="keyword">const</span> argv[],</span></span></span><br><span class="line"><span class="function"><span class="params">                    <span class="keyword">char</span> *<span class="keyword">const</span> envp[])</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//    Feature Test Macro Requirements for glibc (see feature_test_macros(7)):</span></span><br><span class="line"> </span><br><span class="line">execvpe(): _GNU_SOURCE</span><br></pre></td></tr></table></figure>
+
+
+<p>我们再来看上面第一个 fork(2) 代码的栗子执行时使用 ps -axf 命令查看父子依赖关系的结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ps axf</span><br><span class="line">  3565 pts/1    Ss     0:00  \_ bash</span><br><span class="line">  3713 pts/1    S+     0:00  |   \_ ./1fork</span><br><span class="line">  3714 pts/1    S+     0:00  |       \_ ./1fork</span><br><span class="line"> $</span><br></pre></td></tr></table></figure>
+
+
+<p>我们知道 fork(2) 创建出来的子进程是通过复制父进程的形式实现的，但是我们的父进程又是 bash 的子进程，为什么 bash 没有创建出来一个与自己一模一样的子进程呢？</p>
+<p>这就是 exec(3) 函数族的功劳了。</p>
+<p>它可以使调用的它进程“外壳”不变，“内容物”改变为新的东西。“外壳”就是父子关系、PID 等东西，“内容物”其实是指一个新的可执行程序。也就是说 exec(3) 函数会将调用它的进程完全(整个4GB虚拟内存空间，即代码段、数据段、堆栈等等)变成另一个可执行程序，但父子关系、PID 等东西不会改变。</p>
+<p>在执行了 exec(3) 函数族的函数之后，整个进程的地址空间会立即被替换，所以 exec(3) 下面的代码全部都不会再执行了，替代的是新程序的代码段。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Begin!"</span>);</span><br><span class="line">    fflush(<span class="literal">NULL</span>); <span class="comment">// 缓冲区也会被新的程序所替换，所以在执行 exec(3) 之前要使用 fflush(NULL) 刷新所有的缓冲区。这样父进程才会让它缓冲区中的数据到达它们该去的地方，而不是在数据到达目的地之前缓冲区就被覆盖掉。注意在调 execl函数之前，调用 fflush刷新一下缓冲区</span></span><br><span class="line">    execl(<span class="string">"/bin/date"</span>,<span class="string">"date"</span>,<span class="string">"+%s"</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    execl 以下的函数不会再执行了，整个进程的虚拟空间换成（replace）另一个可执行程序</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    perror(<span class="string">"execl()"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"End!"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Begin!</span></span><br><span class="line"><span class="comment">// 1594308168</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>参数列表：</p>
+<p>　　path：要执行的二进制程序路径</p>
+<p>　　arg：传递给 path 程序的 argv 参数，第一个是 argv[0]，其它参数从第二个开始。</p>
+<p>　　…：argv 的后续参数，最后一个参数是 NULL，表示变长参数列表的结束。</p>
+<p>看上去 execl(3)、execlp(3) 像是变参函数，execle(3) 像是定参函数，其实正好是反过来的，execl(3) 和 execlp(3) 是定参的，而 execle(3) 函数是变参的。</p>
+<p>下面我们来看一个 fork(2) + exec(3) + wait(2) 最经典的用法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 创建子进程 date，参数是 +%s</span></span><br><span class="line"><span class="comment">   * 相当于在 shell 中执行 date +%s 命令</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="keyword">pid_t</span> pid;</span><br><span class="line"> </span><br><span class="line">     <span class="built_in">puts</span>(<span class="string">"Begin!"</span>);</span><br><span class="line"> </span><br><span class="line">     fflush(<span class="literal">NULL</span>);</span><br><span class="line"> </span><br><span class="line">     pid = fork();</span><br><span class="line">     <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)</span><br><span class="line">     &#123;</span><br><span class="line">         perror(<span class="string">"fork()"</span>);</span><br><span class="line">         <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     <span class="keyword">if</span>(pid == <span class="number">0</span>)    <span class="comment">// child</span></span><br><span class="line">     &#123;</span><br><span class="line">         execl(<span class="string">"/bin/date"</span>,<span class="string">"date"</span>,<span class="string">"+%s"</span>,<span class="literal">NULL</span>);</span><br><span class="line">         perror(<span class="string">"execl()"</span>);</span><br><span class="line">         <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     wait(<span class="literal">NULL</span>);</span><br><span class="line"> </span><br><span class="line">     <span class="built_in">puts</span>(<span class="string">"End!"</span>);</span><br><span class="line"> </span><br><span class="line">     <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Begin!</span></span><br><span class="line"><span class="comment">// 1594309338</span></span><br><span class="line"><span class="comment">// End!</span></span><br></pre></td></tr></table></figure>
+
+
+<p>总结：</p>
+<blockquote>
+<p>fork(2)、exec(3)、wait(2) 函数可以让我们创建任何进程来执行任何命令了，如此看来，整个 *nix 世界都是由 fork(2)、exec(3)、wait(2) 这三个函数搭建起来的，现在大家可以尝试用这三个函数来执行一些命令了。</p>
+</blockquote>
+<h3 id="4-1-shell的工作模式"><a href="#4-1-shell的工作模式" class="headerlink" title="4.1 shell的工作模式"></a>4.1 shell的工作模式</h3><blockquote>
+<p>以ls命令具体流程为例</p>
+</blockquote>
+<p>在当前shell下执行 <code>ls</code>这种二进制命令时，它是通过fork产生一个子进程。产生的这个子进程是shell本身。然后去 <code>execl</code> 让子进程摇身一变成 <code>ls</code>。然后在子进程运行的时候，父进程调用<code>wait(NULL)</code>等着给子进程收尸。然后父进程继续做别的任务。</p>
+<p>所以这也解释为什么当执行 <code>ls</code>的时候，是 <code>ls</code>的结果列表先展示出来，然后才是 命令行 <code>$</code>展示出来。</p>
+<p>由于你当前shell一定写的是个死循环。所以shell继续打印出来命令行等待你给终端的输入情况。这就是shell的工作模式；</p>
+<h3 id="4-2-为什么父子进程的输出能打印到同一个终端上"><a href="#4-2-为什么父子进程的输出能打印到同一个终端上" class="headerlink" title="4.2 为什么父子进程的输出能打印到同一个终端上"></a>4.2 为什么父子进程的输出能打印到同一个终端上</h3><p><strong>实现一个sleep100的功能</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Begin!"</span>);</span><br><span class="line"></span><br><span class="line">    fflush(<span class="literal">NULL</span>);</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span>(pid&lt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fork()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(pid== <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        execl(<span class="string">"/usr/bin/sleep"</span>,<span class="string">"sleep"</span>,<span class="string">"100"</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="comment">//     execl("/usr/bin/sleep","httpd","100", NULL); //  ps axf 查看进程列表的时候， 会显示重命名的 httpd。 所以 argv[0] 的基本操作；</span></span><br><span class="line"></span><br><span class="line">        perror(<span class="string">"execl()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    wait(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"End!"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3115 pts/0    Ss     0:01  \_ zsh</span><br><span class="line">30803 pts/0    S+     0:00  |   \_ ./sleep</span><br><span class="line">30804 pts/0    S+     0:00  |       \_ sleep 100</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-shell命令行的实现"><a href="#4-3-shell命令行的实现" class="headerlink" title="4.3 shell命令行的实现"></a>4.3 shell命令行的实现</h3><blockquote>
+<p> shell 的内部命令与外部命令,一个命令的二进制可执行文件，如果是存在磁盘上的。那么这个命令就叫做外部命令。其他的就叫内部命令。比如目录的管理，比如一个进程消亡，它的子进程如何去做。包括调度等等。全部都属于shell的内部命令处理。</p>
+</blockquote>
+<p>像 cd(1)、exit(2)、|、&gt; 牵涉到环境变量改变等动作这样的命令叫做内部命令，而使用 which(1) 命令能查询到的在磁盘上存在的命令就是外部命令。</p>
+<p>学会了 fork(2)、exec(3)、wait(2) 函数的使用，大家已经可以尝试编写一个 shell 程序了，基本可以执行所有的外部命令了。</p>
+<p>但是一个 shell 不仅仅支持外部命令，还支持很多内部命令，对内部命令的支持才是 shell 的难点。</p>
+<p>关于内部命令的内容多数都在《APUE》第三版 的第九章中，感兴趣的童鞋可以自行查阅。</p>
+<p><strong>外部命令实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// myshell.c</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;glob.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DELIMS <span class="meta-string">" \t\n"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmd_st</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">glob_t</span> globres;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">prompt</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"mysh-0.1$"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">parse</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * <span class="built_in">line</span>, struct cmd_st *res)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *tok;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        tok = strsep(&amp;<span class="built_in">line</span>, DELIMS);</span><br><span class="line">        <span class="keyword">if</span>(tok == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(tok[<span class="number">0</span>] == <span class="string">'\0'</span>)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        glob(tok, GLOB_NOCHECK|GLOB_APPEND*i, <span class="literal">NULL</span>, &amp;res-&gt;globres);</span><br><span class="line">        i=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *linebuf = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">size_t</span> linebuf_size = <span class="number">0</span>;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">cmd_st</span> <span class="title">cmd</span>;</span></span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        prompt();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(getline(&amp;linebuf, &amp;linebuf_size, <span class="built_in">stdin</span>)&lt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        parse(linebuf, &amp;cmd);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            pid = fork();</span><br><span class="line">            <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                perror(<span class="string">"fork()"</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(pid == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                execvp(cmd.globres.gl_pathv[<span class="number">0</span>], cmd.globres.gl_pathv);</span><br><span class="line">                perror(<span class="string">"execvp()"</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                wait(<span class="literal">NULL</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-用户权限及组权限-u-s-g-s"><a href="#5-用户权限及组权限-u-s-g-s" class="headerlink" title="5. 用户权限及组权限(u+s, g+s)"></a>5. 用户权限及组权限(u+s, g+s)</h2><blockquote>
+<p>用户权限和组权限是分作好几组来存放的，</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shadow</span><br><span class="line"><span class="comment"># 权限不够，  普通用户是没有权限去读写 shadow权限的；</span></span><br><span class="line">passwd</span><br><span class="line"><span class="comment"># 更改一个用户的口令， 超级用户改谁的口令都是可以的。普通用户能改自己的口令（普通用户在最早之前是不能改自己用户的口令）后来想了一系列办法把root权限开始一点点下放，当然shadow文件普通用户绝对没有权限去改变的。而更改口令是必须用改shadow文件的。 但是普通用户可以调用passwd 来更改自己的口令；</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>普通用户没有查看 /etc/shadow 文件，但是为什么有权限修改自己的密码呢</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ <span class="built_in">which</span> passwd</span><br><span class="line">/usr/bin/passwd</span><br><span class="line">&gt;$ ls -l /usr/bin/passwd </span><br><span class="line">-rwsr-xr-x 1 root root 47032  2月 17  2014 /usr/bin/passwd</span><br><span class="line">$ ls -l /etc/shadow</span><br><span class="line">---------- 1 root root 1899 Apr 1 16:25 /etc/shadow</span><br></pre></td></tr></table></figure>
+
+<p><strong>passwd这个命令是如何实现的</strong></p>
+<p>u+s</p>
+<blockquote>
+<p>如果一个可执行的文件有 U+S 权限，那就意味着当别的用户在调用当前这个可执行文件的时候，它的身份会切换成当前这个二进制文件的 user的身份来执行。</p>
+</blockquote>
+<p>g+s</p>
+<blockquote>
+<p>不管任何用户来调用这个二进制可执行文件的时候，当前这个用户的身份就会切换成这个二进制文件的同组用户的身份来进行执行。</p>
+</blockquote>
+<p><strong>更改用户 ID 和更改组 ID</strong> </p>
+<p>在bash上执行一个命令是带着身份进行的，身份从何而来呢</p>
+<p>在 *nux 系统中，特权和访问控制是基于用户 ID 和用户组 ID 的，所以当我们需要使用特权或访问无权访问的文件时需要切换 用户 ID 或 用户组 ID。</p>
+<p>uid（userid）</p>
+<p>　　r(real) 用于保存用户权限</p>
+<p>　　e(effective) 鉴定用户权限时使用</p>
+<p>　　s 与 real 相同，所以有些系统不支持</p>
+<p>gid (groupid)</p>
+<p>　　r(real) 用于保存用户组权限</p>
+<p>　　e(effective) 鉴定用户组权限时使用</p>
+<p>　　s 与 real 相同，所以有些系统不支持</p>
+<ul>
+<li>U+S</li>
+</ul>
+<p>这是因为 passwd(1) 命令是具有 U+S 权限的，用户在使用这个程序的时候身份会切换为这个程序文件所有者的身份。</p>
+<ul>
+<li>G+S</li>
+</ul>
+<p>G+S 与 U+S 类似，只不过执行的瞬间身份会切换为与程序归属用户组相同的组权限。</p>
+<p>改变用户 ID 和组 ID 可以使用 setuid(2) 和 setgid(2) 函数实现。</p>
+<h3 id="5-1-相关函数"><a href="#5-1-相关函数" class="headerlink" title="5.1 相关函数"></a>5.1 相关函数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">uid_t</span> <span class="title">getuid</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">uid_t</span> <span class="title">geteuid</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">gid_t</span> <span class="title">getgid</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">gid_t</span> <span class="title">getegid</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setuid</span><span class="params">(<span class="keyword">uid_t</span> uid)</span></span>; <span class="comment">// sets the effective user ID</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setgid</span><span class="params">(<span class="keyword">gid_t</span> gid)</span></span>; <span class="comment">// sets the effective group ID</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">seteuid</span><span class="params">(<span class="keyword">uid_t</span> euid)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setegid</span><span class="params">(<span class="keyword">gid_t</span> egid)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setreuid</span><span class="params">(<span class="keyword">uid_t</span> ruid, <span class="keyword">uid_t</span> euid)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setregid</span><span class="params">(<span class="keyword">gid_t</span> rgid, <span class="keyword">gid_t</span> egid)</span></span>;</span><br><span class="line">setregid();</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-实现sudo-john-cat-home-john"><a href="#5-2-实现sudo-john-cat-home-john" class="headerlink" title="5.2 实现sudo john cat /home/john"></a>5.2 实现sudo john cat /home/john</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shadow</span><br><span class="line"><span class="comment"># 权限不够</span></span><br><span class="line"></span><br><span class="line">sudo john cat /home/john</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">if</span>(argc&lt;<span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Usage...\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    pid = fork();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(pid &lt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fork()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(pid == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        setuid(atoi(argv[<span class="number">1</span>]));</span><br><span class="line">        execvp(argv[<span class="number">2</span>], argv+<span class="number">2</span>);</span><br><span class="line">        perror(<span class="string">"execvp"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    wait(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br><span class="line"></span><br><span class="line">chown root mysu</span><br><span class="line">chmod u+s mysu</span><br><span class="line"></span><br><span class="line">./mysu 0 cat /etc/shadow</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-观摩课：解释器文件"><a href="#6-观摩课：解释器文件" class="headerlink" title="6. 观摩课：解释器文件"></a>6. 观摩课：解释器文件</h2><h3 id="6-1-解释器文件"><a href="#6-1-解释器文件" class="headerlink" title="6.1 解释器文件"></a>6.1 解释器文件</h3><p>解释器文件其实就是脚本。</p>
+<p>做一个系统级开发工程师需要具备的素质至少精通2门语言，一门面向过程，一门面向对象，还要精通至少一门脚本语言，如 shell、python等，还要具备扎实的网络知识和一点硬件知识。</p>
+<p>解释器是一个二进制的可执行文件。就是为了用一个可执行的二进制文件解释执行解释器文件中的命令。</p>
+<h3 id="6-2-脚本文件的标记"><a href="#6-2-脚本文件的标记" class="headerlink" title="6.2  脚本文件的标记"></a>6.2  脚本文件的标记</h3><p>#! 用于装载解释器</p>
+<p>例如：</p>
+<p>#!/bin/shell 装载了 /bin/shell 作为解释器</p>
+<p>#!/bin/cat 装载了 /bin/cat 作为解释器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash   用什么解释器 执行 脚本体</span></span><br><span class="line"></span><br><span class="line">ls</span><br><span class="line">whoami</span><br><span class="line">cat /etc/shadow  # 报错的命令不会阻塞下面命令的执行</span><br><span class="line">ps</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x t.exec <span class="comment"># 将t.exec变成可执行文件</span></span><br><span class="line"></span><br><span class="line">./t.exec</span><br><span class="line"></span><br><span class="line">ex.c   fork1.c</span><br><span class="line">hy</span><br><span class="line">cat: /etc/shadow: 权限不够</span><br><span class="line"></span><br><span class="line">   PID TTY          TIME CMD</span><br><span class="line">  4734 pts/1    00:00:00 zsh</span><br><span class="line"> 27153 pts/1    00:00:00 t.exec</span><br><span class="line"> 27157 pts/1    00:00:00 ps</span><br></pre></td></tr></table></figure>
+
+<p>那么装载解释器之后为什么不会递归执行装载解释器这行代码呢？因为根据约定，脚本中的 # 表示注释，所以解释器在解析这个脚本的时候不会看到这行装载解释器的命令。</p>
+<p>装载解释器的步骤由内核 exec(3) 系统调用来完成，如果使用 exec(3) 函数来调用解释器文件，实际上 exec(3) 函数并没有执行解释器文件，而是执行了解释器文件中装载的解释器，由它来执行解释器文件中的指令。</p>
+<h2 id="7-system-fork-exec-wait的封装"><a href="#7-system-fork-exec-wait的封装" class="headerlink" title="7. system(); (fork,exec,wait的封装)"></a>7. system(); (fork,exec,wait的封装)</h2><h3 id="7-1-system-3"><a href="#7-1-system-3" class="headerlink" title="7.1 system(3)"></a>7.1 system(3)</h3><blockquote>
+<p>理解： fork,exec,wait封装</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// system - execute a shell command</span></span><br><span class="line"> </span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">system</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *command)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    system(<span class="string">"date + %s &gt; /tmp/out"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 该函数可以执行一条系统命令，是通过调用 /bin/sh -c command 实现的。</p>
+<p>其实我们可以猜测一下 system(3) 命令是如何实现的，下面是伪代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">pid_t</span> pid;</span><br><span class="line"> </span><br><span class="line"> pid = fork();</span><br><span class="line"> <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)</span><br><span class="line"> &#123;</span><br><span class="line">     perror(<span class="string">"fork()"</span>);</span><br><span class="line">     <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(pid == <span class="number">0</span>)    <span class="comment">// child</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// system("date +%s");</span></span><br><span class="line">   execl(<span class="string">"/bin/sh"</span>,<span class="string">"sh"</span>,<span class="string">"-c"</span>,<span class="string">"date +%s"</span>,<span class="literal">NULL</span>);</span><br><span class="line">   perror(<span class="string">"execl()"</span>);</span><br><span class="line">   <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">wait(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span>(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="8-进程会计"><a href="#8-进程会计" class="headerlink" title="8. 进程会计"></a>8. 进程会计</h2><p>连 POSIX 标准都不支持，是方言中的方言。</p>
+<p>它是典型的事实标准，各个系统的实现都不统一，所以建议少用为妙。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// acct - switch process accounting on or off</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">acct</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>作用是将进程的相关信息写入到 filename 所指定的文件中。</p>
+<h2 id="9-进程时间"><a href="#9-进程时间" class="headerlink" title="9. 进程时间"></a>9. 进程时间</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/times.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">clock_t</span> <span class="title">times</span><span class="params">(struct tms *buf)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">tms</span> &#123;</span></span><br><span class="line">    <span class="keyword">clock_t</span> tms_utime;  <span class="comment">/* user time */</span></span><br><span class="line">    <span class="keyword">clock_t</span> tms_stime;  <span class="comment">/* system time */</span></span><br><span class="line">    <span class="keyword">clock_t</span> tms_cutime; <span class="comment">/* user time of children */</span></span><br><span class="line">    <span class="keyword">clock_t</span> tms_cstime; <span class="comment">/* system time of children */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>用户标识</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// getlogin, getlogin_r, cuserid - get username</span></span><br><span class="line"> </span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">char</span> *<span class="title">getlogin</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">getlogin_r</span><span class="params">(<span class="keyword">char</span> *buf, <span class="keyword">size_t</span> bufsize)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>能够不受任何因素影响的获取当前终端的用户名。</p>
+<p>不受任何因素影响是指，比如我们用 su(1) 等命令切换了用户，getlogin(3) 函数获得到的仍然是原始的用户名。</p>
+<p>进程调度</p>
+<p>用于控制进程调度优先级，一般不会调整进程的优先级。</p>
+<p>进程调度</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// times - get process and waited-for child process times</span></span><br><span class="line"> </span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/times.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">clock_t</span> <span class="title">times</span><span class="params">(struct tms *<span class="built_in">buffer</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>该函数获得的是进程的执行时间。</p>
+<p>clock_t 是滴答数。位于秒级以下，具体的与秒的换算值需要通过 sysconf(_SC_CLK_TCK) 宏获得</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2020/12/16/apue-4/>http://yoursite.com/2020/12/16/apue-4/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-28T18:47:52+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 28, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/doc/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>doc</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/12/16/apue-4/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/12/16/apue-4/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/12/16/apue-4/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/12/16/apue-8/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>gitlab 使用</p>
+                <p class='content'>线程控制
+之前我们在创建线程的时候都是使用的默认属性，本章主要讨论的是自定义线程的属性。使用默认属性基本上能解决掉遇到的大部分问题，所以自定义属性在实际项目中用得比较少。
+
+1.1 线程属性《A...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/12/16/apue-5/'>
+                <p class='title'>gitlab 使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>进程关系与守护进程1.1 终端真正意义上的终端是“笨设备”，只能接收命令的输入并返回结果。你问它 1+1=? 它也不知道，它只能把你的问题传给计算机，再把计算机返回的结果显示给你。
+它出现在计算...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'gitlab 使用',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-进程标识符-pid"><span class="toc-text">1. 进程标识符 pid</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-ps-（当前进程的情况）"><span class="toc-text">1.1 ps （当前进程的情况）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-进程号是顺次向下使用"><span class="toc-text">1.2 进程号是顺次向下使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-getpid-获取当前进程号-getppid-获取当前进程父进程号"><span class="toc-text">1.3 getpid() 获取当前进程号  getppid() 获取当前进程父进程号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进程的产生-fork-vfork"><span class="toc-text">2. 进程的产生 fork vfork</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-fork"><span class="toc-text">2.1 fork</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-fork函数返回值"><span class="toc-text">2.1.1 fork函数返回值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-init进程"><span class="toc-text">2.1.2  init进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-fork后父子进程的区别"><span class="toc-text">2.1.3  fork后父子进程的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-继续理解父子进程的关系"><span class="toc-text">2.2 继续理解父子进程的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-父进程为何要对子进程进行收尸"><span class="toc-text">2.3 父进程为何要对子进程进行收尸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-fork的成本，引出vofork"><span class="toc-text">2.4 fork的成本，引出vofork</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-vfork-2-已废弃的方法"><span class="toc-text">2.4 vfork(2) 已废弃的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-进程的消亡及释放资源"><span class="toc-text">3. 进程的消亡及释放资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-收尸模块"><span class="toc-text">3.1 收尸模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-wait-2-2是系统调用"><span class="toc-text">3.2 wait(2) 2是系统调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-进程分配-——-交叉分配法"><span class="toc-text">3.3 进程分配 —— 交叉分配法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-分块法"><span class="toc-text">3.3.1 分块法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-交叉分配"><span class="toc-text">3.3.2 交叉分配</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-池"><span class="toc-text">3.4 池</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-exec函数族"><span class="toc-text">4.exec函数族</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-shell的工作模式"><span class="toc-text">4.1 shell的工作模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-为什么父子进程的输出能打印到同一个终端上"><span class="toc-text">4.2 为什么父子进程的输出能打印到同一个终端上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-shell命令行的实现"><span class="toc-text">4.3 shell命令行的实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-用户权限及组权限-u-s-g-s"><span class="toc-text">5. 用户权限及组权限(u+s, g+s)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-相关函数"><span class="toc-text">5.1 相关函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-实现sudo-john-cat-home-john"><span class="toc-text">5.2 实现sudo john cat &#x2F;home&#x2F;john</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-观摩课：解释器文件"><span class="toc-text">6. 观摩课：解释器文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-解释器文件"><span class="toc-text">6.1 解释器文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-脚本文件的标记"><span class="toc-text">6.2  脚本文件的标记</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-system-fork-exec-wait的封装"><span class="toc-text">7. system(); (fork,exec,wait的封装)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-system-3"><span class="toc-text">7.1 system(3)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-进程会计"><span class="toc-text">8. 进程会计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-进程时间"><span class="toc-text">9. 进程时间</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">belief</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

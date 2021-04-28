@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#1.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>gitlab 使用 - Hexo</title>
+  
+    <meta name="keywords" content="doc">
+  
+  
+    <meta name="description" content="进程关系与守护进程">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            BELIEF <b><sup style='color:#3AA757'>1.0.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/12/16/apue-5/">
+      gitlab 使用
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/apue/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>apue</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 16, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="进程关系与守护进程"><a href="#进程关系与守护进程" class="headerlink" title="进程关系与守护进程"></a>进程关系与守护进程</h1><h2 id="1-1-终端"><a href="#1-1-终端" class="headerlink" title="1.1 终端"></a>1.1 终端</h2><p>真正意义上的终端是“笨设备”，只能接收命令的输入并返回结果。你问它 1+1=? 它也不知道，它只能把你的问题传给计算机，再把计算机返回的结果显示给你。</p>
+<p>它出现在计算机既昂贵又庞大的年代。那时候的计算机昂贵到了只有一部分公司买得起、另一部分公司买不起，而且有些公司只能买一台，买第二台就要破产了的程度。</p>
+<p>所以这么昂贵的设备如果只能给一个人使用太浪费了，于是为了让计算机可以被多人使用，就出现了终端这种设备。</p>
+<p>接下来我们简单的聊聊 Linux 是如何使用户登录的。</p>
+<p><img src="./sh_thread_01.png" alt=""><br>图1 Linux 用户登录过程</p>
+<p>如图1 所示，内核自举时创建 1 号 init 进程，init 对每一个终端执行 fork(2) + exec(3) + getty(1) 命令，getty(1) 命令的作用是要求用户输入用户名。</p>
+<p>等待用户输入完成用户名后，getty(1) 会 exec(3) + login(1)。</p>
+<p>login(1) 命令首先根据用户名通过 getpwnam(3) 函数得到用户的口令文件登录项，然后调用 getpass(3) 函数以屏蔽回显的形式获得用户的密码，最后再通过 crypt(3) 函数将加密后的用户口令与阴影口令文件用户登录项中的 pw_passwd 字段相比较，认证失败几次之后就会回到上图的第一步，init 进程将重新执行 fork(2) + exec(3) + getty(1)。</p>
+<p>如果认证成功则启动用户登录 shell，并使用 chown(2) 更改当前登录终端的所有权，使登录用户成为它的所有者。登录之前的步骤都是 root 身份，所以真正用户权限被降下来就是在这个时候发生的。</p>
+<p>当然 login 要做的事情不仅仅只有这点儿，它还要做许多其它需要为用户初始化的事情。</p>
+<p>说句题外话，大家注意到了没有，如果获取用户名或密码的时候函数的编写者敢使用类似 scanf(3) 这样的函数读取用户输入，则很容易遭受缓冲区溢出攻击。</p>
+<h2 id="1-2-会话-Session"><a href="#1-2-会话-Session" class="headerlink" title="1.2 会话(Session)"></a>1.2 会话(Session)</h2><p>一次成功的终端登录就是一个会话。现在一次 shell 的成功登录，相当于那时候终端的成功登录。会话相当于是进程组的容器，它能承载一个或多个进程组。</p>
+<h2 id="1-3-进程组"><a href="#1-3-进程组" class="headerlink" title="1.3 进程组"></a>1.3 进程组</h2><blockquote>
+<p>进程组用来承载进程，一个进程组中有一个或多个进程，它是一个或多个进程的集合（也可以看作是容器）。一个进程不但拥有唯一的 PID，同时也属于一个进程组。一个进程最少有一个线程在运行，</p>
+</blockquote>
+<p>如何产生一个进程组呢？很简单：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用管道可以用一条命令产生一个进程组(多个进程)。</span></span><br><span class="line">ls | more <span class="comment"># 把第一个进程的标准输出作为第二个进程的标准输入</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="进程组分为前台进程组和后台进程组"><a href="#进程组分为前台进程组和后台进程组" class="headerlink" title="进程组分为前台进程组和后台进程组"></a>进程组分为前台进程组和后台进程组</h3><p><em>一个会话中只能有一个前台进程组，也可以没有前台进程组。</em></p>
+<p>终端设备(如键盘)只能与前台进程通讯，不能与后台进程通讯，根据约定，如果终端设备与一个后台进程关联，就会杀掉这个后台进程。</p>
+<p>什么是前台进程组呢？比如你正在使用 tar 命令进行打包的时候是无法再输入其它命令的。如果 tar 命令执行的时间很长，我们就会在命令后面添加一个 &amp; 参数，把它放到后台去运行。</p>
+<p>ps(1) 命令的 SID(Session ID)列 就是程序运行的会话 ID。</p>
+<p>进程是先出现的，后来人们发现进程可以拆分为多个小任务分别执行，于是便出现了线程的概念，这个到后面线程的章节会详细讨论。</p>
+<p>如今进程已经退化为容器了，它的存在就是为了承载线程。PID 看似是进程号，实际上是线程在消耗它。<br>处理器在处理当前的调度的时候，其实是以线程为单位来进行调度的。所以多线程的并发要比多进程并发更加规范。因为多进程的并发是先成为事实标准，后来有标准化的。多线程不同，它是现有标准化，再有标准实现的。</p>
+<p>进程和线程只是我们的说法，内核中只能看到线程，内核所谓的进程管理其实就是线程管理，内核永远以线程为单位执行任务。</p>
+<p>总结来说：</p>
+<p><em>会话用来承载进程组，进程组用来承载进程，进程用来承载线程。</em></p>
+<p>第九章了解这几个概念就差不多了，还记得我们前面提到的 myshell 吗，用 fork(2) + exec(3) + wait(2) 来实现一个可以执行外部命令的 shell。如果你想实现一个支持内部命令的 shell 那么可以仔细学习一下第九章的内容，shell 内部命令处理的主要知识点都在第九章。</p>
+<ul>
+<li>setsid(2)</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//setsid - create session and set process group ID</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">setsid</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>getpgrp();</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">getpgrp</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">// 返回当前进程所在进程组的id</span></span><br><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">getpgrp</span><span class="params">(<span class="keyword">pid_t</span> pid)</span></span>;<span class="comment">// 查看一个指定进程所在进程组的id</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">getpgid</span><span class="params">(<span class="keyword">pid_t</span> pid)</span></span>; <span class="comment">// 系统调用  // 获取某一个进程的 groupId</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setpgid</span><span class="params">(<span class="keyword">pid_t</span> pid, <span class="keyword">pid_t</span> pgid)</span></span>;<span class="comment">// 把指定进程放到 指定的进程组中</span></span><br></pre></td></tr></table></figure>
+
+<p>创建一个会话并设置进程组的ID。这个函数是我们在第 9 章最有价值的函数，没有这个函数，我们后面就无法创建守护进程。</p>
+<p>调用者不能是进程组组长，调用者在调用之后自动变为新进程组组长，并且脱离控制终端，进程 ID 将被设为进程组 ID 和会话 ID，所以守护进程通常 PID、PGID、SID 是相同的。通常的用法是父进程 fork(2) 一个子进程，然后子进程调用 setsid(2) 将自己变成守护进程，父进程退出即可。</p>
+<h2 id="1-4-守护进程"><a href="#1-4-守护进程" class="headerlink" title="1.4 守护进程"></a>1.4 守护进程</h2><blockquote>
+<p>常常在系统自举时启动，仅在系统关闭时才终止。因为它们没有控制终端，所以是在后台运行的。</p>
+</blockquote>
+<p>守护进程的特点：</p>
+<p>1）脱离控制终端，ps(1) axj tty 为问号(?)。</p>
+<p>2）是进程组的 leader，也就是 PID 和 PGID 相同。</p>
+<p>3）通常没有父进程，由 1 号  init 接管。</p>
+<p>4）创建了一个新会话，是 session 的 leader，所以 PID 与 SID 相同。</p>
+<p>使用 ps(1) axj 命令查看，PID、PGID、SID 相同的进程就是守护进程。</p>
+<p>守护进程也可以使用标准输出，但是不符合常理了，因为守护进程没有控制终端，所以守护进程一般会关闭或重定向标准输入输出流。</p>
+<p> 写守护进程的时候我们会切换工作路径，把它切换到一个一定会存在的路径，比如 /。因为假设你的守护进程是在一个可卸载设备(如U盘)上被启动的，如果不修改工作路径，该设备无法被卸载。</p>
+<p>调用 umask(2) 是为了将文件模式创建掩码设置为一个已知值，因为通过继承得来的掩码可能会被设置为拒绝某些权限，如果守护进程中需要这些权限则要设置它。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ ps axj</span><br><span class="line"><span class="comment"># 守护进程的特点</span></span><br><span class="line"><span class="comment"># ppid 是1</span></span><br><span class="line"><span class="comment"># pid pgid sid 相同</span></span><br><span class="line"><span class="comment"># tty ？ 脱离控制终端</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PPID PID     PGID   SID    TTY   TPGID  STAT   UID   TIME   COMMAND</span><br><span class="line">1    2109    2109   2109    ?    -1     Ss     0     0:00   /usr/sbin/sshd</span><br></pre></td></tr></table></figure>
+
+
+<p>对于书上的栗子，有两点要吐槽：</p>
+<p>1）SIGHUP 信号用于通知服务进程软重启，比如修改了某服务的配置文件之后可以通过给服务进程发 SIGHUP 信号使它重新读取配置文件，所以如果没有特殊要求不必忽略该信号。</p>
+<p>2）如果没有特殊要求，不必关闭所有的文件描述符，仅关闭标准输入、标准输出和标注错误即可。</p>
+<h3 id="1-4-1-实现一个守护进程（信号章节结束后补充完整）"><a href="#1-4-1-实现一个守护进程（信号章节结束后补充完整）" class="headerlink" title="1.4.1 实现一个守护进程（信号章节结束后补充完整）"></a>1.4.1 实现一个守护进程（信号章节结束后补充完整）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FNAME <span class="meta-string">"/tmp/out"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">daemonize</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    pid =  fork();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> fd;</span><br><span class="line">    <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fork()"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(pid &gt; <span class="number">0</span>)  <span class="comment">// parent</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fd = <span class="built_in">open</span>(<span class="string">"/dev/null"</span>, O_RDWR);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(fd &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"open()"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dup2(fd, <span class="number">0</span>);</span><br><span class="line">    dup2(fd, <span class="number">1</span>);</span><br><span class="line">    dup2(fd, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span>(fd&gt;<span class="number">2</span>)</span><br><span class="line">        <span class="built_in">close</span>(fd);</span><br><span class="line">    setsid();</span><br><span class="line">    chdir(<span class="string">"/"</span>);</span><br><span class="line"><span class="comment">//  umask(0)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">if</span>( daemonize())</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    fp = fopen(FNAME, <span class="string">"w"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(fp == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fopen"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; ;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(fp, <span class="string">"%d\n"</span>, i); <span class="comment">// 守护进程没办法使用标准输入输出了，应该放到系统日志里面了</span></span><br><span class="line">        fflush(fp);</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tail -f /tmp/out <span class="comment"># 动态查看该文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 529</span></span><br><span class="line"><span class="comment"># 530</span></span><br><span class="line"><span class="comment"># 531</span></span><br><span class="line"><span class="comment"># 532</span></span><br><span class="line"><span class="comment"># 533</span></span><br><span class="line"><span class="comment"># 534</span></span><br><span class="line"><span class="comment"># 535</span></span><br><span class="line"><span class="comment"># 536</span></span><br><span class="line"><span class="comment"># 537</span></span><br><span class="line"><span class="comment"># 。</span></span><br><span class="line"><span class="comment"># 。</span></span><br><span class="line"><span class="comment"># 。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-2-如何杀死一个守护进程"><a href="#1-4-2-如何杀死一个守护进程" class="headerlink" title="1.4.2 如何杀死一个守护进程"></a>1.4.2 如何杀死一个守护进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> pid</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-5-系统日志"><a href="#1-5-系统日志" class="headerlink" title="1.5 系统日志"></a>1.5 系统日志</h2><blockquote>
+<p>每个程序都有必要写系统日志，但是写系统日志的权限没办法交给所有人。</p>
+</blockquote>
+<p>守护进程不应使用标准输出，那么当守护进程需要记录一些事件或者是错误的时候怎么办呢？那就要采用系统日志了。</p>
+<p>系统日志一般保存在 <code>/var/log/</code> 目录下，但是这个目录下的日志文件权限几乎都是只有 root 才能读写，那么普通用户的日志如何写入呢？这就需要借助系统日志函数来写日志了。</p>
+<h3 id="1-5-1-syslogd"><a href="#1-5-1-syslogd" class="headerlink" title="1.5.1 syslogd"></a>1.5.1 syslogd</h3><p>root 用户授权给 <code>syslogd</code> 服务专门写日志，然后其它程序都需要通过封装好的一系列函数调用 syslogd 服务来记录日志。这样就提高了日志的安全性了，可以防止日志文件被非法篡改。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps axj | grep <span class="string">"syslogd"</span></span><br><span class="line"></span><br><span class="line">1   1203   1203   1203 ?     -1 Ssl      0   0:11 /usr/sbin/rsyslogd -n</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// closelog, openlog, syslog - send messages to the system logger</span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;syslog.h&gt;</span></span></span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">openlog</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *ident, <span class="keyword">int</span> option, <span class="keyword">int</span> facility)</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">syslog</span><span class="params">(<span class="keyword">int</span> priority, <span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">closelog</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>openlog(3) 函数并非是打开日志文件，而是与 syslogd 服务建立链接，表示当前进程要写日志。</p>
+<p>参数列表：</p>
+<p>　　ident：表明自己的身份，由程序员自行指定，写什么都行。</p>
+<p>　　option：要在日志中附加什么内容，多个选项用按位或链接。LOG_PID 是附加 PID，这个是最常用的。</p>
+<p>　　facility：消息来源。一般只能指定一个。</p>
+<table>
+<thead>
+<tr>
+<th align="left">消息来源</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">LOG_CRON</td>
+<td align="center">消息来自定时任务</td>
+</tr>
+<tr>
+<td align="left">LOG_DAEMON</td>
+<td align="center">消息来自守护进程</td>
+</tr>
+<tr>
+<td align="left">LOG_FTP</td>
+<td align="center">消息来自 FTP 服务</td>
+</tr>
+<tr>
+<td align="left">LOG_KERN</td>
+<td align="center">消息来自内核</td>
+</tr>
+<tr>
+<td align="left">LOG_USER</td>
+<td align="center">默认，常规用户级别消息</td>
+</tr>
+<tr>
+<td align="left">表1 facility 参数的常见需选项</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>syslog(3) 函数用于提交日志内容，参数列表：</p>
+<p>　　priority：优先级。详见下表：</p>
+<table>
+<thead>
+<tr>
+<th align="left">级别</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">LOG_EMERG</td>
+<td align="center">「严重」导致系统不可用的问题</td>
+</tr>
+<tr>
+<td align="left">LOG_ALERT</td>
+<td align="center">「严重」必须立即处理的情况</td>
+</tr>
+<tr>
+<td align="left">LOG_CRIT</td>
+<td align="center">「严重」临界条件</td>
+</tr>
+<tr>
+<td align="left">LOG_ERR</td>
+<td align="center">「严重」错误</td>
+</tr>
+<tr>
+<td align="left">LOG_WARNING</td>
+<td align="center">警告</td>
+</tr>
+<tr>
+<td align="left">LOG_NOTICE</td>
+<td align="center">正常</td>
+</tr>
+<tr>
+<td align="left">LOG_INFO</td>
+<td align="center">信息</td>
+</tr>
+<tr>
+<td align="left">LOG_DEBUG</td>
+<td align="center">调试</td>
+</tr>
+<tr>
+<td align="left">表2 日志优先级</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>以 LOG_ERR 为分界线，如果遇到了程序无法继续运行的问题，要报 LOG_ERR 以上的级别（包括 LOG_ERR）。</p>
+<p>如果遇到的问题不会影响程序继续运行，报 LOG_ERR 以下级别的就可以了。</p>
+<p>日志太多肯定对磁盘空间的要求就比较高，而且无用的日志太多会影响日志审计。日志文件中会记录哪些级别的日志是在配置文件中配置的，默认的情况是 LOG_DEBUG 以上级别的日志都会被记录。</p>
+<p>　　format：类似于 printf(3) 函数的格式化字符串。注意不要使用转义字符 \n，否则日志中会记录一个字符串”\n”而不是记录一个换行符。</p>
+<p>　　…：format 中占位符的参数。</p>
+<p>closelog(3) 表示日志写入结束。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;syslog.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FNAME <span class="meta-string">"/tmp/out"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">daemonize</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    pid =  fork();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> fd;</span><br><span class="line">    <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(pid &gt; <span class="number">0</span>)  <span class="comment">// parent</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fd = <span class="built_in">open</span>(<span class="string">"/dev/null"</span>, O_RDWR);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(fd &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dup2(fd, <span class="number">0</span>);</span><br><span class="line">    dup2(fd, <span class="number">1</span>);</span><br><span class="line">    dup2(fd, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span>(fd&gt;<span class="number">2</span>)</span><br><span class="line">        <span class="built_in">close</span>(fd);</span><br><span class="line">    setsid();</span><br><span class="line">    chdir(<span class="string">"/"</span>);</span><br><span class="line"><span class="comment">//  umask(0)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    FILE *fp;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    openlog(<span class="string">"mydaemon"</span>, LOG_PID, LOG_DAEMON);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( daemonize())</span><br><span class="line">    &#123;</span><br><span class="line">        syslog(LOG_ERR, <span class="string">"daemonize() failed!"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        syslog(LOG_INFO, <span class="string">"daemonize() successed"</span>); <span class="comment">// 结尾写 \n 会被当作文本</span></span><br><span class="line">    &#125;</span><br><span class="line">    fp = fopen(FNAME, <span class="string">"w"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(fp == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        syslog(LOG_ERR, <span class="string">"fopen(): %s"</span>, strerror(errno));</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    syslog(LOG_INFO, <span class="string">"%s was opend."</span>, FNAME);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; ;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(fp, <span class="string">"%d\n"</span>, i);</span><br><span class="line">        fflush(fp);</span><br><span class="line">        syslog(LOG_DEBUG, <span class="string">"%d is printed."</span>, i);</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 目前执行不到下面这两句话，将来会用新的机制解决这个问题。把当前进程的异常终止改变为正常终止</span></span><br><span class="line"></span><br><span class="line">    fclose(fp);</span><br><span class="line">    closelog();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ tail /var/<span class="built_in">log</span>/messages</span><br><span class="line"></span><br><span class="line">Jul 14 21:06:13 localhost su: (to root) hy on pts/1</span><br><span class="line">Jul 14 21:06:13 localhost dbus[716]: [system] Activating service name=<span class="string">'org.freedesktop.problems'</span> (using servicehelper)</span><br><span class="line">Jul 14 21:06:13 localhost dbus[716]: [system] Successfully activated service <span class="string">'org.freedesktop.problems'</span></span><br><span class="line">Jul 14 21:06:17 localhost mydaemon[39494]: daemonize() successed</span><br><span class="line"></span><br><span class="line">Jul 14 21:06:17 localhost mydaemon[39494]: /tmp/out was opend.</span><br><span class="line">Jul 14 21:06:44 localhost chronyd[765]: Selected <span class="built_in">source</span> 119.28.206.193</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只有两句被写进系统日志，原因在于 系统日志会根据文件优先级来决定要不要写进去。默认最少要是LOG_INFO以上才会被写进去。 这部分是可配置的，  配置文件好像在 /etc/sysconfig/rsyslog</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5-2-单实例守护进程"><a href="#1-5-2-单实例守护进程" class="headerlink" title="1.5.2 单实例守护进程"></a>1.5.2 单实例守护进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ service vsftpd start  <span class="comment"># 确定</span></span><br><span class="line">$ service vsftpd start  <span class="comment"># 失败</span></span><br><span class="line"></span><br><span class="line">ps axj | grep <span class="string">"ftp"</span></span><br><span class="line"></span><br><span class="line">1 7204 7204 7204 ?  -1 Ss  0  0:00 /usr/sbin/vsftpd</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有些守护进程需要在同一时间只能有一个实例在运行，它们称为单实例守护进程。它们在启动的时候会在 <code>/var/run</code> 下面创建一个进程锁文件，守护进程启动的时候会先判断这个锁文件是否存在，如果已存在就报错并退出，如果不存在就继续运行并创建一个锁文件，退出的时候再删除它。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat /var/run/sshd.pid</span><br><span class="line"></span><br><span class="line">109</span><br></pre></td></tr></table></figure>
+
+<p>守护进程如果想要开机自动启动，可以配置到自动启动脚本中：/etc/rc.d/rc.local</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2020/12/16/apue-5/>http://yoursite.com/2020/12/16/apue-5/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-28T18:47:43+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 28, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/doc/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>doc</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/12/16/apue-5/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/12/16/apue-5/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/12/16/apue-5/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/12/16/apue-4/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>gitlab 使用</p>
+                <p class='content'>进程脉络
+
+进程是什么
+进程是怎么产生的，怎么消亡的，父子进程是何关系
+进程中的一种特殊方式 —— 守护进程
+线程是什么
+线程和进程的关系
+多线程之间通信和多进程之间通信的区别
+
+
+进程标识符 ...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/12/16/apue-9/'>
+                <p class='title'>gitlab 使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>高级IO非阻塞IO – 阻塞IO补充： 有限状态机编程
+
+非阻塞io
+io多路转接（文件描述符的监视）
+其他读写函数
+存储映射io
+文件锁
+
+1.1 非阻塞 I/O
+非阻塞本身非常容易，对比阻塞...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'gitlab 使用',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-终端"><span class="toc-text">1.1 终端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-会话-Session"><span class="toc-text">1.2 会话(Session)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-进程组"><span class="toc-text">1.3 进程组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进程组分为前台进程组和后台进程组"><span class="toc-text">进程组分为前台进程组和后台进程组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-守护进程"><span class="toc-text">1.4 守护进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-实现一个守护进程（信号章节结束后补充完整）"><span class="toc-text">1.4.1 实现一个守护进程（信号章节结束后补充完整）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2-如何杀死一个守护进程"><span class="toc-text">1.4.2 如何杀死一个守护进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-系统日志"><span class="toc-text">1.5 系统日志</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-1-syslogd"><span class="toc-text">1.5.1 syslogd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-2-单实例守护进程"><span class="toc-text">1.5.2 单实例守护进程</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">belief</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

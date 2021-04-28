@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#1.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>gitlab 使用 - Hexo</title>
+  
+    <meta name="keywords" content="doc">
+  
+  
+    <meta name="description" content="高级IO">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            BELIEF <b><sup style='color:#3AA757'>1.0.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/12/16/apue-9/">
+      gitlab 使用
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/apue/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>apue</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 16, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="高级IO"><a href="#高级IO" class="headerlink" title="高级IO"></a>高级IO</h1><p>非阻塞IO – 阻塞IO<br>补充： 有限状态机编程</p>
+<ol>
+<li>非阻塞io</li>
+<li>io多路转接（文件描述符的监视）</li>
+<li>其他读写函数</li>
+<li>存储映射io</li>
+<li>文件锁</li>
+</ol>
+<h2 id="1-1-非阻塞-I-O"><a href="#1-1-非阻塞-I-O" class="headerlink" title="1.1 非阻塞 I/O"></a>1.1 非阻塞 I/O</h2><blockquote>
+<p>非阻塞本身非常容易，对比阻塞来讲，就是不再死等。能做就做，不能做就退出。</p>
+</blockquote>
+<p>高级 IO 部分有个很重要的概念是：非阻塞 I/O</p>
+<p>在14章之前，我们讨论的所有函数都是阻塞的函数，例如 read(2) 函数读取设备时，设备中如果没有充足的数据，那么 read(2) 函数就会阻塞等待，直到有数据可读再返回。</p>
+<p>当 IO 操作时出现了错误的时候，我们之前在讨论信号的博文中提到过会出现假错的情况。</p>
+<p>那么从学了非阻塞 I/O 为止我们一共遇到了两种假错的情况：</p>
+<p>EINTR：被信号打断，阻塞时会遇到。</p>
+<p>EAGAIN：非阻塞形式操作失败。</p>
+<p>遇到这两种假错的时候我们需要重新再操作一次，所以通常对假错的判断是放在循环中的。</p>
+<p>例如 read(2) 函数使用非阻塞方式读取数据时，如果没有读取到数据，errno 为 EAGAIN，此时并不是说设备有问题或读取失败，只是表明采用的是非阻塞方式读取而已。</p>
+<p>阻塞与非阻塞是使用的同一套函数，flags 特殊要求指定为 O_NONBLOCK 就可以了。</p>
+<p>下面我们举个小栗子：（伪代码）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">fd = <span class="built_in">open</span>(<span class="string">"/etc/service"</span>, O_RDONLY | O_NONBLOCK);</span><br><span class="line"><span class="comment">/* if error */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">size</span> = <span class="built_in">read</span>(fd, buf, BUFSIZE);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">size</span> &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (EAGAIN == errno) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        perror(<span class="string">"read()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// do sth...</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的小栗子， 首先在 open(2) 的时候使用特殊要求 O_NONBLOCK 指定以非阻塞形式打开文件。</p>
+<p>当 read(2) 发生错误时要判断是否为假错，如果发生了假错就再试一次，如果是真错就做相应的异常处理。</p>
+<h2 id="1-2-数据中继"><a href="#1-2-数据中继" class="headerlink" title="1.2 数据中继"></a>1.2 数据中继</h2><blockquote>
+<p>假设有正在打开的两个设备，两个设备之间进行数据交换。专业的叫法可以唤做 数据中继</p>
+</blockquote>
+<p>  rl-wr-rr-wl 读左写右读右写左；（单个进程，单个线程干活场景， 循环一圈的话，相当于四个工作）<br>  那假设用阻塞来实现，会遇到什么问题呢？比如读左边的设备，但是设备上一直没有数据出现。如果用阻塞的机制，那么一定会卡在 读左的动作上， 假设右边不断有其他数据来源到来，那么先去读右再去写左，这个时候是一直没有做的。 结果你一直在读左，左边一直没有数据。就没有办法去读右写左了。所以可能导致右边的数据已经溢出了，但左边还一直是空着，而程序一直卡在左边的情况。如果是一个人或者一个任务（一个任务包括一个进程也好，一个线程也好）来干活。这个任务可以是一个线程去做，也可以是一个进程去做。总而言之，这个任务没有协同操作，就一个人来完成。</p>
+<p>  其实可以把任务拆分为两个任务，第一个任务来负责读左，并且写右。 第二个任务读右并且写左。这是两个进程在通信也好，两个线程也好。这种方式解决问题的几率就更大。那边有数据，那个分支就先走。</p>
+<ul>
+<li>域名拦截</li>
+</ul>
+<blockquote>
+<p>中介服务获取用户输入地址，中间插入广告页。而后拿真是请求去访问目标服务器，再返回给客户端。起到一个中介转发的服务。像这种拦截的服务都是中继模型的放大。</p>
+</blockquote>
+<blockquote>
+<p>当同时有两万对设备在通信，作为一个server端可能会比较忙。fork子进程，每个子进程负责100对。当然要先确定自己能fork出来这么多子进程。考虑fork开销大，改成pthread，创建出来线程，每个线程负责若干对。</p>
+</blockquote>
+<p>其实这种机制，包括前面写的很多程序.慢慢滚雪球，最终变为一个工程。比如上面这种机制就能发展成负载均衡。之所以做不出来，在于外围知识不够。比如负载均衡需要对集群的概念有了解，比如<br>之前讲的流控，可以联系到解码器是如何实现的。比如一个mp3文件的头部如何去读取。用c来监视web上面的一些内容，做这些是需要理解web服务器是如何相应的，是需要理解http1.0 http1.1的语法。这都是周边知识的确实。apue讲的是机制，进程，线程，信号包括后面的进程间通信。</p>
+<h2 id="1-3-有限状态机"><a href="#1-3-有限状态机" class="headerlink" title="1.3 有限状态机"></a>1.3 有限状态机</h2><h3 id="1-3-1-复杂流程与简单流程"><a href="#1-3-1-复杂流程与简单流程" class="headerlink" title="1.3.1 复杂流程与简单流程"></a>1.3.1 复杂流程与简单流程</h3><p>简单流程： 自然流程是结构化的</p>
+<p>复杂流程： 自然流程不是结构化的</p>
+<p>什么是自然流程： 作为人类来讲，解决问题最直观的思路</p>
+<p>大家先考虑一个问题：把大象放到冰箱里需要几步？</p>
+<p>1）打开冰箱门；</p>
+<p>2）把大象放进去；</p>
+<p>3）关闭冰箱门；</p>
+<p>这就是解决这个问题的自然流程。</p>
+<p><img src="./sio_01.png" alt=""><br>图1 简单流程与复杂流程</p>
+<p>把一个问题的解决步骤（自然流程）摆出来发现是结构化的流程就是简单流程，如果不是结构化的流程就是复杂流程。所有的网络应用和需要与人交互的流程都是复杂流程。</p>
+<p>结构化的流程就是作为人类的本能解决问题的思路。</p>
+<p>在之前的博文中 LZ 提到过一个“口令随机校验”的策略大家还记得吗？就是要求用户必须连续两次输入正确的密码才认为校验通过。就算是这样小的模块也不会用一个单纯的顺序选择流程把它完成，它一定是一个非结构化的流程。</p>
+<p>有限状态机就是程序设计的一种思路而已，大家刚开始接触觉得难以理解，那是因为还没有习惯这种设计思路。我们为什么觉得像原先那种流程化的程序设计思路好用？那是因为被虐惯了，你曾经被迫习惯用计算机的思路来考虑问题而不是用作为人解决问题的本能步骤来考虑问题。有限状态机就是让你以作为人的本能的解决问题的方式来解决问题，当你习惯了有限状态机的设计思想之后就不觉得这是什么难以理解的东西了。</p>
+<p>有限状态机被设计出来的目的就是为了解决复杂流程的问题，所以更何况是简单流程的问题也一样能够轻松的解决。</p>
+<p>作为程序猿最怕的是什么？</p>
+<p>恐怕最怕的就是需求变更了吧。</p>
+<p>为什么要使用有限状态机的设计思路呢？因为它能帮助我们从容的应对需求变更。</p>
+<p>使用有限状态机编程的程序在面对需求变更的时候往往仅需要修改几条 case 语句就可以了，而没有使用有限状态机编程的程序面对需求变更往往要把大段的代码推倒重来。</p>
+<p>所以如果你掌握了有限状态机的编程思想，那么在很多情况下都可以相对轻松的解决问题，而且程序具有较好强的健壮性。</p>
+<p>说了这么多废话，有限状态机到底是什么呢？</p>
+<p>使用有限状态机首先要把程序的需求分析出来（废话，用什么编程都得先分析需求），然后把程序中出现的各种状态抽象出来制作成一张状态机流程图，然后根据这个流程图把程序的框架搭建出来，接下来就是添枝加叶了。</p>
+<p>下面我们通过一个栗子来说明有限状态机的设计思想。</p>
+<p>假如有如下需求：从设备 tty11 读取输入并输出到 tty12 上，同样从 tyy12 读取输入并输出到 tty11 上。</p>
+<p>首先我们把它的各种状态抽象出来画成一幅图。</p>
+<p><img src="./sio_02.png" alt=""><br>图2 有限状态机</p>
+<p>每个状态画成一个圆形节点，每个节点延伸出来有多少条线就表示有多少种可能性。</p>
+<p>这些节点拿到我们的程序中就变成了一条条 case 语句，下面我们看看使用代码如何实现。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZE        1024</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TTY1        <span class="meta-string">"/dev/tty11"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TTY2        <span class="meta-string">"/dev/tty12"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 状态机的各种状态 */</span></span><br><span class="line"><span class="keyword">enum</span></span><br><span class="line">&#123;</span><br><span class="line">    STATE_R=<span class="number">1</span>,</span><br><span class="line">    STATE_W,</span><br><span class="line">    STATE_Ex,</span><br><span class="line">    STATE_T</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 状态机，根据不同的需求设计不同的成员 */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">fsm_st</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> state; <span class="comment">// 状态机当前的状态</span></span><br><span class="line">    <span class="keyword">int</span> sfd; <span class="comment">// 读取的来源文件描述符</span></span><br><span class="line">    <span class="keyword">int</span> dfd; <span class="comment">// 写入的目标文件描述符</span></span><br><span class="line">    <span class="keyword">char</span> buf[BUFSIZE]; <span class="comment">// 缓冲</span></span><br><span class="line">    <span class="keyword">int</span> len; <span class="comment">// 一次读取到的实际数据量</span></span><br><span class="line">    <span class="keyword">int</span> pos; <span class="comment">// buf 的偏移量，用于记录坚持写够 n 个字节时每次循环写到了哪里</span></span><br><span class="line">    <span class="keyword">char</span> *errstr; <span class="comment">// 错误消息</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 状态机驱动 */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fsm_driver</span><span class="params">(struct fsm_st *fsm)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(fsm-&gt;state)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> STATE_R: <span class="comment">// 读态</span></span><br><span class="line">            fsm-&gt;len = <span class="built_in">read</span>(fsm-&gt;sfd,fsm-&gt;buf,BUFSIZE);</span><br><span class="line">            <span class="keyword">if</span>(fsm-&gt;len == <span class="number">0</span>) <span class="comment">// 读到了文件末尾，将状态机推向 T态</span></span><br><span class="line">                fsm-&gt;state = STATE_T;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(fsm-&gt;len &lt; <span class="number">0</span>) <span class="comment">// 读取出现异常</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(errno == EAGAIN) <span class="comment">// 如果是假错就推到 读态，重新读一次</span></span><br><span class="line">                    fsm-&gt;state = STATE_R;</span><br><span class="line">                <span class="keyword">else</span> <span class="comment">// 如果是真错就推到 异常态</span></span><br><span class="line">                &#123;</span><br><span class="line">                    fsm-&gt;errstr = <span class="string">"read()"</span>;</span><br><span class="line">                    fsm-&gt;state = STATE_Ex;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="comment">// 成功读取到了数据，将状态机推到 写态</span></span><br><span class="line">            &#123;</span><br><span class="line">                fsm-&gt;pos = <span class="number">0</span>;</span><br><span class="line">                fsm-&gt;state = STATE_W;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> STATE_W: <span class="comment">// 写态</span></span><br><span class="line">            ret = <span class="built_in">write</span>(fsm-&gt;dfd,fsm-&gt;buf+fsm-&gt;pos,fsm-&gt;len);</span><br><span class="line">            <span class="keyword">if</span>(ret &lt; <span class="number">0</span>) <span class="comment">// 写入出现异常</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(errno == EAGAIN) <span class="comment">// 如果是假错就再次推到 写态，重新再写入一次</span></span><br><span class="line">                    fsm-&gt;state = STATE_W;</span><br><span class="line">                <span class="keyword">else</span> <span class="comment">// 如果是真错就推到 异常态</span></span><br><span class="line">                &#123;</span><br><span class="line">                    fsm-&gt;errstr = <span class="string">"write()"</span>;</span><br><span class="line">                    fsm-&gt;state = STATE_Ex;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="comment">// 成功写入了数据</span></span><br><span class="line">            &#123;</span><br><span class="line">                fsm-&gt;pos += ret;</span><br><span class="line">                fsm-&gt;len -= ret;</span><br><span class="line">                <span class="keyword">if</span>(fsm-&gt;len == <span class="number">0</span>) <span class="comment">// 如果将读到的数据完全写出去了就将状态机推向 读态，开始下一轮读取</span></span><br><span class="line">                    fsm-&gt;state = STATE_R;</span><br><span class="line">                <span class="keyword">else</span> <span class="comment">// 如果没有将读到的数据完全写出去，那么状态机依然推到 写态，下次继续写入没写完的数据，实现“坚持写够 n 个字节”</span></span><br><span class="line">                    fsm-&gt;state = STATE_W;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> STATE_Ex: <span class="comment">// 异常态，打印异常并将状态机推到 T态</span></span><br><span class="line">            perror(fsm-&gt;errstr);</span><br><span class="line">            fsm-&gt;state = STATE_T;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> STATE_T: <span class="comment">// 结束态，在这个例子中结束态没有什么需要做的事情，所以空着</span></span><br><span class="line">            <span class="comment">/*do sth */</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>: <span class="comment">// 程序很可能发生了溢出等不可预料的情况，为了避免异常扩大直接自杀</span></span><br><span class="line">            <span class="built_in">abort</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 推动状态机 */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">relay</span><span class="params">(<span class="keyword">int</span> fd1,<span class="keyword">int</span> fd2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd1_save,fd2_save;</span><br><span class="line">    <span class="comment">// 因为是读 tty1 写 tty2；读 tty2 写 tty1，所以这里的两个状态机直接取名为 fsm12 和 fsm21</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">fsm_st</span> <span class="title">fsm12</span>,<span class="title">fsm21</span>;</span></span><br><span class="line"></span><br><span class="line">    fd1_save = fcntl(fd1,F_GETFL);</span><br><span class="line">    <span class="comment">// 使用状态机操作 IO 一般都采用非阻塞的形式，避免状态机被阻塞</span></span><br><span class="line">    fcntl(fd1,F_SETFL,fd1_save|O_NONBLOCK);</span><br><span class="line">    fd2_save = fcntl(fd2,F_GETFL);</span><br><span class="line">    fcntl(fd2,F_SETFL,fd2_save|O_NONBLOCK);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在启动状态机之前将状态机推向 读态</span></span><br><span class="line">    fsm12.state = STATE_R;</span><br><span class="line">    <span class="comment">// 设置状态机中读写的来源和目标，这样状态机的读写接口就统一了。在状态机里面不用管到底是 读tty1 写tty2 还是 读tty2 写tty1 了，它只需要知道是 读src 写des 就可以了。</span></span><br><span class="line">    fsm12.sfd = fd1;</span><br><span class="line">    fsm12.dfd = fd2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 同上</span></span><br><span class="line">    fsm21.state = STATE_R;</span><br><span class="line">    fsm21.sfd = fd2;</span><br><span class="line">    fsm21.dfd = fd1;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 开始推状态机，只要不是 T态 就一直推</span></span><br><span class="line">    <span class="keyword">while</span>(fsm12.state != STATE_T || fsm21.state != STATE_T)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 调用状态机驱动函数，状态机开始工作</span></span><br><span class="line">        fsm_driver(&amp;fsm12);</span><br><span class="line">        fsm_driver(&amp;fsm21);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fcntl(fd1,F_SETFL,fd1_save);</span><br><span class="line">    fcntl(fd2,F_SETFL,fd2_save);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd1,fd2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 假设这里忘记将设备 tty1 以非阻塞的形式打开也没关系，因为推动状态机之前会重新设定文件描述符为非阻塞形式</span></span><br><span class="line">    fd1 = <span class="built_in">open</span>(TTY1,O_RDWR);</span><br><span class="line">    <span class="keyword">if</span>(fd1 &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"open()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">write</span>(fd1,<span class="string">"TTY1\n"</span>,<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    fd2 = <span class="built_in">open</span>(TTY2,O_RDWR|O_NONBLOCK);</span><br><span class="line">    <span class="keyword">if</span>(fd2 &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"open()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">write</span>(fd2,<span class="string">"TTY2\n"</span>,<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    relay(fd1,fd2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">close</span>(fd1);</span><br><span class="line">    <span class="built_in">close</span>(fd2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./relay</span><br><span class="line"></span><br><span class="line">ctrl+alt+F11</span><br></pre></td></tr></table></figure>
+
+<p>大家先把这段代码读明白，下面我们还要用这段代码来修改示例。</p>
+<p>如果只看上面的代码是很难理解程序是做什么的，因为都是一组一组的 case 语句，不容易理解。所以一般使用有限状态机开发的程序都会与图或相关的文档配套发行，看了图再结合代码就很容易看出来代码的目的了。</p>
+<p>大家要对比着上面的图来看代码，这样思路就很清晰了。</p>
+<p>使用状态机之前需要使两个待进行数据中继的文件描述符必须都是 O_NONBLOCK 的。</p>
+<p>整个状态机中都没有使用循环来读写数据，因为状态机能确保每一种状态都是职责单一的，出现其它的任何状况的时候只要推动状态机问题就可以解决了。</p>
+<p>所以这样的程序可维护性是不是高了很多？如果出现了需求变更，只需要简单的修改几条 case 语句就可以了，而不需要大段大段的修改代码了。</p>
+<p>大家要多使用状态机的设计思想来写程序才能加深对这种设计思想的掌握程度。</p>
+<h3 id="1-3-2-中继引擎库"><a href="#1-3-2-中继引擎库" class="headerlink" title="1.3.2 中继引擎库"></a>1.3.2 中继引擎库</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 见 relayer 文件夹</span></span><br></pre></td></tr></table></figure>
+
+<p>已完成中继引擎中的 <code>rel_addjob</code> 方法添加进去任务，并且使用状态机来管理当前非空任务的状态。只要当前这个任务是 <code>STATE_RUNNING</code> 态，那就推里面的两个状态机。当前就是一个server的状态，如果该程序达到最大的负载量, 比如 <code>REL_JOBMAX</code>达到上限，当前有10000对，20000个文件描述符在两秒做数据中继的话，那么看单机是否能承载，如果不能，采用集群，使下面的多个主机来帮助完成这个任务。即使没有多个主机，也能创建子进程或者线程，每个进程或者线程负责多少个状态机的推动。</p>
+<p>该程序并不是一个重负载的程序，它最多算一个IO密集型的任务。一般IO密集的程序都不是负载重的程序，负载重，io又密集的话，这程序很难控制。</p>
+<p>为什么说这个程序是io密集，它是获取内容然后进行传输。为什么不是重负载，是ftp传输快，还是手动打字快？肯定是FTP快，即使数量多，也是io密集型任务。（这句不是很懂，先留着，以后再理解）。</p>
+<p>而io密集型任务，其实绝大多数都在空闲，这个程序的问题是，依然没有完成行为监视的部分，还是盲推。当启动程序时，cpu一下占满一个核，cpu使用率满栈。 没有内容的时候，也是在不停的推动试探。程序大多数时间盲在 <code>EAGAIN</code>。 比如现在初始状态是一个读态，如果没有内容的话，是没办法读的。现在的read返回的就是一个假错。然后在一个while循环中继续 碰到假错 推动到read，以此循环。对于一个io密集型的任务就可以使用io多路转接。如下</p>
+<h2 id="1-4-I-O-多路转接"><a href="#1-4-I-O-多路转接" class="headerlink" title="1.4 I/O 多路转接"></a>1.4 I/O 多路转接</h2><blockquote>
+<p>I/O 多路转接， 说白了就是监视文件描述符的行为。 这个技术针对io密集型模型的解决方案。当当前文件描述符发生感兴趣的行为时，我才去做后续操作。这个感兴趣的行为可以有相关的机制去订阅。</p>
+</blockquote>
+<p>上面那个 读tty11 写tty12，读tty12 写tty11 的栗子是采用忙等的方式实现的，I/O 多路转接这个小节讨论的就是怎么把上面那个栗子修改为非忙等的模式。</p>
+<p>有些时候就是这样的，读取多个文件（一般是设备）的时候不能使用阻塞方式，因为一个阻塞了其它的就没法读了；而非阻塞方式如果采用忙等的形式又得不偿失，CPU满栈。你想想比如 telnet 服务在接收用户的命令的时候是不是这种情况呢？</p>
+<p>对于处理这样的需求，Linux 系统为我们提供了 3 种方案：select(2)、poll(2) 和 epoll(7)，这些方案提供的函数可以同时监视多个文件描述符，当它们的状态没有变化时阻塞等待，当它们的状态发生变化时会给我们一个通知让我们继续处理任务，下面我们一个一个的介绍它们。</p>
+<p><strong>select poll epoll</strong></p>
+<p>共同点： 它们三个完成的任务是一致，就是io多路转接，实现文件描述符的监视。</p>
+<p>区别</p>
+<ul>
+<li>select(2) 的优点是足够老，各个平台都支持它，这也是它相对于 poll(2) 唯一的优点。<br>劣势是本身接口设计的有缺陷，传参部位有问题。</li>
+<li>poll跟 select 在监视文件描述符的组织思路是完全不一致的；select是以事件为单位组织文件描述符，poll以文件描述符来组织事件。这两个函数的出发点和组织形式是不太一致的。poll也是可以移植的。</li>
+<li>很多平台依然觉得poll的效率不够高，所以以poll为基础上，在各个平台上开发的方言。epoll就是linux系统在poll的基础上做的方言，来完成文件描述符的监视。实际上poll和epoll的思路非常贴近，组织形式也一样。只不过换成poll需要用户自己维护一些内容，epoll是企图简化用户维护的这块内容。把poll在用户角度能看到的一些内容进行了封装组成了epoll的机制，所以epoll是没办法移植的。select poll是可移植的，select太古老。poll均衡三者的比较之中是相对不错的。</li>
+</ul>
+<h3 id="1-4-1-select-2"><a href="#1-4-1-select-2" class="headerlink" title="1.4.1 select(2)"></a>1.4.1 select(2)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// select,  FD_CLR,  FD_ISSET, FD_SET, FD_ZERO - synchronous I/O multiplexing</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* According to POSIX.1-2001 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/select.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* According to earlier standards */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">select</span><span class="params">(<span class="keyword">int</span> nfds, fd_set *readfds, fd_set *writefds,</span></span></span><br><span class="line"><span class="function"><span class="params">          fd_set *exceptfds, struct timeval *timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FD_CLR</span><span class="params">(<span class="keyword">int</span> fd, fd_set *<span class="built_in">set</span>)</span></span>; <span class="comment">// 删除 set 中的 fd 这个文件描述符</span></span><br><span class="line"><span class="function"><span class="keyword">int</span>  <span class="title">FD_ISSET</span><span class="params">(<span class="keyword">int</span> fd, fd_set *<span class="built_in">set</span>)</span></span>; <span class="comment">// 测试文件描述符 fd 是否在 set 集合中。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FD_SET</span><span class="params">(<span class="keyword">int</span> fd, fd_set *<span class="built_in">set</span>)</span></span>; <span class="comment">// 将文件描述符 fd 添加到 set 中</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FD_ZERO</span><span class="params">(fd_set *<span class="built_in">set</span>)</span></span>; <span class="comment">// 清空一个文件描述符集合</span></span><br></pre></td></tr></table></figure>
+
+<p>select(2) 的优点是足够老，各个平台都支持它，这也是它相对于 poll(2) 唯一的优点。<br>劣势是本身接口设计的有缺陷，传参不稳定。</p>
+<p>select(2)的缺陷，</p>
+<ul>
+<li>select函数布置监视任务的位置，也就是三个集合，分别为 readfds, writefds, exceptfds。但是它所监视结果所存在的位置也是这三个集合。举个例子，比如现在往 readfds放了10个文件描述符，writefds放10个，exceptfds放10个，要监视30个文件描述符不同的行为。这个时候，假如读集readfds有一个文件描述符可读了，那select函数一下就返回了。返回值为1.然后 readfds存放的就变成了可读的文件描述符了，而 writefds，exceptfds等两个集合则被清空了。监视现场和监视结果用的是一块内存空间，没有const修饰；</li>
+<li>第一个参数nfds，当前监视文件描述符最大文件描述符再加1，在一个进程当中，能打开的文件描述符实际上是能够更改的。(ulimit -a)。nfds是int类型的，如果更改之后的打开文件描述符的大小理论上有超过有符号整型的大小风险。</li>
+<li>select监视的事件太单一，readfds， writefds，和 exceptfds 除了读和写 就是 异常。异常包含的层面就太多了，包括套接字相关的一些东西 全部都算是异常的结果。</li>
+</ul>
+<p>返回值：<br>成功返回，文件描述符个数，现在发生你感兴趣行为的文件描述符个数。而这些发生感兴趣行为的文件描述符依然放在 读集， 写集， 以及异常集当中。<br>失败，返回值为-1，</p>
+<p>参数列表：</p>
+<p>　　nfds：当前监视文件描述符里面最大的文件描述符 + 1；<br>        （比如当前监视的文件描述符是 3，5，7，9。那这里就写10）</p>
+<p>　　readfds：需要监视的输入文件描述符集合， 读集；</p>
+<p>　　writefds：需要监视的输出文件描述符集合， 写集；</p>
+<p>　　exceptfds：需要监视的会发生异常的文件描述符集合， 异常集；</p>
+<p>　　timeout：超时设置，等待的超时时间，如果时间超时依然没有文件描述符状态发生变化那么就返回。设置为 0 会立即返回。<br>设置为 NULL 则一直阻塞等待，不会超时，直到发生 注册事件才会返回结果。</p>
+<p>还记得我们之前提到过使用 select(2) 函数替代 sleep(3) 函数吗？</p>
+<p>我们看到参数中的文件描述符集合是 fd_set 类型的，那么怎么把我们的 int 类型的文件描述符添加到 fd_set 当中去呢？</p>
+<p>下面我们重构上面的栗子，通过把它修改成非忙等的形式来看看 select 是如何使用的。代码没有太大的区别，所以只贴出有差异的部分。完整版看 <code>relay_select.c</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span></span><br><span class="line">&#123;</span><br><span class="line">    STATE_R=<span class="number">1</span>,</span><br><span class="line">    STATE_W,</span><br><span class="line">    STATE_AUTO, <span class="comment">// 添加这个值是为了起到分水岭的作用，小于这个值的时候才需要使用 select(2) 监视</span></span><br><span class="line">    STATE_Ex,</span><br><span class="line">    STATE_T</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a &lt; b)</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">relay</span><span class="params">(<span class="keyword">int</span> fd1,<span class="keyword">int</span> fd2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd1_save,fd2_save;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">fsm_st</span> <span class="title">fsm12</span>,<span class="title">fsm21</span>;</span></span><br><span class="line">    fd_set rset,wset; <span class="comment">// 读写文件描述符集合</span></span><br><span class="line"></span><br><span class="line">    fd1_save = fcntl(fd1,F_GETFL);</span><br><span class="line">    fcntl(fd1,F_SETFL,fd1_save|O_NONBLOCK);</span><br><span class="line">    fd2_save = fcntl(fd2,F_GETFL);</span><br><span class="line">    fcntl(fd2,F_SETFL,fd2_save|O_NONBLOCK);</span><br><span class="line"></span><br><span class="line">    fsm12.state = STATE_R;</span><br><span class="line">    fsm12.sfd = fd1;</span><br><span class="line">    fsm12.dfd = fd2;</span><br><span class="line"></span><br><span class="line">    fsm21.state = STATE_R;</span><br><span class="line">    fsm21.sfd = fd2;</span><br><span class="line">    fsm21.dfd = fd1;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(fsm12.state != STATE_T || fsm21.state != STATE_T)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//布置监视任务</span></span><br><span class="line">        FD_ZERO(&amp;rset);</span><br><span class="line">        FD_ZERO(&amp;wset);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 读态监视输入文件描述符；写态监视输出文件描述符</span></span><br><span class="line">        <span class="keyword">if</span>(fsm12.state == STATE_R)</span><br><span class="line">            FD_SET(fsm12.sfd,&amp;rset);</span><br><span class="line">        <span class="keyword">if</span>(fsm12.state == STATE_W)</span><br><span class="line">            FD_SET(fsm12.dfd,&amp;wset);</span><br><span class="line">        <span class="keyword">if</span>(fsm21.state == STATE_R)</span><br><span class="line">            FD_SET(fsm21.sfd,&amp;rset);</span><br><span class="line">        <span class="keyword">if</span>(fsm21.state == STATE_W)</span><br><span class="line">            FD_SET(fsm21.dfd,&amp;wset);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(fsm12.state &lt; STATE_AUTO || fsm21.state &lt; STATE_AUTO)<span class="comment">// 异常态和T态就不需要 监听了</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 以阻塞形式监视</span></span><br><span class="line">            <span class="keyword">if</span>(select(<span class="built_in">max</span>(fd1,fd2)+<span class="number">1</span>,&amp;rset,&amp;wset,<span class="literal">NULL</span>,<span class="literal">NULL</span>) &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(errno == EINTR)</span><br><span class="line">                    <span class="keyword">continue</span>; <span class="comment">// 这个continue 跳的是大圈。 正因为select 的三个集 的 存放现场和 反馈现场用的是同一块内存空间。所以 需要跳到外围 去重置 三个集合的内存空间</span></span><br><span class="line">                perror(<span class="string">"select()"</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//查看监视结果</span></span><br><span class="line">        <span class="keyword">if</span>( FD_ISSET(fd1,&amp;rset) || FD_ISSET(fd2,&amp;wset) || fsm12.state &gt; STATE_AUTO) <span class="comment">// 除了有感兴趣行为之外， 异常态和T态也需要重新推状态机</span></span><br><span class="line">            fsm_driver(&amp;fsm12);</span><br><span class="line">        <span class="keyword">if</span>( FD_ISSET(fd2,&amp;rset) || FD_ISSET(fd1,&amp;wset) || fsm21.state &gt; STATE_AUTO) <span class="comment">// 除了有感兴趣行为之外， 异常态和T态也需要重新推状态机</span></span><br><span class="line">            fsm_driver(&amp;fsm21);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fcntl(fd1,F_SETFL,fd1_save);</span><br><span class="line">    fcntl(fd2,F_SETFL,fd2_save);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>在上面的栗子中，无论设备中是否有数据供我们读取我们都不停的推动状态机，所以导致出现了忙等的现象。</p>
+<p>而在这个栗子中，我们在推状态机之前使用 select(2) 函数对文件描述符进行监视，如果文件描述状态没有发生变化就阻塞等待；而哪个状态机的文件描述符发生了变化就推动哪个状态机，这样就将查询法的实现改为通知法的实现了。是不是很简单呢？</p>
+<h3 id="1-4-2-poll"><a href="#1-4-2-poll" class="headerlink" title="1.4.2 poll"></a>1.4.2 poll</h3><p>poll(2) 出现的时间没有 select(2) 那么悠久，所以在可移植性上来说没有 select(2) 函数那么好，但是绝大多数主流 *nix 平台都支持 poll(2) 函数，它比 select(2) 要优秀很多，下面我们来了解下它。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// poll - wait for some event on a file descriptor</span></span><br><span class="line"><span class="comment">// 在文件描述符的基础上 等待一些事件</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;poll.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">poll</span><span class="params">(struct pollfd *fds, <span class="keyword">nfds_t</span> nfds, <span class="keyword">int</span> timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pollfd</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span>   fd;         <span class="comment">/* 需要监视的文件描述符 */</span></span><br><span class="line">    short events;     <span class="comment">/* 要监视的事件 */</span></span><br><span class="line">    short revents;    <span class="comment">/* 该文件描述符发生了的事件 */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<p> 参数列表：</p>
+<p>　　fds：实际上是一个数组的首地址，因为 poll(2) 可以帮助我们监视多个文件描述符，而一个文件描述放到一个 struct pollfd 结构体中，多个文件描述符就需要一个数组来存储了。</p>
+<p>　　nfds：fds 这个数组的长度。在参数列表中使用数组首地址 + 长度的做法还是比较常见的。</p>
+<p>　　timeout：阻塞等待的超时时间。传入 -1 则始终阻塞，不超时。0 指非阻塞</p>
+<p>结构体中的事件可以指定下面七种事件，同时监视多个事件可以使用按位或（|）添加：</p>
+<table>
+<thead>
+<tr>
+<th align="left">事件</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">POLLIN</td>
+<td align="center">文件描述符可读</td>
+</tr>
+<tr>
+<td align="left">POLLPRI</td>
+<td align="center">可以非阻塞的读高优先级的数据</td>
+</tr>
+<tr>
+<td align="left">POLLOUT</td>
+<td align="center">文件描述符可写</td>
+</tr>
+<tr>
+<td align="left">POLLRDHUP</td>
+<td align="center">流式套接字连接点关闭，或者关闭写半连接。</td>
+</tr>
+<tr>
+<td align="left">POLLERR</td>
+<td align="center">已出错</td>
+</tr>
+<tr>
+<td align="left">POLLHUP</td>
+<td align="center">已挂断（一般指设备）</td>
+</tr>
+<tr>
+<td align="left">POLLNVAL</td>
+<td align="center">参数非法</td>
+</tr>
+</tbody></table>
+<p>表1 poll(2) 可以监视的 7 种事件</p>
+<p> 使用 poll(2) 的步骤也很简单：</p>
+<p>　　1）首先通过 struct pollfd 结构体中的 events 成员布置监视任务；</p>
+<p>　　2）然后使用 poll(2) 函数进行阻塞的监视；</p>
+<p>　　3）当从 poll(2) 函数返回时就可以通过 struct polfd 结构体中的 revents 成员与上面的 7 个宏中被我们选出来监视的宏进行按位与（&amp;）操作了，只要结果不为 1 就认为触发了该事件。</p>
+<p>好了，这 3 步就是 poll(2) 函数的使用方法，简单吧。</p>
+<p>下面我们修改一下上面的栗子，把上面用 select(2) 实现的部分修改为用 poll(2) 来实现。没有改过的地方就不贴出来了，其实也只有 relay() 函数被修改了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">relay</span><span class="params">(<span class="keyword">int</span> fd1,<span class="keyword">int</span> fd2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd1_save,fd2_save;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">fsm_st</span> <span class="title">fsm12</span>,<span class="title">fsm21</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">pollfd</span> <span class="title">pfd</span>[2];</span> <span class="comment">// 一共监视两个文件描述符</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    fd1_save = fcntl(fd1,F_GETFL);</span><br><span class="line">    fcntl(fd1,F_SETFL,fd1_save|O_NONBLOCK);</span><br><span class="line">    fd2_save = fcntl(fd2,F_GETFL);</span><br><span class="line">    fcntl(fd2,F_SETFL,fd2_save|O_NONBLOCK);</span><br><span class="line"></span><br><span class="line">    fsm12.state = STATE_R;</span><br><span class="line">    fsm12.sfd = fd1;</span><br><span class="line">    fsm12.dfd = fd2;</span><br><span class="line"></span><br><span class="line">    fsm21.state = STATE_R;</span><br><span class="line">    fsm21.sfd = fd2;</span><br><span class="line">    fsm21.dfd = fd1;</span><br><span class="line"></span><br><span class="line">    pfd[<span class="number">0</span>].fd = fd1;</span><br><span class="line">    pfd[<span class="number">1</span>].fd = fd2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(fsm12.state != STATE_T || fsm21.state != STATE_T)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 布置监视任务</span></span><br><span class="line">        pfd[<span class="number">0</span>].events = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(fsm12.state == STATE_R)</span><br><span class="line">            pfd[<span class="number">0</span>].events |= POLLIN; <span class="comment">// 第一个文件描述符可读</span></span><br><span class="line">        <span class="keyword">if</span>(fsm21.state == STATE_W)</span><br><span class="line">            pfd[<span class="number">0</span>].events |= POLLOUT; <span class="comment">// 第一个文件描述符可写</span></span><br><span class="line"></span><br><span class="line">        pfd[<span class="number">1</span>].events = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(fsm12.state == STATE_W)</span><br><span class="line">            pfd[<span class="number">1</span>].events |= POLLOUT; <span class="comment">// 第二个文件描述符可读</span></span><br><span class="line">        <span class="keyword">if</span>(fsm21.state == STATE_R)</span><br><span class="line">            pfd[<span class="number">1</span>].events |= POLLIN; <span class="comment">// 第二个文件描述符可写</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 只要是可读写状态就进行监视</span></span><br><span class="line">        <span class="keyword">if</span>(fsm12.state &lt; STATE_AUTO || fsm21.state &lt; STATE_AUTO)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 阻塞监视</span></span><br><span class="line">            <span class="keyword">while</span>(poll(pfd,<span class="number">2</span>,<span class="number">-1</span>) &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(errno == EINTR)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                perror(<span class="string">"poll()"</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 查看监视结果</span></span><br><span class="line">        <span class="keyword">if</span>( pfd[<span class="number">0</span>].revents &amp; POLLIN || \</span><br><span class="line">            pfd[<span class="number">1</span>].revents &amp; POLLOUT || \</span><br><span class="line">            fsm12.state &gt; STATE_AUTO)</span><br><span class="line">            fsm_driver(&amp;fsm12); <span class="comment">// 推状态机</span></span><br><span class="line">        <span class="keyword">if</span>( pfd[<span class="number">1</span>].revents &amp; POLLIN || \</span><br><span class="line">            pfd[<span class="number">0</span>].revents &amp; POLLOUT || \</span><br><span class="line">            fsm21.state &gt; STATE_AUTO)</span><br><span class="line">            fsm_driver(&amp;fsm21); <span class="comment">// 推状态机</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fcntl(fd1,F_SETFL,fd1_save);</span><br><span class="line">    fcntl(fd2,F_SETFL,fd2_save);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-3-epoll"><a href="#1-4-3-epoll" class="headerlink" title="1.4.3 epoll"></a>1.4.3 epoll</h3><p>epoll(7) 不是一个函数，它在 man 手册的第 7 章里，它是 Linux 为我们提供的“加强版 poll(2)”，既然是加强版，那么一定有超越 poll(2) 的地方，下面就聊一聊 epoll(7)。 </p>
+<p>在使用 poll(2) 的时候用户需要管理一个 struct pollfd 结构体或它的结构体数组，epoll(7) 则使内核为我们管理了这个结构体数组，我们只需要通过 epoll_create(2) 返回的标识引用这个结构体即可。</p>
+<h4 id="1-4-3-1-使用epoll的三个步骤"><a href="#1-4-3-1-使用epoll的三个步骤" class="headerlink" title="1.4.3.1 使用epoll的三个步骤"></a>1.4.3.1 使用epoll的三个步骤</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// epoll_create - open an epoll file descriptor</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/epoll.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_create</span><span class="params">(<span class="keyword">int</span> <span class="built_in">size</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>调用<code>epoll_create</code>创建epoll实例</li>
+</ol>
+<p>调用 epoll_create(2) 时最初 size 参数给传入多少，kernel 在建立数组的时候就是多少个元素。但是这种方式不好用，所以后来改进了，只要 size 随便传入一个正整数就可以了，内核不会再根据大家传入的 size 直接作为数组的长度了，因为内核是使用 hash 来管理要监视的文件描述符的。</p>
+<p>返回值是 epfd，从这里也可以体现出 Linux 一切皆文件的设计思想。失败时返回 -1 并设置 errno。</p>
+<p>得到了内核为我们管理的结构体数组标识之后，接下来就可以用  epoll_ctl(2) 函数布置监视任务了。</p>
+<ol start="2">
+<li>调用<code>epoll_ctl</code>函数进行 epoll实例的设置</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// epoll_ctl - control interface for an epoll descriptor</span></span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/epoll.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_ctl</span><span class="params">(<span class="keyword">int</span> epfd, <span class="keyword">int</span> op, <span class="keyword">int</span> fd, struct epoll_event *event)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * epfd  epoll_create创建出来的epoll实例</span></span><br><span class="line"><span class="comment"> * op    能做什么， EPOLL_CTL_ADD ｜ EPOLL_CTL_MOD ｜ EPOLL_CTL_DEL</span></span><br><span class="line"><span class="comment"> * fd    文件描述符</span></span><br><span class="line"><span class="comment"> * event  op这个操作，针对的是 fd文件描述符的 哪个事件</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 对 epfd 这个实例当中的 fd文件描述符 进行 EPOLL_CTL_ADD  行为</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">epoll_event</span> &#123;</span></span><br><span class="line">    <span class="keyword">uint32_t</span> events; <span class="comment">/* Epoll 监视的事件，这些事件与 poll(2) 能监视的事件差不多，只是宏名前面加了个E */</span></span><br><span class="line">    <span class="keyword">epoll_data_t</span> data; <span class="comment">/* 用户数据，除了能保存文件描述符以外，还能让你保存一些其它有关数据，比如你这个文件描述符是嵌在一棵树上的，你在使用它的时候不知道它是树的哪个节点，则可以在布置监视任务的时候将相关的位置都保存下来。这个联合体成员就是 epoll 设计的精髓。 */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<p>epoll_ctl(2) 的作用是要对 fd 增加或减少（op） 什么行为的监视（event）。成功返回0，失败返回 -1 并设置 errno。</p>
+<p>op 参数可以使用下面三个宏来指定操作：</p>
+<table>
+<thead>
+<tr>
+<th align="left">宏</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">EPOLL_CTL_ADD</td>
+<td align="center">增加要监视的文件描述符</td>
+</tr>
+<tr>
+<td align="left">EPOLL_CTL_MOD</td>
+<td align="center">更改目标文件描述符的事件</td>
+</tr>
+<tr>
+<td align="left">EPOLL_CTL_DEL</td>
+<td align="center">删除要监视的文件描述符，event 参数会被忽略，可以传入 NULL。</td>
+</tr>
+</tbody></table>
+<p>表2 epoll_ctl(2) 函数 op 参数的选项</p>
+<p>与 select(2) 和 poll(2) 一样， 布置完监视任务之后需要取监视结果，epoll(7) 策略使用 epoll_wait(2) 函数进行阻塞监视并返回监视结果。</p>
+<ol start="3">
+<li>使用<code>epoll_wait</code>函数进行监视，并返回监视结果</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// epoll_wait  -  wait  for  an  I/O  event on an epoll file descriptor</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/epoll.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_wait</span><span class="params">(<span class="keyword">int</span> epfd, struct epoll_event *events,</span></span></span><br><span class="line"><span class="function"><span class="params">              <span class="keyword">int</span> maxevents, <span class="keyword">int</span> timeout)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>参数列表：</p>
+<p>　　epfd：要操作的 epoll 实例；</p>
+<p>　　events + maxevents：共同指定了一个结构体数组，数组的起始位置和长度。其实每次使用 epoll_ctl(2) 函数添加一个文件描述符时相当于向内核为我们管理的数组中添加了一个成员，所以当我们使用同一个 struct epoll_event 变量操作多个文件描述符时，只需传入该变量的地址和操作了多少个文件描述符即可，大家看看下面的栗子就明白了。</p>
+<p>　　timeout：超时等待的时间，设置为 -1 则始终阻塞监视，不超时。0 非阻塞</p>
+<p>跟上面的栗子一样，LZ 只贴出来被修改了的 relay() 函数，其它部分不变。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 完整代码看  io/adv/epoll/relay_epoll.c</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">relay</span><span class="params">(<span class="keyword">int</span> fd1,<span class="keyword">int</span> fd2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd1_save,fd2_save;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">fsm_st</span> <span class="title">fsm12</span>,<span class="title">fsm21</span>;</span></span><br><span class="line">    <span class="keyword">int</span> epfd;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">epoll_event</span> <span class="title">ev</span>;</span></span><br><span class="line"></span><br><span class="line">    epfd = epoll_create(<span class="number">10</span>);</span><br><span class="line">    <span class="keyword">if</span>(epfd &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"epfd()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fd1_save = fcntl(fd1,F_GETFL);</span><br><span class="line">    fcntl(fd1,F_SETFL,fd1_save|O_NONBLOCK);</span><br><span class="line">    fd2_save = fcntl(fd2,F_GETFL);</span><br><span class="line">    fcntl(fd2,F_SETFL,fd2_save|O_NONBLOCK);</span><br><span class="line"></span><br><span class="line">    fsm12.state = STATE_R;</span><br><span class="line">    fsm12.sfd = fd1;</span><br><span class="line">    fsm12.dfd = fd2;</span><br><span class="line"></span><br><span class="line">    fsm21.state = STATE_R;</span><br><span class="line">    fsm21.sfd = fd2;</span><br><span class="line">    fsm21.dfd = fd1;</span><br><span class="line"></span><br><span class="line">    ev.events = <span class="number">0</span>;</span><br><span class="line">    ev.data.fd = fd1;</span><br><span class="line">    epoll_ctl(epfd,EPOLL_CTL_ADD,fd1,&amp;ev);</span><br><span class="line"></span><br><span class="line">    ev.events = <span class="number">0</span>;</span><br><span class="line">        ev.data.fd = fd2;</span><br><span class="line">        epoll_ctl(epfd,EPOLL_CTL_ADD,fd2,&amp;ev);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(fsm12.state != STATE_T || fsm21.state != STATE_T)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 布置监视任务</span></span><br><span class="line"></span><br><span class="line">        ev.events = <span class="number">0</span>;</span><br><span class="line">        ev.data.fd = fd1;</span><br><span class="line">        <span class="keyword">if</span>(fsm12.state == STATE_R)</span><br><span class="line">            ev.events |= EPOLLIN;</span><br><span class="line">        <span class="keyword">if</span>(fsm21.state == STATE_W)    </span><br><span class="line">            ev.events |= EPOLLOUT;</span><br><span class="line">        epoll_ctl(epfd,EPOLL_CTL_MOD,fd1,&amp;ev);</span><br><span class="line"></span><br><span class="line">        ev.events = <span class="number">0</span>;</span><br><span class="line">        ev.data.fd = fd2;</span><br><span class="line">        <span class="keyword">if</span>(fsm12.state == STATE_W)</span><br><span class="line">            ev.events |= EPOLLOUT;</span><br><span class="line">        <span class="keyword">if</span>(fsm21.state == STATE_R)</span><br><span class="line">            ev.events |= EPOLLIN;</span><br><span class="line">        epoll_ctl(epfd,EPOLL_CTL_MOD,fd2,&amp;ev);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 监视</span></span><br><span class="line">        <span class="keyword">if</span>(fsm12.state &lt; STATE_AUTO || fsm21.state &lt; STATE_AUTO)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(epoll_wait(epfd,&amp;ev,<span class="number">1</span>,<span class="number">-1</span>) &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(errno == EINTR)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                perror(<span class="string">"epoll_wait()"</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 查看监视结果</span></span><br><span class="line">        <span class="keyword">if</span>( ev.data.fd == fd1 &amp;&amp; ev.events &amp; EPOLLIN || \</span><br><span class="line">            ev.data.fd == fd2 &amp;&amp; ev.events &amp; EPOLLOUT || \</span><br><span class="line">            fsm12.state &gt; STATE_AUTO)</span><br><span class="line">            fsm_driver(&amp;fsm12);</span><br><span class="line">        <span class="keyword">if</span>( ev.data.fd == fd2 &amp;&amp; ev.events &amp; EPOLLIN || \</span><br><span class="line">            ev.data.fd == fd1 &amp;&amp; ev.events &amp; EPOLLOUT  || \</span><br><span class="line">            fsm21.state &gt; STATE_AUTO)</span><br><span class="line">            fsm_driver(&amp;fsm21);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fcntl(fd1,F_SETFL,fd1_save);</span><br><span class="line">    fcntl(fd2,F_SETFL,fd2_save);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">close</span>(epfd);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>4.记录锁 </p>
+<p>记录锁就是用 fcntl(2) 函数创建一个锁文件，比较麻烦，感兴趣的童鞋可以自己看看书上的介绍，在这里 LZ 就不做介绍了，我们在最后会讨论两个方便的文件锁和锁文件。</p>
+<p>5.异步 I/O</p>
+<p>这部分主要是说信号驱动 IO，不是真正意义上的异步 IO。</p>
+<p>异步 I/O 分为 System V 异步 I/O 和 BSD 异步 I/O，Linux 模仿的是后者，这里我们不过多讨论了，后面 LZ 在讨论内核的博文中会继续讨论异步。</p>
+<h2 id="1-5-其他读写函数"><a href="#1-5-其他读写函数" class="headerlink" title="1.5 其他读写函数"></a>1.5 其他读写函数</h2><h3 id="readv-2-和-writev-2"><a href="#readv-2-和-writev-2" class="headerlink" title="readv(2) 和 writev(2)"></a>readv(2) 和 writev(2)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// readv,  writev  -  read  or write data into multiple buffers</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/uio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">readv</span><span class="params">(<span class="keyword">int</span> fd, <span class="keyword">const</span> struct iovec *iov, <span class="keyword">int</span> iovcnt)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">writev</span><span class="params">(<span class="keyword">int</span> fd, <span class="keyword">const</span> struct iovec *iov, <span class="keyword">int</span> iovcnt)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">iovec</span> &#123;</span></span><br><span class="line">    <span class="keyword">void</span>  *iov_base;    <span class="comment">/* 起始地址 */</span></span><br><span class="line">    <span class="keyword">size_t</span> iov_len;     <span class="comment">/* Number of bytes to transfer */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这两个函数的作用就是对多个碎片的读写操作，将所有的小碎片写到文件中。</p>
+<p>readv(2) 当没有连续的空间存储从 fd 读取或写入的数据时，将其存储在 iovcnt 个 iov 结构体中，writev(2) 的作用相同。iov 是结构体数组起始位置，iovcnt 是数组长度。</p>
+<h3 id="1-5-1-readn-和-writen"><a href="#1-5-1-readn-和-writen" class="headerlink" title="1.5.1 readn() 和 writen()"></a>1.5.1 readn() 和 writen()</h3><p>这两个函数可以从本书（《APUE》第三版）的光盘中找，它们并不是什么标准库的函数，也不是系统调用，只是本书作者自己封装的函数，算是方言中的方言，作用是坚持写够 n 个字节，之前我们在讨论 IO 的博文中实现过类似的效果。</p>
+<p>对了，天朝在引入这本书的时候貌似没有引入配套光盘，需要的童鞋可以自己去网上搜索一下。</p>
+<h2 id="1-6-存储映射-I-O"><a href="#1-6-存储映射-I-O" class="headerlink" title="1.6 存储映射 I/O"></a>1.6 存储映射 I/O</h2><blockquote>
+<p>把某一块内存，或者是说某一个文件的存储内容映射到当前进程空间里面来。你在当前进程空间中访问一段char型的内容就如同访问该块内存或者该文件一样。它能帮助我非常好用的共享内存，非常快的共享内存。</p>
+</blockquote>
+<p>存储映射 I/O 是十四章的小重点。</p>
+<p>在 *nix 系统中分配内存的方法有好几种，不一定非得使用 free(3) 函数。</p>
+<p>通过 mmap(2) 和 unmap(2) 函数可以实现一个实时的类似于 malloc(3) 和 free(3) 函数的效果，我们在前面的博文中提到过，malloc(3) 和 free(3) 实际上是以打白条的形式实现的，就是在你调用函数的时候并没有立即分配内存给你，而是在你真正使用内存的时候才分配给你的。</p>
+<p>存储映射I/O说的就是将一个文件的一部分或全部映射到内存中，用户拿到的就是这段内存的起始位置，访问这个文件就相当于访问一个大字符串一样。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// mmap, munmap - map or unmap files or devices into memory</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/mman.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">mmap</span><span class="params">(<span class="keyword">void</span> *addr, <span class="keyword">size_t</span> length, <span class="keyword">int</span> prot, <span class="keyword">int</span> flags,</span></span></span><br><span class="line"><span class="function"><span class="params">            <span class="keyword">int</span> fd, <span class="keyword">off_t</span> offset)</span></span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * addr： 你把空间放到哪里，如果 addr 参数传入 NULL 则由 kernel 帮我们选择一块空间并使用返回值返回这段内存的首地址。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * length， 要把多长的内容映射进来</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * prot： 你想对映射过来的这块内存做什么操作</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * flag： 特殊标记，特殊要求           // 匿名映射</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * fd 文件描述符</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * offset 偏移量</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">munmap</span><span class="params">(<span class="keyword">void</span> *addr, <span class="keyword">size_t</span> length)</span></span>; <span class="comment">// 解除映射</span></span><br></pre></td></tr></table></figure>
+
+
+<p>mmap(2) 函数的作用是把 fd 这个文件从 offset 偏移位置开始把 length 字节个长度映射到 addr 这个内存位置上，如果 addr 参数传入 NULL 则由 kernel 帮我们选择一块空间并使用返回值返回这段内存的首地址。</p>
+<p>prot 参数是操作权限，可以使用下表中的宏通过按位或（|）来组合指定</p>
+<table>
+<thead>
+<tr>
+<th align="left">宏</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">PROT_READ</td>
+<td align="center">映射区可读</td>
+</tr>
+<tr>
+<td align="left">PROT_WRITE</td>
+<td align="center">映射区可写</td>
+</tr>
+<tr>
+<td align="left">PROT_EXEC</td>
+<td align="center">映射区可执行</td>
+</tr>
+<tr>
+<td align="left">PROT_NONE</td>
+<td align="center">映射区不可访问</td>
+</tr>
+</tbody></table>
+<p>表3 mmap(2) 函数的 prot 参数可选项</p>
+<p>映射区不可访问（PROT_NONE）的含义是如果我映射的内存中有一块已经有某些数据了，绝对不能让我的程序越界覆盖了，就可以把这段空间设置为映射区不可访问。</p>
+<p>flags 参数是特殊要求，以下二者必选其一：</p>
+<table>
+<thead>
+<tr>
+<th align="left">宏</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">MAP_SHARED</td>
+<td align="center">对映射区进行存储操作相当于对原来的文件进行写入，会改变原来文件的内容。</td>
+</tr>
+<tr>
+<td align="left">MAP_PRIVATE</td>
+<td align="center">当对映射区域进行存储操作时会创建一个私有副本，所有后来再对映射区的操作都相当于操作这个副本，而不影响原来的文件。</td>
+</tr>
+</tbody></table>
+<p>表4 mmap(2) 函数的 flags 参数可选项</p>
+<p>其它常用选项：</p>
+<p>MAP_ANONYMOUS：不依赖于任何文件，映射出来的内存空间会被清 0，并且 fd 和 offset 参数会被忽略，通常我们在使用的时候会把 fd 设置为 -1。</p>
+<p>用这个参数可以很容易的做出一个最简单最好用的在具有亲缘关系的进程之间的共享内存，比后面第15章我们要讨论的共享内存还好用。后面 LZ 会给出一个小栗子让大家看看这种方式如何使用。</p>
+<p>mmap(2) 在成功的时候返回一个指针，会指向映射的内存区域的起始地址。失败时返回 MAP_FAILED 宏定义，其实是这样定义的：(void *) -1。</p>
+<p>首先我们写一个栗子看看如何把一个文件映射到内存中访问。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/mman.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FNAME        <span class="meta-string">"/etc/services"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd,i;</span><br><span class="line">    <span class="keyword">char</span> *str;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">stat</span> <span class="title">statres</span>;</span></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    fd = <span class="built_in">open</span>(FNAME,O_RDONLY);</span><br><span class="line">    <span class="keyword">if</span>(fd &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"open()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过 stat(2) 获得文件大小</span></span><br><span class="line">    <span class="keyword">if</span>(fstat(fd,&amp;statres) &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fstat()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    str = mmap(<span class="literal">NULL</span>,statres.st_size,PROT_READ,MAP_SHARED,fd,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span>(str == MAP_FAILED)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"mmap()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将文件映射到内存之后文件描述符就可以关闭了，直接访问映射的内存就相当于访问文件了。</span></span><br><span class="line">    <span class="built_in">close</span>(fd);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span> ; i &lt; statres.st_size; i++) &#123;</span><br><span class="line">        <span class="comment">// 因为访问的是文本文件，所以可以把映射的内存看作是一个大字符串处理</span></span><br><span class="line">        <span class="keyword">if</span>(str[i] == <span class="string">'a'</span>) &#123;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count = %d\n"</span>,count);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用完了别忘了解除映射，不然会造成内存泄漏！</span></span><br><span class="line">    munmap(str,statres.st_size);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码会统计 /etc/services 文件中包含多少个字符 ‘a’。</p>
+<p>mmap(2) 的返回值是 <code>void*</code> 类型的，这是一种百搭的类型，在映射了不同的东西的情况下我们可以使用不同的指针来接收，这样就能用不同的方式访问这段内存空间了。上面这个文件是文本文件，所以我们可以使用 <code>char*</code> 来接收它的返回值，这样就将整个文件看作是一个大字符串来访问了。</p>
+<p>这个还是比较常规的用法，下面我们看一下如何使用 mmap(2) 函数制作一个好用的共享内存。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父读子写</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/mman.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MEMSIZE        1024</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *str;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这里在 flags 中添加 MAP_ANONYMOUS，为制作共享内存做准备</span></span><br><span class="line">    str = mmap(<span class="literal">NULL</span>,MEMSIZE,PROT_READ|PROT_WRITE,MAP_SHARED|MAP_ANONYMOUS,<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span>(str == MAP_FAILED)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"mmap()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建子进程，父子进程使用共享内存进行通信</span></span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fork()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(pid == <span class="number">0</span>) <span class="comment">// 子进程向共享内存中写入数据</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">strcpy</span>(str,<span class="string">"Hello!"</span>);</span><br><span class="line">        munmap(str,MEMSIZE); <span class="comment">// 注意，虽然共享内存是在 fork(2) 之前创建的，但是 fork(2) 的时候子进程也拷贝了一份，所以子进程使用完毕之后也要解除映射</span></span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 父进程从共享内存中读取子进程写入的数据</span></span><br><span class="line">    &#123;</span><br><span class="line">        wait(<span class="literal">NULL</span>); <span class="comment">// 保障子进程先运行起来，因为就算父进程先运行了也会在这里阻塞等待</span></span><br><span class="line">        <span class="built_in">puts</span>(str); <span class="comment">// 把从共享内存中读取出来的数据打印出来</span></span><br><span class="line">        munmap(str,MEMSIZE); <span class="comment">// 不要忘记解除映射</span></span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>共享内存是进程间通信的一种手段，就是在内存中开辟一块空间让多个进程之间可以共同访问这段空间，从而实现进程之间的数据交换。在后面讨论 IPC 的博文中我们还会详细介绍共享内存，不过用 mmap(2) 制作的共享内存比后面介绍的共享内存使用起来更简便一些。</p>
+<p>大家自己运行一下这段代码，可以看到父进程打印出了子进程写入的“Hello”字符串，说明这段内存确实是在父子进程之间共享的。</p>
+<p>大家在使用的时候不要忘记父子进程最后都要做解除映射的动作。</p>
+<p>从这个栗子中我们也可以看出来，这种共享内存的方式只适合在具有亲缘关系的进程之间使用，没有亲缘关系的进程是无法获得指向同一个映射内存空间的指针的。</p>
+<h2 id="1-7-文件锁"><a href="#1-7-文件锁" class="headerlink" title="1.7 文件锁"></a>1.7 文件锁</h2><blockquote>
+<p>文件为何要锁，建立一个下载任务，首先建一个跟目标大小相似的空洞文件。然后分块去多线程并发。每个线程负责一块。可以当前写的这一块如何避免别人没有过来发生竞争。就需要把这块内容加锁。加锁之后写文件就没问题了。</p>
+</blockquote>
+<p>fcntl()<br>flock()<br>lockf()</p>
+<h3 id="1-7-1-flock-2-和-lockf-3-函数"><a href="#1-7-1-flock-2-和-lockf-3-函数" class="headerlink" title="1.7.1 flock(2) 和 lockf(3) 函数"></a>1.7.1 flock(2) 和 lockf(3) 函数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lockf - apply, test or remove a POSIX lock on an open file</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lockf</span><span class="params">(<span class="keyword">int</span> fd, <span class="keyword">int</span> cmd, <span class="keyword">off_t</span> len)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//flock - apply or remove an advisory lock on an open file</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/file.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">flock</span><span class="params">(<span class="keyword">int</span> fd, <span class="keyword">int</span> operation)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>这两个函数可以实现好用的文件加锁。</p>
+<p>我们这里只介绍 lockf(2) 函数，flock(2) 函数也差不多，都很简单，所以大家可以自己去查阅 man 手册。</p>
+<p>lockf(3) 可以给文件进行局部加锁，简单来说就是从当前位置锁住 len 个字节。</p>
+<p>参数列表：</p>
+<p>　　fd：要加锁的文件描述符；</p>
+<p>　　cmd：具体的命令见下表；</p>
+<table>
+<thead>
+<tr>
+<th align="left">宏</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">F_LOCK</td>
+<td align="center">为文件的一段加锁，如果已经被加锁就阻塞等待，如果两个锁要锁定的部分有交集就会被合并，文件关闭时或进程退出时会自动释放，不会被子进程继承。</td>
+</tr>
+<tr>
+<td align="left">F_TLOCK</td>
+<td align="center">与 F_LOCK 差不多，不过是尝试加锁，非阻塞。</td>
+</tr>
+<tr>
+<td align="left">F_ULOCK</td>
+<td align="center">解锁，如果是被合并的锁会分裂。</td>
+</tr>
+<tr>
+<td align="left">F_TEST</td>
+<td align="center">测试锁，如果文件中被测试的部分没有锁定或者是调用进程持有锁就返回 0；如果是其它进程持有锁就返回 -1，并且 errno 设置为 EAGAIN 或 EACCES。</td>
+</tr>
+</tbody></table>
+<p>图5 lockf(3) 函数的 cmd 参数可选值</p>
+<p>　　len：要锁定的长度，如果为 0 表示文件有多长锁多长，从当前位置一直锁到文件结尾。</p>
+<p>下面我们使用 lockf(3) 函数写一个栗子。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PROCNUM 20</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FNAME <span class="meta-string">"./p"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LINESIZE 1024</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func_add</span> <span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    <span class="keyword">int</span> fd;</span><br><span class="line">    <span class="keyword">char</span> linebuf[LINESIZE];</span><br><span class="line">    fp = fopen(FNAME, <span class="string">"r+"</span>);</span><br><span class="line">    <span class="keyword">if</span>(fp == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fopen()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fd = fileno(fp); <span class="comment">// fileno 从file流中把文件描述符挑出来</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    lockf(fd, F_LOCK, <span class="number">0</span>); <span class="comment">// 写0 指的是文件有多长 锁多长</span></span><br><span class="line">    fgets(linebuf,LINESIZE,fp); <span class="comment">// 将读取的内容放进 linebuf中</span></span><br><span class="line">    fseek(fp, <span class="number">0</span>, SEEK_SET); <span class="comment">// 文件位置指针 指回去</span></span><br><span class="line">    <span class="built_in">fprintf</span>(fp,<span class="string">"%d\n"</span>, atoi(linebuf)+<span class="number">1</span>);</span><br><span class="line">    fflush(fp);<span class="comment">// 因为文件是全缓冲模式，所以为了保证全部写到文件中去。这里需要刷新一下缓冲区</span></span><br><span class="line">    lockf(fd, F_ULOCK, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    fclose(fp);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,err;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;PROCNUM;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        pid = fork();</span><br><span class="line">        <span class="keyword">if</span>(pid &lt; <span class="number">0</span>) </span><br><span class="line">        &#123;</span><br><span class="line">            perror(<span class="string">"fork()"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(pid == <span class="number">0</span>) <span class="comment">// 子进程</span></span><br><span class="line">        &#123;</span><br><span class="line">            func_add();</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>   <span class="comment">// 父进程</span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i =<span class="number">0</span>; i&lt;PROCNUM; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        wait(<span class="literal">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 博客版</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PROCNUM        20</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FNAME        <span class="meta-string">"/tmp/out"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZE        1024</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func_add</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  FILE *fp;</span><br><span class="line">  <span class="keyword">int</span> fd;</span><br><span class="line">  <span class="keyword">char</span> buf[BUFSIZE];</span><br><span class="line">  </span><br><span class="line">  fp = fopen(FNAME,<span class="string">"r+"</span>);</span><br><span class="line">  <span class="keyword">if</span>(fp == <span class="literal">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"fopen()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fd = fileno(fp);</span><br><span class="line">  <span class="keyword">if</span>(fd &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"fd"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 使用之前先锁定</span></span><br><span class="line">  lockf(fd,F_LOCK,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  fgets(buf,BUFSIZE,fp);</span><br><span class="line">  rewind(fp); <span class="comment">// 把文件位置指针定位到文件首</span></span><br><span class="line">  sleep(<span class="number">1</span>); <span class="comment">// 放大竞争</span></span><br><span class="line">  <span class="built_in">fprintf</span>(fp,<span class="string">"%d\n"</span>,atoi(buf)+<span class="number">1</span>);</span><br><span class="line">  fflush(fp);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 使用之后释放锁</span></span><br><span class="line">  lockf(fd,F_ULOCK,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  fclose(fp);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">pid_t</span> pid;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span> ; i &lt; PROCNUM ; i++)</span><br><span class="line">  &#123;</span><br><span class="line">      pid = fork();</span><br><span class="line">      <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)</span><br><span class="line">      &#123;</span><br><span class="line">          perror(<span class="string">"fork()"</span>);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(pid == <span class="number">0</span>)    <span class="comment">// child</span></span><br><span class="line">      &#123;</span><br><span class="line">          func_add();</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span> ; i &lt; PROCNUM ; i++)</span><br><span class="line">      wait(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>还是用我么以前的栗子改的，大家还记得以前写过一个栗子，让 20 个进程同时向 1 个文件中累加数字吗。</p>
+<p>在这里每个进程在读写文件之前先加锁，如果加不上就等待别人释放锁再加。如果加上了锁就读出文件中当前的值，+1 之后再写回到文件中。</p>
+<p>获得锁之后 sleep(1) 是为了放大竞争，让进程之间一定要出现竞争的现象，便于我们分析调试。</p>
+<p>在调试并发的程序时，如果有些问题很难复现，那么可以通过加长每一个并发单位的执行时间来强制它们出现竞争的情况，这样可以让我们更容易的分析问题。</p>
+<p><img src="./sio_3.png" alt=""><br>图3 flock(2) 和 lockf(3) 的缺点</p>
+<p>文件锁还有一个机制是把一个文件当作锁，比如要操作的是 /tmp/out 文件，那么父进程可以先创建一个 /tmp/lcok文件，然后再创建 20 个子进程同时对 /tmp/out 文件进行读写，但是子进程必须先锁定 /tmp/lock 文件才能操作 /tmp/out 文件，没抢到锁文件的需要等待其它进程解锁再抢锁，等父进程为所有的子进程收尸之后再关闭/tmp/lock，/tmp/lock 这个文件就被称为锁文件。</p>
+<p>高级 IO 部分大概就这些内容了。</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2020/12/16/apue-9/>http://yoursite.com/2020/12/16/apue-9/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-28T18:47:12+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 28, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/doc/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>doc</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/12/16/apue-9/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/12/16/apue-9/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/12/16/apue-9/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/12/16/apue-5/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>gitlab 使用</p>
+                <p class='content'>进程关系与守护进程1.1 终端真正意义上的终端是“笨设备”，只能接收命令的输入并返回结果。你问它 1+1=? 它也不知道，它只能把你的问题传给计算机，再把计算机返回的结果显示给你。
+它出现在计算...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/12/16/apue-1/'>
+                <p class='title'>gitlab 使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>APUEAPUE主要讨论了三部分内容：文件IO、并发、进程间通信。
+*文件IO: *
+标准IO：优点是可移植性高，缺点是性能比系统 IO 差，且功能没有系统 IO 丰富。系统IO：因为是内核直接...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'gitlab 使用',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-非阻塞-I-O"><span class="toc-text">1.1 非阻塞 I&#x2F;O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-数据中继"><span class="toc-text">1.2 数据中继</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-有限状态机"><span class="toc-text">1.3 有限状态机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-复杂流程与简单流程"><span class="toc-text">1.3.1 复杂流程与简单流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2-中继引擎库"><span class="toc-text">1.3.2 中继引擎库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-I-O-多路转接"><span class="toc-text">1.4 I&#x2F;O 多路转接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-select-2"><span class="toc-text">1.4.1 select(2)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2-poll"><span class="toc-text">1.4.2 poll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-3-epoll"><span class="toc-text">1.4.3 epoll</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-3-1-使用epoll的三个步骤"><span class="toc-text">1.4.3.1 使用epoll的三个步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-其他读写函数"><span class="toc-text">1.5 其他读写函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#readv-2-和-writev-2"><span class="toc-text">readv(2) 和 writev(2)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-1-readn-和-writen"><span class="toc-text">1.5.1 readn() 和 writen()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-存储映射-I-O"><span class="toc-text">1.6 存储映射 I&#x2F;O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-文件锁"><span class="toc-text">1.7 文件锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-1-flock-2-和-lockf-3-函数"><span class="toc-text">1.7.1 flock(2) 和 lockf(3) 函数</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">belief</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

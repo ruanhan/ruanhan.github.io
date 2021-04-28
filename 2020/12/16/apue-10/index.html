@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#1.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>gitlab 使用 - Hexo</title>
+  
+    <meta name="keywords" content="doc">
+  
+  
+    <meta name="description" content="进程间通信">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            BELIEF <b><sup style='color:#3AA757'>1.0.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/12/16/apue-10/">
+      gitlab 使用
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/apue/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>apue</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 16, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h1><blockquote>
+<p>进程间通信（IPC） 分为 PIPE（管道）、Socket（套接字） 和 XSI（System V）。<br>XSI 又分为 msg（消息队列）、sem（信号量数组） 和 shm（共享内存）。<br>进程间通信又分同一台主机上 和 不同的主机上的。</p>
+</blockquote>
+<ol>
+<li>管道</li>
+<li>XSI -&gt; SYSV</li>
+<li>网络套接字（跨网络的进程通信）</li>
+</ol>
+<ul>
+<li>封装协议</li>
+</ul>
+<blockquote>
+<p>协议就是双方约定对话的格式，实际上每一个用于传输的例子都是在封装协议。</p>
+</blockquote>
+<p>这些手段都是用于进程间通讯的，只有进程间通讯才需要借助第三方机制，线程之间的通讯是不需要借助第三方机制的，因为线程之间的地址空间是共享的。</p>
+<h2 id="1-1-管道"><a href="#1-1-管道" class="headerlink" title="1.1 管道"></a>1.1 管道</h2><blockquote>
+<p>管道分为命名管道（FIFO）和匿名管道（PIPE）；无论是哪种管道，都是由内核帮你创建和维护的；</p>
+</blockquote>
+<p>管道的特点：</p>
+<p>1.管道是半双工的，即同一时间数据只能从一端流向另一端。试想，如果一个管道从两边同时输入和输出数据，那么管道里的数据就乱了。</p>
+<p>2.管道是单工，两端一端作为读端，一端作为写端。</p>
+<p>3.管道具有自适应的特点，默认会适应速度比较慢的一方，管道被写满或读空时速度快的一方会自动阻塞。</p>
+<p><img src="./pipe.png" alt=""></p>
+<h3 id="匿名管道"><a href="#匿名管道" class="headerlink" title="匿名管道"></a>匿名管道</h3><p>pipe(2) 函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pipe - create pipe</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pipe</span><span class="params">(<span class="keyword">int</span> pipefd[<span class="number">2</span>])</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>返回值0 成功，-1失败</p>
+<p>pipe(2) 用于创建管道，pipefd 是一个数组，表示管道的两端文件描述符，pipefd[0] 端作为读端，pipefd[1] 端作为写端。</p>
+<p>pipe(2) 产生的是匿名管道，在磁盘的任何位置上找不到这个管道文件，而且匿名管道只能用于具有亲缘关系的进程之间通信。</p>
+<p><em>一般情况有亲缘关系的进程之间使用管道进行通信时，会把自己不用的一端文件描述符关闭。</em></p>
+<p>下面是创建匿名管道在父子进程之间传送了一个字符串“Hello”的小栗子。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZE        1024</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pd[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">char</span> buf[BUFSIZE];</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建匿名管道</span></span><br><span class="line">    <span class="keyword">if</span>(pipe(pd) &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"pipe()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建子进程</span></span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fork()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(pid == <span class="number">0</span>) &#123; <span class="comment">// 子进程 读取管道数据</span></span><br><span class="line">        <span class="comment">// 关闭写端</span></span><br><span class="line">        <span class="built_in">close</span>(pd[<span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 从管道中读取数据，如果子进程比父进程先被调度会阻塞等待数据写入</span></span><br><span class="line">        len = <span class="built_in">read</span>(pd[<span class="number">0</span>],buf,BUFSIZE);</span><br><span class="line">        <span class="built_in">puts</span>(buf);</span><br><span class="line">        <span class="comment">/* 管道是 fork(2) 之前创建的，</span></span><br><span class="line"><span class="comment">        * 父子进程里都有一份，</span></span><br><span class="line"><span class="comment">        * 所以退出之前要确保管道两端都关闭</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="built_in">close</span>(pd[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 父进程 向管道写入数据</span></span><br><span class="line">        <span class="built_in">close</span>(pd[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">write</span>(pd[<span class="number">1</span>],<span class="string">"Hello!"</span>,<span class="number">6</span>);</span><br><span class="line">        <span class="built_in">close</span>(pd[<span class="number">1</span>]);</span><br><span class="line">        wait(<span class="literal">NULL</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>把一个命令的标准输出做成另一个命令的标准输入</li>
+</ul>
+<p><code>cat h.mp3 | mpg123 -</code></p>
+<p>在上面的栗子中，父进程创建了一个匿名管道，在 pd[2] 数组中凑齐了读写双方，子进程同样继承了具有读写双方的数组 pd[2]。</p>
+<p>父进程先关闭管道的读端然后向管道中写入数据，然后将用完的写端也关闭，等待子进程消亡并为其收尸。</p>
+<p>子进程先关闭管道的写端然后读取父进程写入管道的字符串，把它打印到控制台之后再关闭用完的读端，然后退出。</p>
+<p>这个程序在 fork(2) 之后如果是子进程先运行，那么会阻塞在 read(2) 阶段，等待父进程被调度并向管道中写入数据。</p>
+<p>如果在 fork(2) 之后是父进程先运行，那么父进程会阻塞在 wait(2) 阶段等待子进程运行结束。</p>
+<p>所以无论是谁先运行，只要没有出现异常运行的结果都是我们预期之内的。</p>
+<h3 id="命名管道"><a href="#命名管道" class="headerlink" title="命名管道"></a>命名管道</h3><p>mkfifo 命令</p>
+<p>管道有一个自同步的机制，必须凑齐读写双方才能操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$&gt; mkfifo namedfifo <span class="comment"># 创建一个命令管道</span></span><br><span class="line">$&gt; ls -l namedfifo</span><br><span class="line">prw-r--r--. 1  6月 7 17:47  namedfifo</span><br><span class="line"></span><br><span class="line">$&gt;  date &gt; namedfifo</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 另一个终端上</span></span><br><span class="line">$&gt; cat namedfifo <span class="comment"># 相当于读者读管道</span></span><br></pre></td></tr></table></figure>
+
+<p>mkfifo(3) 函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mkfifo - make a FIFO special file (a named pipe)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mkfifo</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pathname, <span class="keyword">mode_t</span> mode)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>mkfifo(3) 函数用于创建命名管道，作用与匿名管道相同，不过可以在不同的进程之间使用，相当于对一个普通文件进行读写操作就可以了。</p>
+<p>这个管道文件是任何有权限的进程都可以使用的，两端都像操作一个普通文件一样对它进行打开、读写、关闭动作就可以了，只要一端写入数据另一端就可以都出来。</p>
+<p>但是最好一端只读一端只写，否则在实际项目中你很难保证拿出的不是脏数据（自己写进去数据的混合着另一端写进去的数据被其中一端读了出来），除非像下面那个栗子那样结构简单清晰。</p>
+<p>参数列表：</p>
+<p>　　pathname：管道文件的路径和文件名。</p>
+<p>　　mode：创建管道文件的权限。还是老规矩，传入的 mode 值要与系统的 umask 值做运算：(mode &amp; ~umask)</p>
+<p>返回值：成功返回 0，失败返回 -1 并设置 errno。</p>
+<p>我们看下面的栗子是如何使用命名管道通讯的：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PATHNAME    <span class="meta-string">"/tmp/myfifo"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">int</span> fd = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">char</span> buf[BUFSIZ] = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建一个命名管道，大家可以用 ls -l 命令查看这个管道文件的属性</span></span><br><span class="line">    <span class="keyword">if</span> (mkfifo(PATHNAME, <span class="number">0644</span>) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"mkfifo()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fflush(<span class="literal">NULL</span>);</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"fork()"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!pid) &#123; <span class="comment">// parent</span></span><br><span class="line">        pid = fork();</span><br><span class="line">        <span class="keyword">if</span> (pid &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            perror(<span class="string">"fork()"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!pid) &#123; <span class="comment">// parent</span></span><br><span class="line">            <span class="comment">// 两个子进程都创建完之后父进程直接退出，使两个子进程不具有亲缘关系。</span></span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/* child 2 */</span></span><br><span class="line">        <span class="comment">/* 像操作普通文件一样对这个管道进行 open(2)、read(2)、write(2)、close(2) */</span></span><br><span class="line">        fd = <span class="built_in">open</span>(PATHNAME, O_RDWR);</span><br><span class="line">        <span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            perror(<span class="string">"open()"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">read</span>(fd, buf, BUFSIZ);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s"</span>, buf);</span><br><span class="line">        <span class="built_in">write</span>(fd, <span class="string">" World!"</span>, <span class="number">8</span>);</span><br><span class="line">        <span class="built_in">close</span>(fd);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// child 1</span></span><br><span class="line">        fd = <span class="built_in">open</span>(PATHNAME, O_RDWR);</span><br><span class="line">        <span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            perror(<span class="string">"open()"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">write</span>(fd, <span class="string">"Hello"</span>, <span class="number">6</span>);</span><br><span class="line">        sleep(<span class="number">1</span>); <span class="comment">// 刚写完管道不要马上读，等第二个进程读取完并且写入新数据之后再读。</span></span><br><span class="line">        <span class="built_in">read</span>(fd, buf, BUFSIZ);</span><br><span class="line">        <span class="built_in">close</span>(fd);</span><br><span class="line">        <span class="built_in">puts</span>(buf);</span><br><span class="line">        <span class="comment">// 肯定是这个进程最后退出，所以把管道文件删除，不然下次再创建的时候会报文件已存在的错误</span></span><br><span class="line">        <span class="built_in">remove</span>(PATHNAME);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>这段代码很简单，父进程首先在磁盘上创建一个命名管道文件，然后创建两个子进程后退出。每个子进程都对管道文件进行一次读和一次写的动作，然后子进程退出，整个过程就结束了。</p>
+<p>第一个子进程在写完管道之后要先休眠，等待第二个子进程从管道的另一端把数据读入并写入新的数据，第一个子进程再醒来读出管道的内容。如果第一个子进程不休眠而是在写完之后马上读管道，很可能在它写完管道之后第二个子进程还没来得及调度，它自己就又把管道里的数据读出来了，这样不仅读出来的不是第二个子进程写入的数据，还会导致第二个子进程永远阻塞在 read(2) 阶段，因为管道中不会再有数据写入。</p>
+<p>管道大家都会用了吗？看上去不是很难是吧，赶快自己动手写写试试吧。</p>
+<h3 id="协同进程（双工管道）"><a href="#协同进程（双工管道）" class="headerlink" title="协同进程（双工管道）"></a>协同进程（双工管道）</h3><p>这一小节主要是说管道是半双工的，两个进程一个只能对它读，另一个只能对它写，否则会出现脏数据，也就是无法区分出读出来的数据是来自于自己的还是来自于另一个进程的。</p>
+<p>如果想要实现双工，必须采用两个管道，一个进程对一个管道只读，对另一个管道只写。</p>
+<p>明白了这个原理，相信大家可以利用上面的 pipe(2) 或 mkfifo(3) 函数利用两个半双工管道实现进程之间的全双工通讯。</p>
+<h2 id="1-2-XSI-IPC"><a href="#1-2-XSI-IPC" class="headerlink" title="1.2 XSI IPC"></a>1.2 XSI IPC</h2><p>IPC -&gt; Inter - Process Communication</p>
+<p>XSI IPC 分三种机制</p>
+<ul>
+<li>Message Queues  消息队列</li>
+<li>Semaphore Arrays   信号量数组</li>
+<li>Shared Memory Segments 共享内存</li>
+</ul>
+<p>XSI IPC 是 System V 规范里面的进程间通信手段，而不是 POSIX 标准的。关于 System V、POSIX 等等的前世今生可以自行 Google 一下</p>
+<p>在学习 XSI IPC 之前，我们先来认识两条命令：</p>
+<p><code>ipcs(1) 命令可以查看 XSI IPC 的使用情况。</code></p>
+<p><code>ipcrm(1) 命令可以删除指定的 XSI IPC。</code></p>
+<p>为什么要先介绍这两个命令呢？如果实验的过程中需要查看 IPC 是否建立成功，可以通过 ipcs(1) 命令，如果实验出问题了，则可以使用 ipcrm(1) 命令删除错误的 IPC。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$ ipcs</span><br><span class="line"></span><br><span class="line">------ Shared Memory Segments --------</span><br><span class="line">key        shmid      owner      perms      bytes      nattch     status      </span><br><span class="line">0x00000000 32769      usera      600        393216     2          dest         </span><br><span class="line">0x00000000 65538      usera      600        393216     2          dest         </span><br><span class="line">0x00000000 98307      usera      600        393216     2          dest         </span><br><span class="line">0x00000000 131076     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 163845     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 196614     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 229383     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 262152     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 294921     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 327690     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 360459     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 393228     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 425997     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 458766     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 491535     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 524304     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 557073     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 589842     usera      600        393216     2          dest         </span><br><span class="line">0x00000000 655380     usera      600        393216     2          dest         </span><br><span class="line"></span><br><span class="line">------ Semaphore Arrays --------</span><br><span class="line">key        semid      owner      perms      nsems</span><br><span class="line"></span><br><span class="line">------ Message Queues --------</span><br><span class="line">key        msqid      owner      perms      used-bytes   messages  </span><br><span class="line"></span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+<p>通过 ipcs(1) 命令可以看出来，命令的输出结果分为三个部分，第一部分是系统中当前开辟的共享内存（shm），第二部分是信号量数组（sem），第三部分是消息队列（msg）。</p>
+<p>可以看到，不论是哪一部分，都有一列叫做“key”，没错，使用 XSI IPC 通信的进程就是通过同一个 key 值操作同一个共享资源的。这个 key 是一个正整数，与文件描述符不同的是，生成一个新 key 值时它不采用当前可用数值中的最小值，而是类似生成进程 ID 的方式，key 值连续的加 1，直至达到一个整数的最大正值，然后再回转到 0 从头开始累加。</p>
+<h3 id="1-2-1-Message-Queues"><a href="#1-2-1-Message-Queues" class="headerlink" title="1.2.1 Message Queues"></a>1.2.1 Message Queues</h3><blockquote>
+<p>有没有亲缘关系的进程间通讯都可以使用消息队列，消息队列是双工的。</p>
+</blockquote>
+<p>消息队列可以让通信双方传送结构体数据，这样也提高了传送数据的灵活性。</p>
+<p>既然是通讯，那么在通信之前就要先在通信双方约定通信协议，协议就是通信双方约定的数据交换格式。</p>
+<p>从消息队列开始一直到 Socket，我们都会看到比较类似的程序架构，因为无论是消息队列还是 Socket，它们都需要约定通信协议，而且都是按照一定的步骤才能实现通讯。</p>
+<p>消息队列在约定协议的时候，在我们自己定义的结构体里要强制添加一个 long mtype; 成员。这个成员的作用是用于区分多种消息类型中的不同类型的数据包，当只有一种类型的包时这个成员没什么用，但是也必须得带上。</p>
+<p>既然是通讯，那么就要区分主动端（先发包的一方）和被动端（先收包的一方，程序需要先运行起来），它们运行的时机不同，作用不同，甚至调用的函数也不同，所以我们的后面的每个栗子几乎都要编译出 2 个不同的可执行程序来测试。</p>
+<p>前面说了，学到这里操作基本上都是按部就班的了，所以 msg、sem 和 shm 都有一系列函数遵循下面的命名规则：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xxxget() <span class="comment">// 创建</span></span><br><span class="line">xxxop() <span class="comment">// 相关操作</span></span><br><span class="line">xxxctl() <span class="comment">// 其它的控制或销毁</span></span><br></pre></td></tr></table></figure>
+
+<p>下面我们看看消息队列的创建函数：msgget(2)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// msgget - get a System V message queue identifier</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">msgget</span><span class="params">(<span class="keyword">key_t</span> key, <span class="keyword">int</span> msgflg)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>msgget(2) 函数的作用是创建一个消息队列，消息队列是双工的，两边都可以读写。</p>
+<p>参数列表：</p>
+<p>　　key 相当于通信双方的街头暗号，拥有相同 key 的双方才可以通信。</p>
+<p>　　key 值必须是唯一的，系统中有个 ftok(3) 函数可以用于获取 key，通过文件 inode 和 salt 进行 hash 运算来生成唯一的 key，只要两个进程使用相同的文件和 salt 就可以生成一样的 key 值了。</p>
+<p>　　msgflg：特殊要求。无论有多少特殊要求，只要使用了 IPC_CREAT，就必须按位或一个权限，权限也不是你想指定多大就能多大的，还是老规矩，要用它 &amp;= ~umask，这个我们前面提到过。</p>
+<p>同一个消息队列只需要创建一次，所以谁先运行起来谁有责任创建消息队列，后运行起来的就不需要创建了。</p>
+<p>同理，对于后启动的进程来说，消息队列不是它创建的，那么它也没有必要销毁了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">key_t</span> <span class="title">ftok</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pathname, <span class="keyword">int</span> proj_id)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-1-1-msgrcv-2-函数和-msgsnd-2-函数"><a href="#1-2-1-1-msgrcv-2-函数和-msgsnd-2-函数" class="headerlink" title="1.2.1.1 msgrcv(2) 函数和 msgsnd(2) 函数"></a>1.2.1.1 msgrcv(2) 函数和 msgsnd(2) 函数</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// msgrcv, msgsnd - message operations</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">msgsnd</span><span class="params">(<span class="keyword">int</span> msqid, <span class="keyword">const</span> <span class="keyword">void</span> *msgp, <span class="keyword">size_t</span> msgsz, <span class="keyword">int</span> msgflg)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">msgrcv</span><span class="params">(<span class="keyword">int</span> msqid, <span class="keyword">void</span> *msgp, <span class="keyword">size_t</span> msgsz, <span class="keyword">long</span> msgtyp,</span></span></span><br><span class="line"><span class="function"><span class="params">              <span class="keyword">int</span> msgflg)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* msgp 成员的定义要类似 msgbuf 这个结构体，第一个成员必须是 long 类型的 mtype，并且必须是 &gt; 0 的值 */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span></span><br><span class="line">    <span class="keyword">long</span> mtype;       <span class="comment">/* 消息类型，必须 &gt; 0 */</span></span><br><span class="line">    <span class="keyword">char</span> mtext[<span class="number">1</span>];    <span class="comment">/* 消息数据字段 */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>msgrcv(2) 函数从 msgid 这个消息队列中接收数据，并将接收到的数据放到 msgp 结构体中，这段空间有 msgz 个字节大小，msgz 的值要减掉强制的成员 mtype 的大小（sizeof(long)）。</p>
+<p>msgtyp 是 msgp 结构体中的 mtype 成员，表示要接收哪种类型的消息。虽然 msg 是消息队列，但是它并不完全遵循队列的形式，可以让接收者挑消息接收。如果不挑消息可以填写 0，这样就按照队列中的消息顺序返回。</p>
+<p>msfglg 是特殊要求位图，没有写0。</p>
+<p>msgsnd(2) 函数向 msgid 这个消息队列发送 msgp 结构体数据，msgp 的大小是 msgsz，msgflg 是特殊要求，没有特殊要求可以写 0。 </p>
+<h4 id="1-2-1-2-msgctl-2-函数"><a href="#1-2-1-2-msgctl-2-函数" class="headerlink" title="1.2.1.2 msgctl(2) 函数"></a>1.2.1.2 msgctl(2) 函数</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// msgctl - message control operations</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">msgctl</span><span class="params">(<span class="keyword">int</span> msqid, <span class="keyword">int</span> cmd, struct msqid_ds *buf)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>msgctl(2) 函数是不是有点眼熟呢？没错，跟 iocrtl(2)、fcntl(2) 这种函数的用法很类似。通过 cmd 指定具体的命令，然后通过 buf 为 cmd 命令设定参数，当然有些命令是需要参数的，有些命令则不需要参数。</p>
+<p>最长用的 cmd 就是 IPC_RMID，表示删除（结束）某个 IPC 通信，并且这个命令不需要 buf 参数，直接传入 NULL 即可。</p>
+<p>buf 结构体里面的成员很多，由于 cmd 一般只有 IPC_RMID 比较常用，所以 LZ 就不把 buf 结构体拿出来挨个成员解释了，需要用到的童鞋自行查阅一下 man 手册吧，遇到了什么问题可以在评论中讨论。</p>
+<p>看下面的小栗子，我们把上面讲到的几个消息队列的函数使用一遍，在两个进程之间实现简单的通讯。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* proto.h 定义双方都需要使用的数据或对象 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> PROTO_H__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PROTO_H__</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NAMESIZE        32</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 通讯双方生成 key 值共同使用的文件 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> KEYPATH            <span class="meta-string">"/tmp/out"</span></span></span><br><span class="line"><span class="comment">/* 通讯双方生成 key 值共同使用的 salt 值 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> KEYPROJ            <span class="meta-string">'a'</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 消息类型，只要是大于 0 的合法整数即可 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSGTYPE            10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 通讯双方约定的协议 */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">msg_st</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">long</span> mtype;</span><br><span class="line">  <span class="keyword">char</span> name[NAMESIZE];</span><br><span class="line">  <span class="keyword">int</span> math;</span><br><span class="line">  <span class="keyword">int</span> chinese;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/******************** rcver.c 接收方 ********************/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"proto.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">key_t</span> key;</span><br><span class="line">  <span class="keyword">int</span> msgid;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">msg_st</span> <span class="title">rbuf</span>;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 通过 /tmp/out 文件和字符 'a' 生成唯一的 key，注意文件必须是真实存在的</span></span><br><span class="line">  key = ftok(KEYPATH,KEYPROJ);</span><br><span class="line">  <span class="keyword">if</span>(key &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"ftok()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 接收端应该先启动，所以消息队列由接收端创建</span></span><br><span class="line">  msgid = msgget(key,IPC_CREAT|<span class="number">0600</span>);</span><br><span class="line">  <span class="keyword">if</span>(msgid &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"msgget()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 不停的接收消息</span></span><br><span class="line">  <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="comment">// 没有消息的时候会阻塞等待</span></span><br><span class="line">      <span class="keyword">if</span>(msgrcv(msgid,&amp;rbuf,<span class="keyword">sizeof</span>(rbuf)-<span class="keyword">sizeof</span>(<span class="keyword">long</span>),<span class="number">0</span>,<span class="number">0</span>) &lt; <span class="number">0</span>)</span><br><span class="line">      &#123;</span><br><span class="line">          perror(<span class="string">"msgrcv"</span>);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">/* 用结构体中强制添加的成员判断消息类型，</span></span><br><span class="line"><span class="comment">        * 当然在这个例子中只有一种消息类型，所以不判断也可以。</span></span><br><span class="line"><span class="comment">        * 如果包含多种消息类型这里可以写一组 switch...case 结构</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">      <span class="keyword">if</span>(rbuf.mtype == MSGTYPE)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"Name = %s\n"</span>,rbuf.name);</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"Math = %d\n"</span>,rbuf.math);</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"Chinese = %d\n"</span>,rbuf.chinese);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 谁创建谁销毁。</span></span><br><span class="line"><span class="comment">    * 当然这个程序是无法正常结束的，只能通过信号杀死。</span></span><br><span class="line"><span class="comment">    * 使用信号杀死之后大家可以用 ipcs(1) 命令查看一下，消息队列应该是没有被销毁的，</span></span><br><span class="line"><span class="comment">    * 大家可以使用上面我们提到的 ipcrm(1) 命令把它删掉。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  msgctl(msgid,IPC_RMID,<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/******************** snder.c 发送方 ********************/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"proto.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">key_t</span> key;</span><br><span class="line">  <span class="keyword">int</span> msgid;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">msg_st</span> <span class="title">sbuf</span>;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置随机数种子</span></span><br><span class="line">  srand(time(<span class="literal">NULL</span>));</span><br><span class="line">  <span class="comment">// 用与接收方相同的文件和 salt 生成一样的key，这样才可以通讯</span></span><br><span class="line">  key = ftok(KEYPATH,KEYPROJ);</span><br><span class="line">  <span class="keyword">if</span>(key &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"ftok()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 取得消息队列</span></span><br><span class="line">  msgid = msgget(key,<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">if</span>(msgid &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"msgget()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 为要发送的结构体赋值</span></span><br><span class="line">  sbuf.mtype = MSGTYPE;</span><br><span class="line">  <span class="built_in">strcpy</span>(sbuf.name,<span class="string">"Alan"</span>);</span><br><span class="line">  sbuf.math = rand()%<span class="number">100</span>;</span><br><span class="line">  sbuf.chinese = rand()%<span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 发送结构体</span></span><br><span class="line">  <span class="keyword">if</span>(msgsnd(msgid,&amp;sbuf,<span class="keyword">sizeof</span>(sbuf)-<span class="keyword">sizeof</span>(<span class="keyword">long</span>),<span class="number">0</span>) &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"msgsnd()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"ok!"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 消息队列不是发送方创建的，所以发送方不用负责销毁</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先启动接收者，然后启动发送者</span></span><br><span class="line">./rcver</span><br><span class="line">./snder</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送着控制台</span></span><br><span class="line">ok!</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收者控制台</span></span><br><span class="line">Name = Alan</span><br><span class="line">Math = 97</span><br><span class="line">Chinese = 9</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">./rcver</span><br><span class="line">./rcver</span><br><span class="line">./rcver</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送者控制台</span></span><br><span class="line">ok!</span><br><span class="line">ok!</span><br><span class="line">ok!</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">./snder</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收者控制台</span></span><br><span class="line">Name = Alan</span><br><span class="line">Math = 97</span><br><span class="line">Chinese = 9</span><br><span class="line"></span><br><span class="line">Name = Alan</span><br><span class="line">Math = 97</span><br><span class="line">Chinese = 9</span><br><span class="line"></span><br><span class="line">Name = Alan</span><br><span class="line">Math = 97</span><br><span class="line">Chinese = 9</span><br></pre></td></tr></table></figure>
+
+<p>结论：</p>
+<p>说明消息队列有缓存消息的能力；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ulimit</span> -a</span><br><span class="line">bytes <span class="keyword">in</span> POSIX msg queues       819200</span><br><span class="line"><span class="comment"># 这个消息队列的大小 是  819200个字节数， 当消息队列大于这个数字的时候，会造成消息队列数据丢失</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$&gt; ipcs</span><br><span class="line"></span><br><span class="line">键            msqid  拥有者  权限    已用字节  消息</span><br><span class="line">0x61004069     0     hy     600     0       0</span><br><span class="line"><span class="comment"># 发现依然消息队列存在，那是因为接收者那里有一个死循环。导致进程无法正常终止</span></span><br><span class="line"></span><br><span class="line">$&gt; ipcrm  -q  0 <span class="comment"># 杀掉 msqid为0 的消息队列</span></span><br></pre></td></tr></table></figure>
+
+<p>这段程序的源文件有三个：proto.h、rcver.c 和 snder.c。</p>
+<p>proto.h 中的 KEYPROJ （salt 值）用一个字符来替代整形数，为什么不直接写数字呢？因为宏定义是没有数据类型的，没有单位的数字是不靠谱的，而字符的 ASCII 码一定是一个 0-255 之间的整形数。</p>
+<p>接收方要先运行，所以又接收方创建消息队列。发送方要使用相同的文件和 salt 生成于接收方相同的 key 值，这样它们才能使用同一个消息队列。</p>
+<p>发送方生成一个结构体，用随机数为结构体中的两个成员赋值，分别模拟学生的数学和语文成绩，接收方在接收到数据之后把每个成员解析出来，并打印到控制台上。</p>
+<p>可以看出来，发送方和接收方必须使用相同的结构体才能保证数据能够正常被解析，所以这个结构体就是我们上面所说的“协议”。既然是协议，我们就要把它定义在一个共用的结构体（proto.h）中，让发送方和接收方都引用这个头文件，这样就能保证它们可以使用相同的结构体通讯了。</p>
+<h4 id="1-2-1-3-FTP实例-基于消息队列的版本"><a href="#1-2-1-3-FTP实例-基于消息队列的版本" class="headerlink" title="1.2.1.3 FTP实例(基于消息队列的版本)"></a>1.2.1.3 FTP实例(基于消息队列的版本)</h4><blockquote>
+<p>双方进行数据传输，一方作为发送端 一方作为接收端</p>
+</blockquote>
+<p><img src="../../apue/ipc/xsi/msg/myftp/myftp.png" alt=""></p>
+<p>讲解：</p>
+<p>首先c 请求 s， 把path传给 s。 s返回一个一个的数据包给c， 最后一个数据包为 EOT表示发完。<br>c端将s返回的包内容 输出到终端上（有点类似cat 的内容），前面说了c 请求一个 path （文件的地址）。这里有点不灵活。需要在 频繁代码中 去更改path 文件地址。想办法弄到在命令行上指定path</p>
+<h2 id="1-3-Semaphore-Arrays-信号量数组"><a href="#1-3-Semaphore-Arrays-信号量数组" class="headerlink" title="1.3 Semaphore Arrays   信号量数组"></a>1.3 Semaphore Arrays   信号量数组</h2><p>semget();<br>semop();<br>semctl();</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// semget - get a semaphore set identifier</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/sem.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">semget</span><span class="params">(<span class="keyword">key_t</span> key, <span class="keyword">int</span> nsems, <span class="keyword">int</span> semflg)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>semget(2) 函数用于创建信号量。</p>
+<p>成功返回 sem  ID，失败返回 -1 并设置 errno。</p>
+<p>参数列表：</p>
+<p>　　key：具有亲缘关系的进程之间可以使用一个匿名的 key 值，key 使用宏 IPC_PRIVATE 即可。</p>
+<p>　　nsems：表示你到底有多少个 sem。信号量实际上是一个计数器，所以如果设置为 1 可以用来模拟互斥量。</p>
+<p>　　semflg：IPC_CREAT 表示创建 sem，同时需要按位或一个权限，如果是匿名 IPC 则无需指定这个宏，直接给权限就行了。</p>
+<p>semctl(2)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// semctl - semaphore control operations</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/sem.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">semctl</span><span class="params">(<span class="keyword">int</span> semid, <span class="keyword">int</span> semnum, <span class="keyword">int</span> cmd, ...)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>semctl(2) 函数用来控制或销毁信号量。</p>
+<p>参数列表：</p>
+<p>　　semnum：信号量素组下标；</p>
+<p>　　cmd：可选的宏参见《APUE》第三版 P457。常用的有 IPC_RMID，表示从系统中删除该信号量集合。SETVAL 可以为第几个成员设置值。关于这两个宏的用法，我们在下面的栗子中会见到。</p>
+<p>　　…：根据不同的命令设置不同的参数，所以后面的参数是变长的。</p>
+<p>semop(2)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// semop - semaphore operations</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/sem.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">semop</span><span class="params">(<span class="keyword">int</span> semid, struct sembuf *sops, <span class="keyword">unsigned</span> nsops)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sembuf</span> &#123;</span></span><br><span class="line"><span class="keyword">unsigned</span> short sem_num; <span class="comment">/* 对第几个资源（数组下标）操作 */</span></span><br><span class="line">short sem_op; <span class="comment">/* 取几个资源写负数几(不要写减等于)，归还几个资源就写正数几 */</span></span><br><span class="line">short sem_flg; <span class="comment">/* 特殊要求 */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这个函数就是让我们操作信号量的。由于多个信号量可以组成数组，所以我们又看到了熟悉的函数定义方式，一个参数作为数组的起始位置，另一个参数指定数组的长度。</p>
+<p>参数列表：</p>
+<p>　　sops：结构体数组起始位置；</p>
+<p>　　nsops：结构体数组长度；</p>
+<p>返回值：成功返回0，失败返回-1并设置 errno。</p>
+<p>前面说过了，信号量实际上就是计数器，所以每次在使用资源之前，我们需要扣减信号量，当信号量被减到 0 时会阻塞等待。每次使用完成资源之后，需要归还信号量，也就是增加信号量的数值。</p>
+<p>下面我们使用上面操作信号量的函数实现一个通过信号量实现互斥量的栗子。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/sem.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PROCNUM        20</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FNAME        <span class="meta-string">"/tmp/out"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZE        1024</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个函数都要使用这个信号量 ID，所以定义为全局变量</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> semid;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">P</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">sembuf</span> <span class="title">op</span>;</span></span><br><span class="line"></span><br><span class="line">  op.sem_num = <span class="number">0</span>; <span class="comment">// 只有一个资源，所以数组下标是 0</span></span><br><span class="line">  op.sem_op = <span class="number">-1</span>; <span class="comment">// 取一个资源就减1</span></span><br><span class="line">  op.sem_flg = <span class="number">0</span>; <span class="comment">// 没有特殊要求</span></span><br><span class="line">  <span class="keyword">while</span>(semop(semid,&amp;op,<span class="number">1</span>) &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="comment">// 出现假错就重试</span></span><br><span class="line">      <span class="keyword">if</span>(errno != EINTR &amp;&amp; errno != EAGAIN)</span><br><span class="line">      &#123;</span><br><span class="line">          perror(<span class="string">"semop()"</span>);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">V</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">sembuf</span> <span class="title">op</span>;</span></span><br><span class="line"></span><br><span class="line">  op.sem_num = <span class="number">0</span>;</span><br><span class="line">  op.sem_op = <span class="number">1</span>; <span class="comment">// 归还一个资源</span></span><br><span class="line">  op.sem_flg = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(semop(semid,&amp;op,<span class="number">1</span>) &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="keyword">if</span>(errno != EINTR &amp;&amp; errno != EAGAIN)</span><br><span class="line">      &#123;</span><br><span class="line">          perror(<span class="string">"semop()"</span>);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func_add</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  FILE *fp;</span><br><span class="line">  <span class="keyword">char</span> buf[BUFSIZE];</span><br><span class="line"></span><br><span class="line">  fp = fopen(FNAME,<span class="string">"r+"</span>);</span><br><span class="line">  <span class="keyword">if</span>(fp == <span class="literal">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"fopen()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 先取得信号量在操作文件，取不到就阻塞等待，避免发生竞争</span></span><br><span class="line">  P();</span><br><span class="line">  fgets(buf,BUFSIZE,fp);</span><br><span class="line">  rewind(fp);</span><br><span class="line">  sleep(<span class="number">1</span>); <span class="comment">// 调试用，为了放大竞争，更容易看出来互斥量发挥了作用</span></span><br><span class="line">  <span class="built_in">fprintf</span>(fp,<span class="string">"%d\n"</span>,atoi(buf)+<span class="number">1</span>);</span><br><span class="line">  fflush(fp);</span><br><span class="line">  <span class="comment">// 操作结束之后归还信号量，让其它进程可以取得信号量</span></span><br><span class="line">  V();</span><br><span class="line">  fclose(fp);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">pid_t</span> pid;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在具有亲缘关系的进程之间使用，所以设置为 IPC_PRIVATE 即可。</span></span><br><span class="line">  <span class="comment">// 另外想要实现互斥量的效果，所以信号量数量设置为 1 个即可。</span></span><br><span class="line">  semid = semget(IPC_PRIVATE,<span class="number">1</span>,<span class="number">0600</span>);</span><br><span class="line">  <span class="keyword">if</span>(semid &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"semget()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 将 union semun.val 的值设置为 1</span></span><br><span class="line">  <span class="keyword">if</span>(semctl(semid,<span class="number">0</span>,SETVAL,<span class="number">1</span>) &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"semctl()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 创建 20 个子进程</span></span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span> ; i &lt; PROCNUM ; i++)</span><br><span class="line">  &#123;</span><br><span class="line">      pid = fork();</span><br><span class="line">      <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)</span><br><span class="line">      &#123;</span><br><span class="line">          perror(<span class="string">"fork()"</span>);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(pid == <span class="number">0</span>)    <span class="comment">// child</span></span><br><span class="line">      &#123;</span><br><span class="line">          func_add();</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span> ; i &lt; PROCNUM ; i++)</span><br><span class="line">      wait(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 销毁信号量</span></span><br><span class="line">  semctl(semid,<span class="number">0</span>,IPC_RMID);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$&gt; <span class="built_in">echo</span> 1 &gt; <span class="string">'./p'</span></span><br><span class="line"></span><br><span class="line">./add</span><br></pre></td></tr></table></figure>
+
+
+<p>大家还记得以前我们写的用 20 个进程同时向一个文件中写入累加的数值吗？还是这个程序，这次我们使用信号量来实现它们之间的互斥效果。</p>
+<p>程序的结构跟以前的实现方式差不多，只不过锁的形式不一样了而已。</p>
+<h2 id="1-4-Shared-Memory-Segments-共享内存"><a href="#1-4-Shared-Memory-Segments-共享内存" class="headerlink" title="1.4 Shared Memory Segments 共享内存"></a>1.4 Shared Memory Segments 共享内存</h2><p>还记得之前在《高级 IO》部分的博文中我们利用 mmap(2) 函数实现过一个共享内存吗？</p>
+<p>这次我们使用的是 XSI 的共享内存，比使用 mmap(2) 实现的共享内存稍微麻烦一点。不过不用担心，也一样很简单，不就是遵循上面说的那个命名规则的三个函数嘛，有了消息队列和信号量的铺垫，相信不用 LZ 讲大家也差不多能才出来 shm 是个什么套路了。</p>
+<p>没错，第一个函数就是 shmget(2)，我们来看一下它的函数原型：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// shmget - allocates a shared memory segment</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmget</span><span class="params">(<span class="keyword">key_t</span> key, <span class="keyword">size_t</span> <span class="built_in">size</span>, <span class="keyword">int</span> shmflg)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>参数列表：</p>
+<p>　　key：共享内存的唯一标识，具有亲缘关系的进程之间使用共享内存可以使用 IPC_PRIVATE 宏代替。</p>
+<p>　　size：是共享内存的大小。</p>
+<p>　　shmflg：IPC_CREAT 表示创建 shm，同时需要按位或一个权限，如果是匿名 IPC 则无需指定这个宏，直接给权限就行了。</p>
+<p>返回值：成功返回 shm ID；失败返回 -1，man 手册里没说是否设置 errno，这个需要大家根据自己的环境测试一下，或者查阅自己环境下的 man 手册。</p>
+<h3 id="1-4-1-shmat-2-函数和-shmdt-2-函数"><a href="#1-4-1-shmat-2-函数和-shmdt-2-函数" class="headerlink" title="1.4.1 shmat(2) 函数和 shmdt(2) 函数"></a>1.4.1 shmat(2) 函数和 shmdt(2) 函数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// shmat - shared memory operations</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">shmat</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">const</span> <span class="keyword">void</span> *shmaddr, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmdt</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *shmaddr)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>虽然函数名叫做 shmat，根据上面说过的约定，用 man 手册查 shmop 也是可以查到这个命令的。</p>
+<p>shmat(2) 函数使进程与共享内存关联起来。</p>
+<p>shmat(2)函数中的 shmaddr 参数是共享内存的起始地址，传入 NULL 由内核帮我们寻找合适的地址，一般情况我们都是传入 NULL 值。</p>
+<p>shmdt(2) 函数用于使进程分离共享内存，共享内存使用完毕之后需要用这个函数分离。分离不带表释放了这块空间，使用共享内存的双方依然要遵守“谁申请，谁释放”的原则，所以没有申请的一方是不需要释放的，但是双方都需要分离。</p>
+<h3 id="1-4-2-shmctl-2"><a href="#1-4-2-shmctl-2" class="headerlink" title="1.4.2 shmctl(2)"></a>1.4.2 shmctl(2)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// shmctl - shared memory control</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmctl</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">int</span> cmd, struct shmid_ds *buf)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>与消息队列和信号量一样，这个函数用于控制或删除共享内存。</p>
+<p>参数 LZ 就不做介绍了，只说一下如何删除共享内存吧。cmd 参数设置为 IPC_RMID 并且 buf 参数设置为 NULL 就可以删除共享内存了。</p>
+<p>下面我们来看一个共享内存实现进程间通讯的栗子。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/mman.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 申请的共享内存大小，单位是字节</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MEMSIZE        1024</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *str;</span><br><span class="line">  <span class="keyword">pid_t</span> pid;</span><br><span class="line">  <span class="keyword">int</span> shmid;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 有亲缘关系的进程 key 参数可以使用 IPC_PRIVATE 宏，并且创建共享内存 shmflg 参数不需要使用 IPC_CREAT 宏</span></span><br><span class="line">  shmid = shmget(IPC_PRIVATE,MEMSIZE,<span class="number">0600</span>);</span><br><span class="line">  <span class="keyword">if</span>(shmid &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"shmget()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  pid = fork();</span><br><span class="line">  <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      perror(<span class="string">"fork()"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(pid == <span class="number">0</span>) <span class="comment">// 子进程</span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="comment">// 关联共享内存</span></span><br><span class="line">      str = shmat(shmid,<span class="literal">NULL</span>,<span class="number">0</span>);</span><br><span class="line">      <span class="keyword">if</span>(str == (<span class="keyword">void</span> *)<span class="number">-1</span>)</span><br><span class="line">      &#123;</span><br><span class="line">          perror(<span class="string">"shmat()"</span>);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 向共享内存写入数据</span></span><br><span class="line">      <span class="built_in">strcpy</span>(str,<span class="string">"Hello!"</span>);</span><br><span class="line">      <span class="comment">// 分离共享内存</span></span><br><span class="line">      shmdt(str);</span><br><span class="line">      <span class="comment">// 无需释放共享内存</span></span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="comment">// 父进程</span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="comment">// 等待子进程结束再运行，因为需要读取子进程写入共享内存的数据</span></span><br><span class="line">      wait(<span class="literal">NULL</span>);</span><br><span class="line">      <span class="comment">// 关联共享内存</span></span><br><span class="line">      str = shmat(shmid,<span class="literal">NULL</span>,<span class="number">0</span>);</span><br><span class="line">      <span class="keyword">if</span>(str == (<span class="keyword">void</span> *)<span class="number">-1</span>)</span><br><span class="line">      &#123;</span><br><span class="line">          perror(<span class="string">"shmat()"</span>);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 直接把共享内存中的数据打印出来</span></span><br><span class="line">      <span class="built_in">puts</span>(str);</span><br><span class="line">      <span class="comment">// 分离共享内存</span></span><br><span class="line">      shmdt(str);</span><br><span class="line">      <span class="comment">// 释放共享内存</span></span><br><span class="line">      shmctl(shmid,IPC_RMID,<span class="literal">NULL</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后父进程要在父子进程用完共享内存之后调用 shmctl(2) 使用 IPC_RMID 宏来回收资源，参数为 NULL</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2020/12/16/apue-10/>http://yoursite.com/2020/12/16/apue-10/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-28T18:47:05+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 28, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/doc/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>doc</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/12/16/apue-10/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/12/16/apue-10/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/12/16/apue-10/&title=gitlab 使用 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/12/16/gitlab-%E4%BD%BF%E7%94%A8/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>gitlab 使用</p>
+                <p class='content'>软件开发阶段
+软件开发十个阶段在gitlab中对应的管理方式方法
+
+
+IDEA： 每一个从点子开始的项目，通常来源于一次闲聊。在这个阶段，GitLab 集成了Mattermost 它类似一个聊天...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/12/16/apue-3/'>
+                <p class='title'>gitlab 使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>进程环境本章前半部分讨论进程的开始和结束，后半部分讨论参数列表、环境变量、C 程序虚拟地址空间布局等内容。
+
+main函数
+进程的终止
+命令行参数的分析
+环境变量
+C程序的存储空间布局
+库
+函数...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'gitlab 使用',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-管道"><span class="toc-text">1.1 管道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#匿名管道"><span class="toc-text">匿名管道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命名管道"><span class="toc-text">命名管道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协同进程（双工管道）"><span class="toc-text">协同进程（双工管道）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-XSI-IPC"><span class="toc-text">1.2 XSI IPC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-Message-Queues"><span class="toc-text">1.2.1 Message Queues</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-1-msgrcv-2-函数和-msgsnd-2-函数"><span class="toc-text">1.2.1.1 msgrcv(2) 函数和 msgsnd(2) 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-2-msgctl-2-函数"><span class="toc-text">1.2.1.2 msgctl(2) 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-3-FTP实例-基于消息队列的版本"><span class="toc-text">1.2.1.3 FTP实例(基于消息队列的版本)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-Semaphore-Arrays-信号量数组"><span class="toc-text">1.3 Semaphore Arrays   信号量数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-Shared-Memory-Segments-共享内存"><span class="toc-text">1.4 Shared Memory Segments 共享内存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-shmat-2-函数和-shmdt-2-函数"><span class="toc-text">1.4.1 shmat(2) 函数和 shmdt(2) 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2-shmctl-2"><span class="toc-text">1.4.2 shmctl(2)</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">belief</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
