@@ -351,7 +351,7 @@
 <h2 id="1-现代浏览器架构概述"><a href="#1-现代浏览器架构概述" class="headerlink" title="1. 现代浏览器架构概述"></a>1. 现代浏览器架构概述</h2><blockquote>
 <p>以chrome浏览器为例</p>
 </blockquote>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/browser/jincheng.png" alt="image-20210429100836681"></p>
+<p><img src="jincheng.png" alt="image-20210429100836681"></p>
 <p>浏览器是个多进程的架构，但启动chrome，打开一个web页面的时候。我们通过chrome的任务管理器能准确看到，尽管只启动一个页面，浏览器多出了8个进程。</p>
 <h3 id="1-1-浏览器进程架构"><a href="#1-1-浏览器进程架构" class="headerlink" title="1.1 浏览器进程架构"></a>1.1 浏览器进程架构</h3><h4 id="1-1-1-浏览器进程"><a href="#1-1-1-浏览器进程" class="headerlink" title="1.1.1 浏览器进程"></a>1.1.1 浏览器进程</h4><p>浏览器主进程，主要负责界面显示，用户交互，子进程管理，同时提供存储等功能；</p>
 <h4 id="1-2-渲染进程（标签页：chrome-storage-Chrome）"><a href="#1-2-渲染进程（标签页：chrome-storage-Chrome）" class="headerlink" title="1.2 渲染进程（标签页：chrome.storage-Chrome）"></a>1.2 渲染进程（标签页：chrome.storage-Chrome）</h4><p>核心任务是将 HTML、CSS 和 JavaScript 转换为用户可以与之交互的网页，排版引擎 Blink 和 JavaScript 引擎 V8 都是运行在该进程中；</p>
@@ -380,15 +380,110 @@
 <p>当用户键入一个url之后，数据包通过漫长的运输跑到目标服务器，再返回到浏览器客户端，直到收到第一个html文件开始。浏览器做了哪些操作才能呈现出页面的呢？</p>
 <p>我人为的将它们拆分为两个阶段，第一个阶段是创建阶段，第二个阶段为等待更新阶段，第三个阶段为消亡阶段；</p>
 </blockquote>
-<p>为什么要人为区分三个阶段，是因为浏览器在每个阶段所做的事情，并不尽相同。尤其是第一阶段和第二阶段，第一阶段的优化重点是如何尽早获取到服务端的相关资源；</p>
+<p>之所以人为区分三个阶段，是因为浏览器在每个阶段所做的事情，并不尽相同。尤其是第一阶段和第二阶段，第一阶段的优化重点是如何尽早获取到服务端的相关资源；</p>
 <p>第二阶段则需要了然页面的循环机理，优化的重心是不要写出死循环代码，从而卡住页面，还要知道内存是如何管理，不能写出需要频繁GC的页面，造成页面卡顿。</p>
-<p>第三阶段，要关注的地方虽然不多，但是在一些实际开发场景中，不如对于关闭页面之后的数据提交，我们得知道哪些是有效，哪些是无效的；</p>
+<p>第三阶段，要关注的地方虽然不多，但是在一些实际开发场景中，比如对于关闭页面之后如何有效进程数据提交；</p>
 <h3 id="2-1-创建阶段"><a href="#2-1-创建阶段" class="headerlink" title="2. 1 创建阶段"></a>2. 1 创建阶段</h3><blockquote>
 <p> 创建阶段指的是，浏览器将请求过来的html 代码字符串， css代码字符串，js代码字符串解析之后，然后首次绘制出第一帧并呈现到显示器上的这一过程。</p>
 </blockquote>
+<p>上面架构的章节有提到，每个标签页都是一个渲染进程，那每个渲染进程中也分别对应一个呈现引擎实例。所谓呈现引擎，功能诸多，下面将几种介绍其主要用途，即显示使用css格式化的HTML内容和图片；</p>
+<h4 id="2-1-1-呈现流程的基本流程"><a href="#2-1-1-呈现流程的基本流程" class="headerlink" title="2.1.1 呈现流程的基本流程"></a>2.1.1 呈现流程的基本流程</h4><p>渲染流水线</p>
+<p><img src="webkit.png" alt="image-20210429131859115"></p>
+<p>按照渲染的时间顺序，流水线可分为如下几个子阶段： 构建DOM树、样式计算、布局阶段、分层、绘制、分块、光栅化和合成。</p>
+<h5 id="2-1-1-1-构建DOM树"><a href="#2-1-1-1-构建DOM树" class="headerlink" title="2.1.1.1 构建DOM树"></a>2.1.1.1 构建DOM树</h5><p>将html代码字符串转化为计算浏览器方便读取的对象结构，这部分就涉及词法分析和语法分析的内容了。最终生成的DOM树形结构就存到当前渲染进程的内存当中了。</p>
+<p>通过DOM编程提供的API接口，就能访问到对应的DOM节点对象了。</p>
+<p><strong>浏览器的容错机制</strong></p>
+<p>在浏览HTML网页时从来不会看到html语法无效的错误，这是因为浏览器会纠正任何无效的内容，然后继续工作；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mytag</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mytag</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- mytag 是无效的tagName，但是浏览器不会报错，而是默默修复它们并继续往下解析--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    Really lousy HTML</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>截止到这里，浏览器已经生成DOM树了，但是DOM节点的样式我们依然不知道，让DOM节点拥有正确的样式，这就需要样式计算了；</p>
+<h5 id="2-1-1-2-样式计算（Recalculate-Style）"><a href="#2-1-1-2-样式计算（Recalculate-Style）" class="headerlink" title="2.1.1.2 样式计算（Recalculate Style）"></a>2.1.1.2 样式计算（Recalculate Style）</h5><p>样式计算的目的是为了计算出 DOM 节点中每个元素的具体样式，这个阶段大体可分为三步来完成。</p>
+<h6 id="2-1-1-2-1-样式计算的步骤"><a href="#2-1-1-2-1-样式计算的步骤" class="headerlink" title="2.1.1.2.1 样式计算的步骤"></a>2.1.1.2.1 样式计算的步骤</h6><p><strong>把 CSS 转换为浏览器能够理解的结构</strong></p>
+<p>首先css代码可以写在页面的各个地方</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"theme.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>/&gt;</span> <span class="tag">&lt;<span class="name">!-内联的方式---</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">      body &#123;</span><br><span class="line">        background: red;</span><br><span class="line">      &#125;</span><br><span class="line">      div &#123;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 300px;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"color: red"</span>&gt;</span> <span class="comment">&lt;!--行内式--&gt;</span></span><br><span class="line">      123</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>和 HTML 文件一样，浏览器也是无法直接理解这些纯文本的 CSS 样式，所以<strong>当渲染引擎接收到 CSS 文本时，会执行一个转换操作，将 CSS 文本转换为浏览器可以理解的结构——styleSheets</strong></p>
+<p>类似DOM树，styleSheets在内存中也可以查询和修改，这为后面的样式操作提供基础；</p>
+<p><strong>转换样式表中的属性值，使其标准化</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123; <span class="attribute">font-size</span>: <span class="number">2em</span> &#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">color</span>:blue;&#125;</span><br><span class="line"><span class="selector-tag">span</span>  &#123;<span class="attribute">display</span>: none&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;<span class="attribute">font-weight</span>: bold&#125;</span><br><span class="line"><span class="selector-tag">div</span>  <span class="selector-tag">p</span> &#123;<span class="attribute">color</span>:green;&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;<span class="attribute">color</span>:red; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>转化后为</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123; <span class="attribute">font-size</span>: <span class="number">32px</span> &#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">color</span>: <span class="built_in">rgb</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>);&#125;</span><br><span class="line"><span class="selector-tag">span</span>  &#123;<span class="attribute">display</span>: none&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;<span class="attribute">font-weight</span>: <span class="number">700</span>&#125;</span><br><span class="line"><span class="selector-tag">div</span>  <span class="selector-tag">p</span> &#123;<span class="attribute">color</span>: <span class="built_in">rgb</span>(<span class="number">0</span>, <span class="number">128</span>, <span class="number">0</span>);&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;<span class="attribute">color</span>: <span class="built_in">rgb</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>); &#125;</span><br></pre></td></tr></table></figure>
+
+<p>将属性值标准化，有利于后续进一步操作的便捷度；这点类似软件分层机制；</p>
+<p> <strong>计算出 DOM 树中每个节点的具体样式</strong></p>
+<p>接下来就需要计算 DOM 树中每个节点的样式属性</p>
+<p>这就涉及CSS继承的规则和层叠规则了；</p>
+<p><strong>CSS继承，CSS继承就是每个 DOM节点都包含有父节点的样式。</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123; <span class="attribute">font-size</span>: <span class="number">20px</span> &#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">color</span>:blue;&#125;</span><br><span class="line"><span class="selector-tag">span</span>  &#123;<span class="attribute">display</span>: none&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;<span class="attribute">font-weight</span>: bold;<span class="attribute">color</span>:red&#125;</span><br><span class="line"><span class="selector-tag">div</span>  <span class="selector-tag">p</span> &#123;<span class="attribute">color</span>:green;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="extend.png" alt=""></p>
+<p>从图上可以看出，所有子节点都继承了父节点样式。</p>
+<p><strong>样式计算过程中的第二个规则是样式层叠，样式层叠是CSS的一个基本特征，它是一个定义了如何合并来自多个源的属性值的算法，它在CSS处于核心位置</strong></p>
+<p>总之，样式计算阶段的目的是为了计算出 DOM 节点中每个元素的具体样式，在计算过程中需要遵守 CSS 的继承和层叠两个规则。这个阶段最终输出的内容是每个 DOM 节点的样式，并被保存在 ComputedStyle 的结构内。</p>
+<h6 id="2-1-1-2-2-the-order-of-processing-scripts-and-styles-sheets"><a href="#2-1-1-2-2-the-order-of-processing-scripts-and-styles-sheets" class="headerlink" title="2.1.1.2.2 the order of processing scripts and styles sheets"></a>2.1.1.2.2 the order of processing scripts and styles sheets</h6><p>在研究一个网页的中所有元素加载顺序的时候，我们不妨去想一个问题。我们如何保证一个页面的一致性。</p>
+<p>浏览器是一个多进程的结构，为提高机器的使用率，我们可以在每个进程中可以创建多个线程。结合到页面的时候，我们能不能让多个线程来操作页面元素或者绘制页面呢？</p>
+<p>答案显然是不行，在上层文档 我们总能看到DOM文档渲染是同步的，是按着顺序执行。多线程的不稳定让我们在执行同样代码的时候可能产生出不同的视图。比如两个线程同时操作一个DOM节点，其中一个线程给字体变成红色，两一个线程给字体变成黄色。那么最终的结果，这个元素的字体颜色会时而红，时而黄的。</p>
+<p>这显然是不能接受，<strong>因此渲染进程在渲染页面的时候，一定是运行在一个单线程上的；</strong></p>
+<p>第二，浏览器能识别HTML，CSS，JS代码。但也并不意味着浏览器是由js语言开发的。（这么说可能有点蠢，但对于初次了解浏览器机制的非科班开发者并非一无是处），我们明确一个事实，浏览器是运行在操作系统上的，我们的mac os windows 有无界面的linux均能安装浏览器比如chrome。</p>
+<p>nodejs程序，浏览器都是直接运行在操作系统上，但我们的前端页面却是运行在浏览器上面的。像浏览器这种容器应用，必然需要追求极致性能。那GC类语言（GC类语言在进行垃圾回收的时候，会全停顿，那对跑在浏览器上面的web页面是致命的）自然是不能用了。主流的非GC语言就C/C++了。C/C++是原生的系统级语言，可以直接调用操作系统原生API，性能最强。</p>
+<p>那既然如此，为何页面还要用发明一种js语言去开发网页呢？为何不直接用C/C++去开发网页。这就要追溯当时那个时期，开发者也就只想在html页面操作个表单罢了。C/C++语言学习曲线陡峭，哪怕直到今天依然是难学难用的计算机语言。</p>
+<p>那最终便设计出了诸如 html，css，js这几种标记和脚本语言来进行页面的开发，html描述一个界面的骨架，css绘制这个骨架的样式，js负责定义这个骨架的行为。</p>
+<p>这里面牵涉到一个问题，生成DOM树，生成CSSOM是C++干的，可不是js干的，这一定需要明确。我们先不提解释器，也不提V8 jsbinding等，我们先粗暴的理解，html，css，js翻译成C++语言，然后统一在渲染进程的某一个固定的线程去执行。单线程环境里面不存在插队，大家在个什么位置他就是个什么位置。人家在执行的时候，你就乖乖等着，同样，你执行的时候，别人也坐着没动弹。就便是传说中的</p>
+<p><strong>js引擎和渲染线程互斥</strong>。</p>
+<p>如果对js语言底层的实现以及浏览器的架构模型没有概念的话，是很难理解这句话的意思。</p>
+<p>我们结合上面说的，可以粗暴的先理解为，翻译成C++的那部分html，css代码跟翻译成C++的那部分js代码在运行引擎上是互斥的。是不能同时运行的。</p>
+<p>为啥，我们想一个页面。html是DOM结构对吧。js可以操作DOM对吧。那这两个必然不能一直执行吧。一起执行遇到冲突听谁的，那不乱套了吗？</p>
+<p>html和css能不能一起执行？为什么不能呢？html生成的DOM结构是主体，css生成样式，css就是装修，装修刷墙粉面又不会改变主体，那一起呗。</p>
+<p>那css和js能不能一直执行？这个就不能了，因为js能改变css样式啊，那两个一起执行遇到冲突听谁的？</p>
+<p>那问题就清晰了,以下面这段代码为例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"index.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>渲染进程<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>red<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="tag">&lt;<span class="name">div</span>&gt;</span>green<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>从html标签开始，C++代码开始解析这个html代码字符串生成DOM，到<code>head标签</code>之后碰到一个script标签，这个时候生成DOM的程序就停了。解析script，发现需要src远程的index.js。这个时候就慢悠悠的去拉取index.js，等index.js执行完，这个时候js引擎就停了，就又开始执行生成DOM的程序了。就便是互斥；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">defer</span> <span class="attr">src</span>=<span class="string">"index.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"index.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里不得不提到 defer和async，defer是让浏览器别管我，你自己先解析你的DOM吧。我会在你解析完整个页面的时候才执行。那这就很高效了。我的首屏可以不受加载js脚本的影响了；</p>
+<p>async是异步脚本，就比较自由。加载完了就执行，这种脚本必然就不会轮到主渲染线程来执行了。它应该是渲染进程创建出来的其他线程来执行的；</p>
+<p>我们发现一个问题，碰到script标签的时候，居然停了才开始加载。难道就不能提前加载吗？万一加载时间很长呢？</p>
+<p>所以便有了预解析机制，什么意思呢？就是主渲染线程大哥，按自己的节奏不紧不紧的时而解析DOM，时而解析js脚本。但下载脚本，css样式表没必要让解析DOM停下来吧。就不能有一个单独的小弟线程去干这事儿吗？因为在渲染进程中，会安排一个线程专门干这事儿，就解析页面，别擅自改DOM，就待着src，然后下载就完了。解析完了，就踏实释放死去。这便是预解析机制；</p>
+<p>我们上面提到css和js，这个当然css会阻塞js的执行。但做为chrome就不这些想。优秀人的总会能整骚活。它的机制是，只有当脚本尝试访问样式属性可能尚未加载的样式表影响时，它才会禁止该脚本。</p>
+<p>一句话总结就是说，DOM的生成会被js脚本阻塞，css的解析同样有几率阻塞js脚本的执行（当js中存在访问未加载充分的样式表的时候）。所以CSS优先级是最高的，其次是js，DOM碰到js要等等，当然html css一对好基友彼此不耽误，可以同时解析；</p>
+<h5 id="2-1-1-3-布局树构建（layout）"><a href="#2-1-1-3-布局树构建（layout）" class="headerlink" title="2.1.1.3 布局树构建（layout）"></a>2.1.1.3 布局树构建（layout）</h5><blockquote>
+<p>现在，我们有 DOM 树和 DOM 树中元素的样式，但这还不足以显示页面，因为我们还不知道 DOM 元素的几何位置信息。<strong>那么接下来就需要计算出 DOM 树中可见元素的几何位置，我们把这个计算过程叫做布局</strong>。</p>
+</blockquote>
+<h6 id="2-1-1-3-1-创建呈现树"><a href="#2-1-1-3-1-创建呈现树" class="headerlink" title="2.1.1.3.1 创建呈现树"></a>2.1.1.3.1 创建呈现树</h6><p>就是结合DOM和CSSOM，将需要隐藏的节点，隐藏掉。把每个节点的样式信息写进去。</p>
+<h6 id="2-1-1-3-2-布局计算"><a href="#2-1-1-3-2-布局计算" class="headerlink" title="2.1.1.3.2 布局计算"></a>2.1.1.3.2 布局计算</h6><p>布局计算就是把每个节点的信息计算出来并写到该节点中，比如每个节点的宽高位置，计算每个布局点的节点坐标；这个过程就相对复杂了；</p>
+<h5 id="2-1-1-4-分层"><a href="#2-1-1-4-分层" class="headerlink" title="2.1.1.4 分层"></a>2.1.1.4 分层</h5><p>我们知道CSS代码里面有个z-index,<strong>渲染引擎还需要为特定的节点生成专用的图层，并生成一棵对应的图层树</strong>（LayerTree）,然后绘制图层</p>
+<h5 id="2-1-1-5-绘制（paint）"><a href="#2-1-1-5-绘制（paint）" class="headerlink" title="2.1.1.5 绘制（paint）"></a>2.1.1.5 绘制（paint）</h5><blockquote>
+<p>在绘制阶段，系统会遍历呈现树，并调用呈现器的“paint”方法，将呈现器的内容显示在屏幕上。绘制工作是使用用户界面基础组件完成的。</p>
+</blockquote>
+<p><strong>全量绘制和增量绘制</strong></p>
+<p>和布局一样，绘制也分为全局（绘制整个呈现树）和增量两种。在增量绘制中，部分呈现器发生了更改，但是不会影响整个树。更改后的呈现器将其在屏幕上对应的矩形区域设为无效，这导致 OS 将其视为一块“dirty 区域”，并生成“paint”事件。OS 会很巧妙地将多个区域合并成一个。在 Chrome 浏览器中，情况要更复杂一些，因为 Chrome 浏览器的呈现器不在主进程上。Chrome 浏览器会在某种程度上模拟 OS 的行为。展示层会侦听这些事件，并将消息委托给呈现根节点。然后遍历呈现树，直到找到相关的呈现器，该呈现器会重新绘制自己（通常也包括其children）。</p>
+<p><strong>绘制顺序</strong></p>
+<ol>
+<li>background color</li>
+<li>background image</li>
+<li>border</li>
+<li>children</li>
+<li>outline</li>
+</ol>
+<h5 id="2-1-1-6-重排（relayout）与重绘（replaint）"><a href="#2-1-1-6-重排（relayout）与重绘（replaint）" class="headerlink" title="2.1.1.6 重排（relayout）与重绘（replaint）"></a>2.1.1.6 重排（relayout）与重绘（replaint）</h5><p>简单列出渲染流水线的核心步骤</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOM -&gt; Style -&gt; Layout -&gt; Layer -&gt; Paint</span><br></pre></td></tr></table></figure>
+
+<p>重排就是更新几何属性吧，比如改变了位置，大小，布局等等。重排需要重新走一遍，Layout -&gt; Layer -&gt; Paint</p>
+<p>重绘就是改变某些元素的颜色，这样只需要 Paint就行了；</p>
+<p>当然你改一个既不会改变布局，又不会改变颜色的属性，那流水线会跳过这些步骤，直接走合成阶段；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tiles -&gt; raster -&gt; draw quad -&gt; display</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="2-2-等待更新阶段"><a href="#2-2-等待更新阶段" class="headerlink" title="2.2 等待更新阶段"></a>2.2 等待更新阶段</h3><blockquote>
 <p>等待更新阶段，指的是在创建阶段之后（首次渲染之后）用户可以自由操作页面，页面上也可能自由自由请求服务端，或者服务端定时推送数据给页面做呈现。直到用户使用完之后关掉当前标签页的这个过程。</p>
 </blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (!mExiting)</span><br><span class="line">    NS_ProcessNextEvent(thread);</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="2-3-消亡阶段"><a href="#2-3-消亡阶段" class="headerlink" title="2.3 消亡阶段"></a>2.3 消亡阶段</h3><blockquote>
 <p>消亡阶段很好理解，就是点击浏览器标签页的关闭按钮，或者在任务管理器中选择某个页面渲染进程，点右下角的结束进程按钮；当执行这些操作之后，浏览器通过操作系统释放相关渲染进程的所有资源；</p>
 </blockquote>
@@ -479,7 +574,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-29T11:21:53+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-29T23:42:45+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Apr 29, 2021</p>
@@ -632,7 +727,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-现代浏览器架构概述"><span class="toc-text">1. 现代浏览器架构概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-浏览器进程架构"><span class="toc-text">1.1 浏览器进程架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-浏览器进程"><span class="toc-text">1.1.1 浏览器进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-渲染进程（标签页：chrome-storage-Chrome）"><span class="toc-text">1.2 渲染进程（标签页：chrome.storage-Chrome）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-GPU进程"><span class="toc-text">1.3 GPU进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-Network-Service"><span class="toc-text">1.4 Network Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-备用渲染程序"><span class="toc-text">1.5 备用渲染程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-Storage-Service"><span class="toc-text">1.6 Storage Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-扩展程序（插件进程）"><span class="toc-text">1.7 扩展程序（插件进程）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-多进程架构的好处"><span class="toc-text">1.2 多进程架构的好处</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTML，CSS，Js等文件是如何变成页面的"><span class="toc-text">2. HTML，CSS，Js等文件是如何变成页面的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建阶段"><span class="toc-text">2. 1 创建阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-等待更新阶段"><span class="toc-text">2.2 等待更新阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-消亡阶段"><span class="toc-text">2.3 消亡阶段</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-现代浏览器架构概述"><span class="toc-text">1. 现代浏览器架构概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-浏览器进程架构"><span class="toc-text">1.1 浏览器进程架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-浏览器进程"><span class="toc-text">1.1.1 浏览器进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-渲染进程（标签页：chrome-storage-Chrome）"><span class="toc-text">1.2 渲染进程（标签页：chrome.storage-Chrome）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-GPU进程"><span class="toc-text">1.3 GPU进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-Network-Service"><span class="toc-text">1.4 Network Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-备用渲染程序"><span class="toc-text">1.5 备用渲染程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-Storage-Service"><span class="toc-text">1.6 Storage Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-扩展程序（插件进程）"><span class="toc-text">1.7 扩展程序（插件进程）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-多进程架构的好处"><span class="toc-text">1.2 多进程架构的好处</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTML，CSS，Js等文件是如何变成页面的"><span class="toc-text">2. HTML，CSS，Js等文件是如何变成页面的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建阶段"><span class="toc-text">2. 1 创建阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-呈现流程的基本流程"><span class="toc-text">2.1.1 呈现流程的基本流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-1-构建DOM树"><span class="toc-text">2.1.1.1 构建DOM树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-2-样式计算（Recalculate-Style）"><span class="toc-text">2.1.1.2 样式计算（Recalculate Style）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-3-布局树构建（layout）"><span class="toc-text">2.1.1.3 布局树构建（layout）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-4-分层"><span class="toc-text">2.1.1.4 分层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-5-绘制（paint）"><span class="toc-text">2.1.1.5 绘制（paint）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-6-重排（relayout）与重绘（replaint）"><span class="toc-text">2.1.1.6 重排（relayout）与重绘（replaint）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-等待更新阶段"><span class="toc-text">2.2 等待更新阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-消亡阶段"><span class="toc-text">2.3 消亡阶段</span></a></li></ol></li></ol>
     </div>
   </section>
 
