@@ -385,6 +385,7 @@
 <p>第三阶段，要关注的地方虽然不多，但是在一些实际开发场景中，比如对于关闭页面之后如何有效进程数据提交；</p>
 <h3 id="2-1-创建阶段"><a href="#2-1-创建阶段" class="headerlink" title="2. 1 创建阶段"></a>2. 1 创建阶段</h3><blockquote>
 <p> 创建阶段指的是，浏览器将请求过来的html 代码字符串， css代码字符串，js代码字符串解析之后，然后首次绘制出第一帧并呈现到显示器上的这一过程。</p>
+<p> 创建阶段同样可以理解为页面加载阶段的场景，在这个阶段，用户的最高诉求是在尽可能短的时间内看到页面，至于招呼和合成并不是这个阶段的核心诉求，因此我们需要调整策略，在加载阶段将页面解析，js脚本执行等任务调整为优先级最高的队列，降低交互合成这些队列的优先级；</p>
 </blockquote>
 <p>上面架构的章节有提到，每个标签页都是一个渲染进程，那每个渲染进程中也分别对应一个呈现引擎实例。所谓呈现引擎，功能诸多，下面将几种介绍其主要用途，即显示使用css格式化的HTML内容和图片；</p>
 <h4 id="2-1-1-呈现流程的基本流程"><a href="#2-1-1-呈现流程的基本流程" class="headerlink" title="2.1.1 呈现流程的基本流程"></a>2.1.1 呈现流程的基本流程</h4><p>渲染流水线</p>
@@ -475,15 +476,54 @@
 <p>当然你改一个既不会改变布局，又不会改变颜色的属性，那流水线会跳过这些步骤，直接走合成阶段；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tiles -&gt; raster -&gt; draw quad -&gt; display</span><br></pre></td></tr></table></figure>
 
-
-
 <h3 id="2-2-等待更新阶段"><a href="#2-2-等待更新阶段" class="headerlink" title="2.2 等待更新阶段"></a>2.2 等待更新阶段</h3><blockquote>
-<p>等待更新阶段，指的是在创建阶段之后（首次渲染之后）用户可以自由操作页面，页面上也可能自由自由请求服务端，或者服务端定时推送数据给页面做呈现。直到用户使用完之后关掉当前标签页的这个过程。</p>
+<p>等待更新阶段，指的是在创建阶段之后（首次渲染之后）用户可以自由操作页面，页面上也可能自由自由请求服务端，或者服务端定时推送数据给页面做呈现。直到用户使用完之后关掉当前标签页的这个过程。这个阶段同样也可以理解为交互阶段。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (!mExiting)</span><br><span class="line">    NS_ProcessNextEvent(thread);</span><br></pre></td></tr></table></figure>
+<p>这里需要陈述一下，等待更新阶段是杜撰的一个概念，可能在其他资料上面也不会查得到。基于web页面的生命周期，我将其人为割裂为，页面首次显示到浏览器视口中，接下来在用户关闭此标签页的时候，浏览器程序并不是静止不动，而是一直在运行中的，大概是怎么运行的呢？代码大概就像下面这个样子；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是一个近乎无限的循环。</span></span><br><span class="line"><span class="keyword">while</span> (!mExiting)</span><br><span class="line">    NS_ProcessNextEvent(thread);</span><br></pre></td></tr></table></figure>
 
 
 
+<p>为了解释清楚这个阶段，我先聊聊显示器和渲染帧；</p>
+<h4 id="2-2-1-渲染帧"><a href="#2-2-1-渲染帧" class="headerlink" title="2.2.1 渲染帧"></a>2.2.1 渲染帧</h4><p>提到帧数，思绪回到十年前，去网吧玩玩魔兽世界的时候。我第一在乎的是机器能达到多少帧？尽管那时候不知道帧数到底是什么意思，但是明白帧数越高越好，而帧数一旦低于多少，说明机器很卡。也会经常听到网吧有人抱歉，“我的机器卡成幻灯片了”</p>
+<p>幻灯片有什么特征？幻灯片在切换时候会有一个明显的缓动动画，比如淡入淡出啊 缓动啊之类的。</p>
+<p>我们再说显示器，为何显示器能呈现页面啊。首先，显示器是由一个一个很小的晶体管组合而成，每个晶体管是一个像素点，像素点能显示所有不同的颜色。当所有像素点同时点亮的时候，就形成了一幅画面。</p>
+<p>结合本能，我们应该知道。决定游戏界面质量的无非是显卡，GPU，显示器这些关键字了；</p>
+<p>在显卡中有一块叫做前缓冲区的地方，这里存放着显示器要显示的图像，显示器回按照一定的频率来读取前缓冲区，并将前缓冲区中的图像显示在显示器上，不同的显示器读取的频率是不同的，通常情况下是60HZ，也就是说显示器会每间隔1/60秒就读取一次前缓冲区； 为何是60HZ，因为当一个显示器达到60HZ的时候，人眼就很难觉察页面显示器在跳动，而是精致的画面了。那么动画效果将会特别流畅，我们说动画不过就是一张张有差异的图片在高速的切换，这个高速有多高。就是1/60秒次切换一次就可以了。达到这个帧率，足够欺骗人眼了；</p>
+<p>接着说GPU，如果浏览器要更新显示的图片，那么浏览器会将新生成的图片提交到显卡的后缓冲区中，提交完成之后，GPU会将缓冲区和前缓冲区交换位置，也就是前缓冲区变成后缓冲区，后缓冲区变成前缓冲区，这就保证了显示器下次能读取到GPU中最新的图片；</p>
+<p>这时候我们会发现，显示器从前缓冲区读取图片，和浏览器生成新的图像到后缓冲区的过程是不同步的；</p>
+<p><img src="vsync.png" alt=""></p>
+<p>这种显示器读取图片和浏览器生成图片不同步，容易造成诸多问题，</p>
+<p>比如丢帧，或者卡顿。为了解决这个问题，就需要将显示器的时钟同步周期和浏览器生成页面的周期绑定起来；</p>
+<p><strong>当显示器将一帧画面绘制完成后，并在准备读取下一帧之前，显示器会发出一个垂直同步信号给GPU，简称VSync</strong></p>
+<p>具体来讲就是，当GPU接收到Vsync信号后，会将该信号同步给浏览器，浏览器进程再将其同步到对应的渲染进程，渲染进程接收到该信号，就可以准备绘制新的一帧；</p>
+<p>接下来，我们思考一个问题。我们说一个流畅的页面的最好满足60帧，每帧的时间大概是16.67毫秒。</p>
+<p>不知道我们是否还记得页面创建阶段的渲染流水线。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOM -&gt; Style -&gt; Layout -&gt; Layer -&gt; Paint</span><br></pre></td></tr></table></figure>
+
+<p>也就是说DOM解析也好，style解析也好。最终都是为了Paint，</p>
+<p>那么在交互阶段，当有js脚本改变DOM的时候。页面同样需要重新走一遍Layout 之后的渲染流水线；而且这一遍最好在16.66毫秒之内完成。不然，会跨帧，频繁跨帧的话，那必然导致页面帧数极速下跌，页面将变得卡顿或者丢帧；</p>
+<p>ok，那既然在16.66毫秒之内完成。那我们来继续盘点一下这16.66毫秒之内都要执行哪些东西呢？</p>
+<h4 id="2-2-2-schedule"><a href="#2-2-2-schedule" class="headerlink" title="2.2.2 schedule"></a>2.2.2 schedule</h4><p>我们前面说，渲染进程是用一个单线程来执行js脚本和页面绘制的。js引擎和页面绘制单元是互斥的。</p>
+<p>那既然是单线程的，这条生产线又有那么多的事情要干。那具体谁先谁后呢？比如用户的event，js引擎的异步代码，web api（比如requestAnimateFrame，requestIdleCallback等等） </p>
+<p><img src="task.png" alt=""></p>
+<p>解释这张图之前，我先强调一下，前端领域经常提的宏队列 微队列。跟这张图没直接关系啊。这张图是整个浏览器渲染线程做的事情，而宏队列和微队列只是js引擎里面调度，js是单线程的和渲染进程这个单线程不是一码事儿；</p>
+<p>说回，这个渲染帧的调度，</p>
+<ul>
+<li>首先最高优先级是用户事件；</li>
+<li>其次会去检查js引擎中定时器相关的程序，有没有已经到点了的。当然如果该任务中含有micro的任务，也一并执行了</li>
+<li>接下来是BOM事件；</li>
+<li>再然后是requestAnimationFrame</li>
+<li>layout</li>
+<li>paint</li>
+<li>requestIdleCallback</li>
+</ul>
+<p>遇事不决直接上代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.requestAnimationFrame(animation);</span><br><span class="line"><span class="keyword">let</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">animation</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (num &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    num++;</span><br><span class="line">    <span class="built_in">window</span>.requestAnimationFrame(animation);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"requestAnimationFrame"</span>, num);</span><br><span class="line">  <span class="keyword">if</span> (num &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"setTimeout"</span>);</span><br><span class="line">  <span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"promise----"</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// eventType &#123;mouseEvent: 鼠标事件，Event： 自定义事件&#125;</span></span><br><span class="line"><span class="comment">// eventName 事件名称</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">imitatEvent</span>(<span class="params">EventType, EventName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> event = <span class="built_in">document</span>.createEvent(EventType);</span><br><span class="line">  event.initEvent(EventName, <span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">return</span> event;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2222</span>, event1.type);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> event1 = imitatEvent(<span class="string">"MouseEvents"</span>, <span class="string">"click"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// element2 为任何dom元素</span></span><br><span class="line"><span class="built_in">document</span>.dispatchEvent(event1);</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.requestIdleCallback(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"requestIdleCallback"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="task2.png" alt="image-20210430165400190"></p>
+<p>当然细心的小朋友会发现，有的时候，requestAnimationFrame会跑到setTimout之前，有的时候 requestIdleCallback会执行的更加靠后；</p>
+<p>首先，rAf的执行时机是尽可能的接近帧头。</p>
 <h3 id="2-3-消亡阶段"><a href="#2-3-消亡阶段" class="headerlink" title="2.3 消亡阶段"></a>2.3 消亡阶段</h3><blockquote>
 <p>消亡阶段很好理解，就是点击浏览器标签页的关闭按钮，或者在任务管理器中选择某个页面渲染进程，点右下角的结束进程按钮；当执行这些操作之后，浏览器通过操作系统释放相关渲染进程的所有资源；</p>
 </blockquote>
@@ -574,10 +614,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-29T23:42:45+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-30T16:57:59+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Apr 29, 2021</p>
+    <p>更新于：Apr 30, 2021</p>
   </a>
 </div>
 
@@ -727,7 +767,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-现代浏览器架构概述"><span class="toc-text">1. 现代浏览器架构概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-浏览器进程架构"><span class="toc-text">1.1 浏览器进程架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-浏览器进程"><span class="toc-text">1.1.1 浏览器进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-渲染进程（标签页：chrome-storage-Chrome）"><span class="toc-text">1.2 渲染进程（标签页：chrome.storage-Chrome）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-GPU进程"><span class="toc-text">1.3 GPU进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-Network-Service"><span class="toc-text">1.4 Network Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-备用渲染程序"><span class="toc-text">1.5 备用渲染程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-Storage-Service"><span class="toc-text">1.6 Storage Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-扩展程序（插件进程）"><span class="toc-text">1.7 扩展程序（插件进程）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-多进程架构的好处"><span class="toc-text">1.2 多进程架构的好处</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTML，CSS，Js等文件是如何变成页面的"><span class="toc-text">2. HTML，CSS，Js等文件是如何变成页面的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建阶段"><span class="toc-text">2. 1 创建阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-呈现流程的基本流程"><span class="toc-text">2.1.1 呈现流程的基本流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-1-构建DOM树"><span class="toc-text">2.1.1.1 构建DOM树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-2-样式计算（Recalculate-Style）"><span class="toc-text">2.1.1.2 样式计算（Recalculate Style）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-3-布局树构建（layout）"><span class="toc-text">2.1.1.3 布局树构建（layout）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-4-分层"><span class="toc-text">2.1.1.4 分层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-5-绘制（paint）"><span class="toc-text">2.1.1.5 绘制（paint）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-6-重排（relayout）与重绘（replaint）"><span class="toc-text">2.1.1.6 重排（relayout）与重绘（replaint）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-等待更新阶段"><span class="toc-text">2.2 等待更新阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-消亡阶段"><span class="toc-text">2.3 消亡阶段</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-现代浏览器架构概述"><span class="toc-text">1. 现代浏览器架构概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-浏览器进程架构"><span class="toc-text">1.1 浏览器进程架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-浏览器进程"><span class="toc-text">1.1.1 浏览器进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-渲染进程（标签页：chrome-storage-Chrome）"><span class="toc-text">1.2 渲染进程（标签页：chrome.storage-Chrome）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-GPU进程"><span class="toc-text">1.3 GPU进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-Network-Service"><span class="toc-text">1.4 Network Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-备用渲染程序"><span class="toc-text">1.5 备用渲染程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-Storage-Service"><span class="toc-text">1.6 Storage Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-扩展程序（插件进程）"><span class="toc-text">1.7 扩展程序（插件进程）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-多进程架构的好处"><span class="toc-text">1.2 多进程架构的好处</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTML，CSS，Js等文件是如何变成页面的"><span class="toc-text">2. HTML，CSS，Js等文件是如何变成页面的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建阶段"><span class="toc-text">2. 1 创建阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-呈现流程的基本流程"><span class="toc-text">2.1.1 呈现流程的基本流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-1-构建DOM树"><span class="toc-text">2.1.1.1 构建DOM树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-2-样式计算（Recalculate-Style）"><span class="toc-text">2.1.1.2 样式计算（Recalculate Style）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-3-布局树构建（layout）"><span class="toc-text">2.1.1.3 布局树构建（layout）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-4-分层"><span class="toc-text">2.1.1.4 分层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-5-绘制（paint）"><span class="toc-text">2.1.1.5 绘制（paint）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-6-重排（relayout）与重绘（replaint）"><span class="toc-text">2.1.1.6 重排（relayout）与重绘（replaint）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-等待更新阶段"><span class="toc-text">2.2 等待更新阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-渲染帧"><span class="toc-text">2.2.1 渲染帧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-schedule"><span class="toc-text">2.2.2 schedule</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-消亡阶段"><span class="toc-text">2.3 消亡阶段</span></a></li></ol></li></ol>
     </div>
   </section>
 
