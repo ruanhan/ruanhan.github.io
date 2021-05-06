@@ -737,11 +737,77 @@
 </ul>
 <p>对运行时足够理解，能够帮助我们更好理解V8的执行流程，比如事件循环系统可以让你清楚各种回调函数是怎么被执行的，栈空间可以让你了解函数是怎么被调用的，堆空间和栈空间让你了解为什么要有传值和传引用，等等；</p>
 <p><img src="v8_3.jpg" alt=""></p>
-<p><strong>宿主环境</strong></p>
-<p>宿主是指为寄生物提供生存环境的生物，V8和浏览器的渲染进程就是 寄生物和宿主细胞的关系，<strong>浏览器为V8提供基础的消息循环系统，全局变量，web API</strong>，而V8的核心是实现了ECMAScript标准；这相当于病毒自己的DNA，V8只提供了ECMAScript定义的一些对象和一些核心的函数，还包括了Object，Function，String，除此之外，V8还提供了垃圾回收器、协程等基础内容，不过这些功能依然需要宿主环境的配合才能完整执行；</p>
+<h6 id="宿主环境"><a href="#宿主环境" class="headerlink" title="宿主环境"></a><strong>宿主环境</strong></h6><p>宿主是指为寄生物提供生存环境的生物，V8和浏览器的渲染进程就是 寄生物和宿主细胞的关系，<strong>浏览器为V8提供基础的消息循环系统，全局变量，web API</strong>，而V8的核心是实现了ECMAScript标准；这相当于病毒自己的DNA，V8只提供了ECMAScript定义的一些对象和一些核心的函数，还包括了Object，Function，String，除此之外，V8还提供了垃圾回收器、协程等基础内容，不过这些功能依然需要宿主环境的配合才能完整执行；</p>
 <p>如果V8使用不当，比如不规范的代码触发了频繁的垃圾回收，或者某个函数执行时间过久，这些都会占用宿主环境的主线程，从而影响到程序的执行效率，甚至导致宿主环境的卡死；</p>
 <p>同样，除了浏览器，Nodejs也算是V8的宿主环境之一，它提供了不同的宿主对象和宿主的API，但是整个流程依然是相同的，比如Node.js也会提供一套消息循环系统，也会提供一个运行时的主线程；</p>
 <p><img src="v8_4.jpg" alt=""></p>
+<p>Ok,我们知道，要执行V8，则需要有一个宿主环境，宿主环境可以是浏览器中的渲染进程，可以是Nodejs进程，也可以是其他的定制开发的环境，而这些宿主则提供了很多V8执行js时所需的基础功能部件；比如</p>
+<h6 id="构造数据存储空间：堆栈"><a href="#构造数据存储空间：堆栈" class="headerlink" title="构造数据存储空间：堆栈"></a><strong>构造数据存储空间：堆栈</strong></h6><p>V8是寄生在浏览器或者Nodejs这些宿主中的，V8也是被这些宿主启动的，在Chrome中，只要打开了一个渲染进程，渲染进程便会初始化V8，同时初始化堆空间和栈空间；</p>
+<p>栈空间主要是用来管理js函数调用的，栈是内存中连续的一块空间，同时栈结构是“先进后出”的策略，在函数调用过程中，涉及到上下文相关的内容都会存放栈上，比如原生类型、引用到的对象的地址、函数的执行状态、this值等都会存在在栈上，当一个函数执行结束，那么该函数的执行上下文便会被销毁掉；</p>
+<p>栈空间的最大特点是空间连续，所以在栈中每个元素的地址都是固定的，因此栈空间的查找效率非常高，但是通常在内存中，很难分配到一块很大的连续空间，因此，V8对栈空间的大小做了限制，如果函数调用层过深，那么V8就有可能抛出栈溢出的错误，比如</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">  <span class="keyword">return</span> n*factorial(n<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line">factorial(<span class="number">50000</span>) <span class="comment">// maximum call stack size exceeded</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果有一些占用内存比较大的数据，或者不需要存储在连续空间中的数据，使用栈空间就显得不合适了，所以有了堆空间；</p>
+<p>堆空间是一种树形存储结构，用来存储对象类型的离散的数据，js中除了原生类型的数据，其他的都是对象类型，诸如函数，数组，在浏览器中还有window对象，document对象都是存在堆空间的；</p>
+<p>宿主在启动V8的过程中，会同时创建堆空间和栈空间，再继续往下执行，产生的新数据都会存放在这两个空间中；</p>
+<p>（这里会有一个问题，这个堆栈空间到底是V8创建的还是宿主环境（浏览器渲染进程）创建的？<br>其实这个问题不用太过纠结，因为v8和宿主同在一个进程，那必然是共用一套内存空间，通常在启动V8过程中，宿主会创建好堆栈空间，在V8里面叫solate，然后V8利用创建好的堆和栈）</p>
+<p><strong>为什么使用栈结构来管理函数调用</strong></p>
+<blockquote>
+<p>大部分高级语言都不约而同地采用栈这种结构来管理函数调用</p>
+</blockquote>
+<p>函数通常有两个主要特征</p>
+<ol>
+<li>函数可以被调用，你可以在一个函数中调用另外一个函数，当函数调用发生时，执行代码的控制权将从父函数转移到子函数，子函数执行结束之后，又会将代码执行控制权返还给父函数；</li>
+<li>函数具有作用域机制，所谓作用域机制，是指函数在执行的时候可以将定义在函数内部的变量和外部环境隔离，在函数内部定义的变量我们称为临时变量，临时变量只能在该函数中被访问，外部函数通常无权访问，当函数执行结束之后，存放在内存中的临时变量也随之被销毁；</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getZ</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> z = getZ();</span><br><span class="line">  <span class="keyword">return</span> x+y+z;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">int</span> y = <span class="number">6</span>;</span><br><span class="line">  <span class="keyword">int</span> ret = add(x,y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当main函数调用add函数时，需要将代码执行控制权给add；</li>
+<li>add函数又调用了getZ函数，于是又将代码控制权交给getZ函数；</li>
+<li>接下来getZ执行完毕，需要将控制权返回给add函数；</li>
+<li>同样当add函数执行结束之后，需要将控制权返还给main函数；</li>
+<li>然后main函数继续向下执行；</li>
+</ul>
+<p><img src="v8_6.jpg" alt=""></p>
+<p><em>函数调用者的生命周期总是长于被调用者（后进），并且被调用者的生命周期总是先于调用者的生命周期结束（先出）</em></p>
+<p><em>站在函数资源分配和回收角度来看，被调用函数的资源分配总是晚于调用函数（后进），而函数资源的释放则总是先于调用函数（先出）</em></p>
+<p><strong>栈如何管理函数调用</strong></p>
+<p><img src="v8_7.jpg" alt=""></p>
+<p>如图所示，<em>函数在执行过程中，其内部的临时变量会按照执行顺序被压入到栈中的</em></p>
+<p><img src="v8_8.jpg" alt=""></p>
+<p>当执行到add函数时，会先把num1和num2压栈，接着再把x，y，ret的值依次压栈，但是当add函数执行完毕之后，需要将执行代码的控制权转交给main函数，这意味着需要将栈的状态恢复到main函数上次执行时的状态，我们将这个过程叫做恢复现场，那么应该怎么恢复main函数的执行现场呢？</p>
+<p><em>答案是，在寄存器中保存一个永远指向当前栈顶的指针，栈顶指针的作用就是告诉你应该往哪个位置添加新元素，这个指针通常存放在esp寄存器中。然后增删元素都要实时将地址值更新esp寄存器中的这个值，恢复现场，只需要将栈顶指针向下移动就可以了</em></p>
+<p>如上图所示，从100000f97 -&gt; 100000f92就可以了；</p>
+<p>但问题是，我怎么知道要移动到 f92，而不是f90或者其他什么位置；解决这个问题的操作是，CPU增加了一个ebp寄存器保存当前函数的开始位置；我们把一个函数的起始位置也称为栈帧指针；</p>
+<p><img src="v8_9.jpg" alt=""></p>
+<h6 id="全局执行上下文和全局作用域"><a href="#全局执行上下文和全局作用域" class="headerlink" title="全局执行上下文和全局作用域"></a><strong>全局执行上下文和全局作用域</strong></h6><p>V8初始化了基础的存储空间之后，接下来就需要初始化全局执行上下文和全局作用域了。这两个内容是V8执行后续流程的基础；</p>
+<p>当V8开始执行一段可执行代码时，会生成一个执行上下文，V8用执行上下文来维护执行当前代码所需要的变量声明，this指向等；</p>
+<p>执行上下文主要包含了“<strong>变量环境，词法环境，this关键字</strong>”等，比如在浏览器的环境中，全局执行上下文就包括了window对象，还是默认指向window的this关键字，另外还有一些web API函数，诸如setTimeout，XMLHttpRequest等内容；</p>
+<p>而词法环境中，则包含了使用let，const等变量的内容</p>
+<p><img src="v8_5.jpg" alt=""></p>
+<p>全局执行上下文在V8的生存周期内是不会被销毁的，它会一直保存在堆中，这样当下次在需要使用函数或者全局变量时，就不需要重新创建了，另外，当执行一段全局代码时，如果全局代码中有声明的函数或定义的变量，那么函数对象和声明的变量都会被添加到全局执行上下文中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show_x</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>v8在执行这段代码中，会在全局执行上下文中添加变量x和函数show_x;这里需要提示一个消息就是，浏览器环境下，全局中使用var声明的对象或者变量都会被写入window对象，这带来的坑就是gc不会主动去收集这部分内存空间；</p>
+<p>当V8调用了一个函数时，就会进入函数的执行上下文，这时候全局执行上下文和当前的函数执行上下文就形成了一个栈结构，比如执行下面这段代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show_x</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  show_x()</span><br><span class="line">&#125;</span><br><span class="line">bar()</span><br></pre></td></tr></table></figure>
+
+<p>当执行到show_x()，其栈的状态如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|-- show_x 执行上下文</span><br><span class="line">|- bar执行上下文</span><br><span class="line">| 全局执行上下文</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="构造事件循环系统"><a href="#构造事件循环系统" class="headerlink" title="构造事件循环系统"></a><strong>构造事件循环系统</strong></h6><p>有了堆空间和栈空间，生成全局执行上下文和全局作用域，接下来还不能执行js代码；</p>
+<p>因为V8还需要一个主线程，用来执行js和执行垃圾回收等工作，V8是寄生在宿主环境中的，它并没有自己的主线程，而是使用宿主所提供的主线程，V8所执行的代码都是在宿主的主线程上执行的；</p>
+<p>只有一个主线程依然不行，因为如果你开启了一个线程，在该线程执行一段代码，那么当该线程执行完这段代码之后，就会自动退出了；执行过程中的一些栈上的数据也随之被销毁，下次再执行另外一个段代码时，你还需要重新启动一个线程，重新初始化栈数据，这会严重影响到程序执行时的性能；</p>
+<p>为了在执行完代码之后，让线程继续运行，通常的做法是在代码中添加一个循环语句，在循环语句中监听下个事件，这在一个http服务器程序中会被经常使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">  Task task = GetNewTask();</span><br><span class="line">  RunTask(task)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果主线程正在执行一个任务，这时候又进来一个新任务，比如V8正在操作DOM，这时候浏览器的网络线程完成了一个页面下载的任务，而且V8注册监听下载完成的事件，那么这种情况下就需要引入一个消息机制，让下载完成的事件暂存到消息队列中，等当前的任务（DOM操作）执行结束之后，再从消息队列中取出正在排队的任务。当执行完一个任务之后。事件循环系统会重复这个过程，继续从消息队列中取出并执行下个任务；</p>
+<p>因为所有的任务都是运行在主线程的，在浏览器的页面中，<em>V8会和页面共用主线程，共用消息队列，所以如果V8执行一个函数过久，会影响到浏览器页面的交互性能；</em></p>
 <h5 id="8-3-2-2-AST和作用域"><a href="#8-3-2-2-AST和作用域" class="headerlink" title="8.3.2.2  AST和作用域"></a>8.3.2.2  AST和作用域</h5><blockquote>
 <p>在基础环境准备好之后，接下来就可以向V8提交要执行的js代码了；</p>
 </blockquote>
@@ -916,7 +982,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-06T15:13:45+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-06T18:08:40+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：May 6, 2021</p>
