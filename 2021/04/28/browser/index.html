@@ -545,7 +545,7 @@
 <h3 id="2-3-消亡阶段"><a href="#2-3-消亡阶段" class="headerlink" title="2.3 消亡阶段"></a>2.3 消亡阶段</h3><blockquote>
 <p>消亡阶段很好理解，就是点击浏览器标签页的关闭按钮，或者在任务管理器中选择某个页面渲染进程，点右下角的结束进程按钮；当执行这些操作之后，浏览器通过操作系统释放相关渲染进程的所有资源；</p>
 </blockquote>
-<h2 id="3-浏览器中的js引擎"><a href="#3-浏览器中的js引擎" class="headerlink" title="3. 浏览器中的js引擎"></a>3. 浏览器中的js引擎</h2><p>通过上面的阐述，我们大概知道了js引擎在整个浏览器渲染进程中的位置。它的使命和它的能力范围；</p>
+<h2 id="3-浏览器中的V8引擎"><a href="#3-浏览器中的V8引擎" class="headerlink" title="3. 浏览器中的V8引擎"></a>3. 浏览器中的V8引擎</h2><p>通过上面的阐述，我们大概知道了js引擎在整个浏览器渲染进程中的位置。它的使命和它的能力范围；</p>
 <h3 id="3-1-单线程的js是如何实现异步的"><a href="#3-1-单线程的js是如何实现异步的" class="headerlink" title="3.1 单线程的js是如何实现异步的"></a>3.1 单线程的js是如何实现异步的</h3><p>首先，灵魂拷问，什么是异步？</p>
 <p>在计算机系统中，有一些任务一旦执行，比如socket编程。鬼都不晓得啥时候能执行完。所以我不能一直死等着吧。</p>
 <p>那我能不能先干点别的事儿。好在，计算机系统设计的足够健壮。支持多任务并行；</p>
@@ -623,63 +623,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;&#125;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"console.log('click me')"</span>&gt;</span>click me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>我们发现界面的button都渲染不出来，页面也一直在无限加载。其实这也是一种挂起。也能从侧面渲染线程和js的执行确实是在一个单线程的环境中的。</p>
-<h2 id="4-js异步编程"><a href="#4-js异步编程" class="headerlink" title="4. js异步编程"></a>4. js异步编程</h2><h2 id="5-js引擎内存管理"><a href="#5-js引擎内存管理" class="headerlink" title="5. js引擎内存管理"></a>5. js引擎内存管理</h2><h3 id="5-1-内存模型"><a href="#5-1-内存模型" class="headerlink" title="5.1 内存模型"></a>5.1 内存模型</h3><p><strong>js原始类型的数据值都是直接保存在“栈”中的，引用类型的值是存放在“堆”中的</strong></p>
-<p>js是gc语言；开发者无需手动清理堆内存</p>
-<p>所以<strong>通常情况下，栈空间都不会设置太大，主要用来存放一些原始类型的小数据</strong>。而引用类型的数据占用的空间都比较大，所以这一类数据会被存放到堆中，<strong>堆空间很大，能存放很多大的数据</strong>，不过缺点是分配内存和回收内存都会占用一定的时间。</p>
-<p>在 JavaScript 中，赋值操作和其他语言有很大的不同，<strong>原始类型的赋值会完整复制变量值，而引用类型的赋值是复制引用地址</strong>。</p>
-<h3 id="5-2-垃圾回收"><a href="#5-2-垃圾回收" class="headerlink" title="5.2 垃圾回收"></a>5.2 垃圾回收</h3><p>首先像一些没有垃圾回收机制的语言，比如C/C++。 是需要调用free函数来清楚堆内存的。</p>
-<p>js内置的垃圾回收工具，并不需要手动去释放；</p>
-<h4 id="5-2-1-栈中代码如何回收"><a href="#5-2-1-栈中代码如何回收" class="headerlink" title="5.2.1 栈中代码如何回收"></a>5.2.1 栈中代码如何回收</h4><p><strong>JavaScript 引擎会通过向下移动 ESP 来销毁该函数保存在栈中的执行上下文</strong>。</p>
-<h4 id="5-2-2-堆中代码如何回收"><a href="#5-2-2-堆中代码如何回收" class="headerlink" title="5.2.2 堆中代码如何回收"></a>5.2.2 堆中代码如何回收</h4><p>通过上面的讲解，我想现在你应该已经知道，当上面那段代码的 foo 函数执行结束之后，ESP 应该是指向全局执行上下文的，那这样的话，showName 函数和 foo 函数的执行上下文就处于无效状态了，不过保存在堆中的两个对象依然占用着空间，如下图所示：</p>
-<p><img src="stack1.png" alt=""></p>
-<p>从图中可以看出，1003 和 1050 这两块内存依然被占用。<strong>要回收堆中的垃圾数据，就需要用到 JavaScript 中的垃圾回收器了</strong>。</p>
-<p>所以，接下来我们就来通过 Chrome 的 JavaScript 引擎 V8 来分析下堆中的垃圾数据是如何回收的。</p>
-<h5 id="5-2-2-1-代际假说和分代收集"><a href="#5-2-2-1-代际假说和分代收集" class="headerlink" title="5.2.2.1 代际假说和分代收集"></a>5.2.2.1 代际假说和分代收集</h5><p>不过在正式介绍 V8 是如何实现回收之前，你需要先学习下<strong>代际假说（The Generational Hypothesis）</strong>的内容，这是垃圾回收领域中一个重要的术语，后续垃圾回收的策略都是建立在该假说的基础之上的，所以很是重要。</p>
-<p><strong>代际假说</strong>有以下两个特点：</p>
-<ul>
-<li>第一个是大部分对象在内存中存在的时间很短，简单来说，就是很多对象一经分配内存，很快就变得不可访问；</li>
-<li>第二个是不死的对象，会活得更久。</li>
-</ul>
-<p>其实这两个特点不仅仅适用于 JavaScript，同样适用于大多数的动态语言，如 Java、Python 等。</p>
-<p>有了代际假说的基础，我们就可以来探讨 V8 是如何实现垃圾回收的了。</p>
-<p>通常，垃圾回收算法有很多种，但是并没有哪一种能胜任所有的场景，你需要权衡各种场景，根据对象的生存周期的不同而使用不同的算法，以便达到最好的效果。</p>
-<p>所以，在 V8 中会把堆分为<strong>新生代</strong>和<strong>老生代</strong>两个区域，<strong>新生代中存放的是生存时间短的对象，老生代中存放的生存时间久的对象</strong>。</p>
-<p>新生区通常只支持 1～8M 的容量，而老生区支持的容量就大很多了。对于这两块区域，V8 分别使用两个不同的垃圾回收器，以便更高效地实施垃圾回收。</p>
-<ul>
-<li><strong>副垃圾回收器，主要负责新生代的垃圾回收。</strong></li>
-<li><strong>主垃圾回收器，主要负责老生代的垃圾回收。</strong></li>
-</ul>
-<h5 id="5-2-2-2-垃圾回收器的工作流程"><a href="#5-2-2-2-垃圾回收器的工作流程" class="headerlink" title="5.2.2.2 垃圾回收器的工作流程"></a>5.2.2.2 垃圾回收器的工作流程</h5><p>现在你知道了 V8 把堆分成两个区域——新生代和老生代，并分别使用两个不同的垃圾回收器。其实<strong>不论什么类型的垃圾回收器，它们都有一套共同的执行流程</strong>。</p>
-<p>第一步是标记空间中活动对象和非活动对象。所谓活动对象就是还在使用的对象，非活动对象就是可以进行垃圾回收的对象。</p>
-<p>第二步是回收非活动对象所占据的内存。其实就是在所有的标记完成之后，统一清理内存中所有被标记为可回收的对象。</p>
-<p>第三步是做内存整理。一般来说，频繁回收对象后，内存中就会存在大量不连续空间，我们把这些不连续的内存空间称为<strong>内存碎片</strong>。当内存中出现了大量的内存碎片之后，如果需要分配较大连续内存的时候，就有可能出现内存不足的情况。所以最后一步需要整理这些内存碎片，但这步其实是可选的，因为有的垃圾回收器不会产生内存碎片，比如接下来我们要介绍的副垃圾回收器。</p>
-<p>那么接下来，我们就按照这个流程来分析新生代垃圾回收器（副垃圾回收器）和老生代垃圾回收器（主垃圾回收器）是如何处理垃圾回收的。</p>
-<h5 id="5-2-2-3-副垃圾回收器"><a href="#5-2-2-3-副垃圾回收器" class="headerlink" title="5.2.2.3 副垃圾回收器"></a>5.2.2.3 副垃圾回收器</h5><p>副垃圾回收器主要负责新生区的垃圾回收。而通常情况下，大多数小的对象都会被分配到新生区，所以说这个区域虽然不大，但是垃圾回收还是比较频繁的。</p>
-<p>新生代中用<strong>Scavenge 算法</strong>来处理。所谓 Scavenge 算法，是把新生代空间对半划分为两个区域，一半是对象区域，一半是空闲区域，如下图所示：</p>
-<p><img src="stack2.png" alt=""></p>
-<p>新加入的对象都会存放到对象区域，当对象区域快被写满时，就需要执行一次垃圾清理操作。</p>
-<p>在垃圾回收过程中，首先要对对象区域中的垃圾做标记；标记完成之后，就进入垃圾清理阶段，副垃圾回收器会把这些存活的对象复制到空闲区域中，同时它还会把这些对象有序地排列起来，所以这个复制过程，也就相当于完成了内存整理操作，复制后空闲区域就没有内存碎片了。</p>
-<p>完成复制后，对象区域与空闲区域进行角色翻转，也就是原来的对象区域变成空闲区域，原来的空闲区域变成了对象区域。这样就完成了垃圾对象的回收操作，同时这种<strong>角色翻转的操作还能让新生代中的这两块区域无限重复使用下去</strong>。</p>
-<p>由于新生代中采用的 Scavenge 算法，所以每次执行清理操作时，都需要将存活的对象从对象区域复制到空闲区域。但复制操作需要时间成本，如果新生区空间设置得太大了，那么每次清理的时间就会过久，所以<strong>为了执行效率，一般新生区的空间会被设置得比较小</strong>。</p>
-<p>也正是因为新生区的空间不大，所以很容易被存活的对象装满整个区域。为了解决这个问题，JavaScript 引擎采用了<strong>对象晋升策略</strong>，也就是经过两次垃圾回收依然还存活的对象，会被移动到老生区中。</p>
-<h5 id="5-2-2-4-主垃圾回收器"><a href="#5-2-2-4-主垃圾回收器" class="headerlink" title="5.2.2.4 主垃圾回收器"></a>5.2.2.4 主垃圾回收器</h5><p>主垃圾回收器主要负责老生区中的垃圾回收。除了新生区中晋升的对象，一些大的对象会直接被分配到老生区。因此老生区中的对象有两个特点，一个是对象占用空间大，另一个是对象存活时间长。</p>
-<p>由于老生区的对象比较大，若要在老生区中使用 Scavenge 算法进行垃圾回收，复制这些大的对象将会花费比较多的时间，从而导致回收执行效率不高，同时还会浪费一半的空间。因而，主垃圾回收器是采用<strong>标记 - 清除（Mark-Sweep）</strong>的算法进行垃圾回收的。下面我们来看看该算法是如何工作的。</p>
-<p>首先是标记过程阶段。标记阶段就是从一组根元素开始，递归遍历这组根元素，在这个遍历过程中，能到达的元素称为<strong>活动对象</strong>，没有到达的元素就可以判断为<strong>垃圾数据</strong>。</p>
-<p>比如最开始的那段代码，当 showName 函数执行退出之后，这段代码的调用栈和堆空间如下图所示：</p>
-<p><img src="stack3.png" alt=""></p>
-<p>从上图你可以大致看到垃圾数据的标记过程，当 showName 函数执行结束之后，ESP 向下移动，指向了 foo 函数的执行上下文，这时候如果遍历调用栈，是不会找到引用 1003 地址的变量，也就意味着 1003 这块数据为垃圾数据，被标记为红色。由于 1050 这块数据被变量 b 引用了，所以这块数据会被标记为活动对象。这就是大致的标记过程。</p>
-<p>接下来就是垃圾的清除过程。它和副垃圾回收器的垃圾清除过程完全不同，你可以理解这个过程是清除掉红色标记数据的过程，可参考下图大致理解下其清除过程：</p>
-<p><img src="stack4.png" alt=""></p>
-<p>上面的标记过程和清除过程就是标记 - 清除算法，不过对一块内存多次执行标记 - 清除算法后，会产生大量不连续的内存碎片。而碎片过多会导致大对象无法分配到足够的连续内存，于是又产生了另外一种算法——<strong>标记 - 整理（Mark-Compact）</strong>，这个标记过程仍然与标记 - 清除算法里的是一样的，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。你可以参考下图：</p>
-<p><img src="stack5.png" alt=""></p>
-<h5 id="5-2-2-5-全停顿"><a href="#5-2-2-5-全停顿" class="headerlink" title="5.2.2.5 全停顿"></a>5.2.2.5 全停顿</h5><p>现在你知道了 V8 是使用副垃圾回收器和主垃圾回收器处理垃圾回收的，不过由于 JavaScript 是运行在主线程之上的，一旦执行垃圾回收算法，都需要将正在执行的 JavaScript 脚本暂停下来，待垃圾回收完毕后再恢复脚本执行。我们把这种行为叫做<strong>全停顿（Stop-The-World）</strong>。</p>
-<p>比如堆中的数据有 1.5GB，V8 实现一次完整的垃圾回收需要 1 秒以上的时间，这也是由于垃圾回收而引起 JavaScript 线程暂停执行的时间，若是这样的时间花销，那么应用的性能和响应能力都会直线下降。主垃圾回收器执行一次完整的垃圾回收流程如下图所示：</p>
-<p><img src="stack6.png" alt=""></p>
-<p>在 V8 新生代的垃圾回收中，因其空间较小，且存活对象较少，所以全停顿的影响不大，但老生代就不一样了。如果在执行垃圾回收的过程中，占用主线程时间过久，就像上面图片展示的那样，花费了 200 毫秒，在这 200 毫秒内，主线程是不能做其他事情的。比如页面正在执行一个 JavaScript 动画，因为垃圾回收器在工作，就会导致这个动画在这 200 毫秒内无法执行的，这将会造成页面的卡顿现象。</p>
-<p>为了降低老生代的垃圾回收而造成的卡顿，V8 将标记过程分为一个个的子标记过程，同时让垃圾回收标记和 JavaScript 应用逻辑交替进行，直到标记阶段完成，我们把这个算法称为<strong>增量标记（Incremental Marking）算法</strong>。如下图所示：</p>
-<p><img src="stack7.png" alt=""></p>
-<p>使用增量标记算法，可以把一个完整的垃圾回收任务拆分为很多小的任务，这些小的任务执行时间比较短，可以穿插在其他的 JavaScript 任务中间执行，这样当执行上述动画效果时，就不会让用户因为垃圾回收任务而感受到页面的卡顿了。</p>
-<h2 id="6-浏览器缓存"><a href="#6-浏览器缓存" class="headerlink" title="6. 浏览器缓存"></a>6. 浏览器缓存</h2><h2 id="7-浏览器中的网络"><a href="#7-浏览器中的网络" class="headerlink" title="7. 浏览器中的网络"></a>7. 浏览器中的网络</h2><h2 id="8-浏览器中的V8"><a href="#8-浏览器中的V8" class="headerlink" title="8. 浏览器中的V8"></a>8. 浏览器中的V8</h2><blockquote>
+<h2 id="4-浏览器缓存"><a href="#4-浏览器缓存" class="headerlink" title="4. 浏览器缓存"></a>4. 浏览器缓存</h2><h2 id="5-浏览器中的网络"><a href="#5-浏览器中的网络" class="headerlink" title="5. 浏览器中的网络"></a>5. 浏览器中的网络</h2><h2 id="8-浏览器中的V8"><a href="#8-浏览器中的V8" class="headerlink" title="8. 浏览器中的V8"></a>8. 浏览器中的V8</h2><blockquote>
 <p>在V8出现之前，所有js虚拟机所采用的都是解释执行的方式，这是js执行速度过慢的一个主要原因，而V8率先引入即时编译（JIT）的双轮驱动的设计，这是一种权衡策略，混合编译执行和解释执行这两种手段，给js的执行速度带来的极大的提升；</p>
 <p>另外，V8也早于其他虚拟机引入了惰性编译、内联缓存、隐藏类等机制；进一步优化了js代码的编译执行效率；</p>
 </blockquote>
@@ -749,8 +693,14 @@
 
 
 
-<p>如果有一些占用内存比较大的数据，或者不需要存储在连续空间中的数据，使用栈空间就显得不合适了，所以有了堆空间；</p>
-<p>堆空间是一种树形存储结构，用来存储对象类型的离散的数据，js中除了原生类型的数据，其他的都是对象类型，诸如函数，数组，在浏览器中还有window对象，document对象都是存在堆空间的；</p>
+<p>如果有一些占用内存比较大的数据，或者不需要存储在连续空间中的数据，使用栈空间就显得不合适了，而且栈上分配的数据过大，也会导致栈溢出，基于栈不方便存储大的数据，所以有了堆空间；</p>
+<p>堆空间是一种树形存储结构，用来存储对象类型的离散的数据，存放在堆空间中的数据是不要求连续存放的，从堆上分配内存没有固定模式的，可以在任何时候分配和释放它。js中除了原生类型的数据，其他的都是对象类型，诸如函数，数组，在浏览器中还有window对象，document对象都是存在堆空间的；</p>
+<p>另外</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *z = <span class="keyword">new</span> <span class="keyword">int</span>;</span><br><span class="line">Point *pp = <span class="keyword">new</span> Point()</span><br></pre></td></tr></table></figure>
+
+<p>诸如 new int, new Point这些语句，当执行这些语句时，表示要在堆中分配一块内存，然后返回指针，通常返回的指针会被保存到栈中，</p>
+<p><img src="v8_12.jpg" alt=""></p>
+<p>如上图，当使用new时，会在堆中分配一块空间，在堆中分配空间之后，会返回分配后的地址，我们会把改地址保存在栈中，如上图中p和pp都是地址，它们保存在栈中，指向了在堆中分配的空间；当栈中的函数调用执行完毕，栈中的指针地址 也被清理掉了；因此c语言中函数返回指针地址的操作，通常都是不合法的。而且在函数执行完毕之后，没有及时 free掉堆上数据的话，那么造成的影响就是内存泄漏了；</p>
 <p>宿主在启动V8的过程中，会同时创建堆空间和栈空间，再继续往下执行，产生的新数据都会存放在这两个空间中；</p>
 <p>（这里会有一个问题，这个堆栈空间到底是V8创建的还是宿主环境（浏览器渲染进程）创建的？<br>其实这个问题不用太过纠结，因为v8和宿主同在一个进程，那必然是共用一套内存空间，通常在启动V8过程中，宿主会创建好堆栈空间，在V8里面叫solate，然后V8利用创建好的堆和栈）</p>
 <p><strong>为什么使用栈结构来管理函数调用</strong></p>
@@ -783,6 +733,14 @@
 <p>如上图所示，从100000f97 -&gt; 100000f92就可以了；</p>
 <p>但问题是，我怎么知道要移动到 f92，而不是f90或者其他什么位置；解决这个问题的操作是，CPU增加了一个ebp寄存器保存当前函数的开始位置；我们把一个函数的起始位置也称为栈帧指针；</p>
 <p><img src="v8_9.jpg" alt=""></p>
+<p>如上图所示，在main函数调用add函数的时候，main函数的栈顶指针 100000f93就变成了add函数的栈帧指针（ebp）了，所以需要将main函数的栈顶指针保存到ebp中，</p>
+<p>当add函数执行结束之后，我需要销毁add函数的栈帧，并恢复main函数的栈帧，那么只需要取出main函数的栈顶指针写到esp中即可（main函数的栈顶指针是保存在ebp中的），这就相当于将栈顶指针移动到main函数的区域；</p>
+<p>那main函数的ebp中的值写到esp了。那main函数的ebp怎么处理？</p>
+<p>通常的做法是，CPU在调用add函数时，会将当前main函数的栈帧指针保存在栈中；</p>
+<p><img src="v8_11.jpg" alt=""></p>
+<p>当函数调用结束之后，就需要恢复main函数的执行现场了，首先取出ebp中的指针，写入esp中，然后从栈中取出之前保留的main的栈帧地址，将其写入ebp中，到了这里ebp和exp就都恢复了，可以继续执行main函数了；</p>
+<p><strong>栈帧</strong></p>
+<p>每个栈帧对应着一个未运行完的函数，栈帧中保存了该函数返回地址和局部变量，如果调用一个新函数，那么V8会为该函数创建栈帧，等函数执行结束之后，销毁该栈帧，而帧结构的容量是固定的，所有如果重复嵌套执行一个函数，那么就会导致栈会栈溢出；</p>
 <h5 id="全局执行上下文和全局作用域"><a href="#全局执行上下文和全局作用域" class="headerlink" title="全局执行上下文和全局作用域"></a><strong>全局执行上下文和全局作用域</strong></h5><p>V8初始化了基础的存储空间之后，接下来就需要初始化全局执行上下文和全局作用域了。这两个内容是V8执行后续流程的基础；</p>
 <p>当V8开始执行一段可执行代码时，会生成一个执行上下文，V8用执行上下文来维护执行当前代码所需要的变量声明，this指向等；</p>
 <p>执行上下文主要包含了“<strong>变量环境，词法环境，this关键字</strong>”等，比如在浏览器的环境中，全局执行上下文就包括了window对象，还是默认指向window的this关键字，另外还有一些web API函数，诸如setTimeout，XMLHttpRequest等内容；</p>
@@ -888,6 +846,110 @@
 <li>优化热点代码为二进制的机器代码</li>
 <li>反优化生成的二进制机器代码</li>
 </ul>
+<h3 id="8-4-V8异步编程"><a href="#8-4-V8异步编程" class="headerlink" title="8.4 V8异步编程"></a>8.4 V8异步编程</h3><h4 id="8-4-1-V8是怎么实现回调函数的"><a href="#8-4-1-V8是怎么实现回调函数的" class="headerlink" title="8.4.1 V8是怎么实现回调函数的"></a>8.4.1 V8是怎么实现回调函数的</h4><p>诸如setTimeout，XMLHTTPRequest来异步下载资源文件，在Node中可以使用readFile来读取文件，这些操作都有一个共同的特点，那就是需要给调用API传入回调函数，然后浏览器或者Node会将执行处理的结果通过回调函数来触发；</p>
+<p>从内部了解回调函数，可以帮助我们梳理清楚很多问题</p>
+<ul>
+<li>有助于我们理解浏览器中的Web API到底是怎么工作的；</li>
+<li>有助于我们理解宏任务和微任务到底有哪些区别；</li>
+<li>理解回调函数，是理解异步编程模型async/await的基础；</li>
+</ul>
+<p><strong>只有当某个函数被作为参数，传递给另外一个函数，或者传递给宿主环境，然后该函数内部或者在宿主环境中被调用，才称为回调函数</strong></p>
+<p><strong>回调函数有两种不同的形式，同步回调和异步回调。通常，我们需要将回调函数传入给另外一个执行函数，那么同步回调和异步回调的最大区别在于同步回调函数是在执行函数内部被执行的，而异步回调函数是在执行函数外部被执行的</strong></p>
+<p>同步回调无需多言，下面只说异步回调</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello"</span>);</span><br><span class="line">&#125;</span><br><span class="line">setTimeout(foo, <span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
+
+<p>异步回调在什么时机和什么位置被调用呢？</p>
+<p>要解释清楚这个问题，我们就需要了解V8在运行时的线程模型，因为这涉及到了消息队列，事件循环等概念，这些概念都和线程模型是直接相关的，所以接下来就先来分析下V8的线程架构模型；</p>
+<p><strong>UI线程宏观架构</strong></p>
+<p>早期浏览器的页面是运行在一个单独的UI线程中，所以要在页面中引入js，那么js也必须要运行在和页面相同的线程上，这样才能方便使用js来操纵DOM，所以从一开始，js就被设计成运行在UI线程中；</p>
+<p>所谓UI线程，是指运行窗口的线程，当你运行一个窗口时，无论该页面是windows的窗口系统，还是android或者ios的窗口系统，它们都需要处理各种事件，诸如触发绘制页面的事件，有鼠标点击，拖拽，放大缩小的事件，有资源下载，文件读写的事件；</p>
+<p>在页面线程中，当一个事件被触发时，比如用户使用鼠标点击了页面，系统需要将该事件提交给UI线程来处理；</p>
+<p>在大部分情况下，UI线程并不能立即响应和处理这些事件，比如在你在移动鼠标的过程中，每移动一个像素都会产生一个事件，所以鼠标移动的事件会频繁地被触发，在这种情况下，页面线程可能正在处理前一个事件，那么最新的事件就无法被立即执行；</p>
+<p>针对这种情况，我们为UI线程提供一个消息队列，并将这些待执行的事件添加到消息队列中，然后UI线程会不断循环地从消息队列中取出事件，执行时间，我们把UI线程每次从消息队列取出事件，执行事件的过程称为一个任务；</p>
+<p><img src="v8_13.jpg" alt=""></p>
+<p>这就是通用的UI线程的结构，有消息队列，通过鼠标，键盘，触控板等产生的消息都会被添加进消息队列，主线程会循环地从消息队列中取出消息并执行；</p>
+<p><strong>异步回调函数的调用时机</strong></p>
+<p>setTimeout(foo,3000)，在执行setTimeout函数的过程中，宿主就会将foo函数封装成一个事件，并添加到消息队列中，然后setTimeout函数执行结束；</p>
+<p><em>通用UI线程是如何处理下载事件的</em></p>
+<ol>
+<li>UI线程会从消息队列中取出一个任务，并分析该任务；</li>
+<li>分析过程中发现该任务是一个下载请求，那么主线程就会将该任务交给网络线程去执行；</li>
+<li>网络线程接到请求之后，便会和服务端建立连接，并发出下载请求；</li>
+<li>网络线程不断地收到服务器端传过来的数据；</li>
+<li>网络线程每次接收到数据时，都会将设置的回调函数和返回的数据信息，如大小，返回了多少字节，返回的数据在内存中存放的位置等信息封装成一个新的事件，并将该事件放到消息队列中；</li>
+<li>ui线程继续循环地读取消息队列中的事件，如果是下载状态的事件，那么UI线程会执行回调函数，程序员便可以在回调函数内部编写更新下载进度的状态的代码；</li>
+<li>直到最后接收到下载结束事件，UI线程会显示该页面下载完成；</li>
+</ol>
+<h4 id="8-4-2-V8是如何实现微任务的"><a href="#8-4-2-V8是如何实现微任务的" class="headerlink" title="8.4.2 V8是如何实现微任务的"></a>8.4.2 V8是如何实现微任务的</h4><blockquote>
+<p> 基于上文提到基础UI框架，js衍生出很多新技术，诸如宏任务和微任务</p>
+</blockquote>
+<p>宏任务： 指消息队列中的等待被主线程执行的事件；每个宏任务在执行时，V8都会重新创建栈，然后随着宏任务中函数调用，栈也随之变化，最终，当该宏任务执行结束时，整个栈又会被清空，接着主线程继续执行下一个宏任务；</p>
+<p>微任务： 微任务是一个需要异步执行的函数，执行时机是在主函数执行结束之后，当前宏任务结束之前；</p>
+<p>之所以引入微任务，一来是因为主线程执行消息队列中宏任务的时间粒度太粗，无法胜任一些对精度和实时性要求较高的场景，那么微任务可以在实时性和效率之间做一个有效的权衡；</p>
+<p>另外，使用微任务，可以改变现在的异步编程模型，使我们可以使用同步形式的代码来编写异步调用；</p>
+<p><strong>微任务解决了宏任务执行时机不可控的问题</strong></p>
+<p>虽然我们可以通过将某些函数封装成宏任务的方式来解决，但是宏任务需要先被放到消息队列中，如果某些宏任务的执行时间过久，那么就会影响到消息队列后面的宏任务的执行，而且这个影响不可控，因为你无法知道前面宏任务需要多久才能执行完毕；</p>
+<p>V8会为每个宏任务维护一个微任务队列，当V8执行一段js时，会为这段代码创建一个环境对象，微任务队列就是存放在该环境对象中的。当你通过Promise.resolve生成一个微任务，该微任务会被V8自动添加进微任务队列，等整段代码快要执行结束时，该环境对象也随之被销毁，但是在销毁之前，V8会先处理微任务队列中的微任务；</p>
+<p><strong>能否在微任务中循环地触发新的微任务</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve().then(foo)</span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+
+<p>答案必然是不能，因为函数在退出宏任务之前会检查微任务队列，如果循环创建微任务，那么导致当前宏任务永远无法被退出。那造成的结果就是后续的宏任务永远得不到执行；</p>
+<h3 id="8-5-V8内存管理"><a href="#8-5-V8内存管理" class="headerlink" title="8.5  V8内存管理"></a>8.5  V8内存管理</h3><h4 id="8-5-1-内存模型"><a href="#8-5-1-内存模型" class="headerlink" title="8.5.1 内存模型"></a>8.5.1 内存模型</h4><p><strong>js原始类型的数据值都是直接保存在“栈”中的，引用类型的值是存放在“堆”中的</strong></p>
+<p>js是gc语言；开发者无需手动清理堆内存</p>
+<p>所以<strong>通常情况下，栈空间都不会设置太大，主要用来存放一些原始类型的小数据</strong>。而引用类型的数据占用的空间都比较大，所以这一类数据会被存放到堆中，<strong>堆空间很大，能存放很多大的数据</strong>，不过缺点是分配内存和回收内存都会占用一定的时间。</p>
+<p>在 JavaScript 中，赋值操作和其他语言有很大的不同，<strong>原始类型的赋值会完整复制变量值，而引用类型的赋值是复制引用地址</strong>。</p>
+<h4 id="8-5-2-垃圾回收"><a href="#8-5-2-垃圾回收" class="headerlink" title="8.5.2 垃圾回收"></a>8.5.2 垃圾回收</h4><p>首先像一些没有垃圾回收机制的语言，比如C/C++。 是需要调用free函数来清楚堆内存的。</p>
+<p>js内置的垃圾回收工具，并不需要手动去释放；</p>
+<h5 id="8-5-2-1-栈中代码如何回收"><a href="#8-5-2-1-栈中代码如何回收" class="headerlink" title="8.5.2.1 栈中代码如何回收"></a>8.5.2.1 栈中代码如何回收</h5><p><strong>JavaScript 引擎会通过向下移动 ESP 来销毁该函数保存在栈中的执行上下文</strong>。</p>
+<h5 id="8-5-2-2-堆中代码如何回收"><a href="#8-5-2-2-堆中代码如何回收" class="headerlink" title="8.5.2.2 堆中代码如何回收"></a>8.5.2.2 堆中代码如何回收</h5><p>通过上面的讲解，我想现在你应该已经知道，当上面那段代码的 foo 函数执行结束之后，ESP 应该是指向全局执行上下文的，那这样的话，showName 函数和 foo 函数的执行上下文就处于无效状态了，不过保存在堆中的两个对象依然占用着空间，如下图所示：</p>
+<p><img src="stack1.png" alt=""></p>
+<p>从图中可以看出，1003 和 1050 这两块内存依然被占用。<strong>要回收堆中的垃圾数据，就需要用到 JavaScript 中的垃圾回收器了</strong>。</p>
+<p>所以，接下来我们就来通过 Chrome 的 JavaScript 引擎 V8 来分析下堆中的垃圾数据是如何回收的。</p>
+<h5 id="8-5-2-2-1-代际假说和分代收集"><a href="#8-5-2-2-1-代际假说和分代收集" class="headerlink" title="8.5.2.2.1 代际假说和分代收集"></a>8.5.2.2.1 代际假说和分代收集</h5><p>不过在正式介绍 V8 是如何实现回收之前，你需要先学习下<strong>代际假说（The Generational Hypothesis）</strong>的内容，这是垃圾回收领域中一个重要的术语，后续垃圾回收的策略都是建立在该假说的基础之上的，所以很是重要。</p>
+<p><strong>代际假说</strong>有以下两个特点：</p>
+<ul>
+<li>第一个是大部分对象在内存中存在的时间很短，简单来说，就是很多对象一经分配内存，很快就变得不可访问；</li>
+<li>第二个是不死的对象，会活得更久。</li>
+</ul>
+<p>其实这两个特点不仅仅适用于 JavaScript，同样适用于大多数的动态语言，如 Java、Python 等。</p>
+<p>有了代际假说的基础，我们就可以来探讨 V8 是如何实现垃圾回收的了。</p>
+<p>通常，垃圾回收算法有很多种，但是并没有哪一种能胜任所有的场景，你需要权衡各种场景，根据对象的生存周期的不同而使用不同的算法，以便达到最好的效果。</p>
+<p>所以，在 V8 中会把堆分为<strong>新生代</strong>和<strong>老生代</strong>两个区域，<strong>新生代中存放的是生存时间短的对象，老生代中存放的生存时间久的对象</strong>。</p>
+<p>新生区通常只支持 1～8M 的容量，而老生区支持的容量就大很多了。对于这两块区域，V8 分别使用两个不同的垃圾回收器，以便更高效地实施垃圾回收。</p>
+<ul>
+<li><strong>副垃圾回收器，主要负责新生代的垃圾回收。</strong></li>
+<li><strong>主垃圾回收器，主要负责老生代的垃圾回收。</strong></li>
+</ul>
+<h5 id="8-5-2-2-2-垃圾回收器的工作流程"><a href="#8-5-2-2-2-垃圾回收器的工作流程" class="headerlink" title="8.5.2.2.2 垃圾回收器的工作流程"></a>8.5.2.2.2 垃圾回收器的工作流程</h5><p>现在你知道了 V8 把堆分成两个区域——新生代和老生代，并分别使用两个不同的垃圾回收器。其实<strong>不论什么类型的垃圾回收器，它们都有一套共同的执行流程</strong>。</p>
+<p>第一步是标记空间中活动对象和非活动对象。所谓活动对象就是还在使用的对象，非活动对象就是可以进行垃圾回收的对象。</p>
+<p>第二步是回收非活动对象所占据的内存。其实就是在所有的标记完成之后，统一清理内存中所有被标记为可回收的对象。</p>
+<p>第三步是做内存整理。一般来说，频繁回收对象后，内存中就会存在大量不连续空间，我们把这些不连续的内存空间称为<strong>内存碎片</strong>。当内存中出现了大量的内存碎片之后，如果需要分配较大连续内存的时候，就有可能出现内存不足的情况。所以最后一步需要整理这些内存碎片，但这步其实是可选的，因为有的垃圾回收器不会产生内存碎片，比如接下来我们要介绍的副垃圾回收器。</p>
+<p>那么接下来，我们就按照这个流程来分析新生代垃圾回收器（副垃圾回收器）和老生代垃圾回收器（主垃圾回收器）是如何处理垃圾回收的。</p>
+<h5 id="8-5-2-2-3-副垃圾回收器"><a href="#8-5-2-2-3-副垃圾回收器" class="headerlink" title="8.5.2.2.3 副垃圾回收器"></a>8.5.2.2.3 副垃圾回收器</h5><p>副垃圾回收器主要负责新生区的垃圾回收。而通常情况下，大多数小的对象都会被分配到新生区，所以说这个区域虽然不大，但是垃圾回收还是比较频繁的。</p>
+<p>新生代中用<strong>Scavenge 算法</strong>来处理。所谓 Scavenge 算法，是把新生代空间对半划分为两个区域，一半是对象区域，一半是空闲区域，如下图所示：</p>
+<p><img src="stack2.png" alt=""></p>
+<p>新加入的对象都会存放到对象区域，当对象区域快被写满时，就需要执行一次垃圾清理操作。</p>
+<p>在垃圾回收过程中，首先要对对象区域中的垃圾做标记；标记完成之后，就进入垃圾清理阶段，副垃圾回收器会把这些存活的对象复制到空闲区域中，同时它还会把这些对象有序地排列起来，所以这个复制过程，也就相当于完成了内存整理操作，复制后空闲区域就没有内存碎片了。</p>
+<p>完成复制后，对象区域与空闲区域进行角色翻转，也就是原来的对象区域变成空闲区域，原来的空闲区域变成了对象区域。这样就完成了垃圾对象的回收操作，同时这种<strong>角色翻转的操作还能让新生代中的这两块区域无限重复使用下去</strong>。</p>
+<p>由于新生代中采用的 Scavenge 算法，所以每次执行清理操作时，都需要将存活的对象从对象区域复制到空闲区域。但复制操作需要时间成本，如果新生区空间设置得太大了，那么每次清理的时间就会过久，所以<strong>为了执行效率，一般新生区的空间会被设置得比较小</strong>。</p>
+<p>也正是因为新生区的空间不大，所以很容易被存活的对象装满整个区域。为了解决这个问题，JavaScript 引擎采用了<strong>对象晋升策略</strong>，也就是经过两次垃圾回收依然还存活的对象，会被移动到老生区中。</p>
+<h5 id="8-5-2-2-4-主垃圾回收器"><a href="#8-5-2-2-4-主垃圾回收器" class="headerlink" title="8.5.2.2.4 主垃圾回收器"></a>8.5.2.2.4 主垃圾回收器</h5><p>主垃圾回收器主要负责老生区中的垃圾回收。除了新生区中晋升的对象，一些大的对象会直接被分配到老生区。因此老生区中的对象有两个特点，一个是对象占用空间大，另一个是对象存活时间长。</p>
+<p>由于老生区的对象比较大，若要在老生区中使用 Scavenge 算法进行垃圾回收，复制这些大的对象将会花费比较多的时间，从而导致回收执行效率不高，同时还会浪费一半的空间。因而，主垃圾回收器是采用<strong>标记 - 清除（Mark-Sweep）</strong>的算法进行垃圾回收的。下面我们来看看该算法是如何工作的。</p>
+<p>首先是标记过程阶段。标记阶段就是从一组根元素开始，递归遍历这组根元素，在这个遍历过程中，能到达的元素称为<strong>活动对象</strong>，没有到达的元素就可以判断为<strong>垃圾数据</strong>。</p>
+<p>比如最开始的那段代码，当 showName 函数执行退出之后，这段代码的调用栈和堆空间如下图所示：</p>
+<p><img src="stack3.png" alt=""></p>
+<p>从上图你可以大致看到垃圾数据的标记过程，当 showName 函数执行结束之后，ESP 向下移动，指向了 foo 函数的执行上下文，这时候如果遍历调用栈，是不会找到引用 1003 地址的变量，也就意味着 1003 这块数据为垃圾数据，被标记为红色。由于 1050 这块数据被变量 b 引用了，所以这块数据会被标记为活动对象。这就是大致的标记过程。</p>
+<p>接下来就是垃圾的清除过程。它和副垃圾回收器的垃圾清除过程完全不同，你可以理解这个过程是清除掉红色标记数据的过程，可参考下图大致理解下其清除过程：</p>
+<p><img src="stack4.png" alt=""></p>
+<p>上面的标记过程和清除过程就是标记 - 清除算法，不过对一块内存多次执行标记 - 清除算法后，会产生大量不连续的内存碎片。而碎片过多会导致大对象无法分配到足够的连续内存，于是又产生了另外一种算法——<strong>标记 - 整理（Mark-Compact）</strong>，这个标记过程仍然与标记 - 清除算法里的是一样的，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。你可以参考下图：</p>
+<p><img src="stack5.png" alt=""></p>
+<h5 id="8-5-2-2-5-全停顿"><a href="#8-5-2-2-5-全停顿" class="headerlink" title="8.5.2.2.5 全停顿"></a>8.5.2.2.5 全停顿</h5><p>现在你知道了 V8 是使用副垃圾回收器和主垃圾回收器处理垃圾回收的，不过由于 JavaScript 是运行在主线程之上的，一旦执行垃圾回收算法，都需要将正在执行的 JavaScript 脚本暂停下来，待垃圾回收完毕后再恢复脚本执行。我们把这种行为叫做<strong>全停顿（Stop-The-World）</strong>。</p>
+<p>比如堆中的数据有 1.5GB，V8 实现一次完整的垃圾回收需要 1 秒以上的时间，这也是由于垃圾回收而引起 JavaScript 线程暂停执行的时间，若是这样的时间花销，那么应用的性能和响应能力都会直线下降。主垃圾回收器执行一次完整的垃圾回收流程如下图所示：</p>
+<p><img src="stack6.png" alt=""></p>
+<p>在 V8 新生代的垃圾回收中，因其空间较小，且存活对象较少，所以全停顿的影响不大，但老生代就不一样了。如果在执行垃圾回收的过程中，占用主线程时间过久，就像上面图片展示的那样，花费了 200 毫秒，在这 200 毫秒内，主线程是不能做其他事情的。比如页面正在执行一个 JavaScript 动画，因为垃圾回收器在工作，就会导致这个动画在这 200 毫秒内无法执行的，这将会造成页面的卡顿现象。</p>
+<p>为了降低老生代的垃圾回收而造成的卡顿，V8 将标记过程分为一个个的子标记过程，同时让垃圾回收标记和 JavaScript 应用逻辑交替进行，直到标记阶段完成，我们把这个算法称为<strong>增量标记（Incremental Marking）算法</strong>。如下图所示：</p>
+<p><img src="stack7.png" alt=""></p>
+<p>使用增量标记算法，可以把一个完整的垃圾回收任务拆分为很多小的任务，这些小的任务执行时间比较短，可以穿插在其他的 JavaScript 任务中间执行，这样当执行上述动画效果时，就不会让用户因为垃圾回收任务而感受到页面的卡顿了。</p>
 <h2 id="结语：-如何创建属于自己的技术栈"><a href="#结语：-如何创建属于自己的技术栈" class="headerlink" title="结语： 如何创建属于自己的技术栈"></a>结语： 如何创建属于自己的技术栈</h2><p>如果进入的是一个成熟的领域，那么一般都有比较完整的技术栈的资料，我们需要花些时间分析资料，系统性地了解这一领域知识的宏观架构、它的过往历史、它的优缺点，然后结合现在资料和我们自身的特点来建立我们自己的技术栈。如果你所在的领域还在高速发展中，并没有人总结出完成的技术栈，那么为了更好地理解技术的发展脉络，我们需要花更多一些的时间去整理出该领域的技术栈；</p>
 <p>当你要开发一个新项目或者学习一门手艺之前，应该将其所涉及到的知识做一个全方位的了解，“技术栈”非常形象地表达了学习一门手艺所需要的是哪些知识，以及应该按照什么顺序来学。</p>
 <p>比如学习前端这门手艺，栈底到栈顶依次是浏览器架构、web网络、事件循环机制、js core、V8内存管理，浏览器渲染流程、web安全、css、react/vue、node、构建工具链等；</p>
@@ -982,10 +1044,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-06T18:15:32+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-07T01:37:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 6, 2021</p>
+    <p>更新于：May 7, 2021</p>
   </a>
 </div>
 
@@ -1135,7 +1197,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-现代浏览器架构概述"><span class="toc-text">1. 现代浏览器架构概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-浏览器进程架构"><span class="toc-text">1.1 浏览器进程架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-浏览器进程"><span class="toc-text">1.1.1 浏览器进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-渲染进程（标签页：chrome-storage-Chrome）"><span class="toc-text">1.2 渲染进程（标签页：chrome.storage-Chrome）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-GPU进程"><span class="toc-text">1.3 GPU进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-Network-Service"><span class="toc-text">1.4 Network Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-备用渲染程序"><span class="toc-text">1.5 备用渲染程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-Storage-Service"><span class="toc-text">1.6 Storage Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-扩展程序（插件进程）"><span class="toc-text">1.7 扩展程序（插件进程）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-多进程架构的好处"><span class="toc-text">1.2 多进程架构的好处</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTML，CSS，Js等文件是如何变成页面的"><span class="toc-text">2. HTML，CSS，Js等文件是如何变成页面的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建阶段"><span class="toc-text">2. 1 创建阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-呈现流程的基本流程"><span class="toc-text">2.1.1 呈现流程的基本流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-1-构建DOM树"><span class="toc-text">2.1.1.1 构建DOM树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-2-样式计算（Recalculate-Style）"><span class="toc-text">2.1.1.2 样式计算（Recalculate Style）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-3-布局树构建（layout）"><span class="toc-text">2.1.1.3 布局树构建（layout）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-4-分层"><span class="toc-text">2.1.1.4 分层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-5-绘制（paint）"><span class="toc-text">2.1.1.5 绘制（paint）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-6-重排（relayout）与重绘（replaint）"><span class="toc-text">2.1.1.6 重排（relayout）与重绘（replaint）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-等待更新阶段"><span class="toc-text">2.2 等待更新阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-渲染帧"><span class="toc-text">2.2.1 渲染帧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-schedule"><span class="toc-text">2.2.2 schedule</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-消亡阶段"><span class="toc-text">2.3 消亡阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-浏览器中的js引擎"><span class="toc-text">3. 浏览器中的js引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-单线程的js是如何实现异步的"><span class="toc-text">3.1 单线程的js是如何实现异步的</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-script"><span class="toc-text">3.1.1 script</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-其他宏任务"><span class="toc-text">3.1.2 其他宏任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-其他微任务"><span class="toc-text">3.1.3  其他微任务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-任务队列与阻塞"><span class="toc-text">3.2 任务队列与阻塞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-js异步编程"><span class="toc-text">4. js异步编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-js引擎内存管理"><span class="toc-text">5. js引擎内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-内存模型"><span class="toc-text">5.1 内存模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-垃圾回收"><span class="toc-text">5.2 垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1-栈中代码如何回收"><span class="toc-text">5.2.1 栈中代码如何回收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2-堆中代码如何回收"><span class="toc-text">5.2.2 堆中代码如何回收</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2-1-代际假说和分代收集"><span class="toc-text">5.2.2.1 代际假说和分代收集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2-2-垃圾回收器的工作流程"><span class="toc-text">5.2.2.2 垃圾回收器的工作流程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2-3-副垃圾回收器"><span class="toc-text">5.2.2.3 副垃圾回收器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2-4-主垃圾回收器"><span class="toc-text">5.2.2.4 主垃圾回收器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2-5-全停顿"><span class="toc-text">5.2.2.5 全停顿</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-浏览器缓存"><span class="toc-text">6. 浏览器缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-浏览器中的网络"><span class="toc-text">7. 浏览器中的网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-浏览器中的V8"><span class="toc-text">8. 浏览器中的V8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-了解V8的意义"><span class="toc-text">8.1 了解V8的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-如何学习V8"><span class="toc-text">8.2 如何学习V8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-V8是如何执行一段js代码"><span class="toc-text">8.3 V8是如何执行一段js代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-1-计算机语言"><span class="toc-text">8.3.1 计算机语言</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-1-1-汇编"><span class="toc-text">8.3.1.1 汇编</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-1-2-解释执行"><span class="toc-text">8.3.1.2 解释执行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-1-3-编译执行"><span class="toc-text">8.3.1.3 编译执行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-1-4-总结"><span class="toc-text">8.3.1.4 总结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-2-V8执行javascript代码"><span class="toc-text">8.3.2 V8执行javascript代码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-1-运行时-基础环境"><span class="toc-text">8.3.2.1  运行时(基础环境)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#宿主环境"><span class="toc-text">宿主环境</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#构造数据存储空间：堆栈"><span class="toc-text">构造数据存储空间：堆栈</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#全局执行上下文和全局作用域"><span class="toc-text">全局执行上下文和全局作用域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#构造事件循环系统"><span class="toc-text">构造事件循环系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-2-AST和作用域"><span class="toc-text">8.3.2.2  AST和作用域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-2-1-V8是如何查找变量的"><span class="toc-text">8.3.2.2.1 V8是如何查找变量的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-2-2-V8是如何实现闭包的（延迟解析）"><span class="toc-text">8.3.2.2.2 V8是如何实现闭包的（延迟解析）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-3-解释器"><span class="toc-text">8.3.2.3 解释器</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语：-如何创建属于自己的技术栈"><span class="toc-text">结语： 如何创建属于自己的技术栈</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-现代浏览器架构概述"><span class="toc-text">1. 现代浏览器架构概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-浏览器进程架构"><span class="toc-text">1.1 浏览器进程架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-浏览器进程"><span class="toc-text">1.1.1 浏览器进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-渲染进程（标签页：chrome-storage-Chrome）"><span class="toc-text">1.2 渲染进程（标签页：chrome.storage-Chrome）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-GPU进程"><span class="toc-text">1.3 GPU进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-Network-Service"><span class="toc-text">1.4 Network Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-备用渲染程序"><span class="toc-text">1.5 备用渲染程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-Storage-Service"><span class="toc-text">1.6 Storage Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-扩展程序（插件进程）"><span class="toc-text">1.7 扩展程序（插件进程）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-多进程架构的好处"><span class="toc-text">1.2 多进程架构的好处</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTML，CSS，Js等文件是如何变成页面的"><span class="toc-text">2. HTML，CSS，Js等文件是如何变成页面的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建阶段"><span class="toc-text">2. 1 创建阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-呈现流程的基本流程"><span class="toc-text">2.1.1 呈现流程的基本流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-1-构建DOM树"><span class="toc-text">2.1.1.1 构建DOM树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-2-样式计算（Recalculate-Style）"><span class="toc-text">2.1.1.2 样式计算（Recalculate Style）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-3-布局树构建（layout）"><span class="toc-text">2.1.1.3 布局树构建（layout）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-4-分层"><span class="toc-text">2.1.1.4 分层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-5-绘制（paint）"><span class="toc-text">2.1.1.5 绘制（paint）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-6-重排（relayout）与重绘（replaint）"><span class="toc-text">2.1.1.6 重排（relayout）与重绘（replaint）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-等待更新阶段"><span class="toc-text">2.2 等待更新阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-渲染帧"><span class="toc-text">2.2.1 渲染帧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-schedule"><span class="toc-text">2.2.2 schedule</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-消亡阶段"><span class="toc-text">2.3 消亡阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-浏览器中的V8引擎"><span class="toc-text">3. 浏览器中的V8引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-单线程的js是如何实现异步的"><span class="toc-text">3.1 单线程的js是如何实现异步的</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-script"><span class="toc-text">3.1.1 script</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-其他宏任务"><span class="toc-text">3.1.2 其他宏任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-其他微任务"><span class="toc-text">3.1.3  其他微任务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-任务队列与阻塞"><span class="toc-text">3.2 任务队列与阻塞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-浏览器缓存"><span class="toc-text">4. 浏览器缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-浏览器中的网络"><span class="toc-text">5. 浏览器中的网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-浏览器中的V8"><span class="toc-text">8. 浏览器中的V8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-了解V8的意义"><span class="toc-text">8.1 了解V8的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-如何学习V8"><span class="toc-text">8.2 如何学习V8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-V8是如何执行一段js代码"><span class="toc-text">8.3 V8是如何执行一段js代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-1-计算机语言"><span class="toc-text">8.3.1 计算机语言</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-1-1-汇编"><span class="toc-text">8.3.1.1 汇编</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-1-2-解释执行"><span class="toc-text">8.3.1.2 解释执行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-1-3-编译执行"><span class="toc-text">8.3.1.3 编译执行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-1-4-总结"><span class="toc-text">8.3.1.4 总结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-2-V8执行javascript代码"><span class="toc-text">8.3.2 V8执行javascript代码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-1-运行时-基础环境"><span class="toc-text">8.3.2.1  运行时(基础环境)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#宿主环境"><span class="toc-text">宿主环境</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#构造数据存储空间：堆栈"><span class="toc-text">构造数据存储空间：堆栈</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#全局执行上下文和全局作用域"><span class="toc-text">全局执行上下文和全局作用域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#构造事件循环系统"><span class="toc-text">构造事件循环系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-2-AST和作用域"><span class="toc-text">8.3.2.2  AST和作用域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-2-1-V8是如何查找变量的"><span class="toc-text">8.3.2.2.1 V8是如何查找变量的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-2-2-V8是如何实现闭包的（延迟解析）"><span class="toc-text">8.3.2.2.2 V8是如何实现闭包的（延迟解析）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-3-解释器"><span class="toc-text">8.3.2.3 解释器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-V8异步编程"><span class="toc-text">8.4 V8异步编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-1-V8是怎么实现回调函数的"><span class="toc-text">8.4.1 V8是怎么实现回调函数的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-2-V8是如何实现微任务的"><span class="toc-text">8.4.2 V8是如何实现微任务的</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-V8内存管理"><span class="toc-text">8.5  V8内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-5-1-内存模型"><span class="toc-text">8.5.1 内存模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-5-2-垃圾回收"><span class="toc-text">8.5.2 垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-2-1-栈中代码如何回收"><span class="toc-text">8.5.2.1 栈中代码如何回收</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-2-2-堆中代码如何回收"><span class="toc-text">8.5.2.2 堆中代码如何回收</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-2-2-1-代际假说和分代收集"><span class="toc-text">8.5.2.2.1 代际假说和分代收集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-2-2-2-垃圾回收器的工作流程"><span class="toc-text">8.5.2.2.2 垃圾回收器的工作流程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-2-2-3-副垃圾回收器"><span class="toc-text">8.5.2.2.3 副垃圾回收器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-2-2-4-主垃圾回收器"><span class="toc-text">8.5.2.2.4 主垃圾回收器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-2-2-5-全停顿"><span class="toc-text">8.5.2.2.5 全停顿</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语：-如何创建属于自己的技术栈"><span class="toc-text">结语： 如何创建属于自己的技术栈</span></a></li></ol>
     </div>
   </section>
 
