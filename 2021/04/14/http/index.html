@@ -345,7 +345,43 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2>
+          <h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><h2 id="1-概览"><a href="#1-概览" class="headerlink" title="1. 概览"></a>1. 概览</h2><h2 id="2-搭建条件环境"><a href="#2-搭建条件环境" class="headerlink" title="2. 搭建条件环境"></a>2. 搭建条件环境</h2><p>在Mac上，</p>
+<p>拷贝项目（需要Git）</p>
+<ol>
+<li>git clone <a href="https://github.com/chronolaw/http_study" target="_blank" rel="noopener">https://github.com/chronolaw/http_study</a></li>
+</ol>
+<p>安装OpenResty （推荐使用Homebrew）</p>
+<ol>
+<li>brew tap openresty/brew</li>
+<li>brew install openresty</li>
+</ol>
+<p>运行项目</p>
+<ol>
+<li>cd http_study/www/</li>
+<li>openresty -p <code>pwd</code> -c conf/nginx.conf</li>
+</ol>
+<p>停止项目</p>
+<ol>
+<li>openresty -s quit -p <code>pwd</code> -c conf/nginx.conf</li>
+</ol>
+<p>补充</p>
+<p>遇到了访问 localhost 时，网页报 403 错误的情况，原因是没有 html/index.html 文件的访问权限。</p>
+<p>解决方案：<br>先 ls -la html，查看文件的权限，得到 user 和 group，如果是 fstar 和 staff。</p>
+<p>那么在 conf/nginx.conf 文件的顶部添加</p>
+<p>user fstar staff;</p>
+<p>然后再启动 openresty 就可以正常访问了。</p>
+<p>启动docker</p>
+<p>systemctl start docker</p>
+<p>关闭docker</p>
+<p>systemctl stop docker</p>
+<p>查看docker的运行状态</p>
+<p>systemctl status docker</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">docker run -it --rm --user root -p  0.0.0.0:8888:80 chronolaw/http_study bash</span><br><span class="line"><span class="comment"># 访问主机的8888端口会被定向到容器的80端口</span></span><br><span class="line"></span><br><span class="line">cat ~/http_study/hosts &gt;&gt; /etc/hosts</span><br><span class="line"><span class="built_in">cd</span> ~/http_study/www</span><br><span class="line">./run.sh start</span><br></pre></td></tr></table></figure>
+
+<p>解决nginx 403 Forbidden的问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux|grep nginx</span><br></pre></td></tr></table></figure>
+
+
           
             <div class='article_footer'>
               
@@ -432,10 +468,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-14T11:54:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-10T00:35:36+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Apr 14, 2021</p>
+    <p>更新于：May 10, 2021</p>
   </a>
 </div>
 
@@ -600,7 +636,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#http"><span class="toc-text">http</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#http"><span class="toc-text">http</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概览"><span class="toc-text">1. 概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-搭建条件环境"><span class="toc-text">2. 搭建条件环境</span></a></li></ol>
     </div>
   </section>
 
