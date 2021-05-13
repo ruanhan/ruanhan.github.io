@@ -452,7 +452,7 @@
 <p>状态变化会进入渲染器并被渲染在视图中；</p>
 <p>代码在reconcile中被称render阶段，组件的render函数就是在这个阶段被调用</p>
 <p>代码在Renderer中执行时，被称为commit阶段；是因为可以将状态变化的提交类比于代码提交的git commit命令；</p>
-<h2 id="生命周期函数调用过程"><a href="#生命周期函数调用过程" class="headerlink" title="生命周期函数调用过程"></a>生命周期函数调用过程</h2><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/hooks/1.png" alt="image-20210513153515363"></p>
+<h2 id="生命周期函数调用过程"><a href="#生命周期函数调用过程" class="headerlink" title="生命周期函数调用过程"></a>生命周期函数调用过程</h2><p><img src="1.png" alt="image-20210513153515363"></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root = App</span><br><span class="line">App.child = P1</span><br><span class="line">P1.sbling = P2</span><br><span class="line">P1.child = C1</span><br><span class="line">C1.sbling = C2</span><br></pre></td></tr></table></figure>
 
 
@@ -507,7 +507,7 @@
 <li>更新Ref        Ref</li>
 <li>useEffect     Passive</li>
 </ul>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/hooks/2.png" alt="image-20210513191829800"></p>
+<p><img src="2.png" alt="image-20210513191829800"></p>
 <p>左边是更新前的fiber树，右边是更新后的fiber树；</p>
 <p>我们从最后一个字节点开始C2，代表有DOM属性变化，标记Update effect，P2之前不存在，标记Placement，</p>
 <p>App这个节点，它在之后的fiber上包含了useEffect的执行。所以它会被标记Passive effect，这些不同fiber节点的effect会通过一条链条连接在一起；</p>
