@@ -645,11 +645,11 @@
 
 
 <p>第一次加载，页面会向服务器请求数据，并在 Response Header 中添加 Cache-Control ，过期时间为 10 秒。</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/browser/cache2.png" alt="img"></p>
+<p><img src="cache2.png" alt="img"></p>
 <p>第二次加载，Date 头属性未更新，可以看到浏览器直接使用了强缓存，实际没有发送请求。</p>
 <p><img src="cache3.png" alt="img"></p>
 <p>过了 10 秒的超时时间之后，再次请求资源：</p>
-<p><img src="https://static001.geekbang.org/infoq/a1/a1cf936de6932e45ec8e6f20b40a9473.webp" alt="img"></p>
+<p><img src="cache17.png" alt="img"></p>
 <p>当 Pragma 和 Cache-Control 同时存在的时候，Pragma 的优先级高于 Cache-Control。</p>
 <p><img src="cache4.png" alt="img"></p>
 <h4 id="4-1-2-协商缓存"><a href="#4-1-2-协商缓存" class="headerlink" title="4.1.2 协商缓存"></a>4.1.2 协商缓存</h4><p>当浏览器的强缓存失效的时候或者请求头中设置了不走强缓存，并且在请求头中设置了 If-Modified-Since 或者 If-None-Match 的时候，会将这两个属性值到服务端去验证是否命中协商缓存，如果命中了协商缓存，会返回 304 状态，加载浏览器缓存，并且响应头会设置 Last-Modified 或者 ETag 属性。</p>
@@ -1481,10 +1481,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-13T23:29:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-14T10:01:44+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 13, 2021</p>
+    <p>更新于：May 14, 2021</p>
   </a>
 </div>
 
