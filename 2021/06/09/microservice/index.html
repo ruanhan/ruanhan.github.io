@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#1.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>microservice - Hexo</title>
+  
+    <meta name="keywords" content="guide">
+  
+  
+    <meta name="description" content="微服务概述">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            BELIEF <b><sup style='color:#3AA757'>1.0.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2021/06/09/microservice/">
+      microservice
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/go/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>go</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 9, 2021</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>微服务绪论</p>
+<p>工程方法论，方法， 理念；</p>
+<p>抛出一个实际问题是如何解答；</p>
+<h2 id="1-微服务概览"><a href="#1-微服务概览" class="headerlink" title="1. 微服务概览"></a>1. 微服务概览</h2><h3 id="1-1-组件服务化"><a href="#1-1-组件服务化" class="headerlink" title="1.1 组件服务化"></a>1.1 组件服务化</h3><blockquote>
+<p>传统实现组件的方式是通过库，库是和应用一起运行在进程中，库的局部变化意味着整个应用的重新部署；</p>
+<p>通过服务来实现组件，意味着将应用拆散为一系列的服务运行在不同的进程中，那么单一服务的局部变化只需重新部署对应的服务进程；</p>
+</blockquote>
+<ul>
+<li>kit： 一个微服务的基础库（框架）如spring cloud</li>
+<li>service： 业务代码 + kit依赖 + 第三方依赖组成的业务微服务</li>
+<li>rpc + message queue： 轻量级通讯 （服务与服务之间的通讯）message queue 如kafka</li>
+</ul>
+<p>本质上等同于，多个微服务组合（compose）完成了一个完整的用户场景（usecase）；</p>
+<p>多个微服务之间做数据的组装； 面向场景的api设计；</p>
+<h3 id="1-2-康威定律"><a href="#1-2-康威定律" class="headerlink" title="1.2 康威定律"></a>1.2 康威定律</h3><blockquote>
+<p>“设计系统的架构受制于产生这些设计的组织的沟通结构。”</p>
+</blockquote>
+<p>微服务鼓励闭环团队；</p>
+<p>Ownership 意识，全栈工程师。自己写的代码，自己测试，自己搞定线上问题；</p>
+<p>you build it，you fix it</p>
+<p>那测试和运维干什么？他们提供好用的测试平台，运维平台，指标采集体系，日志平台，让你去很方便的定位到问题；</p>
+<p>运维全部转开发来做平台，</p>
+<p>测试转开发做CI/CD，devops之类的工具；还有一些用户场景的测试；</p>
+<p>大前端（移动/Web） =&gt; 网关接入 =&gt; 业务服务 =&gt; 平台服务  =&gt; 基础设施（Paas/Saas）</p>
+<p>网关做什么： 所有流量要经过网关，网关对移动端API设计比较熟悉，协议也比较熟悉。网关和移动端同学沟通无成本形成闭环；（暂时就理解为给搞静态页面那个组前端 提供 组装接口的人）网关同事总归要聚合各种业务数据，服务端天然沟通无障碍（API契约之间的沟通），又形成了闭环；</p>
+<p>服务端怎么和运维沟通，扔过来一个工具和文档，自己学习怎么用；</p>
+<p><strong>开发团队对软件在生产环境的运行负全部责任！</strong></p>
+<p>类似传统模式，想zz那样</p>
+<p>程序在线上怎么跑的，开发完全不晓得；日志都不让看</p>
+<h3 id="1-3-按业务组织服务"><a href="#1-3-按业务组织服务" class="headerlink" title="1.3 按业务组织服务"></a>1.3 按业务组织服务</h3><blockquote>
+<p>服务提供的能力和业务功能对应，比如订单服务和数据访问服务，前者反应真实的订单相关业务，后者是一种技术抽象服务；按微服务架构理念来划分服务时，是不应该存在数据访问服务这样的一个服务的；</p>
+<p>微服务下每个服务背后的小团队，要包含实现业务所需的全面的技能；</p>
+</blockquote>
+<h3 id="1-4-去中心化"><a href="#1-4-去中心化" class="headerlink" title="1.4 去中心化"></a>1.4 去中心化</h3><p>核心是数据去中心化和治理去中心化；</p>
+<ul>
+<li><p>数据去中心化：</p>
+<p>​     每一个微服务独占一个DB，独占一个redis，服务与服务之间rpc</p>
+</li>
+<li><p>治理去中心化</p>
+<p>​    流量变大了之后，服务与服务之间很多环节会出现流量热点。比如账号服务是所有微服务都要依赖的服务，如果所有的流量入口都要先走nginx的话，是否能改成直连账号服务；</p>
+</li>
+<li><p>技术去中心化</p>
+<p>​    比较理想，选择最合适的语言来做不同的事情。 技术栈还是尽量统一的好；</p>
+</li>
+</ul>
+<h3 id="1-5-基础设施自动化"><a href="#1-5-基础设施自动化" class="headerlink" title="1.5 基础设施自动化"></a>1.5 基础设施自动化</h3><p>无自动化不微服务，拆分微服务之后，意味着开发，调试，测试，监控和部署的复杂度都会响应增大；必须要有合适的自动化基础设施来支持微服务架构模式；</p>
+<ul>
+<li>CICD： </li>
+<li>Testing</li>
+<li>在线运行时： k8s</li>
+</ul>
+<h3 id="1-6-可用性-amp-兼容性设计"><a href="#1-6-可用性-amp-兼容性设计" class="headerlink" title="1.6 可用性&amp;兼容性设计"></a>1.6 可用性&amp;兼容性设计</h3><blockquote>
+<p>Design For Failure， 所以依赖的东西都会炸；每一行代码都可能painc</p>
+<p>微服务架构采用粗粒度的进程间通信，</p>
+</blockquote>
+<ul>
+<li><p>隔离</p>
+</li>
+<li><p>超时控制</p>
+</li>
+<li><p>负载保护</p>
+</li>
+<li><p>限流</p>
+</li>
+<li><p>降级</p>
+</li>
+<li><p>重试</p>
+</li>
+<li><p>负载均衡</p>
+</li>
+</ul>
+<p>一旦采用微服务架构模式，那么在服务需要变更时要特别小心，服务提供者的变更可能引发服务消费者的兼容性破坏，时刻谨记保持服务契约（接口）的兼容性；</p>
+<p>发送时要保守，（发送时，要最小化发送必要的信息）</p>
+<p>接收时要开放 （接收时最大限度容忍冗余数据，保证兼容性）</p>
+<h2 id="2-微服务设计"><a href="#2-微服务设计" class="headerlink" title="2. 微服务设计"></a>2. 微服务设计</h2><h3 id="2-1-网关"><a href="#2-1-网关" class="headerlink" title="2.1 网关"></a>2.1 网关</h3><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/microservice/00.png" alt="1.0"></p>
+<p>1.0版本，外网通过 AWS（ngix）可以直连到 提供的所有服务（用户，稿件，推荐，广告）。</p>
+<p>对外暴露了一批微服务，缺乏统一的出口；</p>
+<p>用户等于是直连了 某个微服务；</p>
+<p><strong>坑</strong></p>
+<ol>
+<li>客户端到微服务直接通信，强耦合。移动端的版本是可以不升级的。这导致后续服务端重构是要兼容老版本的。如果移动端直连微服务。那服务端也是无法随心所欲重构的；很难大规模重构；</li>
+<li>客户端需要多次请求，客户端需要自己聚合数据，工作量巨大不谈，主要延迟高；各服务之间接口的协议有时候还特么不一样；就没法降级；客户端是Landing Page，很重要；要讲究效率； 重的数据聚合最好在服务端全部做掉；面向资源的API是屁，面向用户业务场景的API才是王道；</li>
+<li>面向“端”的API适配，耦合到了内部服务；（不同的机型/终端要的字段不一样，得适配）</li>
+<li>统一逻辑无法收敛，比如安全认证、限流（每一个微服务做安全认证，token验证之类的）</li>
+</ol>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/microservice/01.png" alt="image-20210609152717655"></p>
+<p>2.0版本，新增了一个 app-interface用于统一的协议出口，在服务内进行大量的dataset join，按照业务场景来设计粗粒度的API，给后续服务的演进带来很多优势：这个所谓的app-interface就是BFF层；</p>
+<p>传说中的BFF，Backend for Frontend （面前前端业务场景的后端）</p>
+<p>现在BFF负责跟微服务对接，BFF跟客户端对接；然后说白了，垃圾代码，耦合代码就写进BFF了； </p>
+<p>BFF可以认为是一种适配服务，将后端的微服务进行适配（主要包括聚合裁剪和格式适配等逻辑），向无线端设备暴露友好和统一的API，方便无线设备接入访问后端服务；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/microservice/02.png" alt="image-20210609153326572"></p>
+<p>3.0版本，解决2.0单个 BFF会造成的单点故障；严重代码缺陷或流量洪峰可能引发集群宕机；</p>
+<p>按照业务域将 BFF拆分成几个大的BFF，如app-interface,  app-view,  account-interface；随着拆分的越来越多，变得越来越难以维护。基础库更新，意味着所有BFF都需要更新；</p>
+<p>很多跨横切面逻辑，比如安全认证，日志监控，限流熔断等。随着时间的推移，代码变得越来越复杂，技术债越堆越多；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/microservice/03.png" alt="image-20210609153910073"></p>
+<p>4.0版本，网关选手出场；</p>
+<p>跨横切面（Cross-Cutting Concerns）的功能，需要协调更新框架升级发版（路由，认证，限流，安全），因此全部上沉，引入API Gateway， 把业务及程度高的BFF层和通用功能服务层API Gateway进行了分层处理；</p>
+<p>在新的架构中，网关承担了重要的角色，它是解耦拆分和后续升级迁移的利器，在网关的配合下，单块BFF实现了解耦拆分，各业务线团队可以独立开发和交付各自的微服务，研发效率大大提升，另外，把跨横切面逻辑从BFF剥离到网关上去之后，BFF的开发人员可以更加专注业务逻辑交付，实现架构上的关注分离</p>
+<p>移动端-&gt;API Gateway -&gt; BFF -&gt; Mircoservice</p>
+<p>在FE Web业务中，BFF可以是nodejs来做服务端渲染（SSR，Server-Side Rendering）</p>
+<h3 id="2-2-Mircoservice-划分"><a href="#2-2-Mircoservice-划分" class="headerlink" title="2.2 Mircoservice 划分"></a>2.2 Mircoservice 划分</h3><blockquote>
+<p>在实际项目中通常会采用两种不同的方式划分服务边界，即通过业务职能或是DDD</p>
+</blockquote>
+<p>一般还没搞清楚公司业务的时候，划分微服务的依据即业务职能</p>
+<ul>
+<li><p>业务职能</p>
+<p>根据部门处理业务不同，拆分。比如稿件 和 视频拆分开来</p>
+</li>
+<li><p>DDD</p>
+<p>面向业务场景，比如一个用户在创作的时候，他的制作流程是先稿件后视频，那么就将稿件和视频放在一起，作为一个业务场景的服务组合；</p>
+</li>
+</ul>
+<h4 id="2-2-1-微服务到底要拆多细"><a href="#2-2-1-微服务到底要拆多细" class="headerlink" title="2.2.1 微服务到底要拆多细"></a>2.2.1 微服务到底要拆多细</h4><p>两个角度：</p>
+<ol>
+<li>从组合结构来讲， 是否能形成业务闭环。如果能够闭环，那么闭环的团队own一个服务，不要一个功能散在好几个职能部门当中；（会带来沟通不畅）</li>
+<li>拆的比较细，需要请求比较多的时候，再考虑整合；</li>
+</ol>
+<h4 id="2-2-2-CQRS"><a href="#2-2-2-CQRS" class="headerlink" title="2.2.2 CQRS"></a>2.2.2 CQRS</h4><h3 id="2-3-mircoservice安全"><a href="#2-3-mircoservice安全" class="headerlink" title="2.3 mircoservice安全"></a>2.3 mircoservice安全</h3><ul>
+<li>外网安全</li>
+</ul>
+<p>对于外网请求，通常在API Gateway进行统一的认证拦截，一旦认证成功，会使用JWT方法通过RPC原数据传递的方式带到BFF层，BFF层校验Token完整性后把身份信息注入到应用的Context中，BFF到其他下层的微服务，建议是直接在RPC Request中带入用户身份信息（UserID）请求服务；</p>
+<p>​    网关 到 BFF 是token传递，BFF到service是 用户id传递；</p>
+<ul>
+<li>内网安全</li>
+</ul>
+<p>对于服务内部，一般要区分身份认证和授权；先做身份认证，再做授权；</p>
+<p>​    身份认证： 谁来连我，我就知道你是谁，grpc基于证书判断是谁。知道对方是谁之后很容易利用配置中心来做一个RBAC服务，做一个微服务控制面板来配置哪些服务对你有权限，这些数据可以写到配置中心，然后下推到服务；在服务加载的时候，构建RBAC序列的权限认证，判定这个人对这个接口有无权限；</p>
+<p>有些严格内网微服务，服务与服务之间的通信都需要加解密；避免有人抓包嗅探，它的等级分为</p>
+<ul>
+<li>Full Trust      完整的tls</li>
+<li>Half Trust     知道你是谁，但通讯不加密</li>
+<li>Zero Trust    裸奔</li>
+</ul>
+<h2 id="3-gRPC和服务发现"><a href="#3-gRPC和服务发现" class="headerlink" title="3. gRPC和服务发现"></a>3. gRPC和服务发现</h2><h3 id="3-1-gRPC"><a href="#3-1-gRPC" class="headerlink" title="3.1 gRPC"></a>3.1 gRPC</h3><h4 id="3-1-1-HealthCheck"><a href="#3-1-1-HealthCheck" class="headerlink" title="3.1.1 HealthCheck"></a>3.1.1 HealthCheck</h4><p> <img src="/Users/ruanhan/hexoblog/rh/source/_posts/microservice/04.png" alt="image-20210609173458932"></p>
+<p>Discovery ：服务发现</p>
+<p>Provider： 生产者要定时注册（发送心跳）给服务发现，注册rpc协议，协议端口（rpc://ip:port）</p>
+<p>假设Provider和Consumer之间发生网络抖动，这个只能通过healthCheck来解决了。</p>
+<ul>
+<li>平滑发布</li>
+</ul>
+<p>一个应用上线，什么时候要往 服务发现注册。一种做法就是 外挂探测，就是在容器外边有一个脚本去check 服务发现，去判断当前服务是否可用（一个服务启动之后往往不能立即提供服务，因为需要加载DAO，service以及缓存等等。最终才能产生正常的服务，然后需要有一种外挂方式让外面的人知道当前能够提供服务了）</p>
+<ul>
+<li>平滑下线</li>
+</ul>
+<p>版本滚动 升级，先下线1.0，然后上线1.1；</p>
+<p>k8s向APP发送sigterm信号，进入优雅退出过程；go的main 函数会拦截到这个信号，这个时候进程还在跑。还有大量数据进出；</p>
+<p>第一步，收到sigterm信号， </p>
+<p>第二步， 先告诉注册中心，服务提供者收到一个信号之后。告诉服务注册中心，注销掉自己，然后其他节点都会收到这个消息，其他节点陆陆续续要下线了；</p>
+<p>第三步，把自己health check接口也标记为待下线，自己进入一个优雅退出的状态。</p>
+<p>（基本两个心跳周期之内，所有的消费者节点均能收到该服务要下线的通知；）</p>
+<p>第四步：用http或者rpc的 shut down接口。</p>
+<p>第五步： 如果发现此进程一直退出不了，就要kill -9了</p>
+<h3 id="3-2-服务发现"><a href="#3-2-服务发现" class="headerlink" title="3.2 服务发现"></a>3.2 服务发现</h3><p>客户端发现</p>
+<p>服务端发现</p>
+<h4 id="3-2-1-CAP"><a href="#3-2-1-CAP" class="headerlink" title="3.2.1 CAP"></a>3.2.1 CAP</h4><blockquote>
+<p>一个分布式系统最多只能同时满足一致性(<strong>Consistency</strong>)，可用性(<strong>Availability</strong>)，分区容错性(<strong>Partition</strong> <strong>tolerance</strong>)这三项中的两项;</p>
+</blockquote>
+<p>分布式数据存储不可能同时满足以下三个条件：</p>
+<p>一致性：每次读取要么获得最近写入的数据，要么获得一个错误；</p>
+<p>可用性：每次请求都能获得一个（非错误）响应，但不保证返回的是最新写入的数据；</p>
+<p>分区容错性：尽管任意数量的消息被节点间的网络丢失（或延迟），系统仍继续运行</p>
+<p>核心理解：</p>
+<p>在出现网络分区的时候，</p>
+<ul>
+<li>如果系统不允许写入，那么意味着降低了系统的可用性，但不同分区的数据能够保持一致，即选择了一致性；</li>
+<li>如果系统允许写入，那么意味着不同分区之间的数据产生不一致，系统可用性得到保障，即选择可用性；</li>
+</ul>
+<p>分区容忍：</p>
+<p>分区容忍就是指分布式系统在出现网络分区的时候，仍然能够继续运行，对外提供服务；</p>
+<p>可用性范围：</p>
+<p>对于分布式系统中每个节点，都能够对外部请求作出响应，但不要求一致性；</p>
+<p>衡量系统可用性的标准是什么？ 关键点在于可用性的范围。讨论可用性要有具体场景来划分边界；</p>
+<p>举例子： 谷歌文档就是非常典型的AP系统，它在网络断了的情况下也能够使用。诀窍在于它发现网络断掉之后会进入离线模式。允许用户继续进行编辑，然后在网络恢复之后再对修改的内容进行合并处理。</p>
+<p>可以发现对于谷歌文档来说，用户的浏览器也是系统的一个节点，当出现网络分区时，它仍然能够为用户提供服务，代价是放弃一致性（离线用户编辑了啥，服务器并不知道）。在这个例子里面，可用性的范围是包括了用户浏览器在内的，不是常规理解的分布式系统节点一定就是服务端的机器；</p>
+<p>一致性的范围：</p>
+<p>讨论一致性的时候必须要明确一致性的范围，即在一定的边界内状态是一致的，超出边界之外的一致性是无从谈起的；</p>
+<p>管理分区：</p>
+<p>网络分区是分布式系统中必然发生的事情，经典的CAP理论是忽略网络延迟的，但是在现实世界中，网络延迟跟分区密切相关，也就是说当系统在有限的时间内无法通信达成一致（网络延迟很高），就意味着发生了分区。此时就需要在一致性和可用性之间作出选择：选择继续重试就意味着选择一致性，放弃可用性；放弃数据一致性让操作完成就意味着选择了可用性。值得注意的是在分区的时候放弃数据一致性并不是意味着完全不管，一般工程实现会采用重试的方式达到最终的一致性；</p>
+<p><strong>结论</strong></p>
+<p><strong>分析：平衡分区期间的可用性和一致性的影响是分布式系统设计中的关键问题。因此，管理分区不仅是需要主动发现分区，还需要针对分区期间产生的影响准备恢复过程。</strong> 可以从另外一个角度来应用CAP理论：系统进入分区模式的时候，如何在一致性和可用性之间作出选择；</p>
+<p>管理分区的三个步骤：</p>
+<ul>
+<li>检测到分区开始</li>
+<li>明确进入分区模式，限制某些操作</li>
+<li>当通信恢复后启动分区恢复过程</li>
+</ul>
+<p>当系统进入分区模式之后，有两种选择：</p>
+<ul>
+<li>选择一致性：例如Paxos算法，只有大多数的主分区能够进行操作，其他分区不可用，当网络恢复之后少数节点跟多数节点同步数据；</li>
+<li>选择可用性： 例如谷歌文档，出现分区进入离线模式，等网络恢复了客户端跟服务端数据进行合并恢复；</li>
+</ul>
+<h3 id="3-3-euerka实现原理"><a href="#3-3-euerka实现原理" class="headerlink" title="3.3 euerka实现原理"></a>3.3 euerka实现原理</h3><blockquote>
+<p>AP服务发现，牺牲一致性； 采用的异步复制机制；</p>
+</blockquote>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/microservice/05.png" alt="image-20210610171716748"></p>
+<h3 id="3-4-多集群-amp-多租户"><a href="#3-4-多集群-amp-多租户" class="headerlink" title="3.4 多集群&amp;多租户"></a>3.4 多集群&amp;多租户</h3><h4 id="3-4-1-多集群"><a href="#3-4-1-多集群" class="headerlink" title="3.4.1 多集群"></a>3.4.1 多集群</h4><p>统一为一套逻辑集群（物理上多套资源池），即gRPC客户端默认忽略服务发现中的cluster信息，按照全部节点，全部连接。能不能找到一种算法从全集群中选取一批节点（子集），利用划分子集限制连接池大小；</p>
+<ul>
+<li>长连接导致的内存和CPU开销，HealthCheck可以高达30%。</li>
+<li>短连接极大的资源成本和延迟；</li>
+</ul>
+<p>合适的子集大小和选择算法；</p>
+<ul>
+<li>通常20-100个后端，部分场景需要大子集，比如大批量读写操作；</li>
+<li>后端平均分给客户端</li>
+<li>客户端重启，保持重新均衡，同时对后端重启保持透明，同时连接的变动最小；</li>
+</ul>
+<h4 id="3-4-2-多租户"><a href="#3-4-2-多租户" class="headerlink" title="3.4.2 多租户"></a>3.4.2 多租户</h4><p>在一个微服务架构中， 允许多系统共存 是利用微服务稳定性以及模块化最有效的方式之一，</p>
+<p>这种方式一般被称为多租户，</p>
+<p>租户可以是测试，金丝雀发布，影子系统（shadow system），甚至服务层或者产品线，使用租户能够保证代码的隔离性 并且能够基于 流量租户做路由决策；</p>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/microservice/06.png" alt="image-20210615112159601"></p>
+<p>对于传输的数据，以及静态数据，租户都能够保证隔离性和公平性，以及基于租户的路由机会；</p>
+<p>如上图所示，如果对服务B作出改变，我们需要确保它仍然能够和服务A，C，D正常交互在微服务架构中，我们需要做这些集成测试场景，也就是测试和该系统中其他服务的交互。通常来说，微服务架构有两种基本的集成测试方法：并行测试 和 生产环境测试；</p>
+<p>具体一个场景，分布式的测试环境上，一个用户正在测试很容易因为别人一套push操作，把自身的环境给冲掉了；就像当时在zz，你push一个版本侧着侧着，别人push一套代码把你的环境污染了；尽管zz那个不一定是分布式系统；</p>
+<ul>
+<li>混用环境导致的不可靠测试；</li>
+<li>多套环境带来的硬件成本；</li>
+<li>难以做负载测试，仿真线上真实流量情况；</li>
+</ul>
+<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/microservice/07.png" alt="image-20210615113448439"></p>
+<p>把待测试的服务B在一个隔离的沙盒环境中启动，并且在沙盒环境下可以访问集成环境（UAT）C和D。我们把测试流量路由到服务B，同时保持生产流量正常流入到集成服务。服务B仅仅处理测试流量而不处理生产流量。另外要确保集成流量不要被测试流量影响。生产中的测试提出了两个基本要求，它们也构成了多租户体系结构的基础：</p>
+<ul>
+<li>流量路由：能够基于流入栈中的流量类型做路由</li>
+<li>隔离性：能够可靠的隔离测试和生产中的资源，这样可以保证对于关键业务微服务没有副作用；</li>
+</ul>
+<p>灰度测试成本代价很大，影响1/N的用户。其中N为节点数量；</p>
+<p> 当测试完毕之后，将B`的代码推到 集成测试中B的位置做回归测试（回跑一些历史的case，不会做功能测试）。</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2021/06/09/microservice/>http://yoursite.com/2021/06/09/microservice/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-15T14:22:50+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jun 15, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/guide/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>guide</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/06/09/microservice/&title=microservice - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2021/06/09/microservice/&title=microservice - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/06/09/microservice/&title=microservice - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2021/06/18/patten/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>patten</p>
+                <p class='content'>焦虑
+所有的渴望，在内心的投射其实都是焦虑。任何一个渴望成长的人，不管处于什么阶段，一线工程师，架构师，还是总监，副总裁，其实内心中都是充满了焦虑的，无一例外。
+对于这种焦虑，我们所要做的是接纳...</p>
+              </a>
+            
+            
+              <a class='next' href='/2021/06/01/goparallel/'>
+                <p class='title'>goparallel<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>并行与并发2. 并行与并发2.1 并行（parallel）
+并行，同一时刻，有多条指令在多个处理器上同时执行。并行需要借助多核cpu实现。
+
+2.2 并发宏观：在用户体验上，程序在并行执行
+微观...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'microservice',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-微服务概览"><span class="toc-text">1. 微服务概览</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-组件服务化"><span class="toc-text">1.1 组件服务化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-康威定律"><span class="toc-text">1.2 康威定律</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-按业务组织服务"><span class="toc-text">1.3 按业务组织服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-去中心化"><span class="toc-text">1.4 去中心化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-基础设施自动化"><span class="toc-text">1.5 基础设施自动化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-可用性-amp-兼容性设计"><span class="toc-text">1.6 可用性&amp;兼容性设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-微服务设计"><span class="toc-text">2. 微服务设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-网关"><span class="toc-text">2.1 网关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Mircoservice-划分"><span class="toc-text">2.2 Mircoservice 划分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-微服务到底要拆多细"><span class="toc-text">2.2.1 微服务到底要拆多细</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-CQRS"><span class="toc-text">2.2.2 CQRS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-mircoservice安全"><span class="toc-text">2.3 mircoservice安全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-gRPC和服务发现"><span class="toc-text">3. gRPC和服务发现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-gRPC"><span class="toc-text">3.1 gRPC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-HealthCheck"><span class="toc-text">3.1.1 HealthCheck</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-服务发现"><span class="toc-text">3.2 服务发现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-CAP"><span class="toc-text">3.2.1 CAP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-euerka实现原理"><span class="toc-text">3.3 euerka实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-多集群-amp-多租户"><span class="toc-text">3.4 多集群&amp;多租户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1-多集群"><span class="toc-text">3.4.1 多集群</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2-多租户"><span class="toc-text">3.4.2 多租户</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">belief</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
