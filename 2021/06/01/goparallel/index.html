@@ -1440,9 +1440,9 @@
 <p>现代CPU为了“抚平”内核、内存、硬盘之间的速度差异，搞出了各种策略，例如三级缓存等。</p>
 <p>为了让（2）不必等待（1）的执行“效果”可见之后才能执行，</p>
 <p>我们可以把（1）的效果保存到store buffer：</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/goparallel/mr1.png" alt="image-20210712181109041"></p>
+<p><img src="mr1.png" alt="image-20210712181109041"></p>
 <p>store buffer 对单线程是完美的；</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/goparallel/mr2.png" alt="image-20210712182237345"></p>
+<p><img src="mr2.png" alt="image-20210712182237345"></p>
 <p>先执行（1）和（3），将他们直接写入store buffer，接着执行（2）和（4）</p>
 <p>（2）看了下store buffer，并没有发现有B的值，于是从Memory读出了0，（4）同样从Memory读出了0，最后，打印出了0 0；</p>
 <p>因此，对于多线程的程序，所有的CPU都会提供“锁”支持，称之为barrier，或者fence。它要求：barrier指令要求所有对内存的操作都必须要“扩散”到memory之后才能继续执行其他对memory的操作。因此，我们可以用高级点的atomic compare-and-swap，或者直接用更高级的锁，通常是标准库提供；</p>
@@ -1562,10 +1562,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-13T14:58:15+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-17T17:05:21+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 13, 2021</p>
+    <p>更新于：Jul 17, 2021</p>
   </a>
 </div>
 
