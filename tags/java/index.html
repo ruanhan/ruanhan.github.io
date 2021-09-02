@@ -361,167 +361,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h2><ul>
-<li>Spring-boot-maven-plugin</li>
-</ul>
-<p>执行打包的过程当中，生成一个可执行的jar包。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># check health</span></span><br><span class="line">$&gt; curl http://localhost:8080/actuator/health</span><br><span class="line">&#123;<span class="string">"status"</span>:<span class="string">"UP"</span>&#125;%</span><br><span class="line"><span class="comment"># build</span></span><br><span class="line">$&gt; mvn clean package -Dmaven.test.skip</span><br><span class="line"><span class="comment"># 运行一个jar包</span></span><br><span class="line">$&gt; java -jar hello-spring-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
-
-<p>Maven的核心思想： 约定大于配置， 有约束，不去违反。</p>
-<p>Maven会规定你应该如何编写java代码，必须按照这个规范去做；</p>
-<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><p>一个web应用由多部分组成（静态web，动态web）</p>
-<p>Html,css,js</p>
-<p>jsp,servlet</p>
-<p>java程序，jar</p>
-<p>配置文件（Properties）</p>
-<p>web应用程序编写完毕后，若想提供给外界访问：需要一个服务器来统一管理；</p>
-<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><blockquote>
-<p>sun开发动态web的一门技术</p>
-</blockquote>
-<p>Sun在这些API中提供一个接口叫做：Servlet，如果你想开发一个Servlet程序，只需要完成两个小步骤：</p>
-<ol>
-<li>编写一个类，实现Servlet接口</li>
-<li>把开发好的Java类部署到web服务器中；</li>
-</ol>
-<p>把实现了Servlet接口的Java程序叫做，Servlet</p>
-<h3 id="hello-servlet"><a href="#hello-servlet" class="headerlink" title="hello servlet"></a>hello servlet</h3><ol>
-<li>构建一个普通maven文件</li>
-</ol>
-<h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><blockquote>
-<p>mybatis是一款优秀的持久层框架；</p>
-<p>即把内存中的数据，保存到磁盘中，持久化的主要应用是将内存中的秀爱哪个存储在数据库中</p>
-</blockquote>
-<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><h4 id="自定装配"><a href="#自定装配" class="headerlink" title="自定装配"></a>自定装配</h4><p>@Autowired: 自动装配通过类型，名字</p>
-<p>@Qualifier(value=”xxx”)</p>
-<p>@Nullable： 字段标记了这个注解，说明这个字段可以为null</p>
-<p>@Resource： 自动装配通过名字，类型。</p>
-<h4 id="衍生注解"><a href="#衍生注解" class="headerlink" title="衍生注解"></a>衍生注解</h4><p>@Component： 组件，放在类上，说明这个类被Spring管理了；就是Bean<br>@Component 有几个衍生注解，在web开发中，会按照mvc三层架构分层！</p>
-<ul>
-<li>dao          @Resource</li>
-<li>service     @Service</li>
-<li>controller  @Controller</li>
-</ul>
-<p>这四个注解功能都是一样的，都是代表将某个类注册到Spring中，装配Bean</p>
-<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>@Scope(“prototype”)</p>
-<h4 id="使用java的方式配置Spring"><a href="#使用java的方式配置Spring" class="headerlink" title="使用java的方式配置Spring"></a>使用java的方式配置Spring</h4><p>不使用Spring的xml配置，全权交给java来做！</p>
-<p>JavaConfig是Spring的一个子项目，在Spring4之后，它成为了一个核心功能！</p>
-<h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><h4 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h4><h5 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h5><p>角色分析</p>
-<ul>
-<li>抽象角色： 一般会使用接口或者抽象类来解决</li>
-<li>真实角色： 被代理的角色</li>
-<li>代理角色： 代理真实角色，代理真实角色后，我们一般会做一些附属操作</li>
-<li>客户： 访问代理对象的人！</li>
-</ul>
-<p>代码步骤：</p>
-<ol>
-<li>接口</li>
-<li>真实角色</li>
-<li>代理角色</li>
-<li>客户端访问代理角色</li>
-</ol>
-<p>代理模式的好处：</p>
-<ul>
-<li>可以使真实角色的操作更加纯碎，不用去关注一些公共的业务</li>
-<li>公共也就交给代理角色，实现业务的分工！</li>
-<li>公共业务发生扩展的时候，方便集中管理！</li>
-</ul>
-<p>缺点：</p>
-<ul>
-<li>一个真实角色就会产生一个代理角色，代码量翻倍——开发效率变低</li>
-</ul>
-<h5 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h5><ul>
-<li>动态代理和静态代理角色一样</li>
-<li>动态代理的代理类是动态生成的，不是我们直接写好的！</li>
-<li>动态代理分为两大类： 基于接口的动态代理，基于类的动态代理<ul>
-<li>基于接口——jdk动态代理【我们在这里使用】</li>
-<li>基于类：cglib</li>
-<li>java字节码实现：javasist</li>
-</ul>
-</li>
-</ul>
-<p>需要了解两个类： Proxy， InvocationHandler</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tenon.demo1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 之后用这个类，自动生成代理类！</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 被代理的接口</span></span><br><span class="line">  <span class="keyword">private</span> Object target;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTarget</span><span class="params">(Object target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.target = target;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 生成代理类，重点是第二个参数，获取要代理的抽象角色！之前都是一个角色，现在可以代理一类角色</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">getProxy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 固定写法</span></span><br><span class="line">    <span class="keyword">return</span> Proxy.newProxyInstance(</span><br><span class="line">        <span class="keyword">this</span>.getClass().getClassLoader(), target.getClass().getInterfaces(), <span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// proxy: 代理类method： 代理类的调用处理程序的方法对象；</span></span><br><span class="line">  <span class="comment">// 处理代理实例上面的方法并返回结果</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    seeHouse();</span><br><span class="line">    <span class="comment">// 动态代理的本质，就是使用反射机制实现！</span></span><br><span class="line">    Object invoke = method.invoke(target, args);</span><br><span class="line">    fare();</span><br><span class="line">    <span class="keyword">return</span> invoke;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">seeHouse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"target seeHouse"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fare</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"target fare"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>动态代理的好处</li>
-</ul>
-<p>静态代理有的它都有，静态代理没有的，它也有</p>
-<ul>
-<li>可以使我们的真实角色更加纯碎，不再去关注一些公共的事情；</li>
-<li>公共的业务由代理来完成，实现了业务的分工</li>
-<li>公共业务发生扩展时变得更加集中和方便</li>
-<li>一个动态代理，一般代理某一类业务</li>
-<li>一个动态代理可以代理多个类，代理的是接口；</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>SpringBoot 以注解为主，xml很少；</p>
-<h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><p>Spring: 大杂烩，可以将springMVC 中所有要用到的bean，注册到Spring中！</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/01.png" alt="image-20210815195810732"></p>
-<p>在写servlet程序的时候，定义了很多Servlet类来应对不同业务场景的请求；这样在处理复杂业务的时候就稍显繁杂的。在架构的范畴的里面，没有什么是加一层所不能解决的。</p>
-<p>在Servlet前面 和用户之间加一层，即调度。用户请求可以直接发送到调度，然后由调度去分发到不同的Servlet。就相当于router；这个调度就是DispatchServlet.</p>
-<p>Servlet： 只要实现Servlet接口的程序就叫servlet；</p>
-<h2 id="springBoot"><a href="#springBoot" class="headerlink" title="springBoot"></a>springBoot</h2><blockquote>
-<p>Springboot 到底配置了什么？能不能进行修改？能修改哪些？能不能扩展？</p>
-</blockquote>
-<ul>
-<li>xxxxAutoConfiguration。。 向容器中自动配置组件</li>
-<li>xxxxProperties： 自动配置类，装配配置文件中自定义的一些内容！</li>
-</ul>
-<h3 id="web-1"><a href="#web-1" class="headerlink" title="web"></a>web</h3><ul>
-<li>导入静态资源</li>
-<li>首页</li>
-<li>jsp，模版引擎</li>
-<li>装配扩展SpringMVC</li>
-<li>crud</li>
-<li>拦截器</li>
-<li>国际化</li>
-</ul>
-<h4 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">        logger.debug(<span class="string">"Default resource handling disabled"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Duration cachePeriod = <span class="keyword">this</span>.resourceProperties.getCache().getPeriod();</span><br><span class="line">        CacheControl cacheControl = <span class="keyword">this</span>.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();</span><br><span class="line">        <span class="keyword">if</span> (!registry.hasMappingForPattern(<span class="string">"/webjars/**"</span>)) &#123;</span><br><span class="line">            <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;<span class="string">"/webjars/**"</span>&#125;).addResourceLocations(<span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/webjars/"</span>&#125;).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String staticPathPattern = <span class="keyword">this</span>.mvcProperties.getStaticPathPattern();</span><br><span class="line">        <span class="keyword">if</span> (!registry.hasMappingForPattern(staticPathPattern)) &#123;</span><br><span class="line">            <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;staticPathPattern&#125;).addResourceLocations(WebMvcAutoConfiguration.getResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations())).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>/webjars/**</code> 对应 <code>classpath:/META-INF/resources/webjars/</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /META-INF/resources/webjars/jquery/3.4.1/jquery.js   </span></span><br><span class="line"><span class="comment"># localhost:8080/webjars/jquery/3.4.1/jquery.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 也就是说，在下面这个地址访问的jquery.js 是指向 上面这个maven包对应的地址的；</span></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String target = <span class="string">"/**"</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] CLASSPATH_RESOURCE_LOCATIONS = &#123;<span class="string">"classpath:/META-INF/resources/"</span>,<span class="string">"classpath:/resources/"</span>,<span class="string">"classpath:/static/"</span>,<span class="string">"classpath:/public/"</span>&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-java/</span><br><span class="line">-resources/</span><br><span class="line">	-public/</span><br><span class="line">	-resources/</span><br><span class="line">	-static/</span><br><span class="line">	-templates/</span><br><span class="line">	-application.properties</span><br><span class="line">	<span class="comment"># 只要浏览器访问 /** , **直指 resources 下面 public， static， resources 作为根目录 的子路径；</span></span><br><span class="line">resources优先级最高， static其次，public最低； public一般放公共资源，static放静态资源，resources放upload的文件；</span><br></pre></td></tr></table></figure>
-
-<p><strong>但是，如果在application.properties 里面定义了 spring.mvc.static=path-pattern=/alex/, 那么默认的webjars, public，static，resources 将失效；</strong></p>
-<h4 id="首页如何定制"><a href="#首页如何定制" class="headerlink" title="首页如何定制"></a>首页如何定制</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Optional&lt;Resource&gt; <span class="title">getWelcomePage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            String[] locations = WebMvcAutoConfiguration.getResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations());</span><br><span class="line">            <span class="keyword">return</span> Arrays.stream(locations).map(<span class="keyword">this</span>::getIndexHtml).filter(<span class="keyword">this</span>::isReadable).findFirst();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> Resource <span class="title">getIndexHtml</span><span class="params">(String location)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.resourceLoader.getResource(location + <span class="string">"index.html"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <code>this.resourceLoader.getResource(location + &quot;index.html&quot;);</code> 指的是 “classpath:/META-INF/resources/“,”classpath:/resources/“,”classpath:/static/“,”classpath:/public/“ 这些文件夹里面只要有 index.html 都能被当作首页访问到呀；</p>
-<h4 id="favicon"><a href="#favicon" class="headerlink" title="favicon"></a>favicon</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># application.properties</span></span><br><span class="line"><span class="comment"># 关闭默认图标</span></span><br><span class="line">spring.mvc.favicon.enabled=<span class="literal">false</span></span><br><span class="line"><span class="comment"># favicon放置 "classpath:/META-INF/resources/","classpath:/resources/","classpath:/static/","classpath:/public/"</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="模版引擎"><a href="#模版引擎" class="headerlink" title="模版引擎"></a>模版引擎</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThymeleafProperties</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_PREFIX = <span class="string">"classpath:/templates/"</span>;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_SUFFIX = <span class="string">".html"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 设置静态首页</span></span><br><span class="line">  <span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// classpath:/templates/index.html</span></span><br><span class="line">		<span class="comment">//  public static final String DEFAULT_PREFIX = "classpath:/templates/";</span></span><br><span class="line">   <span class="comment">// public static final String DEFAULT_SUFFIX = ".html";</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="装配扩展SpringMVC"><a href="#装配扩展SpringMVC" class="headerlink" title="装配扩展SpringMVC"></a>装配扩展SpringMVC</h4><p>Spring Boot provides auto-configuration for Spring MVC that works well with most applications.</p>
-<p>The auto-configuration adds the following features on top of Spring’s defaults:</p>
-<ul>
-<li>Inclusion of <code>ContentNegotiatingViewResolver</code> and <code>BeanNameViewResolver</code> beans.</li>
-<li>Support for serving static resources, including support for WebJars (covered <a href="https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-static-content" target="_blank" rel="noopener">later in this document</a>)).</li>
-<li>Automatic registration of <code>Converter</code>, <code>GenericConverter</code>, and <code>Formatter</code> beans.</li>
-<li>Support for <code>HttpMessageConverters</code> (covered <a href="https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-message-converters" target="_blank" rel="noopener">later in this document</a>).</li>
-<li>Automatic registration of <code>MessageCodesResolver</code> (covered <a href="https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/boot-features-developing-web-applications.html#boot-features-spring-message-codes" target="_blank" rel="noopener">later in this document</a>).</li>
-<li>Static <code>index.html</code> support.</li>
-<li>Custom <code>Favicon</code> support (covered <a href="https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-favicon" target="_blank" rel="noopener">later in this document</a>).</li>
-<li>Automatic use of a <code>ConfigurableWebBindingInitializer</code> bean (covered <a href="https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-web-binding-initializer" target="_blank" rel="noopener">later in this document</a>).</li>
-</ul>
-<p>If you want to keep Spring Boot MVC features and you want to add additional <a href="https://docs.spring.io/spring/docs/5.0.13.RELEASE/spring-framework-reference/web.html#mvc" target="_blank" rel="noopener">MVC configuration</a> (interceptors, formatters, view controllers, and other features), you can add your own <code>@Configuration</code> class of type <code>WebMvcConfigurer</code> but <strong>without</strong> <code>@EnableWebMvc</code>. If you wish to provide custom instances of <code>RequestMappingHandlerMapping</code>, <code>RequestMappingHandlerAdapter</code>, or <code>ExceptionHandlerExceptionResolver</code>, you can declare a <code>WebMvcRegistrationsAdapter</code> instance to provide such components.</p>
-<p>If you want to take complete control of Spring MVC, you can add your own <code>@Configuration</code> annotated with <code>@EnableWebMvc</code>.</p>
-
+        <p>springBoot</p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2021/08/10/springboot-start/">
+            <div>阅读全文 <i class="fas fa-chevron-right "></i></div>
+          </a>
+        </div>
       
     
   </section>
@@ -716,7 +565,7 @@
           <li><a class="flat-box"
             title="/categories/patten/" href="/categories/patten/"
             id="categoriespatten"
-            ><div class='name'>patten</div><div class='badge'>(1)</div></a></li>
+            ><div class='name'>patten</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/project/" href="/categories/project/"
@@ -737,6 +586,11 @@
             title="/categories/spring/" href="/categories/spring/"
             id="categoriesspring"
             ><div class='name'>spring</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/sql/" href="/categories/sql/"
+            id="categoriessql"
+            ><div class='name'>sql</div><div class='badge'>(3)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/tools/" href="/categories/tools/"
@@ -780,7 +634,7 @@
 
 
     <div class='content'>
-      <a href="/tags/C/" style="font-size: 14px; color: #999">C</a> <a href="/tags/doc/" style="font-size: 24px; color: #555">doc</a> <a href="/tags/dp/" style="font-size: 14px; color: #999">dp</a> <a href="/tags/gitlab/" style="font-size: 20.67px; color: #6c6c6c">gitlab</a> <a href="/tags/guide/" style="font-size: 24px; color: #555">guide</a> <a href="/tags/hexo/" style="font-size: 17.33px; color: #828282">hexo</a> <a href="/tags/java/" style="font-size: 14px; color: #999">java</a> <a href="/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/tags/markdown/" style="font-size: 17.33px; color: #828282">markdown</a> <a href="/tags/pro/" style="font-size: 14px; color: #999">pro</a> <a href="/tags/server/" style="font-size: 14px; color: #999">server</a> <a href="/tags/skill/" style="font-size: 17.33px; color: #828282">skill</a> <a href="/tags/sql/" style="font-size: 14px; color: #999">sql</a>
+      <a href="/tags/C/" style="font-size: 14px; color: #999">C</a> <a href="/tags/doc/" style="font-size: 21.5px; color: #666">doc</a> <a href="/tags/dp/" style="font-size: 14px; color: #999">dp</a> <a href="/tags/gitlab/" style="font-size: 19px; color: #777">gitlab</a> <a href="/tags/guide/" style="font-size: 24px; color: #555">guide</a> <a href="/tags/hexo/" style="font-size: 16.5px; color: #888">hexo</a> <a href="/tags/java/" style="font-size: 14px; color: #999">java</a> <a href="/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/tags/markdown/" style="font-size: 16.5px; color: #888">markdown</a> <a href="/tags/pro/" style="font-size: 14px; color: #999">pro</a> <a href="/tags/server/" style="font-size: 14px; color: #999">server</a> <a href="/tags/skill/" style="font-size: 16.5px; color: #888">skill</a> <a href="/tags/sql/" style="font-size: 14px; color: #999">sql</a>
     </div>
   </section>
 
