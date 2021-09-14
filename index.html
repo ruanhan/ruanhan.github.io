@@ -661,53 +661,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="应用分层"><a href="#应用分层" class="headerlink" title="应用分层"></a>应用分层</h2><p><img src="00.png" alt="image-20210905144628222"></p>
-<p>上层依赖于下层，箭头关系表示可直接依赖，“开发API层可以依赖于web层（Controller层），也可以直接依赖Service层”</p>
-<ul>
-<li><strong>开放API层</strong>，直接封装Service接口暴露成RPC接口；通过Web封装成http接口；网关控制层等；</li>
-<li><strong>终端显示层</strong>，各个端的模板渲染并执行显示的层，当前主要是velocity渲染，JS渲染，JSP渲染，移动端展示等；</li>
-<li><strong>Web层</strong>，主要是对访问控制进行转发，各类基本参数校验，或者不复用的业务简单处理等；</li>
-<li><strong>Service层</strong>，相对具体的业务逻辑服务层；</li>
-<li><strong>Manager层</strong>，通用的业务处理层，他又如下几个特征<ul>
-<li>对第三方平台封装的层，预处理返回结果及转化异常信息，适配上层接口；</li>
-<li>对Service层通用能力的下沉，如缓存方案、中间件通用处理；</li>
-<li>与DAO层交互，对多个DAO的组合复用；</li>
-</ul>
-</li>
-<li><strong>DAO层</strong>，数据访问层，与底层Mysql、Oracle、Hbase、OB等进行数据交互；</li>
-<li><strong>第三方服务</strong>，包括其他部门RPC服务接口，基础平台，其他公司的HTTP接口，如淘宝开放平台、支付宝付款服务、高德地图服务等；</li>
-<li><strong>外部数据接口</strong>： 外部（应用）数据存储服务提供的接口，多见于数据迁移场景中；</li>
-</ul>
-<p>分层异常处理规约： 在DAO层，产生的异常类型有很多，无法用细粒度的异常进行catch，使用catch（Exception e）方式，并throw new DAOException（e），不需要打印日志，因为日志在Manager/Service层一定需要捕获并打印到日志文件中去，如果同台服务器再打日志，浪费性能和存储，在Service层出现异常时，必须记录出出错日志到磁盘，尽可能带上参数信息，相当于保护案发现场，Manager层与Service同机部署，日志方式与DAO层处理一致，如果是单独部署，则采用与Service一致的处理方式，Web层绝不应用继续往上抛异常，因为已经处于顶层，如果意识到这个异常将导致页面无法正常渲染，那么就应该直接跳转到友好错误页面，尽量加上友好的错误提示信息，开放接口层要将异常处理成错误码和错误信息方式返回；</p>
-<h3 id="分层领域模型"><a href="#分层领域模型" class="headerlink" title="分层领域模型"></a>分层领域模型</h3><ul>
-<li>DO （Data Object）：此对象与数据库表结构一一对应，通过DAO层向上传输数据源对象</li>
-<li>DTO（Data Transfer Object）： 数据传输对象，Service或Manager向外传输的对象；</li>
-<li>BO（Business Object）： 业务对象，可以由Service层输出的封装业务逻辑的对象；</li>
-<li>Query： 数据查询对象，各层接收上层的查询请求。注意超过2个参数的查询封装，禁止使用Map类来传输；</li>
-<li>VO（View Object）：显示层对象，通常是Web向模板渲染引擎层传输的对象；</li>
-</ul>
-<h3 id="以springboot为例"><a href="#以springboot为例" class="headerlink" title="以springboot为例"></a>以springboot为例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">- src</span><br><span class="line">	- main</span><br><span class="line">		- java</span><br><span class="line">		- com.tenon.hello</span><br><span class="line">			- annotation <span class="comment"># 项目自定义注解</span></span><br><span class="line">			- aspect <span class="comment"># 切面代码</span></span><br><span class="line">			- config <span class="comment"># 配置类</span></span><br><span class="line">			- constant <span class="comment"># 常量，枚举等定义</span></span><br><span class="line">				- consist <span class="comment"># 存放常量定义</span></span><br><span class="line">				- enums <span class="comment"># 存放枚举定义</span></span><br><span class="line">			- controller <span class="comment"># 放置控制器代码</span></span><br><span class="line">			- filter <span class="comment"># 放置一些过滤、拦截相关的代码</span></span><br><span class="line">			- mapper <span class="comment"># 放置数据访问层代码接口</span></span><br><span class="line">			- model <span class="comment"># 放置数据模型代码</span></span><br><span class="line">				-	entity <span class="comment"># 放置数据库实体对象定义</span></span><br><span class="line">				- dto    <span class="comment"># 存放数据传输对象定义</span></span><br><span class="line">				- vo     <span class="comment"># 存放显示层对象定义</span></span><br><span class="line">			- service  <span class="comment"># 放置具体的业务逻辑代码（接口和实现分离）</span></span><br><span class="line">				- intf  <span class="comment"># 存放业务逻辑接口定义</span></span><br><span class="line">				- impl  <span class="comment"># 存放业务逻辑实际实现</span></span><br><span class="line">			- utils <span class="comment"># 放置工具类和辅助代码</span></span><br><span class="line">			- SpringbootJwtMybatisApplication</span><br><span class="line">		- resources</span><br><span class="line">			- mapper</span><br><span class="line">			- static <span class="comment"># 存放静态资源</span></span><br><span class="line">				- js</span><br><span class="line">			- template <span class="comment"># 存放网页模板 </span></span><br><span class="line">			- application.yml <span class="comment"># 基本配置文件</span></span><br><span class="line">			- application-dev.yaml <span class="comment"># 开发环境配置文件</span></span><br><span class="line">			- application-test.yml <span class="comment"># 测试环境配置文件</span></span><br><span class="line">			- application-prod.yml <span class="comment"># 生产环境配置文件</span></span><br><span class="line">	- <span class="built_in">test</span></span><br><span class="line">		- java</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>/src/main/java:  放置项目Java源代码</li>
-<li>/src/main/resources: 放置项目静态资源和配置文件</li>
-<li>/src/test/java: 放置项目测试用例代码</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="01.png" alt="img"></p>
-<p><img src="02.png" alt="img"></p>
-<p><strong>一些注意事项</strong></p>
-<ol>
-<li>controller层参数传递建议不要使用HashMap，建议使用数据模型定义</li>
-<li>controller层里可以做参数校验、异常抛出等操作，但建议不要放太多业务逻辑，业务逻辑尽量放到Service层代码中去做；</li>
-<li>Service层做实际业务逻辑，可以按照功能模块做定义和区分，相互可以调用；</li>
-<li>功能模块Service之间引用时，建议不要渗透到DAO层（或者mapper层），基于Service层进行调用和复用比较合理</li>
-<li>业务逻辑层Service和数据库DAO层的操作对象不要混用。Controller层的数据对象不要直接渗透到DAO层（或者mapper层）；同理数据表实体对象Entity也不要直接传到Controller层进行输出或展示；</li>
-</ol>
-<p><a href="https://zhuanlan.zhihu.com/p/115403195" target="_blank" rel="noopener">阅读原文</a></p>
-
+        <p>spring项目结构</p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2021/09/05/spring%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/">
+            <div>阅读全文 <i class="fas fa-chevron-right "></i></div>
+          </a>
+        </div>
       
     
   </section>
