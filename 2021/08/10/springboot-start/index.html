@@ -439,7 +439,7 @@
 </ul>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>SpringBoot 以注解为主，xml很少；</p>
 <h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><p>Spring: 大杂烩，可以将springMVC 中所有要用到的bean，注册到Spring中！</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/01.png" alt="image-20210815195810732"></p>
+<p><img src="01.png" alt="image-20210815195810732"></p>
 <p>在写servlet程序的时候，定义了很多Servlet类来应对不同业务场景的请求；这样在处理复杂业务的时候就稍显繁杂的。在架构的范畴的里面，没有什么是加一层所不能解决的。</p>
 <p>在Servlet前面 和用户之间加一层，即调度。用户请求可以直接发送到调度，然后由调度去分发到不同的Servlet。就相当于router；这个调度就是DispatchServlet.</p>
 <p>Servlet： 只要实现Servlet接口的程序就叫servlet；</p>
@@ -504,7 +504,7 @@
 <blockquote>
 <p>RBAC认为权限的过程可以抽象概括为：判断【Who是否可以对What进行How的访问操作（Operator）】这个逻辑表达式的值是否为True的求解过程。</p>
 </blockquote>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/02.png" alt="image-20210820150219245"></p>
+<p><img src="02.png" alt="image-20210820150219245"></p>
 <p>用户与权限相关联，用户通过加入角色而获得相关权限；</p>
 <h3 id="理想中的权限管理"><a href="#理想中的权限管理" class="headerlink" title="理想中的权限管理"></a>理想中的权限管理</h3><ul>
 <li><p>能实现角色级权限：RBAC</p>
@@ -554,7 +554,7 @@
 <blockquote>
 <p>方便管理，操作方便</p>
 </blockquote>
-<h4 id="需要开发的内容"><a href="#需要开发的内容" class="headerlink" title="需要开发的内容"></a>需要开发的内容</h4><h5 id="总体功能需求"><a href="#总体功能需求" class="headerlink" title="总体功能需求"></a>总体功能需求</h5><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/03.png" alt="image-20210820202226231"></p>
+<h4 id="需要开发的内容"><a href="#需要开发的内容" class="headerlink" title="需要开发的内容"></a>需要开发的内容</h4><h5 id="总体功能需求"><a href="#总体功能需求" class="headerlink" title="总体功能需求"></a>总体功能需求</h5><p><img src="03.png" alt="image-20210820202226231"></p>
 <p>部门列表页；部门是RBAC扩展出来的group部分，</p>
 <p>部门列表是树形结构下来的，有层级关系。</p>
 <p>部门支持 新增，修改，删除。删除时要确实是否有子部门；</p>
@@ -562,20 +562,20 @@
 <ul>
 <li>新增</li>
 </ul>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/04.png" alt="image-20210820202535213"></p>
+<p><img src="04.png" alt="image-20210820202535213"></p>
 <p>新增时，需要给出上级部门。保存时需要校验同级下是否有相同名称的部门。不同级下面部门名称可以相同；</p>
 <ul>
 <li>用户列表</li>
 </ul>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/05.png" alt="image-20210820202722134"></p>
+<p><img src="05.png" alt="image-20210820202722134"></p>
 <p>点击部门，会进入到用户列表页面。（分页，搜索，当前部门搜，当前部门和子级部门搜，所有部门中搜索）</p>
 <p>新增用户功能，修改用户信息，查看更新记录，查看角色以及权限；</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/06.png" alt="image-20210820203441186"></p>
+<p><img src="06.png" alt="image-20210820203441186"></p>
 <p>新增用户页面，首先选择所在部门（部门树）。修改时，需回显之前所在部门。</p>
 <ul>
 <li>权限模块页面</li>
 </ul>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/07.png" alt="image-20210820203633826"></p>
+<p><img src="07.png" alt="image-20210820203633826"></p>
 <blockquote>
 <p> 大型网站后台功能繁杂，所以需要 把权限点  按模块分配好，方便后续管理。如果想根据权限分配动态生成 系统菜单时，这时权限模块更必不可少了。</p>
 </blockquote>
@@ -585,14 +585,14 @@
 <p>树形结构，</p>
 <p>有新增以及修改和删除，删除要确认是否有子模块；</p>
 <p>点击权限模块名称时，需要展示下面的权限点。</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/08.png" alt="image-20210820204136768"></p>
+<p><img src="08.png" alt="image-20210820204136768"></p>
 <p>需要选择上级权限模块，模块树的结构和部门树是相同的。保存时需要校验同级模块是否有相同的名字；</p>
 <ul>
 <li>权限列表页</li>
 </ul>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/09.png" alt="image-20210820204907865"></p>
+<p><img src="09.png" alt="image-20210820204907865"></p>
 <p>列表信息页，列表展示，搜索等功能。新增，修改等功能；</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/10.png" alt="image-20210820205003613"></p>
+<p><img src="10.png" alt="image-20210820205003613"></p>
 <ul>
 <li>新增权限点页面</li>
 </ul>
@@ -604,7 +604,7 @@
 <ul>
 <li>角色——桥梁</li>
 </ul>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/11.png" alt="image-20210820205643749"></p>
+<p><img src="11.png" alt="image-20210820205643749"></p>
 <p>角色列表不需要树形结构，打平即可。</p>
 <p>新增，修改。</p>
 <p>删除角色时，判断是否分配了人/分配了权限。</p>
@@ -613,40 +613,16 @@
 <ul>
 <li>角色配置页（核心页面）</li>
 </ul>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/12.png" alt="image-20210820210021962"></p>
+<p><img src="12.png" alt="image-20210820210021962"></p>
 <h5 id="角色与权限页面"><a href="#角色与权限页面" class="headerlink" title="角色与权限页面"></a>角色与权限页面</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">首先加载出角色与权限组成的一棵树。如果角色之前已经分配过权限，那么已经分配过的权限是需要反选上的。</span><br><span class="line"></span><br><span class="line">保存时 需先清除掉角色原来的权限，重新赋予新的权限。</span><br></pre></td></tr></table></figure>
 
 <p>功能分析：</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/15.png" alt="image-20210912204441840"></p>
+<p><img src="15.png" alt="image-20210912204441840"></p>
 <ol>
 <li>首先需要在角色与权限tab页中，列举出当前角色可以选择的权限；因此这个列表应该是权限模块和权限点组成的树；</li>
 <li>当点击产品管理员title的时候，该角色可以赋值过权限，那这个时候展示 权限模块和权限点组成的树时，还需要反选上被勾选上的节点状态；</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// roleTree(int roleId)</span></span><br><span class="line"><span class="comment">// AclDto</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AclDto</span> <span class="keyword">extends</span> <span class="title">SysAcl</span></span>&#123;</span><br><span class="line">  <span class="comment">// 是否要默认选中</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">boolean</span> checked = <span class="keyword">false</span>;</span><br><span class="line">  <span class="comment">// 是否有权限操作，一个用户在分配权限的时候，她能操作的权限一定不能超过自身已有权限的上限；比如当前已经列出整个系统所有权限。但是该用户并没有分配系统所有权限的权限；</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">boolean</span> hasAcl = <span class="keyword">false</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AclDto <span class="title">adapt</span><span class="params">(SysAcl acl)</span> </span>&#123;</span><br><span class="line">    AclDto dto = <span class="keyword">new</span> AclDto();</span><br><span class="line">    BeanUtils.copyProperties(acl, dto);</span><br><span class="line">    <span class="keyword">return</span> dto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// service</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;AclModuleLevelDto&gt; <span class="title">roleTree</span><span class="params">(<span class="keyword">int</span> roleId)</span></span>&#123;</span><br><span class="line">  <span class="comment">// 1. 当前用户已分配的权限点</span></span><br><span class="line">  <span class="comment">// 2. 当前角色分配的权限点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 核心权限的获取</span></span><br><span class="line"><span class="comment">// SysCoreService.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysCoreService</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> SysAclMapper sysAclMapper;</span><br><span class="line">  <span class="keyword">private</span> SysRoleUserMapper sysRoleUserMapper;</span><br><span class="line">  <span class="keyword">private</span> SysRoleAclMapper sysRoleAclMapper;</span><br><span class="line">  <span class="comment">// 获取用户权限列表</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;SysAcl&gt; <span class="title">getCurrentUserAclList</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 获取当前用户；</span></span><br><span class="line">    <span class="keyword">int</span> userId = RequestHolder.getCurrentUser().getId();</span><br><span class="line">    <span class="keyword">return</span> getUserAclList(userId); <span class="comment">// 查询该用户已分配的权限；</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 拿到某角色已分配的权限点</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;SysAcl&gt; <span class="title">getRoleAclList</span><span class="params">(<span class="keyword">int</span> roleId)</span></span>&#123;</span><br><span class="line">    List&lt;Integer&gt; aclIdList = sysRoleAclMapper.getAclIdListByRoleIdList(Lists.&lt;Integer&gt;newArrayList(roleId));</span><br><span class="line">    <span class="keyword">if</span>(CollenctionUtils.isEmpty(aclIdList)) &#123;</span><br><span class="line">      <span class="comment">// 返回空list</span></span><br><span class="line">      <span class="keyword">return</span> Lists.newArrayList();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当前指定的角色，它已经分配过的权限点的列表</span></span><br><span class="line">    <span class="keyword">return</span> sysAclMapper.getByIdList(aclIdList);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 通过userId去查找对应的权限点,查询某个用户已分配的权限</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;SysAcl&gt; <span class="title">getUserAclList</span><span class="params">(<span class="keyword">int</span> userId)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(isSuperAdmin())&#123;</span><br><span class="line">      <span class="comment">// 取出acl中所有数据即可</span></span><br><span class="line">      <span class="keyword">return</span> sysAclMapper.getAll();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 取出用户已经分配的角色ID</span></span><br><span class="line">    <span class="comment">// 根据userId查角色列表的功能</span></span><br><span class="line">    List&lt;Integer&gt; userRoleIdList = sysRoleUserMapper.getRoleIdListByUserId(userId);</span><br><span class="line">    <span class="comment">// 如果当前用户没有分配任何角色时</span></span><br><span class="line">    <span class="keyword">if</span>(CollectionUtils.isEmpty(userRoleIdList)) &#123;</span><br><span class="line">      <span class="keyword">return</span> Lists.newArrayList(); <span class="comment">// 返回空列表</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果已经分配，分配这些角色对应的权限并集；</span></span><br><span class="line">    <span class="comment">// getAclIdListByRoleIdList(List&lt;Integer&gt; roleIdList); //传入多个角色id组成的列表，分别查出来他们已经合在一起的权限点的列表总和；  </span></span><br><span class="line">    List &lt;Integer&gt; userAclIdList = sysRoleAclMapper.getAclIdListByRoleIdList(userRoleIdList);</span><br><span class="line">    <span class="comment">// userAclIdList: 这个用户分配的权限点Id的总和；</span></span><br><span class="line">    <span class="keyword">if</span>(CollectionUtils.isEmpty(userAclIdList))&#123;</span><br><span class="line">      <span class="keyword">return</span> Lists.newArrayList();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 接下来根据id 查它整个权限点对象的集合；</span></span><br><span class="line">    <span class="keyword">return</span> sysAclMapper.getByIdList(userAclIdList);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 是否是超级用户</span></span><br><span class="line">  <span class="comment">// 如果要分配权限，前期是得有人能分配该权限。因此需要有超级管理员，在还没有人能</span></span><br><span class="line">  <span class="comment">// 分配该权限的权限时，可以将权限分配出去；</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSuperAdmin</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SysTreeService.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysTreeService</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> SysDeptMapper sysDeptMapper;</span><br><span class="line">  <span class="keyword">private</span> SysAclModuleMapper sysAclModuleMapper;</span><br><span class="line">  <span class="keyword">private</span> SysCoreService sysCoreService;</span><br><span class="line">  <span class="keyword">private</span> SysAclMapper sysAclMapper;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;AclModuleLevelDto&gt; <span class="title">roleTree</span><span class="params">(<span class="keyword">int</span> roleId)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 当前用户已分配的权限点</span></span><br><span class="line">    List&lt;SysAcl&gt; userAclList = sysCoreService.getCurrentUserAclList();</span><br><span class="line">    <span class="comment">// 当前角色分配的权限点</span></span><br><span class="line">    List&lt;SysAcl&gt; roleAclList = sysCoreService.getRoleAclList(roleId);</span><br><span class="line">    <span class="comment">// 当前系统所有权限点</span></span><br><span class="line">    List&lt;AclDto&gt; aclDtoList = Lists.newArrayList();</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 当前用户已分配的权限点集合的所有Id构成一个set</span></span><br><span class="line">    Set&lt;Integer&gt; userAclIdSet = userAclList.stream().map(sysAcl -&gt; sysAcl.getId()).collect(Collectors.toSet());</span><br><span class="line">    <span class="comment">// 角色已分配的权限点集合的所有Id构成一个set</span></span><br><span class="line">    Set&lt;Integer&gt; roleAclIdSet =  roleAclList.stream().map(sysAcl -&gt; sysAcl.getId()).collect(Collectors.toSet());</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取全量的权限点</span></span><br><span class="line">    List&lt;SysAcl&gt; allAclList = sysAclMapper.getAll();</span><br><span class="line">   </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(SysAcl acl : allAclList)&#123;</span><br><span class="line">      AclDto dto = AclDto.adapt(acl);</span><br><span class="line">      <span class="keyword">if</span>(userAclIdSet.contains(acl.getId()))&#123;</span><br><span class="line">        dto.setHasAcl(<span class="keyword">true</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(roleAclIdSet.contains(acl.getId()))&#123;</span><br><span class="line">        dto.setChecked(<span class="keyword">true</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      aclDtoList.add(dto);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> aclListToTree(aclDtoList);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 将aclDtoList 转换成权限模块和权限点组成的树</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;AclModuleLevelDto&gt; <span class="title">aclListToTree</span><span class="params">(List&lt;AclDto&gt; aclDtoList)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(CollectionUtils.isEmpty(aclDtoList)) &#123;</span><br><span class="line">      <span class="keyword">return</span> Lists.newArrayList();</span><br><span class="line">    &#125;</span><br><span class="line">    List&lt;AclModuleLevelDto&gt; aclModuleLevelList = aclModuleTree();</span><br><span class="line">    <span class="comment">// 准备好每个模块下面的权限点集合；</span></span><br><span class="line">    Multimap&lt;Integer, AclDto&gt; moduleIdAclMap = ArrayListMultimap.create();</span><br><span class="line">    <span class="keyword">for</span>(SysAcl acl: aclDtoList) &#123;</span><br><span class="line">      <span class="keyword">if</span>(acl.getStatus() == <span class="number">1</span>) &#123; <span class="comment">// 1是可用的</span></span><br><span class="line">        moduleIdAclMap.put(acl.getAclModuleId(), acl);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    bindAclsWithOrder(aclModuleLevelList, moduleIdAclMap);</span><br><span class="line">    <span class="keyword">return</span> aclModuleLevelList;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 将权限点绑定到权限树上；</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bindAclsWithOrder</span><span class="params">(List&lt;AclModuleLevelDto&gt; aclModuleLevelList, Multimap&lt;Integer, AclDto&gt; moduleIdAclMap)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(CollectionUtils.isEmpty(aclModuleLevelList)) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(AclModuleLevelDto dto: aclModuleLevelList)&#123;</span><br><span class="line">      List&lt;AclDto&gt; aclDtoList = ( List&lt;AclDto&gt;)moduleIdAclMap.get(dto.getId()); <span class="comment">// 根据模块Id 选出权限点的列表；</span></span><br><span class="line">      <span class="keyword">if</span>(CollectionUtils.isNotEmpty(aclDtoList))&#123;</span><br><span class="line">        <span class="comment">// 把当前权限点，绑定到权限模块上</span></span><br><span class="line">        Collections.sort(aclDtoList, aclSeqComparator);</span><br><span class="line">        <span class="comment">// 把处理好的权限点列表放到对应权限模块中去；</span></span><br><span class="line">        dto.setAclList(aclDtoList);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 递归的对下一个层级进行绑定</span></span><br><span class="line">      bindAclsWithOrder(dto.getAclModuleList(), moduleIdAclMap);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 权限点的排序规则</span></span><br><span class="line">  <span class="keyword">public</span> Comparator&lt;AclDto&gt; aclSeqComparator = <span class="keyword">new</span> Comparator&lt;AclDto&gt;()&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(AclDto o1, AclDto o2)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> o1.getSeq() - o2.getSeq();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5 id="角色与用户页面"><a href="#角色与用户页面" class="headerlink" title="角色与用户页面"></a>角色与用户页面</h5><p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/13.png" alt="image-20210820210427457"></p>
+<h5 id="角色与用户页面"><a href="#角色与用户页面" class="headerlink" title="角色与用户页面"></a>角色与用户页面</h5><p><img src="13.png" alt="image-20210820210427457"></p>
 <p>给出没有选择上的用户列表和已经选择上的列表；</p>
 <p>使用前端插件，让其左移和右移；</p>
 <p>保存时，先将之前的权限擦除，然后将已选择的用户赋给这个角色；</p>
@@ -658,59 +634,9 @@
 <li>选择好之后保存</li>
 </ol>
 <p>以上是权限管理的核心页面，权限管理在完成这些界面以及后面功能实现后。配置部门就结束了，这些界面完成了用户，角色以及权限他们三者关系的维护，而权限管理的核心就是利用这些界面配置好的数据进行权限控制。关于权限管理的界面除了上面 用户 权限 角色的维护界面外 还会增加查看指定用户  被分配的权限界面。指定用户在后台配置权限的记录页面等。这些辅助页面锦上添花，但会使得产品好用；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SysUserService.java</span></span><br><span class="line"><span class="comment">// 获取所有用户</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;SysUser&gt; <span class="title">getAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  select * from sys_user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SysRoleController.java</span></span><br><span class="line"><span class="keyword">private</span> SysRoleUserService sysRoleUserService;</span><br><span class="line"><span class="keyword">private</span> SysUserService sysUserService</span><br><span class="line"><span class="comment">// 请求用户相关的数据</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/users.json"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> JsonData <span class="title">users</span><span class="params">(@RequestParam(<span class="string">"roleId"</span>)</span> <span class="keyword">int</span> roleId) </span>&#123;</span><br><span class="line">  <span class="comment">// 获取已选用户；</span></span><br><span class="line">  List&lt;SysUser&gt; selectedUserList = sysRoleUserService.getListByRoleId(roleId);</span><br><span class="line">  <span class="comment">// 获取全量用户</span></span><br><span class="line">  List&lt;SysUser&gt; allUserList = sysUserService.getAll();</span><br><span class="line">  <span class="comment">// 根据全量用户和 已选用户，算出未选择的用户列表</span></span><br><span class="line">  List&lt;SysUser&gt; unselectedUserList = Lists.newArrayList();</span><br><span class="line">  <span class="keyword">return</span> JsonData.success();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SysRoleUserService.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysRoleUserService</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> SysRoleUserMapper sysRoleUserMapper;</span><br><span class="line">  <span class="keyword">private</span> SysUserMapper sysUserMapper;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;SysUser&gt; <span class="title">getListByRoleId</span><span class="params">(<span class="keyword">int</span> roleId)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; userIdList = sysRoleUserMapper.getUserIdListByRoleId(roleId);</span><br><span class="line">    </span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span>(CollectionUtils.isEmpty(userIdList)) &#123;</span><br><span class="line">      <span class="keyword">return</span> Lists.newArrayList();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sysUserMapper.getByIdList(userIdList);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--  getUserIdListByRoleId 对应sql为</span></span><br><span class="line"><span class="keyword">select</span> role_id <span class="keyword">from</span> sys_role_user <span class="keyword">where</span> role_id = <span class="comment">#&#123;roleId&#125;;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getByIdList"</span> <span class="attr">parameterType</span>=<span class="string">"map"</span> <span class="attr">resultMap</span>=<span class="string">"BaseResultMap"</span>&gt;</span></span><br><span class="line">  SELECT <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"Base_Column_List"</span> /&gt;</span>  <span class="comment">&lt;!--取出sys_user表的全量对象--&gt;</span></span><br><span class="line">  FROM sys_user</span><br><span class="line">  WHERE id IN</span><br><span class="line">  <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"idList"</span> <span class="attr">item</span>=<span class="string">"id"</span> <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">close</span>=<span class="string">")"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">    #&#123;id&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <h5 id="配置管理类功能-rbac管理界面"><a href="#配置管理类功能-rbac管理界面" class="headerlink" title="配置管理类功能(rbac管理界面)"></a>配置管理类功能(rbac管理界面)</h5><p><strong>用户、权限、角色的管理界面（扩展用：部门、权限模块）</strong></p>
 <p><strong>角色-用户管理、角色-权限管理；</strong></p>
 <p><strong>权限更新日志管理</strong></p>
-<h4 id="获取用户权限数据"><a href="#获取用户权限数据" class="headerlink" title="获取用户权限数据"></a>获取用户权限数据</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SysUserController</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="keyword">private</span> SysUserService sysUserServie;</span><br><span class="line"><span class="keyword">private</span> SysTreeService sysTreeService;</span><br><span class="line"><span class="keyword">private</span> SysRoleService sysRoleService;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"acls.json"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> JsonData <span class="title">acls</span><span class="params">(@RequestParam(<span class="string">"userId"</span>)</span> <span class="keyword">int</span> userId) </span>&#123;</span><br><span class="line">  Map&lt;String, Object&gt; map = Maps.newHashMap();</span><br><span class="line">  map.put(<span class="string">"acls"</span>,sysTreeService.userAclTree(userId));</span><br><span class="line">  map.put(<span class="string">"roles"</span>,sysRoleService.getRoleListByUserId(userId));</span><br><span class="line">  <span class="keyword">return</span> JsonData.success(map);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SysRoleService.java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;SysRole&gt; <span class="title">getRoleListByUserId</span><span class="params">(<span class="keyword">int</span> userId)</span> </span>&#123;</span><br><span class="line">  List&lt;Integer&gt; roleIdList = sysRoleUserMapper.getRoleIdListByUserId(userId);</span><br><span class="line">  <span class="keyword">if</span>(CollectionUtils.isEmpty(roleIdList)) &#123;</span><br><span class="line">    <span class="keyword">return</span> Lists.newArrayList();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sysRoleMapper.getByIdList(roleIdList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getByIdList"</span> <span class="attr">parameterType</span>=<span class="string">"map"</span> <span class="attr">resultMap</span>=<span class="string">"BaseResultMap"</span>&gt;</span></span><br><span class="line">  SELECT <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"Base_Column_List"</span> /&gt;</span></span><br><span class="line">  FROM sys_role</span><br><span class="line">  WHERE id IN</span><br><span class="line">  <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"idList"</span> <span class="attr">item</span>=<span class="string">"id"</span> <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">close</span>=<span class="string">")"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">    #&#123;id&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SysTreeService.java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;AclModuleLevelDto&gt; <span class="title">userAclTree</span><span class="params">(<span class="keyword">int</span> userId)</span> </span>&#123;</span><br><span class="line">  List&lt;SysAcl&gt; userAclList = sysCoreService.getUserAclList(userId);</span><br><span class="line">  List&lt;AclDto&gt; aclDtoList = Lists.newArrayList();</span><br><span class="line">  <span class="keyword">for</span>(SysAcl acl: userAclList) &#123;</span><br><span class="line">    AclDto dto = AclDto.adapt(acl);</span><br><span class="line">    dto.setHasAcl(<span class="keyword">true</span>);</span><br><span class="line">    dto.setChecked(<span class="keyword">true</span>);</span><br><span class="line">    aclDtoList.add(dto);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> aclListToTree(aclDtoList);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="获取权限点分配的用户和角色数据"><a href="#获取权限点分配的用户和角色数据" class="headerlink" title="获取权限点分配的用户和角色数据"></a>获取权限点分配的用户和角色数据</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SysAclController.java</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"acls.json"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> JsonData <span class="title">acls</span><span class="params">(@RequestParam(<span class="string">"aclId"</span>)</span> <span class="keyword">int</span> aclId) </span>&#123;</span><br><span class="line">  Map&lt;String, Object&gt; map = Maps.newHashMap();</span><br><span class="line">  List&lt;SysRole&gt; roleList = sysRoleService.getRoleListByAclId(aclId);</span><br><span class="line">  <span class="comment">// 权限给了哪些角色</span></span><br><span class="line">  map.put(<span class="string">"roles"</span>, roleList);</span><br><span class="line">  map.put(<span class="string">"users"</span>, <span class="string">""</span>);</span><br><span class="line">  <span class="keyword">return</span> JsonData.success(map);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//SysRoleService.java</span></span><br><span class="line"><span class="keyword">private</span> SysRoleAclMapper sysRoleAclMapper;</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;SysRole&gt; <span class="title">getRoleListByAclId</span><span class="params">(<span class="keyword">int</span> aclId)</span> </span>&#123;</span><br><span class="line">  List&lt;Integer&gt; roleIdList = sysRoleAclMapper.getRoleIdListByAclId(aclId);</span><br><span class="line">  <span class="keyword">if</span>(CollectionUtils.isEmpty(roleIdList)) &#123;</span><br><span class="line">    <span class="keyword">return</span> Lists.newArrayList();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sysRoleMapper.getByIdList(roleIdList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getRoleIdListByAclId"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultType</span>=<span class="string">"int"</span>&gt;</span></span><br><span class="line">  SELECT role_id</span><br><span class="line">  FROM sys_role_acl</span><br><span class="line">  WHERE acl_id = #&#123;aclId&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h5 id="权限拦截类功能"><a href="#权限拦截类功能" class="headerlink" title="权限拦截类功能"></a>权限拦截类功能</h5><p><strong>在切面（Filter）做权限拦截</strong></p>
 <blockquote>
 <p>当一个请求进来的时候，需要在切面里面判断这个请求是否允许访问。</p>
@@ -729,21 +655,21 @@
 <p>误操作恢复</p>
 </blockquote>
 <h4 id="表结构设计"><a href="#表结构设计" class="headerlink" title="表结构设计"></a>表结构设计</h4><p>部门表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># SysDept // 表明 sys_dept  sys代表系统级别的</span><br><span class="line">id 						Integer</span><br><span class="line">name 					String</span><br><span class="line">level 				String  <span class="comment">// 为何有parentId还需要定义level，是为了在查询一颗部门树的时候提升查询的效率，尽快查出来；</span></span><br><span class="line">seq 					Integer <span class="comment">// 该部门在当前层级的排序，通常是由小到大排列的</span></span><br><span class="line">remark 				String  <span class="comment">// 备注</span></span><br><span class="line">parentId 			Integer</span><br><span class="line">operator      String</span><br><span class="line">operateTime 	Date</span><br><span class="line">operatelp 		String  <span class="comment">// 操作IP</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#1 sys_dept // 表明 sys_dept  sys代表系统级别的</span><br><span class="line">id 						Integer</span><br><span class="line">name 					String</span><br><span class="line">level 				String  <span class="comment">// 为何有parentId还需要定义level，是为了在查询一颗部门树的时候提升查询的效率，尽快查出来；</span></span><br><span class="line">seq 					Integer <span class="comment">// 该部门在当前层级的排序，通常是由小到大排列的</span></span><br><span class="line">remark 				String  <span class="comment">// 备注</span></span><br><span class="line">parentId 			Integer</span><br><span class="line">operator      String</span><br><span class="line">operateTime 	Date</span><br><span class="line">operatelp 		String  <span class="comment">// 操作IP</span></span><br></pre></td></tr></table></figure>
 
 
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`sys_dept`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`sys_dept`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT <span class="keyword">COMMENT</span> <span class="string">'部门id'</span>,</span><br><span class="line">  <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'部门名称'</span>,</span><br><span class="line">  <span class="string">`parent_id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'上级部门id'</span>,</span><br><span class="line">  <span class="string">`level`</span> <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'部门层级'</span>,</span><br><span class="line">  <span class="string">`seq`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'部门在当前层级下的顺序，由小到大'</span>,</span><br><span class="line">  <span class="string">`remark`</span> <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'备注'</span>,</span><br><span class="line">  <span class="string">`operator`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'操作者'</span>,</span><br><span class="line">  <span class="string">`operate_time`</span> datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">COMMENT</span> <span class="string">'最后一次操作时间'</span>,</span><br><span class="line">  <span class="string">`operate_ip`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'最后一次更新操作者的ip地址'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">13</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8mb4;</span><br></pre></td></tr></table></figure>
 
 <p>用户表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># SysUser</span><br><span class="line">id        Integer</span><br><span class="line">username  String</span><br><span class="line">telephone String</span><br><span class="line">mail      String</span><br><span class="line">password  String</span><br><span class="line">remark    String</span><br><span class="line">deptId    Integer  # 部门ID</span><br><span class="line">status    Integer  #正常/冻结，离职时不会立即删除而是标注为无效状态；</span><br><span class="line">operator  String</span><br><span class="line">operateTime  Date</span><br><span class="line">operateIp    String</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#2 sys_user</span><br><span class="line">id        Integer</span><br><span class="line">username  String</span><br><span class="line">telephone String</span><br><span class="line">mail      String</span><br><span class="line">password  String</span><br><span class="line">remark    String</span><br><span class="line">deptId    Integer  # 部门ID</span><br><span class="line">status    Integer  #正常/冻结，离职时不会立即删除而是标注为无效状态；</span><br><span class="line">operator  String</span><br><span class="line">operateTime  Date</span><br><span class="line">operateIp    String</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`sys_user`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`sys_user`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT <span class="keyword">COMMENT</span> <span class="string">'用户id'</span>,</span><br><span class="line">  <span class="string">`username`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'用户名称'</span>,</span><br><span class="line">  <span class="string">`telephone`</span> <span class="built_in">varchar</span>(<span class="number">13</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'手机号'</span>,</span><br><span class="line">  <span class="string">`mail`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'邮箱'</span>,</span><br><span class="line">  <span class="string">`password`</span> <span class="built_in">varchar</span>(<span class="number">40</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'加密后的密码'</span>,</span><br><span class="line">  <span class="string">`dept_id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'用户所在部门的id'</span>,</span><br><span class="line">  <span class="string">`status`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'1'</span> <span class="keyword">COMMENT</span> <span class="string">'状态，1：正常，0：冻结状态，2：删除'</span>,</span><br><span class="line">  <span class="string">`remark`</span> <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'备注'</span>,</span><br><span class="line">  <span class="string">`operator`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'操作者'</span>,</span><br><span class="line">  <span class="string">`operate_time`</span> datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">COMMENT</span> <span class="string">'最后一次更新时间'</span>,</span><br><span class="line">  <span class="string">`operate_ip`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'最后一次更新者的ip地址'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">6</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8mb4;</span><br></pre></td></tr></table></figure>
 
 
 
 <p>权限模块表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># SysAclModule</span><br><span class="line">id     Integer</span><br><span class="line">name   String</span><br><span class="line">parentId Integer</span><br><span class="line">level    String</span><br><span class="line">status   Integer  # 当前模块是否使用，0 冻结 ，1正常</span><br><span class="line">seq      Integer  # 当前层级下的排序</span><br><span class="line">remark   String</span><br><span class="line">operator String</span><br><span class="line">operatorTime Date</span><br><span class="line">operateIp    String</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#3 sys_acl_module</span><br><span class="line">id     Integer</span><br><span class="line">name   String</span><br><span class="line">parentId Integer</span><br><span class="line">level    String</span><br><span class="line">status   Integer  # 当前模块是否使用，0 冻结 ，1正常</span><br><span class="line">seq      Integer  # 当前层级下的排序</span><br><span class="line">remark   String</span><br><span class="line">operator String</span><br><span class="line">operatorTime Date</span><br><span class="line">operateIp    String</span><br></pre></td></tr></table></figure>
 
 
 
@@ -751,8 +677,8 @@
 
 
 
-<p>权限表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># SysAcl</span><br><span class="line">  id  Integer  # 每个权限自己的Id</span><br><span class="line">  code String  # 权限code</span><br><span class="line">  name String</span><br><span class="line">  aclModuleId Integer # 所属权限模块</span><br><span class="line">  url String           </span><br><span class="line">  type Integer       # 菜单/其他/按钮   菜单时，url必填； 按钮时根据需要填写url， </span><br><span class="line">  status Integer   # 正常和冻结两种状态，</span><br><span class="line">  sep Integer    # 权限在当前模块下的排序</span><br><span class="line">  remark String</span><br><span class="line">  operator String</span><br><span class="line">  operateTime Date</span><br><span class="line">  operateIp String</span><br></pre></td></tr></table></figure>
+<p>权限点表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#4 sys_acl</span><br><span class="line">  id  Integer  # 每个权限自己的Id</span><br><span class="line">  code String  # 权限code</span><br><span class="line">  name String</span><br><span class="line">  aclModuleId Integer # 所属权限模块</span><br><span class="line">  url String           </span><br><span class="line">  type Integer       # 菜单/其他/按钮   菜单时，url必填； 按钮时根据需要填写url， </span><br><span class="line">  status Integer   # 正常和冻结两种状态，</span><br><span class="line">  sep Integer    # 权限在当前模块下的排序</span><br><span class="line">  remark String</span><br><span class="line">  operator String</span><br><span class="line">  operateTime Date</span><br><span class="line">  operateIp String</span><br></pre></td></tr></table></figure>
 
 
 
@@ -761,25 +687,26 @@
 
 
 <p>角色表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># SysRole</span><br><span class="line">id  Integer</span><br><span class="line">name String   <span class="comment">// 不重复即可</span></span><br><span class="line">type Integer  <span class="comment">// 备用，防止角色多了，有一个依据来分组</span></span><br><span class="line">status Integer  <span class="comment">//  状态，创建角色之后决定它即可以使用 也可以不使用。</span></span><br><span class="line">remark  String</span><br><span class="line">operator String</span><br><span class="line">operateTime Date</span><br><span class="line">operateIp String</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#5 sys_role</span><br><span class="line">id  Integer</span><br><span class="line">name String   <span class="comment">// 不重复即可</span></span><br><span class="line">type Integer  <span class="comment">// 备用，防止角色多了，有一个依据来分组</span></span><br><span class="line">status Integer  <span class="comment">//  状态，创建角色之后决定它即可以使用 也可以不使用。</span></span><br><span class="line">remark  String</span><br><span class="line">operator String</span><br><span class="line">operateTime Date</span><br><span class="line">operateIp String</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`sys_role`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`sys_role`</span> (</span><br><span class="line">                            <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT <span class="keyword">COMMENT</span> <span class="string">'角色id'</span>,</span><br><span class="line">                            <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">                            <span class="string">`type`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'1'</span> <span class="keyword">COMMENT</span> <span class="string">'角色的类型，1：管理员角色，2：其他'</span>,</span><br><span class="line">                            <span class="string">`status`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'1'</span> <span class="keyword">COMMENT</span> <span class="string">'状态，1：可用，0：冻结'</span>,</span><br><span class="line">                            <span class="string">`remark`</span> <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'备注'</span>,</span><br><span class="line">                            <span class="string">`operator`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'操作者'</span>,</span><br><span class="line">                            <span class="string">`operate_time`</span> datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">COMMENT</span> <span class="string">'最后一次更新的时间'</span>,</span><br><span class="line">                            <span class="string">`operate_ip`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'最后一次更新者的ip地址'</span>,</span><br><span class="line">                            PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">6</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8mb4;</span><br></pre></td></tr></table></figure>
 
 <p>角色用户关联表</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SysRoleUser</span></span><br><span class="line">id          Integer</span><br><span class="line">roleId      Integer</span><br><span class="line">userId      Integer</span><br><span class="line">operator    String</span><br><span class="line">operateTime  Date</span><br><span class="line">operateIp    String</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#6 sys_role_user</span></span><br><span class="line">id          Integer</span><br><span class="line">roleId      Integer</span><br><span class="line">userId      Integer</span><br><span class="line">operator    String</span><br><span class="line">operateTime  Date</span><br><span class="line">operateIp    String</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`sys_role_user`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`sys_role_user`</span> (</span><br><span class="line">                                 <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">                                 <span class="string">`role_id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'角色id'</span>,</span><br><span class="line">                                 <span class="string">`user_id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'用户id'</span>,</span><br><span class="line">                                 <span class="string">`operator`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'操作者'</span>,</span><br><span class="line">                                 <span class="string">`operate_time`</span> datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">COMMENT</span> <span class="string">'最后一次更新的时间'</span>,</span><br><span class="line">                                 <span class="string">`operate_ip`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'最后一次更新者的ip地址'</span>,</span><br><span class="line">                                 PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">18</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8mb4;</span><br></pre></td></tr></table></figure>
 
 
 
 <p>角色权限点关联表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># SysRoleAcl</span><br><span class="line">id          Integer</span><br><span class="line">roleId      Integer</span><br><span class="line">aclId      Integer</span><br><span class="line">operator    String</span><br><span class="line">operateTime  Date</span><br><span class="line">operateIp    String</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#7 sys_role_acl</span><br><span class="line">id          Integer</span><br><span class="line">roleId      Integer</span><br><span class="line">aclId      Integer</span><br><span class="line">operator    String</span><br><span class="line">operateTime  Date</span><br><span class="line">operateIp    String</span><br></pre></td></tr></table></figure>
+
+
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`sys_role_acl`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`sys_role_acl`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`role_id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'角色id'</span>,</span><br><span class="line">  <span class="string">`acl_id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'权限id'</span>,</span><br><span class="line">  <span class="string">`operator`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'操作者'</span>,</span><br><span class="line">  <span class="string">`operate_time`</span> datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">COMMENT</span> <span class="string">'最后一次更新的时间'</span>,</span><br><span class="line">  <span class="string">`operate_ip`</span> <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'最后一次更新者的ip'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">17</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8mb4;</span><br></pre></td></tr></table></figure>
 
 <p>权限相关更新记录表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># SysLog</span><br><span class="line">  id  Integer</span><br><span class="line">  type Integer    # type 指的是（部门表，用户表，角色表，权限表，权限模块表，角色和用户关联关系表，角色和权限关系表的所有更新都会用type接管）</span><br><span class="line">  targetId Integer # 各个type的主键，当表是部门表，用户表，角色表，权限表，权限模块表，角色时即主键ID，而是角色用户关联表 和 角色权限关联表时即 角色ID</span><br><span class="line">  oldValue String  </span><br><span class="line">  newValue String</span><br><span class="line">  operator String</span><br><span class="line">  operateTime Date</span><br><span class="line">  operateIp String</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#8 sys_log</span><br><span class="line">  id  Integer</span><br><span class="line">  type Integer    # type 指的是（部门表，用户表，角色表，权限表，权限模块表，角色和用户关联关系表，角色和权限关系表的所有更新都会用type接管）</span><br><span class="line">  targetId Integer # 各个type的主键，当表是部门表，用户表，角色表，权限表，权限模块表，角色时即主键ID，而是角色用户关联表 和 角色权限关联表时即 角色ID</span><br><span class="line">  oldValue String  </span><br><span class="line">  newValue String</span><br><span class="line">  operator String</span><br><span class="line">  operateTime Date</span><br><span class="line">  operateIp String</span><br></pre></td></tr></table></figure>
 
 
 <ul>
@@ -792,10 +719,804 @@
 <p>使用InnoDB存储引擎</p>
 <p>可以使用varchar的字段尽可能不使用TEXT、BLOB类型</p>
 <p>表字符集选择UTF-8</p>
-<p><img src="/Users/ruanhan/hexoblog/rh/source/_posts/springboot-start/14.png" alt="image-20210831212517213"></p>
+<p><img src="14.png" alt="image-20210831212517213"></p>
 <p>用户挂载在部门下面，部门是树形展开的</p>
 <p>权限是放在权限模块下的，权限模块也是树形展开的；</p>
 <p>日志表只允许做操作状态的更新，不能做数据的更新和删除。</p>
+<h3 id="详解RBAC模型"><a href="#详解RBAC模型" class="headerlink" title="详解RBAC模型"></a>详解RBAC模型</h3><p><img src="16.png" alt="image-20210915172537129"></p>
+<p>sys_dept：部门表；</p>
+<p>Sys_user：用户表；</p>
+<p>Sys_acl_module：权限模块；</p>
+<p>Sys_acl： 权限点；</p>
+<p>Sys_role：角色表；</p>
+<p>Sys_role_user：用户角色关联表；</p>
+<p>Sys_role_acl： 角色权限点关联表；</p>
+<h4 id="获取部门列表"><a href="#获取部门列表" class="headerlink" title="获取部门列表"></a>获取部门列表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tree.json</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> sys_dept;</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>parent_id</th>
+<th>level</th>
+<th>seq</th>
+<th>remark</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>技术部</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>技术部</td>
+<td>system</td>
+<td>2017-10-11 07:21:40</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>后端开发</td>
+<td>1</td>
+<td>0.1</td>
+<td>1</td>
+<td>后端</td>
+<td>system-update</td>
+<td>2017-10-12 07:56:16</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>前端开发</td>
+<td>1</td>
+<td>0.1</td>
+<td>2</td>
+<td></td>
+<td>system-update</td>
+<td>2017-10-14 11:29:45</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>UI设计</td>
+<td>1</td>
+<td>0.1</td>
+<td>3</td>
+<td></td>
+<td>system</td>
+<td>2017-10-12 07:55:43</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>11</td>
+<td>产品部</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-16 22:52:29</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>12</td>
+<td>客服部</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-17 00:22:55</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#save.json</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> sys_dept (<span class="keyword">id</span>, <span class="keyword">name</span>, parent_id, <span class="keyword">level</span>, seq, remark, <span class="keyword">operator</span>, operate_time, operate_ip) <span class="keyword">values</span>(...,...);</span><br><span class="line"><span class="comment"># update.json， 需要批量更改一下 需要更改level的dept；</span></span><br><span class="line">&lt;forEach&gt;</span><br><span class="line">	<span class="keyword">update</span> sys_dept <span class="keyword">set</span> <span class="keyword">level</span>=<span class="comment">#&#123;dept.level&#125; where id=#&#123;dept.id&#125;;</span></span><br><span class="line">&lt;/forEach&gt;</span><br><span class="line"><span class="keyword">update</span> sys_dept <span class="keyword">set</span> <span class="keyword">name</span>=<span class="comment">#&#123;name&#125;, level=#&#123;level&#125; where id=#&#123;id&#125;;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="获取用户列表"><a href="#获取用户列表" class="headerlink" title="获取用户列表"></a>获取用户列表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/sys/user/page.json?deptId=1</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">from</span> sys_user <span class="keyword">where</span> dept_id = <span class="comment">#&#123;deptId&#125;;</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> sys_user <span class="keyword">where</span> dept_id=<span class="comment">#&#123;deptId&#125; ORDER by username ASC limit #&#123;page.offset&#125;, #&#123;page.pageSize&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>count(1)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>username</th>
+<th>telephone</th>
+<th>mail</th>
+<th>password</th>
+<th>dept_id</th>
+<th>status</th>
+<th>remark</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+<th>username</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Admin</td>
+<td>18612344321</td>
+<td><a href="mailto:admin@qq.com">admin@qq.com</a></td>
+<td>25D55AD283AA400AF464C76D713C07AD</td>
+<td>1</td>
+<td>1</td>
+<td>admin</td>
+<td>system</td>
+<td>2017-10-13 08:46:16</td>
+<td>127.0.0.1</td>
+<td>Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Jimin</td>
+<td>13188889999</td>
+<td><a href="mailto:jimin@qq.com">jimin@qq.com</a></td>
+<td>25D55AD283AA400AF464C76D713C07AD</td>
+<td>1</td>
+<td>1</td>
+<td>jimin.zheng</td>
+<td>Admin</td>
+<td>2017-10-14 14:45:19</td>
+<td>127.0.0.1</td>
+<td>Jimin</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Kate</td>
+<td>13144445555</td>
+<td><a href="mailto:kate@qq.com">kate@qq.com</a></td>
+<td>25D55AD283AA400AF464C76D713C07AD</td>
+<td>1</td>
+<td>1</td>
+<td>sss</td>
+<td>Admin</td>
+<td>2017-10-16 23:02:51</td>
+<td>0:0:0:0:0:0:0:1</td>
+<td>Kate</td>
+</tr>
+</tbody></table>
+<h4 id="权限模块与权限点"><a href="#权限模块与权限点" class="headerlink" title="权限模块与权限点"></a>权限模块与权限点</h4><blockquote>
+<p>权限模块与权限点类似；</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> sys_acl <span class="keyword">where</span> acl_module_id=<span class="number">2</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">name</span> <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>code</th>
+<th>name</th>
+<th>acl_module_id</th>
+<th>url</th>
+<th>type</th>
+<th>status</th>
+<th>seq</th>
+<th>remark</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6</td>
+<td>20171015212657_12</td>
+<td>查询订单列表</td>
+<td>2</td>
+<td>/sys/order/list.json</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 21:26:57</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>20171015212626_63</td>
+<td>进入订单页</td>
+<td>2</td>
+<td>/sys/order/order.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 21:26:27</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+</tbody></table>
+<h4 id="角色管理"><a href="#角色管理" class="headerlink" title="角色管理"></a>角色管理</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> sys_role;</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>type</th>
+<th>status</th>
+<th>remark</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>产品管理员</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 12:42:47</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>订单管理员</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 12:18:59</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>公告管理员</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 12:19:10</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>权限管理员</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 21:30:36</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>运维管理员</td>
+<td>1</td>
+<td>1</td>
+<td>运维</td>
+<td>Admin</td>
+<td>2017-10-17 00:23:28</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+</tbody></table>
+<h5 id="角色与权限"><a href="#角色与权限" class="headerlink" title="角色与权限"></a>角色与权限</h5><p><img src="17.png" alt="image-20210915193518146"></p>
+<p>以<code>权限管理员</code>为例，权限管理员roleId=4；</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#roleTree.json roleId=4;</span></span><br><span class="line"><span class="comment"># 获取当前用户已分配的权限点；</span></span><br><span class="line">admin用户</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> sys_acl;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一步，获取当前用户已分配的权限点；</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># getRoleIdListByUserId 顾名思义，找到该用户存在于哪些角色；</span></span><br><span class="line"><span class="keyword">select</span> role_id <span class="keyword">from</span> sys_role_user <span class="keyword">where</span> user_id = <span class="number">4</span>; <span class="comment"># [4]</span></span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>role_id</th>
+<th>user_id</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>17</td>
+<td>4</td>
+<td>4</td>
+<td>Admin</td>
+<td>2017-10-17 00:24:04</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># getAclIdListByRoleIdList 通过roleList 获权限点list</span></span><br><span class="line"><span class="keyword">select</span> acl_id <span class="keyword">from</span> sys_role_acl <span class="keyword">where</span> role_id <span class="keyword">in</span> (<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>role_id</th>
+<th>acl_id</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>9</td>
+<td>4</td>
+<td>7</td>
+<td>Admin</td>
+<td>2017-10-16 23:34:39</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>4</td>
+<td>8</td>
+<td>Admin</td>
+<td>2017-10-16 23:34:39</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>11</td>
+<td>4</td>
+<td>9</td>
+<td>Admin</td>
+<td>2017-10-16 23:34:39</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>12</td>
+<td>4</td>
+<td>10</td>
+<td>Admin</td>
+<td>2017-10-16 23:34:39</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sysAclMapper.getByIdList;</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> sys_acl <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span> (<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>code</th>
+<th>name</th>
+<th>acl_module_id</th>
+<th>url</th>
+<th>type</th>
+<th>status</th>
+<th>seq</th>
+<th>remark</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td>20171015212907_36</td>
+<td>进入权限管理页</td>
+<td>7</td>
+<td>/sys/aclModule/acl.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 21:29:07</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>20171015212938_27</td>
+<td>进入角色管理页</td>
+<td>8</td>
+<td>/sys/role/role.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-16 17:49:38</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>20171015213009_0</td>
+<td>进入用户管理页</td>
+<td>9</td>
+<td>/sys/dept/dept.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 21:30:09</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20171016230429_8</td>
+<td>进入权限更新记录页面</td>
+<td>11</td>
+<td>/sys/log/log.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-16 23:04:49</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+</tbody></table>
+<ul>
+<li>第二步，当前角色分配的权限点；</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># getAclIdListByRoleIdList</span></span><br><span class="line"><span class="keyword">select</span> acl_id <span class="keyword">from</span> sys_role_acl <span class="keyword">where</span> role_id <span class="keyword">in</span> (<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>acl_id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+</tr>
+<tr>
+<td>8</td>
+</tr>
+<tr>
+<td>9</td>
+</tr>
+<tr>
+<td>10</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sysAclMapper.getByIdList(aclIdList);</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> sys_acl <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span> (<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>code</th>
+<th>name</th>
+<th>acl_module_id</th>
+<th>url</th>
+<th>type</th>
+<th>status</th>
+<th>seq</th>
+<th>remark</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td>20171015212907_36</td>
+<td>进入权限管理页</td>
+<td>7</td>
+<td>/sys/aclModule/acl.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 21:29:07</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>20171015212938_27</td>
+<td>进入角色管理页</td>
+<td>8</td>
+<td>/sys/role/role.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-16 17:49:38</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>20171015213009_0</td>
+<td>进入用户管理页</td>
+<td>9</td>
+<td>/sys/dept/dept.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 21:30:09</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20171016230429_8</td>
+<td>进入权限更新记录页面</td>
+<td>11</td>
+<td>/sys/log/log.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-16 23:04:49</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+</tbody></table>
+<h5 id="角色与用户"><a href="#角色与用户" class="headerlink" title="角色与用户"></a>角色与用户</h5><blockquote>
+<p> 以roleId为权限管理员为例</p>
+</blockquote>
+<p><img src="18.png" alt="image-20210915213015009"></p>
+<ol>
+<li>获取selectedUserList</li>
+<li>获取allUserList</li>
+<li>获取unselectedUserList；</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># selectedUserList  sysRoleUser.getListByRoleId(roleId);</span></span><br><span class="line"><span class="keyword">select</span> user_id <span class="keyword">from</span> sys_role_user <span class="keyword">where</span> role_id = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>role_id</th>
+<th>user_id</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>16</td>
+<td>4</td>
+<td>1</td>
+<td>Admin</td>
+<td>2017-10-17 00:24:04</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>17</td>
+<td>4</td>
+<td>4</td>
+<td>Admin</td>
+<td>2017-10-17 00:24:04</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># allUserList</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> sys_user;</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>username</th>
+<th>telephone</th>
+<th>mail</th>
+<th>password</th>
+<th>dept_id</th>
+<th>status</th>
+<th>remark</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Admin</td>
+<td>18612344321</td>
+<td><a href="mailto:admin@qq.com">admin@qq.com</a></td>
+<td>25D55AD283AA400AF464C76D713C07AD</td>
+<td>1</td>
+<td>1</td>
+<td>admin</td>
+<td>system</td>
+<td>2017-10-13 08:46:16</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Jimin</td>
+<td>13188889999</td>
+<td><a href="mailto:jimin@qq.com">jimin@qq.com</a></td>
+<td>25D55AD283AA400AF464C76D713C07AD</td>
+<td>1</td>
+<td>1</td>
+<td>jimin.zheng</td>
+<td>Admin</td>
+<td>2017-10-14 14:45:19</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Jimmy</td>
+<td>13812344311</td>
+<td><a href="mailto:jimmy@qq.com">jimmy@qq.com</a></td>
+<td>25D55AD283AA400AF464C76D713C07AD</td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-16 12:57:35</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Kate</td>
+<td>13144445555</td>
+<td><a href="mailto:kate@qq.com">kate@qq.com</a></td>
+<td>25D55AD283AA400AF464C76D713C07AD</td>
+<td>1</td>
+<td>1</td>
+<td>sss</td>
+<td>Admin</td>
+<td>2017-10-16 23:02:51</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>服务员A</td>
+<td>18677778888</td>
+<td><a href="mailto:service@qq.com">service@qq.com</a></td>
+<td>25D55AD283AA400AF464C76D713C07AD</td>
+<td>12</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-17 00:22:15</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// usSelectedUser</span></span><br><span class="line"><span class="keyword">for</span>(SysUser sysUser: allUserList) &#123;</span><br><span class="line">  <span class="keyword">if</span>(sysUser.getStatus()==<span class="number">1</span> &amp;&amp; !selectedUserIdSet.contains(sysUser.getId()))&#123;</span><br><span class="line">    unselectedUserList.add(sysUser);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="判断某个用户对某个权限点是否有权限；"><a href="#判断某个用户对某个权限点是否有权限；" class="headerlink" title="判断某个用户对某个权限点是否有权限；"></a>判断某个用户对某个权限点是否有权限；</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasUrlAcl</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (isSuperAdmin()) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       List&lt;SysAcl&gt; aclList = sysAclMapper.getByUrl(url); <span class="comment">// select * from sys_acl where url = #&#123;url&#125;</span></span><br><span class="line">       <span class="keyword">if</span> (CollectionUtils.isEmpty(aclList)) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">      List&lt;SysAcl&gt; userAclList = getCurrentUserAclList();</span><br><span class="line">  <span class="comment">// 第一步 sysRoleUserMapper.getRoleIdListByUserId(userId);</span></span><br><span class="line"> <span class="comment">//     select role_id from sys_role_user  where user_id = 1;</span></span><br><span class="line">  <span class="comment">// 第二步 sysRoleAclMapper.getAclIdListByRoleIdList(userRoleIdList);</span></span><br><span class="line">  <span class="comment">// 第三步 sysAclMapper.getByIdList(userAclIdList);</span></span><br><span class="line">  </span><br><span class="line">      Set&lt;Integer&gt; userAclIdSet = userAclList.stream().map(acl -&gt; acl.getId()).collect(Collectors.toSet()); <span class="comment">// [7,8,9,10]</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">boolean</span> hasValidAcl = <span class="keyword">false</span>; <span class="comment">// 是否有有效的权限点</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">// 规则：只要有一个权限点有权限，那么我们就认为有访问权限</span></span><br><span class="line">       <span class="comment">// /sys/user/action.json</span></span><br><span class="line">       <span class="keyword">for</span> (SysAcl acl : aclList) &#123;</span><br><span class="line">          </span><br><span class="line">           <span class="keyword">if</span> (acl == <span class="keyword">null</span> || acl.getStatus() != <span class="number">1</span>) &#123; <span class="comment">// 权限点无效</span></span><br><span class="line">               <span class="keyword">continue</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">// 代码运行到这个位置，说明至少有一个权限点有效，直接置为true即可；</span></span><br><span class="line">           hasValidAcl = <span class="keyword">true</span>;</span><br><span class="line">           <span class="keyword">if</span> (userAclIdSet.contains(acl.getId())) &#123; </span><br><span class="line">             <span class="comment">// 这个acl是 select * from sys_acl where url = #&#123;url&#125;</span></span><br><span class="line">             <span class="comment">// userAclIdSet是 [7,8,9,10], 是多次查询得出该用户的权限点集合；</span></span><br><span class="line">             <span class="comment">// acl 存在这样一种情况，可能多个权限点都针对某个url做重复了；</span></span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (!hasValidAcl) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解析</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> List&lt;SysAcl&gt; userAclList = getCurrentUserAclList();</span><br><span class="line"><span class="comment">// 第一步 sysRoleUserMapper.getRoleIdListByUserId(userId);</span></span><br><span class="line"><span class="comment">// 第二步 sysRoleAclMapper.getAclIdListByRoleIdList(userRoleIdList);</span></span><br><span class="line"><span class="comment">// 第三步 sysAclMapper.getByIdList(userAclIdList);</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一步 sysRoleUserMapper.getRoleIdListByUserId(userId);</span></span><br><span class="line">   <span class="keyword">select</span> role_id <span class="keyword">from</span> sys_role_user  <span class="keyword">where</span> user_id = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>role_id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第二步 sysRoleAclMapper.getAclIdListByRoleIdList(userRoleIdList);</span></span><br><span class="line"><span class="keyword">select</span> acl_id <span class="keyword">from</span> sys_role_acl <span class="keyword">where</span> role_id <span class="keyword">in</span> (<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>acl_id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+</tr>
+<tr>
+<td>8</td>
+</tr>
+<tr>
+<td>9</td>
+</tr>
+<tr>
+<td>10</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第三步 sysAclMapper.getByIdList(userAclIdList);</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> sys_acl <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span> (<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>code</th>
+<th>name</th>
+<th>acl_module_id</th>
+<th>url</th>
+<th>type</th>
+<th>status</th>
+<th>seq</th>
+<th>remark</th>
+<th>operator</th>
+<th>operate_time</th>
+<th>operate_ip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td>20171015212907_36</td>
+<td>进入权限管理页</td>
+<td>7</td>
+<td>/sys/aclModule/acl.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 21:29:07</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>20171015212938_27</td>
+<td>进入角色管理页</td>
+<td>8</td>
+<td>/sys/role/role.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-16 17:49:38</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>20171015213009_0</td>
+<td>进入用户管理页</td>
+<td>9</td>
+<td>/sys/dept/dept.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-15 21:30:09</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20171016230429_8</td>
+<td>进入权限更新记录页面</td>
+<td>11</td>
+<td>/sys/log/log.page</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Admin</td>
+<td>2017-10-16 23:04:49</td>
+<td>0:0:0:0:0:0:0:1</td>
+</tr>
+</tbody></table>
 <h4 id="spring-mvc开发环境搭建"><a href="#spring-mvc开发环境搭建" class="headerlink" title="spring mvc开发环境搭建"></a>spring mvc开发环境搭建</h4><p>Create new project -&gt; Maven -&gt; create from archetype</p>
 <p>勾选 maven-archetype-webapp</p>
 <ul>
@@ -887,38 +1608,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><h4 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h4><p>何时使用缓存场景，正常的rbac场景不适合使用缓存，有即时查询的问题；</p>
+<p>如果判断一个用户对某个url有没无权限的时候，就可以使用redis缓存了；因为这个不需要实时计算用户权限，另一个就是计算该权限需要反复查询耗时的数据库，所以缓存一下效果更好；</p>
+<p>当更好权限配置的时候，记得刷新一个缓存；</p>
+<h4 id="利用mysql-workbench-查看ER图"><a href="#利用mysql-workbench-查看ER图" class="headerlink" title="利用mysql workbench 查看ER图"></a>利用mysql workbench 查看ER图</h4><ol>
+<li>database Engineer</li>
+<li>下一步</li>
+<li>选择要显示的数据库</li>
+<li>继续下一步到最后</li>
+</ol>
 
           
             <div class='article_footer'>
@@ -1006,10 +1704,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-13T23:39:09+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-15T22:25:52+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Sep 13, 2021</p>
+    <p>更新于：Sep 15, 2021</p>
   </a>
 </div>
 
@@ -1165,7 +1863,7 @@ SQL： 任意量级数据流程化、可重...</p>
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#maven"><span class="toc-text">maven</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web"><span class="toc-text">web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet"><span class="toc-text">Servlet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hello-servlet"><span class="toc-text">hello servlet</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mybatis"><span class="toc-text">Mybatis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring"><span class="toc-text">Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注解"><span class="toc-text">注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定装配"><span class="toc-text">自定装配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#衍生注解"><span class="toc-text">衍生注解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#作用域"><span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用java的方式配置Spring"><span class="toc-text">使用java的方式配置Spring</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-text">AOP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代理模式"><span class="toc-text">代理模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#静态代理"><span class="toc-text">静态代理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态代理"><span class="toc-text">动态代理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-MVC"><span class="toc-text">Spring MVC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springBoot"><span class="toc-text">springBoot</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用注解"><span class="toc-text">常用注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RestController"><span class="toc-text">@RestController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EnableAutoConfiguration"><span class="toc-text">@EnableAutoConfiguration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SpringBootApplication"><span class="toc-text">@SpringBootApplication</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-1"><span class="toc-text">web</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#静态资源"><span class="toc-text">静态资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#首页如何定制"><span class="toc-text">首页如何定制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#favicon"><span class="toc-text">favicon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模版引擎"><span class="toc-text">模版引擎</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权限管理项目"><span class="toc-text">权限管理项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#理想中的权限管理"><span class="toc-text">理想中的权限管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相关操作界面"><span class="toc-text">相关操作界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要内容"><span class="toc-text">主要内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Security"><span class="toc-text">Spring Security</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Apache-shiro"><span class="toc-text">Apache shiro</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现一套权限管理系统（模块）"><span class="toc-text">实现一套权限管理系统（模块）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#技术栈"><span class="toc-text">技术栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ldap"><span class="toc-text">ldap</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开发"><span class="toc-text">开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本目标"><span class="toc-text">基本目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需要开发的内容"><span class="toc-text">需要开发的内容</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#总体功能需求"><span class="toc-text">总体功能需求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#角色与权限页面"><span class="toc-text">角色与权限页面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#角色与用户页面"><span class="toc-text">角色与用户页面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置管理类功能-rbac管理界面"><span class="toc-text">配置管理类功能(rbac管理界面)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取用户权限数据"><span class="toc-text">获取用户权限数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取权限点分配的用户和角色数据"><span class="toc-text">获取权限点分配的用户和角色数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#权限拦截类功能"><span class="toc-text">权限拦截类功能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#辅助类功能"><span class="toc-text">辅助类功能</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表结构设计"><span class="toc-text">表结构设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spring-mvc开发环境搭建"><span class="toc-text">spring mvc开发环境搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#权限管理开发-准备"><span class="toc-text">权限管理开发-准备</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ModelAndView"><span class="toc-text">ModelAndView</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#权限管理开发-工具相关"><span class="toc-text">权限管理开发-工具相关</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#校验工具-validator"><span class="toc-text">校验工具-validator</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Json转换工具-jackson-convert"><span class="toc-text">Json转换工具-jackson convert</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取Spring上下文-applicationContext"><span class="toc-text">获取Spring上下文-applicationContext</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Http请求前后监听-interceptor"><span class="toc-text">Http请求前后监听 - interceptor</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CRUD"><span class="toc-text">CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#部门接口开发"><span class="toc-text">部门接口开发</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#如何理解-Builder"><span class="toc-text">如何理解@Builder</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#maven"><span class="toc-text">maven</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web"><span class="toc-text">web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet"><span class="toc-text">Servlet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hello-servlet"><span class="toc-text">hello servlet</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mybatis"><span class="toc-text">Mybatis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring"><span class="toc-text">Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注解"><span class="toc-text">注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定装配"><span class="toc-text">自定装配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#衍生注解"><span class="toc-text">衍生注解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#作用域"><span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用java的方式配置Spring"><span class="toc-text">使用java的方式配置Spring</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-text">AOP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代理模式"><span class="toc-text">代理模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#静态代理"><span class="toc-text">静态代理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态代理"><span class="toc-text">动态代理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-MVC"><span class="toc-text">Spring MVC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springBoot"><span class="toc-text">springBoot</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用注解"><span class="toc-text">常用注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RestController"><span class="toc-text">@RestController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EnableAutoConfiguration"><span class="toc-text">@EnableAutoConfiguration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SpringBootApplication"><span class="toc-text">@SpringBootApplication</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-1"><span class="toc-text">web</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#静态资源"><span class="toc-text">静态资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#首页如何定制"><span class="toc-text">首页如何定制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#favicon"><span class="toc-text">favicon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模版引擎"><span class="toc-text">模版引擎</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权限管理项目"><span class="toc-text">权限管理项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#理想中的权限管理"><span class="toc-text">理想中的权限管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相关操作界面"><span class="toc-text">相关操作界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要内容"><span class="toc-text">主要内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Security"><span class="toc-text">Spring Security</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Apache-shiro"><span class="toc-text">Apache shiro</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现一套权限管理系统（模块）"><span class="toc-text">实现一套权限管理系统（模块）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#技术栈"><span class="toc-text">技术栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ldap"><span class="toc-text">ldap</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开发"><span class="toc-text">开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本目标"><span class="toc-text">基本目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需要开发的内容"><span class="toc-text">需要开发的内容</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#总体功能需求"><span class="toc-text">总体功能需求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#角色与权限页面"><span class="toc-text">角色与权限页面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#角色与用户页面"><span class="toc-text">角色与用户页面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置管理类功能-rbac管理界面"><span class="toc-text">配置管理类功能(rbac管理界面)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#权限拦截类功能"><span class="toc-text">权限拦截类功能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#辅助类功能"><span class="toc-text">辅助类功能</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表结构设计"><span class="toc-text">表结构设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详解RBAC模型"><span class="toc-text">详解RBAC模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取部门列表"><span class="toc-text">获取部门列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取用户列表"><span class="toc-text">获取用户列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#权限模块与权限点"><span class="toc-text">权限模块与权限点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#角色管理"><span class="toc-text">角色管理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#角色与权限"><span class="toc-text">角色与权限</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#角色与用户"><span class="toc-text">角色与用户</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#判断某个用户对某个权限点是否有权限；"><span class="toc-text">判断某个用户对某个权限点是否有权限；</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spring-mvc开发环境搭建"><span class="toc-text">spring mvc开发环境搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#权限管理开发-准备"><span class="toc-text">权限管理开发-准备</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ModelAndView"><span class="toc-text">ModelAndView</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#权限管理开发-工具相关"><span class="toc-text">权限管理开发-工具相关</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#校验工具-validator"><span class="toc-text">校验工具-validator</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Json转换工具-jackson-convert"><span class="toc-text">Json转换工具-jackson convert</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取Spring上下文-applicationContext"><span class="toc-text">获取Spring上下文-applicationContext</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Http请求前后监听-interceptor"><span class="toc-text">Http请求前后监听 - interceptor</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CRUD"><span class="toc-text">CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#部门接口开发"><span class="toc-text">部门接口开发</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#如何理解-Builder"><span class="toc-text">如何理解@Builder</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓存"><span class="toc-text">缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#redis"><span class="toc-text">redis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用mysql-workbench-查看ER图"><span class="toc-text">利用mysql workbench 查看ER图</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
