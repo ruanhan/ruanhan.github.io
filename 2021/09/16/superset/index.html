@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#1.0.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>superset - Hexo</title>
+  
+    <meta name="keywords" content="可视化">
+  
+  
+    <meta name="description" content="superset安装">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            BELIEF <b><sup style='color:#3AA757'>1.0.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2021/09/16/superset/">
+      superset
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/superset/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>superset</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 16, 2021</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>sz下载</p>
+<p>rz上载</p>
+<h2 id="superset"><a href="#superset" class="headerlink" title="superset"></a>superset</h2><h3 id="install"><a href="#install" class="headerlink" title="install"></a>install</h3><p>Conda, 管理python多版本，superset是python3.7</p>
+<ol>
+<li>下载Miniconda（python3版本）</li>
+</ol>
+<p>下载地址<code>https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;opt&#x2F;software&#x2F;</span><br><span class="line">mkdir superset</span><br><span class="line">上传 Miniconda3-latest-Linux-x86_64.sh 到 &#x2F;opt&#x2F;software&#x2F;superset</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>执行bash命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"> bash Miniconda3-latest-Linux-x86_64.sh</span><br><span class="line"> <span class="comment"># 按 空格键翻页 去到最底下交互界面</span></span><br><span class="line"> </span><br><span class="line"> Do you accept the license terms? [yes|no]</span><br><span class="line">[no] &gt;&gt;&gt; yes</span><br><span class="line"><span class="comment"># 更改路径</span></span><br><span class="line">[/root/miniconda3] &gt;&gt;&gt; /opt/module/miniconda3</span><br><span class="line"></span><br><span class="line">Preparing transaction: <span class="keyword">done</span></span><br><span class="line">Executing transaction: <span class="keyword">done</span></span><br><span class="line">installation finished.</span><br><span class="line">Do you wish the installer to initialize Miniconda3</span><br><span class="line">by running conda init? [yes|no]</span><br><span class="line">[no] &gt;&gt;&gt; yes</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以下信息表示miniconda安装完成</span></span><br><span class="line">==&gt; For changes to take effect, close and re-open your current shell. &lt;== <span class="comment"># 重新打开shell</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">If you<span class="string">'d prefer that conda'</span>s base environment not be activated on startup,</span><br><span class="line">   <span class="built_in">set</span> the auto_activate_base parameter to <span class="literal">false</span>:</span><br><span class="line"><span class="comment">#  不想自动激活base环境，</span></span><br><span class="line">conda config --<span class="built_in">set</span> auto_activate_base <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新打开shell 或者 source ~/.bashrc</span></span><br><span class="line">(base) [root@iZ8vb10vvaorjjqlcgsyiuZ ~]<span class="comment"># （base）是miniconda自带的python环境；出现（base）说明已经切换到base环境了；</span></span><br><span class="line"></span><br><span class="line">python -V</span><br><span class="line"><span class="comment"># python 3.9.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># conda环境管理命令</span></span><br><span class="line">创建环境： conda create -n env_name python=3.7</span><br><span class="line"></span><br><span class="line">查看环境:  conda info --envs</span><br><span class="line">删除环境： conda remove -n env_name --all</span><br><span class="line">激活环境： conda activate base </span><br><span class="line">退出环境： conda deactivate</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>配置conda镜像</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$&gt; conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free</span><br><span class="line">$&gt; conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>创建python3.7 环境</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$&gt; conda create --name superset python=3.7</span><br><span class="line"><span class="comment"># To activate this environment, use</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     $ conda activate superset</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># To deactivate an active environment, use</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     $ conda deactivate</span></span><br><span class="line">$&gt; conda activate superset <span class="comment"># 后续superset的安装和启动都需要位于这个superset环境下</span></span><br><span class="line">$&gt; python -V</span><br><span class="line"><span class="comment"># 3.7.11</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>环境准备</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&gt; sudo yum install -y gcc gcc-c++ libffi-devel python-devel python-pip python-wheel python-setuptools openssl-devel syrus-sasl-devel openldap-devel</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>安装（更新）setuptools和pip</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装（更新）setuptools和pip</span></span><br><span class="line">$&gt; pip install --upgrade setuptools pip -i https://pypi.douban.com/simple/</span><br><span class="line"><span class="comment"># pip是python的包管理工具，可以和centos中的yum类比；-i的作用是指定镜像，这里选择国内镜像</span></span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>安装superset</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装superset</span></span><br><span class="line">$&gt; pip install apache-superset -i https://pypi.douban.com/simple/</span><br><span class="line"><span class="comment">#说明  -i的作用是指定镜像，这里选择国内镜像</span></span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>初始化superset数据库</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># superset默认使用sqllit，可以配置使用其他数据库</span></span><br><span class="line">$&gt; superset db upgrade  <span class="comment"># 即建库建表命令</span></span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>创建superset管理员用户</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$&gt; <span class="built_in">export</span> FLASK_APP=superset</span><br><span class="line">$&gt; superset fab create-admin</span><br><span class="line">$&gt; Username [admin]: super</span><br><span class="line">Username [admin]: super</span><br><span class="line">User first name [admin]: alex</span><br><span class="line">User last name [user]: rh</span><br><span class="line">Email [admin@fab.org]: 154529156@qq.com</span><br><span class="line">Password:</span><br><span class="line">Repeat <span class="keyword">for</span> confirmation:</span><br><span class="line"></span><br><span class="line"><span class="comment"># 说明： flask是一个python web框架，Superset使用的就是flask</span></span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>superset初始化</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&gt; superset init</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>启动superset</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装gunicorn</span></span><br><span class="line">pip install gunicorn -i https://pypi.douban.com/simple/</span><br><span class="line"><span class="comment"># 说明 gunicorn 是一个python web Server， 可以和Java中的TomCat类比</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动superset</span></span><br><span class="line">gunicorn --workers 5 --timeout 500 --<span class="built_in">bind</span> 0.0.0.0:3389 <span class="string">"superset.app:create_app()"</span> --daemon</span><br><span class="line"></span><br><span class="line"><span class="comment"># --bind的参数，如果是本地，改成0.0.0.0:你的端口号</span></span><br><span class="line"><span class="comment"># --workers： 指定进程个数,完成并发的需求，python脚本语言多没线程。只能进程并发</span></span><br><span class="line"><span class="comment"># --timeout: worker进程超时时间，超时会自动重启</span></span><br><span class="line"><span class="comment"># --daemon： 守护进程</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(superset) [root]<span class="comment"># lsof -i:3389</span></span><br><span class="line"><span class="comment"># 肉眼可见的开了5个进程</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME</span><br><span class="line">gunicorn 3379 root    5u  IPv4 68395268      0t0  TCP *:ms-wbt-server (LISTEN)</span><br><span class="line">gunicorn 3382 root    5u  IPv4 68395268      0t0  TCP *:ms-wbt-server (LISTEN)</span><br><span class="line">gunicorn 3383 root    5u  IPv4 68395268      0t0  TCP *:ms-wbt-server (LISTEN)</span><br><span class="line">gunicorn 3384 root    5u  IPv4 68395268      0t0  TCP *:ms-wbt-server (LISTEN)</span><br><span class="line">gunicorn 3385 root    5u  IPv4 68395268      0t0  TCP *:ms-wbt-server (LISTEN)</span><br><span class="line">gunicorn 3386 root    5u  IPv4 68395268      0t0  TCP *:ms-wbt-server (LISTEN)</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="12">
+<li>登录superset</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://0.0.0.0:3389</span><br></pre></td></tr></table></figure>
+
+<ol start="13">
+<li>停止superset</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 停止gunicon进程</span></span><br><span class="line">$&gt; ps -ef| awk <span class="string">'/superset/&amp;&amp; !/awk/&#123;print $2&#125;'</span>| xargs <span class="built_in">kill</span> -9</span><br><span class="line"><span class="comment"># ps =ef  返回当前运行的所有进程</span></span><br><span class="line"><span class="comment"># 退出superset</span></span><br><span class="line">$&gt; conda deactivate</span><br></pre></td></tr></table></figure>
+
+<ol start="14">
+<li>superset启停脚本</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建superset.sh 文件</span></span><br><span class="line">$&gt; cd /bin/</span><br><span class="line">$&gt; vim superset.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">superset_status</span></span>()&#123;</span><br><span class="line">    result=`ps -ef | awk <span class="string">'/gunicorn/ &amp;&amp; !/awk/&#123;print $2&#125;'</span> | wc -l`</span><br><span class="line">    <span class="keyword">if</span> [[ <span class="variable">$result</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">return</span> 0</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">superset_start</span></span>()&#123;</span><br><span class="line">        <span class="comment"># 该段内容取自~/.bashrc，所用是进行conda初始化</span></span><br><span class="line">        <span class="comment"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span></span><br><span class="line">        <span class="comment"># !! Contents within this block are managed by 'conda init' !!</span></span><br><span class="line">        __conda_setup=<span class="string">"<span class="variable">$('/opt/module/miniconda3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)</span>"</span></span><br><span class="line">        <span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">eval</span> <span class="string">"<span class="variable">$__conda_setup</span>"</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">if</span> [ -f <span class="string">"/opt/module/miniconda3/etc/profile.d/conda.sh"</span> ]; <span class="keyword">then</span></span><br><span class="line">                . <span class="string">"/opt/module/miniconda3/etc/profile.d/conda.sh"</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">export</span> PATH=<span class="string">"/opt/module/miniconda3/bin:<span class="variable">$PATH</span>"</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="built_in">unset</span> __conda_setup</span><br><span class="line">        <span class="comment"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span></span><br><span class="line">        superset_status &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">        <span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">            conda activate superset ; gunicorn --workers 5 --timeout 120 --<span class="built_in">bind</span> 0.0.0.0:3389 --daemon <span class="string">'superset.app:create_app()'</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"superset正在运行"</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">superset_stop</span></span>()&#123;</span><br><span class="line">    superset_status &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">    <span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"superset未在运行"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        ps -ef | awk <span class="string">'/gunicorn/ &amp;&amp; !/awk/&#123;print $2&#125;'</span> | xargs <span class="built_in">kill</span> -9</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></span><br><span class="line">    start )</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"启动Superset"</span></span><br><span class="line">        superset_start</span><br><span class="line">    ;;</span><br><span class="line">    stop )</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"停止Superset"</span></span><br><span class="line">        superset_stop</span><br><span class="line">    ;;</span><br><span class="line">    restart )</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"重启Superset"</span></span><br><span class="line">        superset_stop</span><br><span class="line">        superset_start</span><br><span class="line">    ;;</span><br><span class="line">    status )</span><br><span class="line">        superset_status &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">        <span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"superset未在运行"</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"superset正在运行"</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加执行权限</span></span><br><span class="line">$&gt; chmod +x superset.sh</span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">$&gt; superset.sh status</span><br></pre></td></tr></table></figure>
+
+<ol start="15">
+<li>superset连接mysql</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">$&gt; conda activate superset</span><br><span class="line">$&gt; conda install mysqlclient</span><br><span class="line"><span class="comment"># 重启数据源</span></span><br><span class="line">$&gt; superset.sh restart</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二开环境搭建"><a href="#二开环境搭建" class="headerlink" title="二开环境搭建"></a>二开环境搭建</h3><p>二开环境放弃了在云虚拟机的打算；改安装在本地的macos系统上</p>
+<ol>
+<li>和虚拟机一样，这里安装一个conda</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://www.anaconda.com/products/individual-d#macos 下载bash文件</span></span><br><span class="line">bash ~/Downloads/Anaconda3-5.3.1-MacOSX-x86_64.sh <span class="comment"># python3版本</span></span><br><span class="line"><span class="comment"># 一路yes，稍微看着点提示</span></span><br><span class="line">$&gt; <span class="built_in">source</span> ~/.bash_profile <span class="comment"># 或者source ~/.zshrc</span></span><br><span class="line"><span class="comment"># 查看conda版本</span></span><br><span class="line">$&gt; conda --version</span><br><span class="line"><span class="comment"># 查看python版本</span></span><br><span class="line">$&gt; python -V</span><br><span class="line"><span class="comment"># 创建新的python环境</span></span><br><span class="line">$&gt; conda create -n superset python=3.7</span><br><span class="line"><span class="comment"># 安装一坨</span></span><br><span class="line"><span class="comment"># 切换 superset</span></span><br><span class="line">$&gt; conda activate superset</span><br><span class="line"><span class="comment"># 退出conda</span></span><br><span class="line">$&gt; conda deactivate</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><a href="https://superset.apache.org/docs/installation/installing-superset-from-scratch#os-dependencies" target="_blank" rel="noopener">https://superset.apache.org/docs/installation/installing-superset-from-scratch#os-dependencies</a></li>
+<li><a href="https://github.com/apache/superset/blob/master/CONTRIBUTING.md#setup-local-environment-for-development" target="_blank" rel="noopener">https://github.com/apache/superset/blob/master/CONTRIBUTING.md#setup-local-environment-for-development</a></li>
+</ol>
+<p>事实证明，最好的文档去官方看就行。千万不要去野鸡文章上面浪费时间；大部分野鸡文章的步骤都是掐头去尾，白白浪费时间。官方文档一般会逐步操作步骤的做法以及解释原因；</p>
+<p>在按照官方安装superset的时候，碰到了一个坑。那就是在执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$&gt; superset </span><br><span class="line"><span class="comment"># 报错</span></span><br><span class="line"><span class="comment"># 当时排查的思路是这样的。</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>既然能执行superset命令，说明superset命令肯定被加到环境变量中了；</li>
+<li>因为使用的conda，== 我好像想起来，我的conda下的superset环境好像依赖的是3.7版本。但是为什么报错信息里面的python版本显示的3.9</li>
+<li>后来看报错文件路径，发现superset可执行文件在/usr/local/bin/superset中。大概率就明白了原因了。这有一个优先级的问题。当执行一个命令的时候，conda环境依旧会先找系统环境中找，然后才去 conda环境中找；于是删除了系统中的superset命令，重新执行superset，发现解决了问题；（ps： 系统中的superset为脏数据）</li>
+<li>最后，推荐一下。隔离pyhton版本是多么的重要；</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动系统</span></span><br><span class="line">FLASK_ENV=development superset run -p 8088 --with-threads --reload --debugger</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>记得启动前端</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$&gt; <span class="built_in">cd</span> superset-front</span><br><span class="line">$&gt; npm run dev</span><br></pre></td></tr></table></figure>
+
+
+
+<p>至此，superset的环境就搭建起来了；</p>
+<h2 id="grafana"><a href="#grafana" class="headerlink" title="grafana"></a>grafana</h2><h3 id="install-1"><a href="#install-1" class="headerlink" title="install"></a>install</h3><ol>
+<li>grafana在mac上安装的方法非常简单</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew install grafana</span><br><span class="line">brew services start grafana</span><br><span class="line"><span class="comment"># 浏览器 localhost:3000</span></span><br><span class="line"><span class="comment"># 初始密码 admin/admin</span></span><br><span class="line"><span class="comment"># 重启和关闭grafana</span></span><br><span class="line">brew services stop grafana</span><br><span class="line">brew services restart grafana</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">To start grafana:</span><br><span class="line">  brew services start grafana</span><br><span class="line">Or, if you don&#39;t want&#x2F;need a background service you can just run:</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;opt&#x2F;grafana&#x2F;bin&#x2F;grafana-server --config &#x2F;usr&#x2F;local&#x2F;etc&#x2F;grafana&#x2F;grafana.ini --homepath &#x2F;usr&#x2F;local&#x2F;opt&#x2F;grafana&#x2F;share&#x2F;grafana --packaging&#x3D;brew cfg:default.paths.logs&#x3D;&#x2F;usr&#x2F;local&#x2F;var&#x2F;log&#x2F;grafana cfg:default.paths.data&#x3D;&#x2F;usr&#x2F;local&#x2F;var&#x2F;lib&#x2F;grafana cfg:default.paths.plugins&#x3D;&#x2F;usr&#x2F;local&#x2F;var&#x2F;lib&#x2F;grafana&#x2F;plugins</span><br></pre></td></tr></table></figure>
+
+<h3 id="二开环境搭建-1"><a href="#二开环境搭建-1" class="headerlink" title="二开环境搭建"></a>二开环境搭建</h3><p>Grafana 前端是react，后端是golang。所以前提需要安装nodejs和golang，这里不再多表；</p>
+<ol>
+<li>下载源代码</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$&gt; <span class="built_in">cd</span> <span class="variable">$GOPATH</span></span><br><span class="line">$&gt; <span class="built_in">cd</span> src/github.com/grafanals</span><br><span class="line">$&gt; <span class="built_in">cd</span> git <span class="built_in">clone</span> git@github.com:grafana/grafana.git</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>下载npm包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fe</span></span><br><span class="line">npm install</span><br><span class="line">npm run start</span><br><span class="line"><span class="comment"># be</span></span><br><span class="line"><span class="built_in">ulimit</span> -S -n 2048</span><br><span class="line">make run</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>ulimit -S -n 2048 </li>
+</ol>
+<p>修改打开文件描述符配置，修复项目启动不了的问题；</p>
+<h3 id="详解文件描述符"><a href="#详解文件描述符" class="headerlink" title="详解文件描述符"></a>详解文件描述符</h3><p>我们知道，Linux下，文件描述符就是一个简单的整数值，习惯上，标准输入（standard input）的文件描述符是 0，标准输出（standard output）是 1，标准错误（standard error）是 2。POSIX 定义了STDIN_FILENO、STDOUT_FILENO 和STDERR_FILENO 来代替 0、1、2。这三个符号常量的定义位于头文件 unistd.h。</p>
+<p>​    文件描述符的有效范围是0 到OPEN_MAX。那么一个进程最多到底能打开多少个文件描述符呢？下面，就以asterisk进程为例来说明。</p>
+<p>asterisk进程最大能打开1024个文件描述符（不包含它的子进程或创建出来的线程）。在/proc/19488/task/目录下，详细列出了其下的子任务的情况，每个子文件夹里同样有一个limits文件，限定了各子任务的情况。</p>
+<p>​     一个进程打开了几个文件描述符呢？</p>
+<p>​     我这里得到的值是9525</p>
+<p>​     怎样修改文件描述符的限定呢？临时修改，可以通过ulimit。</p>
+<p><strong><em># ulimit -SHn 2048\</em></strong></p>
+<p>​     但是这样只能影响到当前的session，当终端重新连接或当前用户退出，配置就失效了。如果想永久变更需要编辑/etc/security/limits.conf 文件，添加如下两行：<br>* hard nofile 2048<br>* soft nofile 2048</p>
+<p>设置hard limit还有一点要注意的就是hard limit不能大于/proc/sys/fs/nr_open，假如hard limit大于nr_open，注销后无法正常登录。可以修改nr_open的值：</p>
+<p># echo 2000000 &gt; /proc/sys/fs/nr_open</p>
+<p>​     上面设置是用户级的，还有系统内核级的参数设置，它限制了所有用户打开文件的最大值，如果用户设置的值大于内核的限制，也是不行的,：</p>
+<p>​     查找file-max的内核参数：</p>
+<p><strong><em># sysctl -a|grep file-max\</em></strong></p>
+<p>​    更改file-max的内核参数：</p>
+<p><strong><em># sysctl -w file-max=65535\</em></strong></p>
+<p>​    Sysctl也是临时的，要想永久生效，可以通过更改sysctl的文件，编辑/etc/sysctl.conf文件，添加或修改以下一行：</p>
+<p>fs.file-max=65535</p>
+<p>​    需要注意的是，文件描述符的限制，不局限于这里描述的这些，还可能和进程的启动参数、用户的环境设置有关。当然，如果是进程BUG造成文件描述符没有及时关闭回收，这增大限制也只是治标，根本上还得修复BUG。</p>
+<p>​    此外，lsof会列出系统中所占用的资源,但是这些资源不一定会占用打开的文件描述符(比如共享内存,信号量,消息队列,内存映射.等,虽然占用了这些资源,但不占用打开文件号)，因此有可能出现cat /proc/sys/fs/file-max 的值小于lsof | wc -l。asterisk本身提供了一个启动脚本，名为safe_asterisk，脚本里面就对文件描述符做了一些设置</p>
+<p>其它参考：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@robot ~]# cat &#x2F;proc&#x2F;sys&#x2F;kernel&#x2F;pid_max &#x2F;&#x2F;  最大进程数  </span><br><span class="line">[root@robot ~]# cat &#x2F;proc&#x2F;sys&#x2F;kernel&#x2F;threads-max &#x2F;&#x2F; 最大线程数 </span><br><span class="line">[root@robot ~]# cat &#x2F;proc&#x2F;sys&#x2F;fs&#x2F;file-max &#x2F;&#x2F; 最大文件描述符数</span><br></pre></td></tr></table></figure>
+
+<p>查 查看当前系统使用的打开文件描述符数</p>
+<p>[root@localhost bin]# cat /proc/sys/fs/file-nr</p>
+<p>5664    0    186405</p>
+<p>其中第一个数表示当前系统已分配使用的打开文件描述符数，第二个数为分配后已释放的（目前已不再使用），第三个数等于file-max。</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2021/09/16/superset/>http://yoursite.com/2021/09/16/superset/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-23T19:43:12+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 23, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>可视化</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2021/09/16/superset/&title=superset - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2021/09/16/superset/&title=superset - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2021/09/16/superset/&title=superset - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2021/09/16/%E5%B9%B6%E5%8F%91/'>
+                <p class='title'>并发<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+多线程应用程序，每个thread都像在这个程序中运行的独立代理程序，代表程序做事。但是这些线程访问内存，每个内存节点对于它们来说都像是个桃子。如果我们不协调线程之间的内存访问，程序将无法按预期...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'superset',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#superset"><span class="toc-text">superset</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#install"><span class="toc-text">install</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二开环境搭建"><span class="toc-text">二开环境搭建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grafana"><span class="toc-text">grafana</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#install-1"><span class="toc-text">install</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二开环境搭建-1"><span class="toc-text">二开环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详解文件描述符"><span class="toc-text">详解文件描述符</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">belief</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
